@@ -9,7 +9,7 @@ class Home extends BaseController
 {
     public function index(): string
     {
-        return view('login2');
+        return view('login');
     }
 
     public function inicio(){
@@ -34,13 +34,17 @@ class Home extends BaseController
         if(count($datos) > 0 and password_verify($password,$datos[0]["hash_contrasena"])){
             $session= session();
             
-            $session->set([
-                
-            ])
-            
+            $data=[
+                "username" => $datos[0]["nombre_usuario"],
+                "user_id" => $datos[0]["ID_usuario"],
+                "tipo" => $datos[0]["ID_permiso"]
+            ];
 
+            $session->set($data);
+            
+            return redirect()->to(base_url("/inicio"));
         }else{
-            return view("login2");
+            return view("login");
         }
     }
 
