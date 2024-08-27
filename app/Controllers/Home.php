@@ -33,7 +33,7 @@ class Home extends BaseController
 
         if(count($datos) > 0 and password_verify($password,$datos[0]["hash_contrasena"])){
             
-            $session = new Session()
+        
    
             
             
