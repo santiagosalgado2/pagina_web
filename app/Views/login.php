@@ -19,9 +19,8 @@
 			<div class="sign-in-htm">
                 <form action="<?php echo base_url("/login");?> " method="post">
 				<div class="group">
+                <label for="username">Ingrese usuario</label><br>
 				<input type="text" placeholder="Nombre de usuario" required name="username">
-        		<label for="username">Ingrese usuario</label><br>
-
 				</div>
 				<div class="group">
 					<input type="password" placeholder="Contraseña" required name="password">
