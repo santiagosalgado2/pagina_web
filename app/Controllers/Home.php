@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Usuarios;
-use Config\Session;
+use System\Session\Session;
 
 class Home extends BaseController
 {
@@ -22,6 +22,7 @@ class Home extends BaseController
 
         $password=$this->request->getPost("password");
 
+        
         $data=[
             "nombre_usuario" => $user
         ];
@@ -32,11 +33,11 @@ class Home extends BaseController
 
         if(count($datos) > 0 and password_verify($password,$datos[0]["hash_contrasena"])){
             
+            $session = new Session()
+   
             
-            $session= new Session();
             
-            $session
-            
+
         }else{
             return view("login");
         }
