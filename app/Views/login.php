@@ -20,11 +20,11 @@
                 <form action="<?php echo base_url("/login");?> " method="post">
 				<div class="group">
                 <label for="username">Ingrese usuario</label><br>
-				<input type="text" id="user" class="input" placeholder="Nombre de usuario" required name="username">
+				<input type="text" id="user" class="input"  required name="username">
 				</div>
 				<div class="group">
 				<label for="password">Ingrese contraseña</label><br>
-					<input type="password" id="pass" class="input" placeholder="Contraseña" required name="password">
+					<input type="password" id="pass" class="input"  required name="password">
 				</div>
 				<div class="group">
 					<input type="checkbox" name="remember">
