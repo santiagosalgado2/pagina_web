@@ -7,6 +7,11 @@
 </head>
 <body>
     <h1>Pagina principal</h1>
-    
+    <?php
+    $session = session();
+    ?>
+    <h2>Bienvenido <?php echo $session->get("username");?></h2>
+
+    <a href="<?php echo base_url("/logout");?>"> Cerrar sesion </a>
 </body>
 </html>

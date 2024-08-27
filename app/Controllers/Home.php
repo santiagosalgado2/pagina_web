@@ -9,7 +9,15 @@ class Home extends BaseController
 {
     public function index(): string
     {
-        return view('login');
+        $session = session();
+
+        if($session->get("logged_in")){
+            return view("inicio");
+        }else{
+            return view('login');
+        }
+
+        
     }
 
     public function inicio(){
@@ -37,15 +45,25 @@ class Home extends BaseController
             $data=[
                 "username" => $datos[0]["nombre_usuario"],
                 "user_id" => $datos[0]["ID_usuario"],
-                "tipo" => $datos[0]["ID_permiso"]
+                "tipo" => $datos[0]["ID_permiso"],
+                "logged_in" => true
             ];
 
             $session->set($data);
             
             return redirect()->to(base_url("/inicio"));
         }else{
+            $error=["value"=>"Usuario o contraseña incorrecta"];
             return view("login");
         }
+    }
+
+    public function logout(){
+        $session = session();
+
+        $session->destroy();
+
+        return view("logout");
     }
 
     
