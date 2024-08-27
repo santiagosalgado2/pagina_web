@@ -94,3 +94,243 @@ in APPPATH\Controllers\Home.php on line 32.
  5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
  6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-08-27 20:21:01 --> mysqli_sql_exception: Table 'tesis_g_s.sesiones' doesn't exist in C:\xampp\htdocs\pagina_web\pagina_web\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\pagina_web\pagina_web\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `data`\nF...', 0)
+#1 C:\xampp\htdocs\pagina_web\pagina_web\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `data`\nF...')
+#2 C:\xampp\htdocs\pagina_web\pagina_web\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `data`\nF...')
+#3 C:\xampp\htdocs\pagina_web\pagina_web\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `data`\nF...', Array, false)
+#4 C:\xampp\htdocs\pagina_web\pagina_web\system\Session\Handlers\DatabaseHandler.php(135): CodeIgniter\Database\BaseBuilder->get()
+#5 [internal function]: CodeIgniter\Session\Handlers\DatabaseHandler->read('19uferon2jig7f0...')
+#6 C:\xampp\htdocs\pagina_web\pagina_web\system\Session\Session.php(920): session_start()
+#7 C:\xampp\htdocs\pagina_web\pagina_web\system\Session\Session.php(242): CodeIgniter\Session\Session->startSession()
+#8 C:\xampp\htdocs\pagina_web\pagina_web\system\Config\Services.php(710): CodeIgniter\Session\Session->start()
+#9 C:\xampp\htdocs\pagina_web\pagina_web\system\Config\BaseService.php(312): CodeIgniter\Config\Services::session(Object(Config\Session), false)
+#10 C:\xampp\htdocs\pagina_web\pagina_web\system\Config\BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('session', Array)
+#11 C:\xampp\htdocs\pagina_web\pagina_web\system\Config\Services.php(668): CodeIgniter\Config\BaseService::getSharedInstance('session', NULL)
+#12 C:\xampp\htdocs\pagina_web\pagina_web\system\Config\BaseService.php(321): CodeIgniter\Config\Services::session()
+#13 C:\xampp\htdocs\pagina_web\pagina_web\system\Config\BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('session', Array)
+#14 C:\xampp\htdocs\pagina_web\pagina_web\system\Common.php(996): CodeIgniter\Config\BaseService::get('session')
+#15 C:\xampp\htdocs\pagina_web\pagina_web\system\HTTP\RedirectResponse.php(136): service('session')
+#16 C:\xampp\htdocs\pagina_web\pagina_web\app\Controllers\Home.php(35): CodeIgniter\HTTP\RedirectResponse->with('Nombre de usuar...', 1)
+#17 C:\xampp\htdocs\pagina_web\pagina_web\system\CodeIgniter.php(933): App\Controllers\Home->login()
+#18 C:\xampp\htdocs\pagina_web\pagina_web\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#19 C:\xampp\htdocs\pagina_web\pagina_web\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#20 C:\xampp\htdocs\pagina_web\pagina_web\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#21 C:\xampp\htdocs\pagina_web\pagina_web\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#22 C:\xampp\htdocs\pagina_web\pagina_web\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#23 {main}
+CRITICAL - 2024-08-27 20:21:01 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'tesis_g_s.sesiones' doesn't exist
+[Method: POST, Route: login]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `data`
+FROM `sesiones`
+WHERE `id` = :id:', [...], false)
+ 2 SYSTEMPATH\Session\Handlers\DatabaseHandler.php(135): CodeIgniter\Database\BaseBuilder->get()
+ 3 [internal function]: CodeIgniter\Session\Handlers\DatabaseHandler->read('19uferon2jig7f0jb3uo42g6i8q107sm')
+ 4 SYSTEMPATH\Session\Session.php(920): session_start()
+ 5 SYSTEMPATH\Session\Session.php(242): CodeIgniter\Session\Session->startSession()
+ 6 SYSTEMPATH\Config\Services.php(710): CodeIgniter\Session\Session->start()
+ 7 SYSTEMPATH\Config\BaseService.php(312): CodeIgniter\Config\Services::session(Object(Config\Session), false)
+ 8 SYSTEMPATH\Config\BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+ 9 SYSTEMPATH\Config\Services.php(668): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+10 SYSTEMPATH\Config\BaseService.php(321): CodeIgniter\Config\Services::session()
+11 SYSTEMPATH\Config\BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('session', [])
+12 SYSTEMPATH\Common.php(996): CodeIgniter\Config\BaseService::get('session')
+13 SYSTEMPATH\HTTP\RedirectResponse.php(136): service('session')
+14 APPPATH\Controllers\Home.php(35): CodeIgniter\HTTP\RedirectResponse->with('Nombre de usuario o contraseña incorrectos', 1)
+15 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->login()
+16 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+17 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+18 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+19 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+20 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-08-27 20:21:01 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'tesis_g_s.sesiones' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `data`
+FROM `sesiones`
+WHERE `id` = \'ci_session:19uferon2jig7f0jb3uo42g6i8q107sm\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `data`
+FROM `sesiones`
+WHERE `id` = \'ci_session:19uferon2jig7f0jb3uo42g6i8q107sm\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `data`
+FROM `sesiones`
+WHERE `id` = :id:', [...], false)
+ 4 SYSTEMPATH\Session\Handlers\DatabaseHandler.php(135): CodeIgniter\Database\BaseBuilder->get()
+ 5 [internal function]: CodeIgniter\Session\Handlers\DatabaseHandler->read('19uferon2jig7f0jb3uo42g6i8q107sm')
+ 6 SYSTEMPATH\Session\Session.php(920): session_start()
+ 7 SYSTEMPATH\Session\Session.php(242): CodeIgniter\Session\Session->startSession()
+ 8 SYSTEMPATH\Config\Services.php(710): CodeIgniter\Session\Session->start()
+ 9 SYSTEMPATH\Config\BaseService.php(312): CodeIgniter\Config\Services::session(Object(Config\Session), false)
+10 SYSTEMPATH\Config\BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+11 SYSTEMPATH\Config\Services.php(668): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+12 SYSTEMPATH\Config\BaseService.php(321): CodeIgniter\Config\Services::session()
+13 SYSTEMPATH\Config\BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('session', [])
+14 SYSTEMPATH\Common.php(996): CodeIgniter\Config\BaseService::get('session')
+15 SYSTEMPATH\HTTP\RedirectResponse.php(136): service('session')
+16 APPPATH\Controllers\Home.php(35): CodeIgniter\HTTP\RedirectResponse->with('Nombre de usuario o contraseña incorrectos', 1)
+17 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->login()
+18 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+19 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+20 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+21 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+22 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-08-27 20:21:01 --> [Caused by] mysqli_sql_exception: Table 'tesis_g_s.sesiones' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `data`
+FROM `sesiones`
+WHERE `id` = \'ci_session:19uferon2jig7f0jb3uo42g6i8q107sm\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `data`
+FROM `sesiones`
+WHERE `id` = \'ci_session:19uferon2jig7f0jb3uo42g6i8q107sm\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `data`
+FROM `sesiones`
+WHERE `id` = \'ci_session:19uferon2jig7f0jb3uo42g6i8q107sm\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `data`
+FROM `sesiones`
+WHERE `id` = :id:', [...], false)
+ 5 SYSTEMPATH\Session\Handlers\DatabaseHandler.php(135): CodeIgniter\Database\BaseBuilder->get()
+ 6 [internal function]: CodeIgniter\Session\Handlers\DatabaseHandler->read('19uferon2jig7f0jb3uo42g6i8q107sm')
+ 7 SYSTEMPATH\Session\Session.php(920): session_start()
+ 8 SYSTEMPATH\Session\Session.php(242): CodeIgniter\Session\Session->startSession()
+ 9 SYSTEMPATH\Config\Services.php(710): CodeIgniter\Session\Session->start()
+10 SYSTEMPATH\Config\BaseService.php(312): CodeIgniter\Config\Services::session(Object(Config\Session), false)
+11 SYSTEMPATH\Config\BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+12 SYSTEMPATH\Config\Services.php(668): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+13 SYSTEMPATH\Config\BaseService.php(321): CodeIgniter\Config\Services::session()
+14 SYSTEMPATH\Config\BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('session', [])
+15 SYSTEMPATH\Common.php(996): CodeIgniter\Config\BaseService::get('session')
+16 SYSTEMPATH\HTTP\RedirectResponse.php(136): service('session')
+17 APPPATH\Controllers\Home.php(35): CodeIgniter\HTTP\RedirectResponse->with('Nombre de usuario o contraseña incorrectos', 1)
+18 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->login()
+19 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+20 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+21 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+22 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+23 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-08-27 20:21:15 --> mysqli_sql_exception: Table 'tesis_g_s.sesiones' doesn't exist in C:\xampp\htdocs\pagina_web\pagina_web\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\pagina_web\pagina_web\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `data`\nF...', 0)
+#1 C:\xampp\htdocs\pagina_web\pagina_web\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `data`\nF...')
+#2 C:\xampp\htdocs\pagina_web\pagina_web\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `data`\nF...')
+#3 C:\xampp\htdocs\pagina_web\pagina_web\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `data`\nF...', Array, false)
+#4 C:\xampp\htdocs\pagina_web\pagina_web\system\Session\Handlers\DatabaseHandler.php(135): CodeIgniter\Database\BaseBuilder->get()
+#5 [internal function]: CodeIgniter\Session\Handlers\DatabaseHandler->read('19uferon2jig7f0...')
+#6 C:\xampp\htdocs\pagina_web\pagina_web\system\Session\Session.php(920): session_start()
+#7 C:\xampp\htdocs\pagina_web\pagina_web\system\Session\Session.php(242): CodeIgniter\Session\Session->startSession()
+#8 C:\xampp\htdocs\pagina_web\pagina_web\system\Config\Services.php(710): CodeIgniter\Session\Session->start()
+#9 C:\xampp\htdocs\pagina_web\pagina_web\system\Config\BaseService.php(312): CodeIgniter\Config\Services::session(Object(Config\Session), false)
+#10 C:\xampp\htdocs\pagina_web\pagina_web\system\Config\BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('session', Array)
+#11 C:\xampp\htdocs\pagina_web\pagina_web\system\Config\Services.php(668): CodeIgniter\Config\BaseService::getSharedInstance('session', NULL)
+#12 C:\xampp\htdocs\pagina_web\pagina_web\system\Config\BaseService.php(321): CodeIgniter\Config\Services::session()
+#13 C:\xampp\htdocs\pagina_web\pagina_web\system\Config\BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('session', Array)
+#14 C:\xampp\htdocs\pagina_web\pagina_web\system\Common.php(996): CodeIgniter\Config\BaseService::get('session')
+#15 C:\xampp\htdocs\pagina_web\pagina_web\system\HTTP\RedirectResponse.php(136): service('session')
+#16 C:\xampp\htdocs\pagina_web\pagina_web\app\Controllers\Home.php(35): CodeIgniter\HTTP\RedirectResponse->with('Nombre de usuar...', '1')
+#17 C:\xampp\htdocs\pagina_web\pagina_web\system\CodeIgniter.php(933): App\Controllers\Home->login()
+#18 C:\xampp\htdocs\pagina_web\pagina_web\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#19 C:\xampp\htdocs\pagina_web\pagina_web\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#20 C:\xampp\htdocs\pagina_web\pagina_web\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#21 C:\xampp\htdocs\pagina_web\pagina_web\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#22 C:\xampp\htdocs\pagina_web\pagina_web\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#23 {main}
+CRITICAL - 2024-08-27 20:21:15 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'tesis_g_s.sesiones' doesn't exist
+[Method: POST, Route: login]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `data`
+FROM `sesiones`
+WHERE `id` = :id:', [...], false)
+ 2 SYSTEMPATH\Session\Handlers\DatabaseHandler.php(135): CodeIgniter\Database\BaseBuilder->get()
+ 3 [internal function]: CodeIgniter\Session\Handlers\DatabaseHandler->read('19uferon2jig7f0jb3uo42g6i8q107sm')
+ 4 SYSTEMPATH\Session\Session.php(920): session_start()
+ 5 SYSTEMPATH\Session\Session.php(242): CodeIgniter\Session\Session->startSession()
+ 6 SYSTEMPATH\Config\Services.php(710): CodeIgniter\Session\Session->start()
+ 7 SYSTEMPATH\Config\BaseService.php(312): CodeIgniter\Config\Services::session(Object(Config\Session), false)
+ 8 SYSTEMPATH\Config\BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+ 9 SYSTEMPATH\Config\Services.php(668): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+10 SYSTEMPATH\Config\BaseService.php(321): CodeIgniter\Config\Services::session()
+11 SYSTEMPATH\Config\BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('session', [])
+12 SYSTEMPATH\Common.php(996): CodeIgniter\Config\BaseService::get('session')
+13 SYSTEMPATH\HTTP\RedirectResponse.php(136): service('session')
+14 APPPATH\Controllers\Home.php(35): CodeIgniter\HTTP\RedirectResponse->with('Nombre de usuario o contraseña incorrectos', '1')
+15 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->login()
+16 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+17 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+18 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+19 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+20 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-08-27 20:21:15 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'tesis_g_s.sesiones' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `data`
+FROM `sesiones`
+WHERE `id` = \'ci_session:19uferon2jig7f0jb3uo42g6i8q107sm\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `data`
+FROM `sesiones`
+WHERE `id` = \'ci_session:19uferon2jig7f0jb3uo42g6i8q107sm\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `data`
+FROM `sesiones`
+WHERE `id` = :id:', [...], false)
+ 4 SYSTEMPATH\Session\Handlers\DatabaseHandler.php(135): CodeIgniter\Database\BaseBuilder->get()
+ 5 [internal function]: CodeIgniter\Session\Handlers\DatabaseHandler->read('19uferon2jig7f0jb3uo42g6i8q107sm')
+ 6 SYSTEMPATH\Session\Session.php(920): session_start()
+ 7 SYSTEMPATH\Session\Session.php(242): CodeIgniter\Session\Session->startSession()
+ 8 SYSTEMPATH\Config\Services.php(710): CodeIgniter\Session\Session->start()
+ 9 SYSTEMPATH\Config\BaseService.php(312): CodeIgniter\Config\Services::session(Object(Config\Session), false)
+10 SYSTEMPATH\Config\BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+11 SYSTEMPATH\Config\Services.php(668): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+12 SYSTEMPATH\Config\BaseService.php(321): CodeIgniter\Config\Services::session()
+13 SYSTEMPATH\Config\BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('session', [])
+14 SYSTEMPATH\Common.php(996): CodeIgniter\Config\BaseService::get('session')
+15 SYSTEMPATH\HTTP\RedirectResponse.php(136): service('session')
+16 APPPATH\Controllers\Home.php(35): CodeIgniter\HTTP\RedirectResponse->with('Nombre de usuario o contraseña incorrectos', '1')
+17 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->login()
+18 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+19 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+20 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+21 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+22 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-08-27 20:21:15 --> [Caused by] mysqli_sql_exception: Table 'tesis_g_s.sesiones' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `data`
+FROM `sesiones`
+WHERE `id` = \'ci_session:19uferon2jig7f0jb3uo42g6i8q107sm\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `data`
+FROM `sesiones`
+WHERE `id` = \'ci_session:19uferon2jig7f0jb3uo42g6i8q107sm\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `data`
+FROM `sesiones`
+WHERE `id` = \'ci_session:19uferon2jig7f0jb3uo42g6i8q107sm\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `data`
+FROM `sesiones`
+WHERE `id` = :id:', [...], false)
+ 5 SYSTEMPATH\Session\Handlers\DatabaseHandler.php(135): CodeIgniter\Database\BaseBuilder->get()
+ 6 [internal function]: CodeIgniter\Session\Handlers\DatabaseHandler->read('19uferon2jig7f0jb3uo42g6i8q107sm')
+ 7 SYSTEMPATH\Session\Session.php(920): session_start()
+ 8 SYSTEMPATH\Session\Session.php(242): CodeIgniter\Session\Session->startSession()
+ 9 SYSTEMPATH\Config\Services.php(710): CodeIgniter\Session\Session->start()
+10 SYSTEMPATH\Config\BaseService.php(312): CodeIgniter\Config\Services::session(Object(Config\Session), false)
+11 SYSTEMPATH\Config\BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+12 SYSTEMPATH\Config\Services.php(668): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+13 SYSTEMPATH\Config\BaseService.php(321): CodeIgniter\Config\Services::session()
+14 SYSTEMPATH\Config\BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('session', [])
+15 SYSTEMPATH\Common.php(996): CodeIgniter\Config\BaseService::get('session')
+16 SYSTEMPATH\HTTP\RedirectResponse.php(136): service('session')
+17 APPPATH\Controllers\Home.php(35): CodeIgniter\HTTP\RedirectResponse->with('Nombre de usuario o contraseña incorrectos', '1')
+18 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->login()
+19 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+20 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+21 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+22 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+23 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-08-27 20:40:20 --> ParseError: syntax error, unexpected token "}"
+[Method: GET, Route: /]
+in APPPATH\Controllers\Home.php on line 40.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Controllers\\Home.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Home')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Home')
+ 4 SYSTEMPATH\CodeIgniter.php(887): class_exists('\\App\\Controllers\\Home', true)
+ 5 SYSTEMPATH\CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
