@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="<?php echo base_url("/css/estilo.css");?>">
     <title>Inicio de sesion</title>
 </head>
 <body>
@@ -17,6 +17,7 @@
 		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Registrarse</label>
 		<div class="login-form">
 			<div class="sign-in-htm">
+                <form action="<?php echo base_url("/login");?> " method="post">
 				<div class="group">
 				<input type="text" placeholder="Nombre de usuario" required name="username">
         		<label for="username">Ingrese usuario</label><br>
@@ -34,12 +35,14 @@
 				<div class="group">
 					<input type="submit" class="button" value="Iniciar sesion">
 				</div>
+            </form>
 				<div class="hr"></div>
 				<div class="foot-lnk">
 					<a href="#forgot">Has olvidado tu contraseña?</a>
 				</div>
 			</div>
 			<div class="sign-up-htm">
+            <form action="<?php echo base_url("/login");?> " method="post">
 				<div class="group">
 					<label for="user" class="label">Nombre de usuario</label>
 					<input id="user" type="text" class="input">
@@ -59,7 +62,7 @@
 				<div class="group">
 					<input type="submit" class="button" value="Registrarme">
 				</div>
-				
+                </form>
 				<div class="foot-lnk">
 					<label for="tab-1">Ya tienes una cuenta?</a>
 				</div>
