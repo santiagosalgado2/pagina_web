@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Usuarios;
+use Config\Session;
 
 class Home extends BaseController
 {
@@ -30,9 +31,14 @@ class Home extends BaseController
         $datos=$usermodel->getUser($data);
 
         if(count($datos) > 0 and password_verify($password,$datos[0]["hash_contrasena"])){
-            echo "Hola ";
+            
+            
+            $session= new Session();
+            
+            $session
+            
         }else{
-            echo "Datos incorrectos";
+            return view("login");
         }
     }
 
