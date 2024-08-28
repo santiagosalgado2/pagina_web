@@ -30,6 +30,8 @@ class Home extends BaseController
 
         $password=$this->request->getPost("password");
 
+        $remember=$this->request->getPost("remember");
+
         
         $data=[
             "nombre_usuario" => $user
@@ -50,6 +52,10 @@ class Home extends BaseController
             ];
 
             $session->set($data);
+
+            if(!$remember){
+                setcookie('ci_session', session_id(), 0, '/');
+            }
             
             return redirect()->to(base_url("/inicio"));
         }else{
