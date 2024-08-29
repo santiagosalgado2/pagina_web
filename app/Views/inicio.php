@@ -17,7 +17,9 @@
     if($session->get("tipo")==1){
         echo "<h1>SI sos admin deberias ver esto</h1>";
     }
-    ?>  
+    ?> 
+    
+    <a href="<?php echo base_url("/send");?>">Recibir E-Mail</a>
 
 
 

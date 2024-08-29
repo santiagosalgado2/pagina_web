@@ -54,7 +54,9 @@ class Session extends BaseController{
 
         }else{
 
-            $error=["value"=>"Usuario o contraseña incorrecta"];
+            $error=[
+                "value"=>"Usuario o contraseña incorrecta"
+            ];
 
             return view("login");
 

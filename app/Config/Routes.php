@@ -10,3 +10,4 @@ $routes->get('/inicio', 'Home::inicio');
 $routes->post('/login', 'Session::login');
 $routes->get("/logout" , "Session::logout");
 $routes->post("/register","Session::register");
+$routes->get("/send" , "Mail::sendEmail");
