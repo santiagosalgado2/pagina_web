@@ -15,7 +15,7 @@
     <?php 
 
     if($session->get("tipo")==1){
-        echo "<h1>SI sos admin deberias ver esto</h1>";
+        echo "<h3>SI sos admin deberias ver esto</h3>";
     }
     ?> 
     

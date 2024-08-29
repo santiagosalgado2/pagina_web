@@ -24,7 +24,7 @@ class Mail extends BaseController{
 
     }
 
-    public function sendEmail($asunto,$cuerpo){
+    public function sendEmail(){
 
         $user=$this->usermodel->getUser(["ID_usuario" => $this->session->get("user_id")]);
 
@@ -34,9 +34,9 @@ class Mail extends BaseController{
 
             $this->objemail->setTo($email);
 
-            $this->objemail->setSubject($asunto);
+            $this->objemail->setSubject("hola");
 
-            $this->objemail->setMessage($cuerpo);
+            $this->objemail->setMessage('<h1 style= "color:red;"><center>HOLA</h1></center>');
 
         }
 
