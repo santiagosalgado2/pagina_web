@@ -24,53 +24,6 @@ class Home extends BaseController
         return view("inicio");
     }
 
-    public function login(){
-
-        $user=$this->request->getPost("username");
-
-        $password=$this->request->getPost("password");
-
-        $remember=$this->request->getPost("remember");
-
-        
-        $data=[
-            "nombre_usuario" => $user
-        ];
-
-        $usermodel=new Usuarios();
-
-        $datos=$usermodel->getUser($data);
-
-        if(count($datos) > 0 and password_verify($password,$datos[0]["hash_contrasena"])){
-            $session= session();
-            
-            $data=[
-                "username" => $datos[0]["nombre_usuario"],
-                "user_id" => $datos[0]["ID_usuario"],
-                "tipo" => $datos[0]["ID_permiso"],
-                "logged_in" => true
-            ];
-
-            $session->set($data);
-
-            if(!$remember){
-                setcookie('ci_session', session_id(), 0, '/');
-            }
-            
-            return redirect()->to(base_url("/inicio"));
-        }else{
-            $error=["value"=>"Usuario o contraseña incorrecta"];
-            return view("login");
-        }
-    }
-
-    public function logout(){
-        $session = session();
-
-        $session->destroy();
-
-        return view("logout");
-    }
 
     
 }

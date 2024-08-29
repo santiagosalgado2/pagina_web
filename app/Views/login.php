@@ -7,9 +7,7 @@
     <title>Inicia sesión en el sitio</title>
 </head>
 <body>
-	<?php if(isset($error)){
-		echo $error["value"];
-	}?>
+	
     <div class="circulo"></div>
     <div class="circulo"></div>
     <div class="circulo"></div>
@@ -43,22 +41,22 @@
 				</div>
 			</div>
 			<div class="sign-up-htm">
-            <form action="<?php echo base_url("/login");?> " method="post">
+            <form action="<?php echo base_url("/register");?> " method="post">
 				<div class="group">
 					<label for="user" class="label">Nombre de usuario</label>
-					<input id="user" type="text" class="input">
+					<input id="user" type="text" class="input" required name="username">
 				</div>
 				<div class="group">
 					<label for="pass" class="label">Contraseña</label>
-					<input id="pass" type="password" class="input" data-type="password">
+					<input id="pass" type="password" class="input" data-type="password" required name="password">
 				</div>
 				<div class="group">
 					<label for="pass" class="label">Confirmar contraseña</label>
-					<input id="pass" type="password" class="input" data-type="password">
+					<input id="pass" type="password" class="input" data-type="password" required name="password_confirm">
 				</div>
 				<div class="group">
 					<label for="pass" class="label">Correo electrónico</label>
-					<input id="pass" type="text" class="input">
+					<input id="pass" type="mail" class="input" required name="email">
 				</div>
 				<div class="group">
 					<input type="submit" class="button" value="Registrarme">

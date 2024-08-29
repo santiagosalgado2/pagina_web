@@ -7,5 +7,6 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 $routes->get('/inicio', 'Home::inicio');
-$routes->post('/login', 'Home::login');
-$routes->get("/logout" , "Home::logout");
+$routes->post('/login', 'Session::login');
+$routes->get("/logout" , "Session::logout");
+$routes->post("/register","Session::register");
