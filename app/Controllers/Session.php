@@ -57,7 +57,7 @@ class Session extends BaseController{
 
             }else{
 
-                $session->set("verificado",1);
+                $session->set("verificado",true);
                 return redirect()->to(base_url("/"));
             }
 
@@ -77,7 +77,7 @@ class Session extends BaseController{
     public function logout(){
         $session = session();
 
-        if($session->get("logged_in")){
+        if($session->get("verificado")){
             $session->destroy();
             return view("logout");
         }else{

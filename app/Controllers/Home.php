@@ -11,7 +11,7 @@ class Home extends BaseController
     {
         $session = session();
 
-        if($session->get("verificado")==1){
+        if($session->get("verificado")){
             return view("inicio");
         }else{
             return view('login');

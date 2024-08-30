@@ -20,7 +20,7 @@ class Verification extends BaseController{
 
     }
 
-    public function generateCode(){
+    public function generateCode($tipo,$vista){
 
         $session = session();
 
@@ -32,9 +32,13 @@ class Verification extends BaseController{
             $number = base_convert($hex, 16, 10);
             $codigo = substr($number, 0, 6);
 
-            $this->objverification->insertCode($session->get("user_id"),$codigo,"verificacion");
+            $this->objverification->insertCode($session->get("user_id"),$codigo,$tipo);
 
-            \Config\Services::sendEmail($session->get("user_email"),"Tu codigo para verificarte en el sitio","<h1>Utiliza este codigo: <b>".$codigo."</b> Para verificar tu usuario</h1>");
+            if($tipo=="verification"){
+                \Config\Services::sendEmail($session->get("user_email"),"Tu codigo para verificarte en el sitio","<h1>Utiliza este codigo: <b>".$codigo."</b> Para verificar tu usuario</h1>");
+            }else{
+                \Config\Services::sendEmail($session->get("user_email"),"Tu codigo para verificarte en el sitio","<h1>Utiliza este codigo: <b>".$codigo."</b> Para cambiar tu contraseñaui</h1>");
+            }
 
             return view("verification");
 
@@ -60,7 +64,7 @@ class Verification extends BaseController{
 
             $this->objusers->verifyUser($session->get("user_id"));
 
-            $session->set("verificado",1);
+            $session->set("verificado",true);
 
             return redirect()->to(base_url("/"));
 
