@@ -1,0 +1,180 @@
+ERROR - 2024-08-30 18:12:57 --> mysqli_sql_exception: Unknown column 'user_id' in 'field list' in C:\xampp\htdocs\pagina_web\pagina_web\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\pagina_web\pagina_web\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `co...', 0)
+#1 C:\xampp\htdocs\pagina_web\pagina_web\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `co...')
+#2 C:\xampp\htdocs\pagina_web\pagina_web\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `co...')
+#3 C:\xampp\htdocs\pagina_web\pagina_web\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `co...', Array, false)
+#4 C:\xampp\htdocs\pagina_web\pagina_web\app\Models\Verificacion.php(20): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\pagina_web\pagina_web\app\Controllers\Verification.php(35): App\Models\Verificacion->insertCode(10, '419538', 'verificacion')
+#6 C:\xampp\htdocs\pagina_web\pagina_web\system\CodeIgniter.php(933): App\Controllers\Verification->generateCode()
+#7 C:\xampp\htdocs\pagina_web\pagina_web\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Verification))
+#8 C:\xampp\htdocs\pagina_web\pagina_web\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\pagina_web\pagina_web\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\pagina_web\pagina_web\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\pagina_web\pagina_web\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2024-08-30 18:12:57 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'user_id' in 'field list'
+[Method: GET, Route: generate]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `codigos_verificacion` (`user_id`, `codigo`, `tipo`, `usado`) VALUES (:user_id:, :codigo:, :tipo:, :usado:)', [...], false)
+ 2 APPPATH\Models\Verificacion.php(20): CodeIgniter\Database\BaseBuilder->insert([...])
+ 3 APPPATH\Controllers\Verification.php(35): App\Models\Verificacion->insertCode(10, '419538', 'verificacion')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Verification->generateCode()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Verification))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-08-30 18:12:57 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'user_id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `codigos_verificacion` (`user_id`, `codigo`, `tipo`, `usado`) VALUES (10, \'419538\', \'verificacion\', 0)')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `codigos_verificacion` (`user_id`, `codigo`, `tipo`, `usado`) VALUES (10, \'419538\', \'verificacion\', 0)')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `codigos_verificacion` (`user_id`, `codigo`, `tipo`, `usado`) VALUES (:user_id:, :codigo:, :tipo:, :usado:)', [...], false)
+ 4 APPPATH\Models\Verificacion.php(20): CodeIgniter\Database\BaseBuilder->insert([...])
+ 5 APPPATH\Controllers\Verification.php(35): App\Models\Verificacion->insertCode(10, '419538', 'verificacion')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Verification->generateCode()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Verification))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-08-30 18:12:57 --> [Caused by] mysqli_sql_exception: Unknown column 'user_id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `codigos_verificacion` (`user_id`, `codigo`, `tipo`, `usado`) VALUES (10, \'419538\', \'verificacion\', 0)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `codigos_verificacion` (`user_id`, `codigo`, `tipo`, `usado`) VALUES (10, \'419538\', \'verificacion\', 0)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `codigos_verificacion` (`user_id`, `codigo`, `tipo`, `usado`) VALUES (10, \'419538\', \'verificacion\', 0)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `codigos_verificacion` (`user_id`, `codigo`, `tipo`, `usado`) VALUES (:user_id:, :codigo:, :tipo:, :usado:)', [...], false)
+ 5 APPPATH\Models\Verificacion.php(20): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Verification.php(35): App\Models\Verificacion->insertCode(10, '419538', 'verificacion')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Verification->generateCode()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Verification))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-08-30 18:20:31 --> ErrorException: Undefined variable $error
+[Method: GET, Route: /]
+in APPPATH\Views\login.php on line 10.
+ 1 APPPATH\Views\login.php(10): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $error', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\login.php', 10)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\login.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('login', [], true)
+ 5 APPPATH\Controllers\Home.php(17): view('login')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-08-30 18:21:17 --> ErrorException: Undefined variable $error
+[Method: GET, Route: /]
+in APPPATH\Views\login.php on line 11.
+ 1 APPPATH\Views\login.php(11): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $error', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\login.php', 11)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\login.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('login', [], true)
+ 5 APPPATH\Controllers\Home.php(17): view('login')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-08-30 18:21:35 --> ErrorException: Undefined variable $error
+[Method: GET, Route: /]
+in APPPATH\Views\login.php on line 11.
+ 1 APPPATH\Views\login.php(11): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $error', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\login.php', 11)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\login.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('login', [], true)
+ 5 APPPATH\Controllers\Home.php(17): view('login')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-08-30 18:21:36 --> ErrorException: Undefined variable $error
+[Method: GET, Route: /]
+in APPPATH\Views\login.php on line 11.
+ 1 APPPATH\Views\login.php(11): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $error', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\login.php', 11)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\login.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('login', [], true)
+ 5 APPPATH\Controllers\Home.php(17): view('login')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-08-30 18:21:36 --> ErrorException: Undefined variable $error
+[Method: GET, Route: /]
+in APPPATH\Views\login.php on line 11.
+ 1 APPPATH\Views\login.php(11): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $error', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\login.php', 11)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\login.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('login', [], true)
+ 5 APPPATH\Controllers\Home.php(17): view('login')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-08-30 18:21:36 --> ErrorException: Undefined variable $error
+[Method: GET, Route: /]
+in APPPATH\Views\login.php on line 11.
+ 1 APPPATH\Views\login.php(11): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $error', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\login.php', 11)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\login.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('login', [], true)
+ 5 APPPATH\Controllers\Home.php(17): view('login')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-08-30 18:22:18 --> ErrorException: Undefined variable $error
+[Method: GET, Route: /]
+in APPPATH\Views\login.php on line 11.
+ 1 APPPATH\Views\login.php(11): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $error', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\login.php', 11)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\login.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('login', [], true)
+ 5 APPPATH\Controllers\Home.php(17): view('login')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-08-30 18:22:18 --> ErrorException: Undefined variable $error
+[Method: GET, Route: /]
+in APPPATH\Views\login.php on line 11.
+ 1 APPPATH\Views\login.php(11): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $error', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\login.php', 11)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\login.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('login', [], true)
+ 5 APPPATH\Controllers\Home.php(17): view('login')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-08-30 18:22:19 --> ErrorException: Undefined variable $error
+[Method: GET, Route: /]
+in APPPATH\Views\login.php on line 11.
+ 1 APPPATH\Views\login.php(11): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $error', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\login.php', 11)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\login.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('login', [], true)
+ 5 APPPATH\Controllers\Home.php(17): view('login')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

@@ -18,11 +18,6 @@
         echo "<h3>SI sos admin deberias ver esto</h3>";
     }
     ?> 
-    
-    <a href="<?php echo base_url("/send");?>">Recibir E-Mail</a>
-
-
-
     <a href="<?php echo base_url("/logout");?>"> Cerrar sesion </a>
 </body>
 </html>

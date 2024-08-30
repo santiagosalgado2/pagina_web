@@ -7,7 +7,6 @@
     <title>Inicia sesión en el sitio</title>
 </head>
 <body>
-	
     <div class="circulo"></div>
     <div class="circulo"></div>
     <div class="circulo"></div>

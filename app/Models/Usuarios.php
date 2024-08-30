@@ -22,4 +22,14 @@ class Usuarios extends Model{
         return $this->db->insertID();
         
     }
+
+    public function verifyUser($id){
+
+        $table=$this->db->table("usuarios");
+
+        $table->where(["ID_usuario" => $id]);
+
+        $table->update(["verificado" => 1]);
+
+    }
 }

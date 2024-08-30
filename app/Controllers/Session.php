@@ -38,6 +38,7 @@ class Session extends BaseController{
             $data=[
                 "username" => $datos[0]["nombre_usuario"],
                 "user_id" => $datos[0]["ID_usuario"],
+                "user_email" => $datos[0]["email"],
                 "tipo" => $datos[0]["ID_permiso"],
                 "logged_in" => true
             ];
@@ -50,7 +51,17 @@ class Session extends BaseController{
 
             }
             
-            return redirect()->to(base_url("/"));
+            if($datos[0]["verificado"]==0){
+
+                return redirect()->to(base_url("/generate"));
+
+            }else{
+
+                $session->set("verificado",1);
+                return redirect()->to(base_url("/"));
+            }
+
+            
 
         }else{
 
@@ -58,7 +69,7 @@ class Session extends BaseController{
                 "value"=>"Usuario o contraseña incorrecta"
             ];
 
-            return view("login");
+            return view("login",$error);
 
         }
     }
@@ -66,9 +77,14 @@ class Session extends BaseController{
     public function logout(){
         $session = session();
 
-        $session->destroy();
+        if($session->get("logged_in")){
+            $session->destroy();
+            return view("logout");
+        }else{
+            return redirect()->to(base_url("/"));
+        }
 
-        return view("logout");
+        
     }
 
     public function register(){
@@ -120,13 +136,16 @@ class Session extends BaseController{
                $session_data=[
                 "username" => $user,
                 "user_id" => $new_user_id,
+                "user_email" => $mail,
                 "tipo" => 1,
                 "logged_in" => true
                 ];
 
                 $session->set($session_data);
 
-                return redirect()->to(base_url("/"));
+
+
+                return redirect()->to(base_url("/generate"));
 
             }
         }
