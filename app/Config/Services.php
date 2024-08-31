@@ -4,6 +4,8 @@ namespace Config;
 
 use CodeIgniter\Config\BaseService;
 
+use \App\Models\Verificacion;
+
 /**
  * Services Configuration file.
  *
@@ -51,6 +53,28 @@ class Services extends BaseService
             return false;
         }
 
+
+    }
+
+
+    public static function generateCode(){
+
+        $usersmodel = new Verificacion();
+
+        while(true){
+
+            $hex = bin2hex(random_bytes(3)); // Genera 6 caracteres hexadecimales
+            $number = base_convert($hex, 16, 10);
+            $codigo = substr($number, 0, 6);
+
+            if(empty($usersmodel->getCode(["codigo" => $codigo]))){
+
+                return $codigo;
+
+            }
+
+
+        }
 
     }
     
