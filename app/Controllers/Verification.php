@@ -20,7 +20,7 @@ class Verification extends BaseController{
 
     }
 
-    public function generateCode($tipo,$vista){
+    public function generateCode($tipo){
 
         $session = session();
 
@@ -77,6 +77,11 @@ class Verification extends BaseController{
         }else{
             echo "Código expirado o no válido";
         }
+
+    }
+
+    public function resetPwView(){
+        return view("email");
 
     }
 

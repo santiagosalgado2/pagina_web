@@ -53,7 +53,7 @@ class Session extends BaseController{
             
             if($datos[0]["verificado"]==0){
 
-                return redirect()->to(base_url("/generate"));
+                return redirect()->to(base_url("/generate/verificacion"));
 
             }else{
 
@@ -145,7 +145,7 @@ class Session extends BaseController{
 
 
 
-                return redirect()->to(base_url("/generate"));
+                return redirect()->to(base_url("/generate/verificacion"));
 
             }
         }
