@@ -36,7 +36,7 @@
             </form>
 				<div class="hr"></div>
 				<div class="foot-lnk">
-					<a href="#forgot">Has olvidado tu contraseña?</a>
+					<a href="<?php echo base_url("/reset");?>">Has olvidado tu contraseña?</a>
 				</div>
 			</div>
 			<div class="sign-up-htm">
