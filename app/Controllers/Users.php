@@ -23,6 +23,7 @@ class Users extends BaseController{
         if($pw1!=$pw2){
 
             echo "Contraseñas no coinciden";
+            echo '<br><a href="'.base_url("/").'">Volver al inicio</a>';
 
         }else{
 
