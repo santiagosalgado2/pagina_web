@@ -22,20 +22,45 @@ class Verification extends BaseController{
 
     public function generateCode($tipo){
 
-        $session = session();
+        $getUser=null;
 
-        $getUser=$this->objusers->getUser(["ID_usuario" => $session->get("user_id")]);
+        $session=session();
+
+        if($this->request->getMethod()==="POST"){
+
+            $mail = $this->request->getPost("mail");
+
+            $getUser=$this->objusers->getUser(["email" => $mail]);
+
+            if($getUser){
+                
+                $data=[
+                    "user_id" => $getUser[0]["ID_usuario"],
+                    "user_email" => $mail,
+                ];
+                $session->set($data);
+            }
+
+        }else{
+
+            $getUser=$this->objusers->getUser(["ID_usuario" => $session->get("user_id")]);
+
+            $mail=$session->get("user_email");
+
+        }
 
         if($getUser){
 
+            $user_id=$getUser[0]["ID_usuario"];
+
             $codigo = \Config\Services::generateCode();
 
-            $this->objverification->insertCode($session->get("user_id"),$codigo,$tipo);
+            $this->objverification->insertCode($user_id,$codigo,$tipo);
 
             if($tipo=="verificacion"){
-                \Config\Services::sendEmail($session->get("user_email"),"Tu codigo para verificarte en el sitio","<h1>Utiliza este codigo: <b>".$codigo."</b> Para verificar tu usuario</h1>");
+                \Config\Services::sendEmail($mail,"Tu codigo para verificarte en el sitio","<h1>Utiliza este codigo: <b>".$codigo."</b> Para verificar tu usuario</h1>");
             }else{
-                \Config\Services::sendEmail($session->get("user_email"),"Tu codigo para verificarte en el sitio","<h1>Utiliza este codigo: <b>".$codigo."</b> Para cambiar tu contraseñaui</h1>");
+                \Config\Services::sendEmail($mail,"Tu codigo para verificarte en el sitio","<h1>Utiliza este codigo: <b>".$codigo."</b> Para cambiar tu contraseña</h1>");
             }
 
             return view("verification");
@@ -61,6 +86,8 @@ class Verification extends BaseController{
             if($code[0]['tipo']=="recuperar_contrasena"){
 
                 $this->objverification->updateCode(["ID_codigo" => $code[0]["ID_codigo"]]);
+
+                return view("reset_pw");
 
             }else{
                 $this->objverification->updateCode(["ID_codigo" => $code[0]["ID_codigo"]]);

@@ -32,4 +32,18 @@ class Usuarios extends Model{
         $table->update(["verificado" => 1]);
 
     }
+
+    public function updatePw($pw,$id){
+
+        $table=$this->db->table("usuarios");
+
+        $table->where(["ID_usuario" => $id])->update(["hash_contrasena" => $pw]);
+
+        if($this->db->affectedRows() > 0){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
 }
