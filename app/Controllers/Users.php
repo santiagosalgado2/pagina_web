@@ -34,6 +34,7 @@ class Users extends BaseController{
 
             if($n==true){
                 echo "Contraseña cambiada";
+                echo '<br><a href="'.base_url("/").'">Volver al inicio</a>';
             }else{
                 echo "Ha ocurrido un error";
             }
