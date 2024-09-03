@@ -14,9 +14,9 @@
 
     <?php 
 
-    if($session->get("tipo")==1){
-        echo "<h3>SI sos admin deberias ver esto</h3>";
-    }
+    if($session->get("tipo")==1):?>
+        <a href="<?php echo base_url("/new_user");?>">Crear un nuevo usuario</a>
+    <?php endif;
     ?> 
     <a href="<?php echo base_url("/logout");?>"> Cerrar sesion </a>
 </body>

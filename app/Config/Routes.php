@@ -14,3 +14,7 @@ $routes->get("/generate/(:segment)" , "Verification::generateCode/$1");
 $routes->post("/verification" , "Verification::verifyUser");
 $routes->get("/reset","Verification::resetPwView");
 $routes->post("/change","Users::changePw");
+$routes->get("/new_user","Users::newUserView");
+$routes->get("/create_pw/(:num)","Users::generatePw/$1");
+$routes->post("/create_user","Users::createNewUser");
+$routes->post("/set_pw","Users::updatePw");

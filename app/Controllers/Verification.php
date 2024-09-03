@@ -60,7 +60,7 @@ class Verification extends BaseController{
             if($tipo=="verificacion"){
                 \Config\Services::sendEmail($mail,"Tu codigo para verificarte en el sitio","<h1>Utiliza este codigo: <b>".$codigo."</b> Para verificar tu usuario</h1>");
             }else{
-                \Config\Services::sendEmail($mail,"Tu codigo para verificarte en el sitio","<h1>Utiliza este codigo: <b>".$codigo."</b> Para cambiar tu contraseña</h1>");
+                \Config\Services::sendEmail($mail,"Tu codigo para cambiar tu contraseña","<h1>Utiliza este codigo: <b>".$codigo."</b> Para cambiar tu contraseña</h1>");
             }
 
             return view("verification");
