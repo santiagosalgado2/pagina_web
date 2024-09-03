@@ -18,6 +18,8 @@ class Session extends BaseController{
 
     public function login(){
 
+        $session= session();
+
         $user=$this->request->getPost("username");
 
         $password=$this->request->getPost("password");
@@ -33,7 +35,7 @@ class Session extends BaseController{
 
         if(count($datos) > 0 and password_verify($password,$datos[0]["hash_contrasena"])){
 
-            $session= session();
+            
             
             $data=[
                 "username" => $datos[0]["nombre_usuario"],
@@ -65,11 +67,9 @@ class Session extends BaseController{
 
         }else{
 
-            $error=[
-                "value"=>"Usuario o contraseña incorrecta"
-            ];
+           $session->setFlashdata("error","Usuario o contraseña incorrectos");
 
-            return view("login",$error);
+            return redirect()->to(base_url("/"));
 
         }
     }
@@ -88,6 +88,8 @@ class Session extends BaseController{
     }
 
     public function register(){
+
+        $session= session();
 
         $user=$this->request->getPost("username");
 
@@ -114,6 +116,8 @@ class Session extends BaseController{
 
             if($data){
 
+                $session->setFlashdata("error","El nombre de usuario o el correo electrónico ya estan en uso");
+
                 return redirect()->to(base_url("/"));
 
             }else{
@@ -131,7 +135,7 @@ class Session extends BaseController{
 
                $new_user_id = $this->usermodel->insertUser($data);
 
-               $session= session();
+               
 
                $session_data=[
                 "username" => $user,

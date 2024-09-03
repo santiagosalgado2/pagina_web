@@ -7,10 +7,13 @@
     <title>Inicia sesión en el sitio</title>
 </head>
 <body>
+
     <div class="circulo"></div>
     <div class="circulo"></div>
     <div class="circulo"></div>
     <div class="circulo"></div>
+
+	
 <div class="login-wrap">
 	<div class="login-html">
 		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Iniciar sesion</label>
@@ -30,6 +33,12 @@
 					<input type="checkbox" name="remember">
         			<label for="remember">Recordarme</label><br><br>
 				</div>
+				<?php
+	if(session()->getFlashdata("error")){
+		echo session()->getFlashdata('error') ;
+	}
+	
+	?>
 				<div class="group">
 					<input type="submit" class="button" value="Iniciar sesion">
 				</div>
@@ -39,6 +48,7 @@
 					<a href="<?php echo base_url("/reset");?>">Has olvidado tu contraseña?</a>
 				</div>
 			</div>
+			
 			<div class="sign-up-htm">
             <form action="<?php echo base_url("/register");?> " method="post">
 				<div class="group">
@@ -68,5 +78,8 @@
 		</div>
 	</div>
 </div>
+
+
+
 </body>
 </html>
