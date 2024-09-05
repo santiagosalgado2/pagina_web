@@ -1,0 +1,54 @@
+ERROR - 2024-09-05 01:59:25 --> mysqli_sql_exception: Column 'hash_contrasena' cannot be null in C:\xampp\htdocs\pagina_web\pagina_web\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\pagina_web\pagina_web\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `us...', 0)
+#1 C:\xampp\htdocs\pagina_web\pagina_web\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\pagina_web\pagina_web\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\pagina_web\pagina_web\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\pagina_web\pagina_web\app\Models\Usuarios.php(20): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\pagina_web\pagina_web\app\Controllers\Users.php(92): App\Models\Usuarios->insertUser(Array)
+#6 C:\xampp\htdocs\pagina_web\pagina_web\system\CodeIgniter.php(933): App\Controllers\Users->createNewUser()
+#7 C:\xampp\htdocs\pagina_web\pagina_web\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#8 C:\xampp\htdocs\pagina_web\pagina_web\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\pagina_web\pagina_web\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\pagina_web\pagina_web\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\pagina_web\pagina_web\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2024-09-05 01:59:25 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'hash_contrasena' cannot be null
+[Method: POST, Route: create_user]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `usuarios` (`nombre_usuario`, `email`, `hash_contrasena`, `salt`, `ID_permiso`, `ID_administrador`) VALUES (:nombre_usuario:, :email:, :hash_contrasena:, :salt:, :ID_permiso:, :ID_administrador:)', [...], false)
+ 2 APPPATH\Models\Usuarios.php(20): CodeIgniter\Database\BaseBuilder->insert([...])
+ 3 APPPATH\Controllers\Users.php(92): App\Models\Usuarios->insertUser([...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Users->createNewUser()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-09-05 01:59:25 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'hash_contrasena' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `usuarios` (`nombre_usuario`, `email`, `hash_contrasena`, `salt`, `ID_permiso`, `ID_administrador`) VALUES (\'dobby\', \'santisalgado33@gmail.com\', NULL, NULL, 2, \'4\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `usuarios` (`nombre_usuario`, `email`, `hash_contrasena`, `salt`, `ID_permiso`, `ID_administrador`) VALUES (\'dobby\', \'santisalgado33@gmail.com\', NULL, NULL, 2, \'4\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `usuarios` (`nombre_usuario`, `email`, `hash_contrasena`, `salt`, `ID_permiso`, `ID_administrador`) VALUES (:nombre_usuario:, :email:, :hash_contrasena:, :salt:, :ID_permiso:, :ID_administrador:)', [...], false)
+ 4 APPPATH\Models\Usuarios.php(20): CodeIgniter\Database\BaseBuilder->insert([...])
+ 5 APPPATH\Controllers\Users.php(92): App\Models\Usuarios->insertUser([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Users->createNewUser()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-09-05 01:59:25 --> [Caused by] mysqli_sql_exception: Column 'hash_contrasena' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `usuarios` (`nombre_usuario`, `email`, `hash_contrasena`, `salt`, `ID_permiso`, `ID_administrador`) VALUES (\'dobby\', \'santisalgado33@gmail.com\', NULL, NULL, 2, \'4\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `usuarios` (`nombre_usuario`, `email`, `hash_contrasena`, `salt`, `ID_permiso`, `ID_administrador`) VALUES (\'dobby\', \'santisalgado33@gmail.com\', NULL, NULL, 2, \'4\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `usuarios` (`nombre_usuario`, `email`, `hash_contrasena`, `salt`, `ID_permiso`, `ID_administrador`) VALUES (\'dobby\', \'santisalgado33@gmail.com\', NULL, NULL, 2, \'4\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `usuarios` (`nombre_usuario`, `email`, `hash_contrasena`, `salt`, `ID_permiso`, `ID_administrador`) VALUES (:nombre_usuario:, :email:, :hash_contrasena:, :salt:, :ID_permiso:, :ID_administrador:)', [...], false)
+ 5 APPPATH\Models\Usuarios.php(20): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Users.php(92): App\Models\Usuarios->insertUser([...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Users->createNewUser()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
