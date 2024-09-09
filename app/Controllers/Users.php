@@ -149,7 +149,7 @@ class Users extends BaseController{
 
         }else{
 
-            $hash=password_hash($pw1,PASSWORD_DEFAULT);
+           $hash=password_hash($pw1,PASSWORD_DEFAULT);
 
            $pw= $this->usersmodel->updatePw($hash,$session->get("user_id"));
 
