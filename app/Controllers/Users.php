@@ -153,9 +153,7 @@ class Users extends BaseController{
 
            $pw= $this->usersmodel->updatePw($hash,$session->get("user_id"));
 
-           echo $session->get("user_id");
-
-            var_dump($pw);
+           echo "Contraseña creada correctamente";
         }
 
     }
