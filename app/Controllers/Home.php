@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Usuarios;
+use App\Models\Esp32;
 
 
 class Home extends BaseController
@@ -12,6 +13,8 @@ class Home extends BaseController
         $session = session();
 
         if($session->get("verificado")){
+            $obj=new Esp32();
+            $datos=$obj->getEsp32byUser($session->get("user_id"));
             return view("inicio");
         }else{
             return view('login');

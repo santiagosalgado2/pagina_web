@@ -68,6 +68,20 @@
     ?> 
     <a href="<?php echo base_url("/logout");?>"> Cerrar sesion </a>
 
+    <main>
+
+      <?php if($datos):?>
+        <h1>Tus Esp disponibles</h1>
+        <ul>
+      <?php foreach($datos as $esp):?>
+        <li><?php echo $esp["ubicacion"];?> </li>
+
+        </ul>
+      <?php endforeach; endif;?>
+
+
+    </main>
+
 
 
 

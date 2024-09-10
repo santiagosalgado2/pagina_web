@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class Esp32 extends Model{
 
-    private $table;
+    protected $table;
 
     public function __construct(){
 
