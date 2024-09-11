@@ -4,18 +4,13 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Esp32 extends Model{
+class Esp32 extends Model
+{
+    protected $table = 'disp_esp32'; // Tabla base del modelo
 
-    protected $table;
-
-    public function __construct(){
-
-        $this->table="disp_esp32";
-
-    }
-
-    public function getEsp32byUser($id){
-
+    public function getEsp32byUser($id)
+    {
+     
         $builder = $this->db->table('disp_esp32 e');
         $builder->select('u.nombre_usuario, e.ubicacion');
         $builder->join('dispositivos d', 'd.ID_esp32 = e.ID_dispositivo');
@@ -26,8 +21,5 @@ class Esp32 extends Model{
     
         $query = $builder->get();
         return $query->getResultArray();
-        
-
     }
-
 }

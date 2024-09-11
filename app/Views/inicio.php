@@ -38,10 +38,10 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#">Ver mi informacion</a></li>
-            <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
+            <li><a class="dropdown-item" href="<?php echo base_url("/logout");?>">Cerrar sesión</a></li>
             <?php if($permiso==1):?>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Administrar mis usuarios</a></li>
+            <li><a class="dropdown-item" href="<?php echo base_url("/showUsers");?> ">Administrar mis usuarios</a></li>
             <?php endif;?>
           </ul>
         </li>
@@ -56,28 +56,23 @@
     </div>
   </div>
 </nav>
-    <h1>Pagina principal</h1>
     
-    <h2>Bienvenido <?php echo $session->get("username");?></h2>
+    <h1>Bienvenido <?php echo $session->get("username");?></h1>
 
-    <?php 
-
-    if($session->get("tipo")==1):?>
-        <a href="<?php echo base_url("/new_user");?>">Crear un nuevo usuario</a>
-    <?php endif;
-    ?> 
-    <a href="<?php echo base_url("/logout");?>"> Cerrar sesion </a>
+   
 
     <main>
 
-      <?php if($datos):?>
-        <h1>Tus Esp disponibles</h1>
-        <ul>
-      <?php foreach($datos as $esp):?>
-        <li><?php echo $esp["ubicacion"];?> </li>
-
-        </ul>
-      <?php endforeach; endif;?>
+    <?php if (isset($datos) && !empty($datos)): ?>
+    <h2>Tus Esp disponibles</h2>
+    <ul>
+        <?php foreach ($datos as $esp): ?>
+            <li><?php echo $esp["ubicacion"]; ?></li>
+        <?php endforeach; ?>
+    </ul>
+<?php else: ?>
+    <p>No hay ESP32 disponibles.</p>
+<?php endif; ?>
 
 
     </main>

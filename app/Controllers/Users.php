@@ -99,7 +99,7 @@ class Users extends BaseController{
 
             \Config\Services::sendEmail($mail,"Te han creado un usuario en nuestro sitio web. Tu enlace para generar tu contraseña","<h2>El usuario ".$session->get("username")." te ha creado un usuario dentro de nuestro sitio. Utiliza este enlace para generar tu contraseña <br>".$url."</h2>");
 
-            return redirect()->to(base_url("/"));
+            return redirect()->to(base_url("/showUsers"));
 
         }
 
@@ -155,6 +155,16 @@ class Users extends BaseController{
 
            echo "Contraseña creada correctamente";
         }
+
+    }
+
+    public function showUsers(){
+
+        $session=session();
+
+        $datos=$this->usersmodel->getUsersbyAdmin($session->get("user_id"));
+
+        return view("show_users",["datos" => $datos]);
 
     }
 

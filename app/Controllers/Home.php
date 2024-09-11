@@ -15,7 +15,7 @@ class Home extends BaseController
         if($session->get("verificado")){
             $obj=new Esp32();
             $datos=$obj->getEsp32byUser($session->get("user_id"));
-            return view("inicio");
+            return view("inicio", ["datos" => $datos]);
         }else{
             return view('login');
         }

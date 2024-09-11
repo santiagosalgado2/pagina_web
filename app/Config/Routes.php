@@ -18,3 +18,4 @@ $routes->get("/new_user","Users::newUserView");
 $routes->get("/create_pw/(:num)","Users::generatePw/$1");
 $routes->post("/create_user","Users::createNewUser");
 $routes->post("/set_pw","Users::updatePw");
+$routes->get("/showUsers","Users::showUsers");
