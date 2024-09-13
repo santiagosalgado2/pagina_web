@@ -13,13 +13,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagina principal</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?php echo base_url("/css/iniciostyle.css");?>">
 </head>
-<body>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<body class="p-3 mb-2 bg-primary-subtle text-primary-emphasis">
+<nav class="navbar navbar-expand-lg fixed-top" style="background-color: #98fb98;">
   <div class="container-fluid">
   <a class="navbar-brand" href="#">
-      <img src="<?php echo base_url("/img/logo.png") ;?>" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+      <img src="<?php echo base_url("/img/logo.png") ;?>" alt="Logo" width="30" height="24" class="d-inline-block align-text-top" >
       Nombre_pagina
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,21 +57,29 @@
   </div>
 </nav>
     
-    <h1>Bienvenido <?php echo $session->get("username");?></h1>
+    <h1 style="margin-top: 40px;">Bienvenido <?php echo $session->get("username");?></h1>
 
    
 
     <main>
 
     <?php if (isset($datos) && !empty($datos)): ?>
-    <h2>Tus Esp disponibles</h2>
+    <h2 style="color: #dc3545;">Tus Esp disponibles</h2>
     <ul>
         <?php foreach ($datos as $esp): ?>
-            <li><?php echo $esp["ubicacion"]; ?></li>
+            <li>
+              <form action="<?php echo base_url("/esp32"); ?>" method="post">
+
+                <input type="hidden" name="esp_id" value="<?php echo $esp["ID_dispositivo"];?> ">
+
+                <button type="submit" > <?php  echo $esp["ubicacion"];?> </button>
+
+              </form>
+            </li>
         <?php endforeach; ?>
     </ul>
 <?php else: ?>
-    <p>No hay ESP32 disponibles.</p>
+    <p style="color: #dc3545;">No hay ESP32 disponibles.</p>
 <?php endif; ?>
 
 
@@ -90,6 +97,6 @@
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
