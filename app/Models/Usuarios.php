@@ -46,4 +46,18 @@ class Usuarios extends Model{
         }
 
     }
+
+    public function getUsersbyAdmin($id){
+
+        $table=$this->db->table("usuarios u");
+
+        $table->select("u.nombre_usuario, u.fecha_creacion, u.email");
+
+        $table->join("usuarios a","u.ID_administrador=a.ID_usuario");
+
+        $table->where("a.ID_usuario=$id");
+
+        return $table->get()->getResultArray();
+
+    }
 }
