@@ -99,7 +99,27 @@ class Session extends BaseController{
 
         $mail=$this->request->getPost("email");
 
+        $validationrules=[
+            'password' => [
+            'rules' => 'required|min_length[8]|max_length[255]|regex_match[/(?=.*[A-Z])(?=.*[0-9])/]',
+            'errors' => [
+                    'required' => 'La contraseña es obligatoria.',
+                    'min_length' => 'La contraseña debe tener al menos 8 caracteres.',
+                    'regex_match' => 'La contraseña debe contener al menos una letra mayúscula y un numero',
+                ],
+            ],
+        ];
+
         if($password!=$pw_confirm){
+
+            $session->setFlashdata("error","Las contraseñas no coinciden");
+
+            return redirect()->to(base_url("/"));
+
+        }
+        elseif(!$this->validate($validationrules)){
+
+            $session->setFlashdata("error",$this->validator->getErrors());
 
             return redirect()->to(base_url("/"));
 

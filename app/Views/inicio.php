@@ -61,7 +61,7 @@
 
    
 
-    <main>
+<main>
 
     <?php if (isset($datos) && !empty($datos)): ?>
     <h2 style="color: #dc3545;">Tus Esp disponibles</h2>
@@ -83,7 +83,7 @@
 <?php endif; ?>
 
 
-    </main>
+</main>
 
 
 

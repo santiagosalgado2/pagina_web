@@ -17,6 +17,6 @@ $routes->post("/change","Users::changePw");
 $routes->get("/new_user","Users::newUserView");
 $routes->get("/create_pw/(:num)","Users::generatePw/$1");
 $routes->post("/create_user","Users::createNewUser");
-$routes->post("/set_pw","Users::updatePw");
+$routes->post("/set_pw","Users::changePw");
 $routes->get("/showUsers","Users::showUsers");
 $routes->post("/esp32","Esp32C::devicesbyEsp");

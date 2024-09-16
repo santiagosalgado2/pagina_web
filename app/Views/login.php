@@ -1,3 +1,7 @@
+<?php
+$session=session();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,8 +38,18 @@
         			<label for="remember">Recordarme</label><br><br>
 				</div>
 				<?php
-	if(session()->getFlashdata("error")){
-		echo session()->getFlashdata('error') ;
+
+	$error_data = $session->getFlashdata("error");
+	if($error_data){
+		if(!is_array($error_data)){
+			echo $error_data ;
+		}else{
+			foreach ($error_data as $e){
+				echo $e."<br>";
+		}
+			
+	}
+			
 	}
 	
 	?>

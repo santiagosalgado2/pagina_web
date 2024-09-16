@@ -8,11 +8,11 @@
 <body>
     <h1>Digite su nueva contraseña</h1>
 
-    <form action="<?php echo base_url("/set_pw");?> " method="post">
+    <form action="<?php echo base_url("/change");?> " method="post">
 
         <input type="password" name="password" required>Ingrese nueva contraseña
 
-        <input type="password" name="pw_confirm"required>Confirme su contraseña
+        <input type="password" name="pw-confirm"required>Confirme su contraseña
 
         <input type="submit" value="Confirmar">
 

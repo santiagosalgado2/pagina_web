@@ -26,12 +26,29 @@ class Users extends BaseController{
 
         $pw2=$this->request->getPost("pw-confirm");
 
+        $validationrules=[
+            'password' => [
+            'rules' => 'required|min_length[8]|max_length[255]|regex_match[/(?=.*[A-Z])(?=.*[0-9])/]',
+            'errors' => [
+                    'required' => 'La contraseña es obligatoria.',
+                    'min_length' => 'La contraseña debe tener al menos 8 caracteres.',
+                    'regex_match' => 'La contraseña debe contener al menos una letra mayúscula y un numero',
+                ],
+            ],
+        ];
+
         if($pw1!=$pw2){
 
             echo "Contraseñas no coinciden";
             echo '<br><a href="'.base_url("/").'">Volver al inicio</a>';
 
-        }else{
+        }
+        
+        elseif(!$this->validate($validationrules)){
+            echo "La contraseña debe contener 8 caracteres, una mayúscula y un número";
+        }
+
+        else{
 
             $session = session();
 
@@ -40,7 +57,7 @@ class Users extends BaseController{
             $n=$this->usersmodel->updatePw($hash,$session->get("user_id"));
 
             if($n==true){
-                echo "Contraseña cambiada";
+                echo "Contraseña actualizada";
                 echo '<br><a href="'.base_url("/").'">Volver al inicio</a>';
             }else{
                 echo "Ha ocurrido un error";
@@ -131,29 +148,6 @@ class Users extends BaseController{
 
             }
 
-        }
-
-    }
-
-    public function updatePw(){
-
-        $session=session();
-
-        $pw1=$this->request->getPost("password");
-
-        $pw2=$this->request->getPost("pw_confirm");
-
-        if($pw1 != $pw2){
-
-            echo "Las contraseñas no coinciden";
-
-        }else{
-
-           $hash=password_hash($pw1,PASSWORD_DEFAULT);
-
-           $pw= $this->usersmodel->updatePw($hash,$session->get("user_id"));
-
-           echo "Contraseña creada correctamente";
         }
 
     }
