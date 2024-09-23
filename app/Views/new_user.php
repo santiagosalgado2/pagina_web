@@ -7,7 +7,7 @@
 </head>
 <body>
     
-    <h1>Ingrese los datos del usuario que desea crear</h1>
+    <h1 style="color: #0e68aa;">Ingrese los datos del usuario que desea crear</h1>
 
     <form method="post" action="<?php echo base_url("/create_user") ;?>">
 
