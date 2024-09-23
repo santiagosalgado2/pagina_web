@@ -21,3 +21,4 @@ $routes->post("/set_pw","Users::changePw");
 $routes->get("/showUsers","Users::showUsers");
 $routes->post("/esp32","Esp32C::devicesbyEsp");
 $routes->post("/connect_esp32","Esp32C::receiveConn");
+$routes->get("userInfo","Users::viewUserinfo");

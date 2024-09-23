@@ -37,7 +37,7 @@
             Mi usuario
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Ver mi informacion</a></li>
+            <li><a class="dropdown-item" href="<?php echo base_url("/userInfo");?>">Ver mi informacion</a></li>
             <li><a class="dropdown-item" href="<?php echo base_url("/logout");?>">Cerrar sesión</a></li>
             <?php if($permiso==1):?>
             <li><hr class="dropdown-divider"></li>

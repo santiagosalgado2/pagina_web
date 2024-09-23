@@ -114,7 +114,7 @@ class Users extends BaseController{
 
             $this->verificationmodel->insertCode($user_id,$code,"crear_contrasena");
 
-            \Config\Services::sendEmail($mail,"Te han creado un usuario en nuestro sitio web. Tu enlace para generar tu contraseña","<h2>El usuario ".$session->get("username")." te ha creado un usuario dentro de nuestro sitio. Utiliza este enlace para generar tu contraseña <br>".$url."</h2>");
+            \Config\Services::sendEmail($mail,"Te han creado un usuario en nuestro sitio web. Tu enlace para generar tu contraseña","<h2>El usuario ".$session->get("username")." te ha creado un usuario dentro de nuestro sitio. Utiliza este enlace para generar tu contraseña <br>".$url."<br>Para iniciar sesión, utiliza este nombre de usuario: ".$username."</h2>");
 
             return redirect()->to(base_url("/showUsers"));
 
@@ -159,6 +159,24 @@ class Users extends BaseController{
         $datos=$this->usersmodel->getUsersbyAdmin($session->get("user_id"));
 
         return view("show_users",["datos" => $datos]);
+
+    }
+
+    public function viewUserinfo(){
+
+        $session=session();
+
+        $data=$this->usersmodel->getUser(["ID_usuario" => $session->get("user_id")]);
+
+        if(isset($data[0]["ID_administrador"])){
+            $admin=$this->usersmodel->getUser(["ID_usuario"=> $data[0]["ID_administrador"]]);
+            return view("userinfo",["data"=> $data,"admin"=> $admin]);
+
+        }else{
+            return view("userinfo",["data"=> $data]);
+        }
+
+        
 
     }
 
