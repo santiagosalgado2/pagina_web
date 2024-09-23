@@ -7,7 +7,7 @@
     <title>Cerrar sesion</title>
 </head>
 <body>
-    <h1>Sesion cerrada correctamente</h1>
+    <h1 style="color: #dc4c05;">Sesion cerrada correctamente</h1>
 
     <a href="<?php echo base_url("/");?> "> Iniciar sesion nuevamente </a>
     

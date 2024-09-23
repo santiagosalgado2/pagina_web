@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Ingrese el email asociado a su cuenta para restaurar la contraseña</h1>
+    <h1 style="color: #069772;">Ingrese el email asociado a su cuenta para restaurar la contraseña</h1>
     <br>
     <form method="post" action="<?php echo base_url("/generate2/recuperar_contrasena");?>">
 
