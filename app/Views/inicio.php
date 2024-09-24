@@ -13,13 +13,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagina principal</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="iniciostyle.css">
+    <link rel="stylesheet" href="<?php echo base_url("/css/style.css");?>">
 </head>
 <body class="p-3 mb-2 bg-primary-subtle text-primary-emphasis">
-<nav class="navbar navbar-expand-lg fixed-top" style="background-color: #98fb98;">
+<nav class="navbar navbar-expand-lg fixed-top" style="  background: linear-gradient(135deg, #f72611,#faa72b);">
   <div class="container-fluid">
-  <a class="navbar-brand" href="#">
-      <img src="<?php echo base_url("/img/logo.png") ;?>" alt="Logo" width="30" height="24" class="d-inline-block align-text-top" >
+  <a class="navbar-brand" href="#" style="color: black;">
+      <img src="<?php echo base_url("/img/logo.png") ;?>" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
       Nombre_pagina
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,31 +28,31 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="#" style="color: black;">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" href="#" style="color: black;">Link</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black;">
             Mi usuario
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="<?php echo base_url("/userInfo");?>">Ver mi informacion</a></li>
+            <li><a class="dropdown-item" href="<?php echo base_url("/userInfo");?>" style="color: black;">Ver mi informacion</a></li>
             <li><a class="dropdown-item" href="<?php echo base_url("/logout");?>">Cerrar sesión</a></li>
             <?php if($permiso==1):?>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="<?php echo base_url("/showUsers");?> ">Administrar mis usuarios</a></li>
+            <li><a class="dropdown-item" href="<?php echo base_url("/showUsers");?> " style="color: black;">Administrar mis usuarios</a></li>
             <?php endif;?>
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+          <a class="nav-link disabled" aria-disabled="true" style="color: black;">Disabled</a>
         </li>
       </ul>
       <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" >
+        <button class="btn btn-outline-success" type="submit" style="color: black;">Search</button>
       </form>
     </div>
   </div>
@@ -65,7 +65,7 @@
 <main>
 
     <?php if (isset($datos) && !empty($datos)): ?>
-    <h2 style="color: #dc3545;">Tus Esp disponibles</h2>
+    <h2>Tus Esp disponibles</h2>
     <ul>
         <?php foreach ($datos as $esp): ?>
             <li>
@@ -80,7 +80,7 @@
         <?php endforeach; ?>
     </ul>
 <?php else: ?>
-    <p style="color: #dc3545;">No hay ESP32 disponibles.</p>
+    <p>No hay ESP32 disponibles.</p>
 <?php endif; ?>
 
 
