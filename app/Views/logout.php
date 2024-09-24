@@ -8,6 +8,11 @@
     <title>Cerrar sesion</title>
 </head>
 <body>
+    <div class="circulo"></div>
+    <div class="circulo"></div>
+    <div class="circulo"></div>
+    <div class="circulo"></div>
+
     <h1 style="color: black;">Sesion cerrada correctamente</h1>
 
     <a href="<?php echo base_url("/");?> "> Iniciar sesion nuevamente </a>
