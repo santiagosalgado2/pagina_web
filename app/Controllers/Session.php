@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 use App\Models\Usuarios;
 
+use App\Models\Login_attemps;
+
 use CodeIgniter\Controller;
 
 class Session extends BaseController{
@@ -25,6 +27,8 @@ class Session extends BaseController{
         $password=$this->request->getPost("password");
 
         $remember=$this->request->getPost("remember");
+
+        $log_att=new Login_attemps;
 
         
         $data=[
@@ -52,6 +56,8 @@ class Session extends BaseController{
                 setcookie('ci_session', session_id(), 0, '/');
 
             }
+
+            #$log_att->insertLoginattemp($datos[0]["ID_usuario"],1,$_SERVER[']);
             
             if($datos[0]["verificado"]==0){
 
@@ -67,7 +73,17 @@ class Session extends BaseController{
 
         }else{
 
-           $session->setFlashdata("error","Usuario o contraseña incorrectos");
+            if($datos){
+
+                $log_att->insertLoginattemp($datos[0]["ID_usuario"],0,$_SERVER["REMOTE_ADDR"]);
+                $session->setFlashdata("error","Contraseña incorrecta");
+
+            }else{
+
+                $log_att->insertLoginattemp(0,$_SERVER["REMOTE_ADDR"]);
+                $session->setFlashdata("error","Usuario no encontrado"); 
+
+            }            
 
             return redirect()->to(base_url("/"));
 

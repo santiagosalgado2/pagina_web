@@ -60,4 +60,6 @@ class Usuarios extends Model{
         return $table->get()->getResultArray();
 
     }
+
+   
 }
