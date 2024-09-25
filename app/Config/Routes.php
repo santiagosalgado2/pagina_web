@@ -6,6 +6,7 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 $routes->get('/', 'Home::index');
+$routes->post("/connect_esp32", "Esp32C::receiveConn");
 $routes->post('/login', 'Session::login');
 $routes->post("/generate2/(:segment)" , "Verification::generateCode/$1");
 $routes->get("/logout" , "Session::logout");
@@ -20,5 +21,6 @@ $routes->post("/create_user","Users::createNewUser");
 $routes->post("/set_pw","Users::changePw");
 $routes->get("/showUsers","Users::showUsers");
 $routes->post("/esp32","Esp32C::devicesbyEsp");
-$routes->post("/connect_esp32","Esp32C::receiveConn");
 $routes->get("userInfo","Users::viewUserinfo");
+$routes->get("/prueba","Home::viewPrueba");
+$routes->get("/sendIR","Esp32C::sendIR");

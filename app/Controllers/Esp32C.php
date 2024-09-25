@@ -33,11 +33,26 @@ class Esp32C extends BaseController{
         log_message('info', "param2: $param2");
         
         if ($param1 && $param2) {
-            return $this->response->setStatusCode(200)->setBody("Datos recibidos: param1=$param1, param2=$param2");
+            echo "Datos recibidos: param1=$param1, param2=$param2";
         } else {
-            return $this->response->setStatusCode(400)->setBody("Datos no recibidos");
+            echo "Datos no recibidos";
         }
+        
     
+    }
+
+    public function sendIR() {
+        $esp32IP = '10.81.11.60'; // Cambia esto por la IP de tu ESP32
+        $url = "http://$esp32IP/sendIR";
+
+        $response = file_get_contents($url); // Envía la solicitud GET
+
+        if ($response === FALSE) {
+        // Manejo del error
+            echo "Error al enviar la solicitud.";
+        } else {
+            echo $response; // Muestra la respuesta de la ESP32
+        }
     }
 
 }
