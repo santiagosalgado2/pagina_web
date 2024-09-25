@@ -27,6 +27,10 @@ class Home extends BaseController
         return view("inicio");
     }
 
+    public function viewPrueba(){
+        return view("prueba");
+    }
+
 
     
 }
