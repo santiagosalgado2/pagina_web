@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class Login_attemps extends Model{
 
-    public function insertLoginattemp($id=null,$exitoso,$ip){
+    public function insertLoginattemp($exitoso,$ip,$id=null){
 
         $table=$this->db->table("login_attemps");
         $data=[
@@ -14,6 +14,10 @@ class Login_attemps extends Model{
             "exitoso"=>$exitoso,
             "direccion_ip"=> $ip
         ];
+
+        if($id==null){
+            $data["ID_usuario"]=null;
+        }
 
         $table->insert($data);
 

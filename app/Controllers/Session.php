@@ -28,6 +28,8 @@ class Session extends BaseController{
 
         $remember=$this->request->getPost("remember");
 
+        $ip=$this->request->getIPAddress();
+
         $log_att=new Login_attemps;
 
         
@@ -57,7 +59,7 @@ class Session extends BaseController{
 
             }
 
-            #$log_att->insertLoginattemp($datos[0]["ID_usuario"],1,$_SERVER[']);
+            $log_att->insertLoginattemp(1,$ip,$datos[0]["ID_usuario"]);
             
             if($datos[0]["verificado"]==0){
 
@@ -75,12 +77,12 @@ class Session extends BaseController{
 
             if($datos){
 
-                $log_att->insertLoginattemp($datos[0]["ID_usuario"],0,$_SERVER["REMOTE_ADDR"]);
+                $log_att->insertLoginattemp(0,$ip,$datos[0]["ID_usuario"]);
                 $session->setFlashdata("error","Contraseña incorrecta");
 
             }else{
 
-                $log_att->insertLoginattemp(0,$_SERVER["REMOTE_ADDR"]);
+                $log_att->insertLoginattemp(0,$ip);
                 $session->setFlashdata("error","Usuario no encontrado"); 
 
             }            

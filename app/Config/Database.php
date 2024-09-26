@@ -26,7 +26,7 @@ class Database extends Config
      */
     public array $default = [
         'DSN'          => '',
-        'hostname'     => 'localhost',
+        'hostname'     => '192.168.1.105',
         'username'     => 'root',
         'password'     => '',
         'database'     => 'tesis_g_s2',
