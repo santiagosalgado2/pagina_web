@@ -183,7 +183,7 @@ class Session extends BaseController{
                 #SE HASHEA LA CONTRASEÑA UTILIZANDO LA FUNCION PREDEFINIDA EN PHP, QUE UTILIZA EL ALGORITOMO BCRYPT
                 $hash=password_hash($password,PASSWORD_DEFAULT);
 
-                #SE SETEAN LOS DATOS DEL USUARIOS QUE DEBEN SER INGRESADOS EN LA BD 
+                #SE SETEAN LOS DATOS DEL USUARIO QUE DEBEN SER INGRESADOS EN LA BD 
                 $data=[
                     "nombre_usuario" => $user,
                     "email" => $mail,
