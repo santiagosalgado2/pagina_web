@@ -12,6 +12,7 @@ class Verification extends BaseController{
 
     private $objverification;
 
+    #SE INCLUYEN ATRIBUTOS DE LA CLASE QUE CONTIENEN LA INSTANCIA DE LOS MODELOS NECESARIOS
     public function __construct(){
 
         $this->objusers=new Usuarios();
@@ -21,7 +22,6 @@ class Verification extends BaseController{
     }
 
     public function generateCode($tipo){
-
         $getUser=null;
 
         $session=session();
