@@ -22,7 +22,7 @@ class Verification extends BaseController{
     }
 
     /*
-    FUNCION UTILIZADA PARA GENERAR CODIGOS DE VERIFICACION, CREACION DE CONTRASEÑA Y RECUPERACION DE CONTRASEÑA
+    FUNCION UTILIZADA PARA GENERAR CODIGOS DE VERIFICACION Y RECUPERACION DE CONTRASEÑA
     */
     public function generateCode($tipo){
         #SE INICIALIZA 2 VARIABLES, LA DE SESION Y GETUSER, QUE SERA USADA MAS ADELANTE EN LA FUNCION
@@ -49,7 +49,7 @@ class Verification extends BaseController{
         
         #SI SE ACCEDE A TRAVES DE GET, QUIERE DECIR QUE EL USUARIO DESEA VERIFICARSE Y LOS DATOS DE SESION YA ESTAN SETEADOS
         }else{
-
+            #SE BUSCA EL USUARIO POR EL ID DE SESION Y SE GUARDA SU MAIL TAMBIEN ALMACENADA EN LA SESION
             $getUser=$this->objusers->getUser(["ID_usuario" => $session->get("user_id")]);
 
             $mail=$session->get("user_email");
@@ -57,19 +57,21 @@ class Verification extends BaseController{
         }
         
         if($getUser){
+            #SI EL USUARIO SE ENCUENTRA:
+            $user_id=$getUser[0]["ID_usuario"]; #SE ALMACENA SU ID EN UNA VARIABLE
 
-            $user_id=$getUser[0]["ID_usuario"];
+            $codigo = \Config\Services::generateCode(); #SE GENERA UN CODIGO UTILIZANDO ESTA FUNCION PROGRAMADA COMO SERVICIO
 
-            $codigo = \Config\Services::generateCode();
+            $this->objverification->insertCode($user_id,$codigo,$tipo); #SE ALMACENA EL CODIGO EN LA BD
 
-            $this->objverification->insertCode($user_id,$codigo,$tipo);
-
+            #SE ENVIA UN EMAIL AL USUARIO CON UNA FUNCION TAMBIEN PROGRAMADA COMO SERVICIO, DEPENDIENDO SI ES DE TIPO VERIFICACION
+            #O RECUPERACION DE CONTRASEÑA
             if($tipo=="verificacion"){
                 \Config\Services::sendEmail($mail,"Tu codigo para verificarte en el sitio","<h1>Utiliza este codigo: <b>".$codigo."</b> Para verificar tu usuario</h1>");
             }else{
                 \Config\Services::sendEmail($mail,"Tu codigo para cambiar tu contraseña","<h1>Utiliza este codigo: <b>".$codigo."</b> Para cambiar tu contraseña</h1>");
             }
-
+            #SE RETORNA A LA VISTA PARA QUE COLOQUE EL CODIGO ENVIADO
             return view("verification");
 
         }else{
@@ -80,14 +82,20 @@ class Verification extends BaseController{
 
     }
 
+    /*
+    FUNCION QUE VALIDA SI EL CODIGO INGRESADO POR EL USUARIO COINCIDE CON EL GENERADO, TRABAJANDO TAMBIEN LA LOGICA DEPENDIENDO DEL TIPO
+    DE CODIGO
+    */
     public function verifyUser(){
 
         $session= session();
 
-        $post_code=$this->request->getPost("code");
+        $post_code=$this->request->getPost("code"); #SE OBTIENE EL CODIGO INGRESADO EN EL FORMULARIO
 
+        #SE BUSCA EL CODIGO EN LA BASE DE DATOS (CADA CODIGO ES UNICO Y NO SE REPITE)
         $code=$this->objverification->getCode(["codigo" => $post_code, "ID_usuario" => $session->get("user_id"), "usado" => 0]);
 
+        #SI SE ENCUENTRA EL CODIGO
         if($code){
 
             if($code[0]['tipo']=="recuperar_contrasena"){
@@ -95,6 +103,8 @@ class Verification extends BaseController{
                 $this->objverification->updateCode(["ID_codigo" => $code[0]["ID_codigo"]]);
 
                 return view("reset_pw");
+
+                #SI ES PARA REESTABLECER SU CONTRASEÑA, SE UPDATEA EL CODIGO (SE LO MARCA COMO QUE YA FUE USADO) Y SE LO RETORNA A LA VISTA
 
             }else{
                 $this->objverification->updateCode(["ID_codigo" => $code[0]["ID_codigo"]]);
@@ -104,11 +114,14 @@ class Verification extends BaseController{
                 $session->set("verificado",true);
 
                 return redirect()->to(base_url("/"));
+
+                #SI ES PARA VERIFICARSE, SE UPDATEA, SE VERIFICA AL USUARIO EN SU SESION Y EN LA BD Y SE LO MANDA AL INICIO DE LA PAGINA
             }
 
             
 
         }else{
+            #EN CASO DE QUE EL CODIGO NO SE ENCUENTRE O HAYA EXPIRADO (YA QUE AL EXPIRAR, SE ELIMINA AUTOMATICAMENTE DE LA BD POR LO QUE NO SERA ENCONTRADO):
             echo "Código expirado o no válido";
         }
 
@@ -116,7 +129,7 @@ class Verification extends BaseController{
 
     public function resetPwView(){
         return view("email");
-
+        #FUNCION SIMPLE QUE RETORNA A UNA VISTA PARA QUE EL USUARIO INGRESE SU EMAIL PARA REESTABLECER SU CONTRASEÑA
     }
 
 }
