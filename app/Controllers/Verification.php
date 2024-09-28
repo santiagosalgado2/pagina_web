@@ -21,16 +21,22 @@ class Verification extends BaseController{
 
     }
 
+    /*
+    FUNCION UTILIZADA PARA GENERAR CODIGOS DE VERIFICACION, CREACION DE CONTRASEÑA Y RECUPERACION DE CONTRASEÑA
+    */
     public function generateCode($tipo){
+        #SE INICIALIZA 2 VARIABLES, LA DE SESION Y GETUSER, QUE SERA USADA MAS ADELANTE EN LA FUNCION
         $getUser=null;
 
         $session=session();
-
+        #SI SE ACCEDE A ESTA FUNCION A TRAVES DE UN FORMULARIO (POST), QUIERE DECIR QUE EL USUARIO OLVIDO SU CONTRASEÑA Y DESEA REESTABLECERLA
         if($this->request->getMethod()==="POST"){
 
             $mail = $this->request->getPost("mail");
 
             $getUser=$this->objusers->getUser(["email" => $mail]);
+
+            #SE OBTIENE EL MAIL COLOCADO POR ELUSUARIO Y SE BUSCA SI ESTA REGISTRADO EN LA BD
 
             if($getUser){
                 
@@ -40,7 +46,8 @@ class Verification extends BaseController{
                 ];
                 $session->set($data);
             }
-
+        
+        #SI SE ACCEDE A TRAVES DE GET, QUIERE DECIR QUE EL USUARIO DESEA VERIFICARSE Y LOS DATOS DE SESION YA ESTAN SETEADOS
         }else{
 
             $getUser=$this->objusers->getUser(["ID_usuario" => $session->get("user_id")]);
@@ -48,7 +55,7 @@ class Verification extends BaseController{
             $mail=$session->get("user_email");
 
         }
-
+        
         if($getUser){
 
             $user_id=$getUser[0]["ID_usuario"];
