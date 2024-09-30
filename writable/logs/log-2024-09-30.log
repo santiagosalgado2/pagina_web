@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ERROR - 2024-09-30 20:53:22 --> Error connecting to the database: mysqli_sql_exception: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder in C:\xampp\htdocs\pagina_web\pagina_web\system\Database\MySQLi\Connection.php:186
+=======
+ERROR - 2024-09-30 21:22:18 --> Error connecting to the database: mysqli_sql_exception: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder in C:\xampp\htdocs\pagina_web\pagina_web\system\Database\MySQLi\Connection.php:186
+>>>>>>> ddc2f53f8d5485f6a1ea5517f9de428c3fc899a9
 Stack trace:
 #0 C:\xampp\htdocs\pagina_web\pagina_web\system\Database\MySQLi\Connection.php(186): mysqli->real_connect('192.168.1.105', 'root', Object(SensitiveParameterValue), 'tesis_g_s2', 3306, '', 0)
 #1 C:\xampp\htdocs\pagina_web\pagina_web\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
@@ -28,6 +32,7 @@ Stack trace:
 #9 C:\xampp\htdocs\pagina_web\pagina_web\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
 #10 C:\xampp\htdocs\pagina_web\pagina_web\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
 #11 {main}
+<<<<<<< HEAD
 CRITICAL - 2024-09-30 20:53:22 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
 Main connection [MySQLi]: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
 [Method: POST, Route: login]
@@ -75,6 +80,9 @@ Stack trace:
 #10 C:\xampp\htdocs\pagina_web\pagina_web\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
 #11 {main}
 CRITICAL - 2024-09-30 20:54:10 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+=======
+CRITICAL - 2024-09-30 21:22:18 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+>>>>>>> ddc2f53f8d5485f6a1ea5517f9de428c3fc899a9
 Main connection [MySQLi]: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
 [Method: POST, Route: login]
 in SYSTEMPATH\Database\BaseConnection.php on line 467.
