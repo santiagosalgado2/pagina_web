@@ -193,4 +193,25 @@ class Users extends BaseController{
         
     }
 
+    public function changeUserview(){
+
+        return view("change_user");
+
+    }
+
+    public function change_user(){
+        $session=session();
+        $username=$this->request->getPost("username");
+
+        if($this->usersmodel->getUser(["nombre_usuario" => $username])){
+            echo "El nombre de usuario ya está en uso";
+        }else{
+            $this->usersmodel->updateData(["nombre_usuario" => $username],["ID_usuario" => $session->get("user_id")]);
+            $session->set("username", $username);
+            echo "Nombre de usuario cambiado correctamente";
+        }
+
+        echo '<br><br><a href="'.base_url("/").'">Volver al inicio</a>';
+    }
+
 }

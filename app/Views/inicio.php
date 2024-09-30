@@ -15,7 +15,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="<?php echo base_url("/css/style.css");?>">
 </head>
-<body class="p-3 mb-2 bg-primary-subtle text-primary-emphasis">
+<body class="p-3 mb-2 bg-primary-subtle text-primary-emphasis" style="cursor: crosshair">
 <nav class="navbar navbar-expand-lg fixed-top" style="  background: linear-gradient(135deg, #f72611,#faa72b);">
   <div class="container-fluid">
   <a class="navbar-brand" href="#" style="color: black;">
