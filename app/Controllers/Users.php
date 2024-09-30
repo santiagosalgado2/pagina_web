@@ -214,4 +214,28 @@ class Users extends BaseController{
         echo '<br><br><a href="'.base_url("/").'">Volver al inicio</a>';
     }
 
+    public function changeEmailview(){
+        return view("change_email");
+    }
+
+    public function changeEmail(){
+        $session=session();
+        $mail = $this->request->getPost("mail");
+
+        if($this->usersmodel->getUser(["email"=> $mail])){
+            echo "La dirección e-mail ya esta en uso";
+            echo '<br><br><a href="'.base_url("/").'">Volver al inicio</a>';
+        }else{
+            $code=\Config\Services::generateCode(); 
+
+            $this->verificationmodel->insertCode($session->get("user_id"),$code,"cambiar_mail");
+
+            $session->set("user_email", $mail);
+
+            return view("verification");
+
+
+        }
+    }
+
 }

@@ -26,3 +26,4 @@ $routes->get("/prueba","Home::viewPrueba");
 $routes->get("/sendIR","Esp32C::sendIR");
 $routes->get("/change_user","Users::changeUserview");
 $routes->post("/change_user/change","Users::change_user");
+$routes->get("change_email","Users::changeEmailview");

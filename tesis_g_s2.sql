@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 11-09-2024 a las 22:16:39
+-- Servidor: localhost
+-- Tiempo de generación: 30-09-2024 a las 23:47:20
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -65,34 +65,6 @@ CREATE TABLE `codigos_verificacion` (
   `fecha_expiracion` timestamp NOT NULL DEFAULT (current_timestamp() + interval 1 hour),
   `usado` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Volcado de datos para la tabla `codigos_verificacion`
---
-
-INSERT INTO `codigos_verificacion` (`ID_codigo`, `ID_usuario`, `codigo`, `tipo`, `fecha_creacion`, `fecha_expiracion`, `usado`) VALUES
-(1, 11, '366755', 'verificacion', '2024-08-30 18:15:28', '2024-08-30 19:15:28', 1),
-(2, 11, '164652', 'verificacion', '2024-08-30 18:34:00', '2024-08-30 19:34:00', 1),
-(3, 11, '935656', 'verificacion', '2024-08-30 18:36:02', '2024-08-30 19:36:02', 0),
-(4, 11, '141797', 'verificacion', '2024-08-30 18:36:17', '2024-08-30 19:36:17', 1),
-(5, 11, '545367', 'verificacion', '2024-08-30 18:36:44', '2024-08-30 19:36:44', 0),
-(6, 12, '372068', 'verificacion', '2024-08-30 22:35:56', '2024-08-30 23:35:56', 1),
-(7, 12, '837246', 'verificacion', '2024-08-30 22:38:24', '2024-08-30 23:38:24', 0),
-(8, 12, '999469', 'verificacion', '2024-08-30 22:39:04', '2024-08-30 23:39:04', 1),
-(9, 13, '724611', 'verificacion', '2024-09-03 01:21:59', '2024-09-03 02:21:59', 1),
-(10, 13, '761192', 'verificacion', '2024-09-03 01:22:38', '2024-09-03 02:22:38', 0),
-(11, 13, '262961', 'verificacion', '2024-09-03 01:22:58', '2024-09-03 02:22:58', 1),
-(12, 13, '147777', 'verificacion', '2024-09-03 02:08:51', '2024-09-03 03:08:51', 1),
-(13, 13, '562926', 'recuperar_contrasena', '2024-09-03 02:26:53', '2024-09-03 03:26:53', 1),
-(14, 13, '428911', 'recuperar_contrasena', '2024-09-03 02:27:51', '2024-09-03 03:27:51', 1),
-(15, 13, '731376', 'recuperar_contrasena', '2024-09-03 02:30:16', '2024-09-03 03:30:16', 1),
-(16, 13, '143680', 'recuperar_contrasena', '2024-09-03 02:32:37', '2024-09-03 03:32:37', 1),
-(17, 14, '433259', 'verificacion', '2024-09-03 14:47:06', '2024-09-03 15:47:06', 1),
-(18, 14, '108313', 'recuperar_contrasena', '2024-09-03 14:47:57', '2024-09-03 15:47:57', 1),
-(19, 14, '550808', 'recuperar_contrasena', '2024-09-03 14:52:46', '2024-09-03 15:52:46', 1),
-(20, 15, '514633', '', '2024-09-05 01:59:58', '2024-09-05 02:59:58', 0),
-(21, 15, '395070', 'verificacion', '2024-09-05 02:02:42', '2024-09-05 03:02:42', 1),
-(22, 14, '130694', 'recuperar_contrasena', '2024-09-09 16:47:34', '2024-09-09 17:47:34', 1);
 
 -- --------------------------------------------------------
 
@@ -172,10 +144,21 @@ CREATE TABLE `funciones` (
 CREATE TABLE `login_attemps` (
   `ID_login_attemp` int(11) NOT NULL,
   `ID_usuario` int(11) DEFAULT NULL,
-  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp(),
   `exitoso` tinyint(1) NOT NULL,
   `direccion_ip` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Volcado de datos para la tabla `login_attemps`
+--
+
+INSERT INTO `login_attemps` (`ID_login_attemp`, `ID_usuario`, `fecha`, `exitoso`, `direccion_ip`) VALUES
+(1, 4, '2024-09-25 20:41:44', 1, '::1'),
+(2, 4, '2024-09-25 20:42:49', 1, 'localhost'),
+(3, 4, '2024-09-25 20:43:28', 1, '::1'),
+(4, 4, '2024-09-30 20:54:32', 1, '::1'),
+(5, 4, '2024-09-30 21:15:13', 1, '::1');
 
 -- --------------------------------------------------------
 
@@ -194,7 +177,8 @@ CREATE TABLE `permisos` (
 --
 
 INSERT INTO `permisos` (`ID_permiso`, `nombre`, `descripcion`) VALUES
-(1, 'administrador', '-');
+(1, 'administrador', '-'),
+(2, 'profesor', '-');
 
 -- --------------------------------------------------------
 
@@ -232,7 +216,7 @@ CREATE TABLE `usuarios` (
   `email` varchar(100) NOT NULL,
   `hash_contrasena` varchar(128) DEFAULT NULL,
   `salt` varchar(100) DEFAULT NULL,
-  `fecha_creacion` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `fecha_creacion` timestamp NOT NULL DEFAULT current_timestamp(),
   `ID_permiso` int(11) NOT NULL,
   `ID_administrador` int(11) DEFAULT NULL,
   `verificado` tinyint(1) DEFAULT 0
@@ -243,12 +227,14 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`ID_usuario`, `nombre_usuario`, `email`, `hash_contrasena`, `salt`, `fecha_creacion`, `ID_permiso`, `ID_administrador`, `verificado`) VALUES
-(4, 'admin', 'admin@gmail.com', '$2y$10$CgcuFSF8TKd3ZYQzfjYpVOsl3SxRLkUibE0U21EujF1TG9jIvO9e.', NULL, '2024-08-30 17:29:40', 1, NULL, 1),
+(4, 'admin2', 'admin@gmail.com', '$2y$10$CgcuFSF8TKd3ZYQzfjYpVOsl3SxRLkUibE0U21EujF1TG9jIvO9e.', NULL, '2024-08-30 17:29:40', 1, NULL, 1),
 (5, 'user1', 'user@gmail.com', '$2y$10$OcAVcgVE23oFVYJwzgBYs.2bLIqO2Kpbh1/BZz3/22Aej1/OgIWfi', NULL, '2024-08-30 17:29:43', 1, NULL, 1),
 (8, 'gordo', 'abc@gmail.com', '$2y$10$5H.Zc44WYCZPP3cMZNMBfeC6Y2gOvxTUhQqGqfZm6ieSrUEDcKocu', NULL, '2024-08-30 17:29:46', 2, 4, 1),
-(9, 'santiagosalgado2', 'santiagosalgado@alumnos.itr3.edu.ar', '$2y$10$1.LHdqyuw363zhC77F5M0eco.ke9YCRVfyPbOeGWfaATA1wNdxpqK', NULL, '2024-08-30 17:29:48', 1, NULL, 1),
-(14, 'santiago', 'santiagosalgado2007@gmail.com', '$2y$10$qQddW8lvxmtk9OOlekjfhOduQhjYHy4XMPK6rfi74M4IKTfYyi3nW', NULL, '2024-09-09 16:47:54', 1, NULL, 1),
-(15, 'dobby', 'santisalgado33@gmail.com', '$2y$10$PLeV6zt0vzMIHM1.77g72Ojk.NF5XZdHE7fDf5AhsUrWiZA8GUpkq', NULL, '2024-09-05 02:02:55', 2, 4, 1);
+(9, 'santiagosalgado2', 'santiagosalgado@alumnos.itr3.edu.a', '$2y$10$dJuSm8A7xISYyCA.4Yaw7.bR/5uG6M5yVmJ3SudF12LQ2f3HxftsK', NULL, '2024-09-16 21:59:52', 1, NULL, 1),
+(16, 'santiago5', 'santisalgado33@gmail.co', '$2y$10$ZPZK7jH0exu0r6DYkDzpVuIrmlz8LYfpmUCGFEG/U2q3S9ESUDYPe', NULL, '2024-09-16 21:59:41', 2, 4, 1),
+(17, 'gordo3', 'santiagosalgado@alumnos.itr3.edu.ars', '$2y$10$66tqrAOMRA7Emf9/0q59Q.4Hbj2cwK9nrhcC7atZXcJ3j/QFncovW', NULL, '2024-09-16 22:02:36', 2, 4, 1),
+(20, 'santiago7', 'santiagosalgado@alumnos.itr3.edu.ar1', '$2y$10$dgtUdgvrH79c5N2Mj0Dl7eX.V5BJJB7Q22wCIKYPs6nB0QMVDYFJq', NULL, '2024-09-23 22:11:48', 2, 4, 1),
+(21, 'santiago9', 'santiagosalgado@alumnos.itr3.edu.ar', '$2y$10$J0VcREgN8CRAMEgRcpL1cOPrbiQMlYcNyY9D4Llu.kzFReHyVJh3C', NULL, '2024-09-25 20:17:11', 2, 4, 1);
 
 --
 -- Índices para tablas volcadas
@@ -328,7 +314,7 @@ ALTER TABLE `acceso_usuarios`
 -- AUTO_INCREMENT de la tabla `codigos_verificacion`
 --
 ALTER TABLE `codigos_verificacion`
-  MODIFY `ID_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `ID_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT de la tabla `dispositivos`
@@ -352,13 +338,13 @@ ALTER TABLE `funciones`
 -- AUTO_INCREMENT de la tabla `login_attemps`
 --
 ALTER TABLE `login_attemps`
-  MODIFY `ID_login_attemp` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_login_attemp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `permisos`
 --
 ALTER TABLE `permisos`
-  MODIFY `ID_permiso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID_permiso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `senalesir`
@@ -376,13 +362,16 @@ ALTER TABLE `tipo_dispositivos`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `ID_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `ID_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 DELIMITER $$
 --
 -- Eventos
 --
 CREATE DEFINER=`root`@`localhost` EVENT `borrar_codigos_expirados` ON SCHEDULE EVERY 1 HOUR STARTS '2024-08-30 13:42:37' ON COMPLETION NOT PRESERVE ENABLE DO DELETE FROM codigos_verificacion WHERE fecha_expiracion < CURRENT_TIMESTAMP()$$
+
+CREATE DEFINER=`root`@`localhost` EVENT `eliminar_codigos_expirados` ON SCHEDULE EVERY 1 HOUR STARTS '2024-09-13 15:04:46' ON COMPLETION NOT PRESERVE ENABLE DO DELETE FROM codigos_verificacion
+  WHERE fecha_expiracion < NOW()$$
 
 DELIMITER ;
 COMMIT;

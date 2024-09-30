@@ -98,17 +98,21 @@ class Verification extends BaseController{
         #SI SE ENCUENTRA EL CODIGO
         if($code){
 
-            if($code[0]['tipo']=="recuperar_contrasena"){
+            $this->objverification->updateCode(["ID_codigo" => $code[0]["ID_codigo"]]);
 
-                $this->objverification->updateCode(["ID_codigo" => $code[0]["ID_codigo"]]);
+            if($code[0]['tipo']=="recuperar_contrasena"){
 
                 return view("reset_pw");
 
                 #SI ES PARA REESTABLECER SU CONTRASEÑA, SE UPDATEA EL CODIGO (SE LO MARCA COMO QUE YA FUE USADO) Y SE LO RETORNA A LA VISTA
 
-            }else{
-                $this->objverification->updateCode(["ID_codigo" => $code[0]["ID_codigo"]]);
-
+            }elseif($code[0]["tipo"]== "cambiar_mail"){
+                $this->objusers->updateData(["email" => $session->get("user_email")],["ID_usuario" => $session->get("user_id")]);
+                echo "Direccion cambiada correctamente";
+            }
+            
+            else{
+                
                 $this->objusers->verifyUser($session->get("user_id"));
 
                 $session->set("verificado",true);
