@@ -3,9 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="<?php echo base_url("/css/estilog.css");?>">   
     <title>Document</title>
 </head>
 <body>
+
+    <div class="circulo"></div>
+    <div class="circulo"></div>
+    <div class="circulo"></div>
+    <div class="circulo"></div>
+
     <h1>Información de tus usuarios</h1>
 
     <h2> <a href="<?php echo base_url("/new_user");?>">Crear un nuevo usuario</a> </h2>
@@ -31,6 +38,7 @@
     <?php else:?>
         <h2>No tienes usuarios creados</h2>
     <?php endif;?>
+    <a href="<?php echo base_url("/");?>"><button>Volver</button></a>
 
 </body>
 </html>

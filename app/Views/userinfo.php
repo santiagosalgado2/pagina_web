@@ -13,6 +13,7 @@
     <div class="circulo"></div>
     <div class="circulo"></div>
     
+    
     <h1>Informacion de tu usuario</h1>
 
     <ul>
@@ -26,6 +27,7 @@
         <?php else:?>
         <li><b>Tipo de usuario: </b>Administrador</li>
         <?php endif;?>
+        <a href="<?php echo base_url("/");?>"><button>Volver</button></a>
 
 
 
