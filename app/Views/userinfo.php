@@ -17,7 +17,7 @@
     <h1>Informacion de tu usuario</h1>
 
     <ul>
-        <li><b>Nombre de usuario: </b><?php echo $data[0]["nombre_usuario"]; ?>   <a href=""><button>Cambiar</button></a></li>
+        <li><b>Nombre de usuario: </b><?php echo $data[0]["nombre_usuario"]; ?>   <a href="<?php echo base_url("/change_user"); ?>"><button>Cambiar</button></a></li>
         <li><b>Contraseña: </b>********  <a href=<?php echo base_url("/generate/recuperar_contrasena"); ?>><button>Reestablecer</button></a></li>
         <li><b>Dirección de e-mail: </b><?php echo $data[0]["email"]; ?></li>
         <li><b>Fecha de creación: </b><?php echo $data[0]["fecha_creacion"]; ?></li>

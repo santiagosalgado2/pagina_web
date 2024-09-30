@@ -61,5 +61,17 @@ class Usuarios extends Model{
 
     }
 
+    public function updateData($data,$condition){
+        $table=$this->db->table("usuarios");
+
+        $table->where($condition)->update($data);
+
+        if($this->db->affectedRows() > 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
    
 }
