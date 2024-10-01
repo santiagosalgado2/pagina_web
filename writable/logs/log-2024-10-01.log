@@ -1,0 +1,66 @@
+CRITICAL - 2024-10-01 20:28:09 --> ErrorException: file_get_contents(http://10.81.11.60/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
+[Method: GET, Route: sendIR]
+in APPPATH\Controllers\Esp32C.php on line 48.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(http://10.81.11.60/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Controllers\\Esp32C.php', 48)
+ 2 APPPATH\Controllers\Esp32C.php(48): file_get_contents('http://10.81.11.60/sendIR')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-01 20:28:30 --> ErrorException: file_get_contents(http://10.81.11.60/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
+[Method: GET, Route: sendIR]
+in APPPATH\Controllers\Esp32C.php on line 48.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(http://10.81.11.60/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Controllers\\Esp32C.php', 48)
+ 2 APPPATH\Controllers\Esp32C.php(48): file_get_contents('http://10.81.11.60/sendIR')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-01 20:28:50 --> ErrorException: file_get_contents(http://10.81.11.60/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
+[Method: GET, Route: sendIR]
+in APPPATH\Controllers\Esp32C.php on line 48.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(http://10.81.11.60/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Controllers\\Esp32C.php', 48)
+ 2 APPPATH\Controllers\Esp32C.php(48): file_get_contents('http://10.81.11.60/sendIR')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-01 20:28:50 --> ErrorException: file_get_contents(http://10.81.11.60/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
+[Method: GET, Route: sendIR]
+in APPPATH\Controllers\Esp32C.php on line 48.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(http://10.81.11.60/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Controllers\\Esp32C.php', 48)
+ 2 APPPATH\Controllers\Esp32C.php(48): file_get_contents('http://10.81.11.60/sendIR')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-01 20:28:51 --> ErrorException: file_get_contents(http://10.81.11.60/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
+[Method: GET, Route: sendIR]
+in APPPATH\Controllers\Esp32C.php on line 48.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(http://10.81.11.60/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Controllers\\Esp32C.php', 48)
+ 2 APPPATH\Controllers\Esp32C.php(48): file_get_contents('http://10.81.11.60/sendIR')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-01 20:28:51 --> ErrorException: file_get_contents(http://10.81.11.60/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
+[Method: GET, Route: sendIR]
+in APPPATH\Controllers\Esp32C.php on line 48.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(http://10.81.11.60/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Controllers\\Esp32C.php', 48)
+ 2 APPPATH\Controllers\Esp32C.php(48): file_get_contents('http://10.81.11.60/sendIR')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

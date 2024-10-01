@@ -42,7 +42,7 @@ class Esp32C extends BaseController{
     }
 
     public function sendIR() {
-        $esp32IP = '10.81.11.60'; // Cambia esto por la IP de tu ESP32
+        $esp32IP = '10.81.11.244'; // Cambia esto por la IP de tu ESP32
         $url = "http://$esp32IP/sendIR";
 
         $response = file_get_contents($url); // Envía la solicitud GET
