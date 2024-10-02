@@ -55,4 +55,8 @@ class Esp32C extends BaseController{
         }
     }
 
+    public function newEspview(){
+        return view('new_esp');
+    }
+
 }

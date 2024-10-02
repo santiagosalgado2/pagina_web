@@ -63,9 +63,13 @@
    
 
 <main>
-
+    
+    <?php if($permiso== 1):?>
+      <a href="<?php echo base_url("/new_esp"); ?>"><button>Añadir nuevo Esp32</button></a>
+    <?php endif;?>
     <?php if (isset($datos) && !empty($datos)): ?>
     <h2>Tus Esp disponibles</h2>
+    
     <ul>
         <?php foreach ($datos as $esp): ?>
             <li>
