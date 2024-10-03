@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class Esp32 extends Model
 {
-    protected $table = 'disp_esp32'; // Tabla base del modelo
+
 
     public function getEsp32byUser($id)
     {
@@ -33,6 +33,22 @@ class Esp32 extends Model
         $table->where(['e.ID_dispositivo'=> $esp,'u.ID_usuario'=> $user]);
 
         return $table->get()->getResultArray();
+
+    }
+
+    public function insertEsp($ip,$ubicacion,$id){
+
+        $table=$this->db->table("disp_esp32");
+
+        $table->insert([
+            "direccion_ip" => $ip,
+            "estado" => 1,
+            "ubicacion" => $ubicacion,
+            'ID_administrador' => $id
+
+        ]);
+
+        return $this->db->insertID();
 
     }
 }

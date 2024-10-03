@@ -6,8 +6,6 @@ use App\Models\Esp32;
 
 class Esp32C extends BaseController{
 
-    
-    
     public function devicesbyEsp(){
         
         $espmodel=new Esp32;
@@ -57,6 +55,59 @@ class Esp32C extends BaseController{
 
     public function newEspview(){
         return view('new_esp');
+    }
+
+    public function insertNewesp(){
+
+        $code = str_replace(':', '-', $this->request->getPost('code'));
+        $id = session()->get('user_id');
+        $mail=session()->get('user_email');
+        $location = $this->request->getPost('location');
+    
+        // Ruta del archivo CSV
+        $fileName = "{$code}.csv";
+        $filePath = WRITEPATH . 'data/' . $fileName;
+    
+        $data = [$code, $id, $mail, $location];
+    
+        $file = fopen($filePath, 'a');
+        if ($file) {
+            fputcsv($file, $data);
+            fclose($file);
+
+        } 
+
+        return view('esp_instructions.php');
+    }
+
+    public function receiveEsp(){
+
+        $mac=str_replace(':', '-', $this->request->getPost('macAddress'));
+
+        $ip = $this->request->getPost('ipAddress');
+
+        $ruta= WRITEPATH . 'data/' . $mac . '.csv';
+
+        $data = [];
+        if (($handle = fopen($ruta, 'r')) !== false) {
+            while (($row = fgetcsv($handle)) !== false) {
+                $data[] = $row;
+            }
+            fclose($handle);
+        }
+
+        list($dmac, $id, $mail, $location) = $data[0];
+
+        $espmodel = new Esp32();
+
+        $espid=$espmodel->insertEsp($ip,$location,$id);
+
+        if($espid){
+            \Config\Services::sendEmail($mail,"Dispositivo vinculado exitosamente","<h1>Su dispositivo fue vinculado con exito, vuelve al inicio de la pagina para poder configurarlo a gusto</h1>");
+        }else{
+            \Config\Services::sendEmail($mail,"Hubo un error al vincular tu esp","<h1>Eso flaco</h1>");
+        }
+
     }
 
 }

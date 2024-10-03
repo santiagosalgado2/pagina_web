@@ -28,3 +28,5 @@ $routes->get("/change_user","Users::changeUserview");
 $routes->post("/change_user/change","Users::change_user");
 $routes->get("change_email","Users::changeEmailview");
 $routes->get("/new_esp","Esp32C::newEspview");
+$routes->post("/new_esp/insert","Esp32C::insertNewesp");
+$routes->post("/new_esp/receive","Esp32C::receiveEsp");
