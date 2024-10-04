@@ -62,4 +62,30 @@ class Esp32 extends Model
 
         return $table->get()->getResultArray();
     }
+
+    public function getEsp32byCode($code){
+        $table = $this->db->table('disp_esp32');
+
+        $table->select('*');
+
+        $table->where(["codigo" => $code]);
+
+        return $table->get()->getResultArray();
+    }
+
+    public function updateEsp32data($data,$condition){
+
+        $table = $this->db->table('disp_esp32');
+
+        $table->where($condition);
+
+        $table->update($data);
+
+        if($this->db->affectedRows() > 0){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
 }

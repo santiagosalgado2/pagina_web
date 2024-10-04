@@ -104,7 +104,7 @@ class Esp32C extends BaseController{
 
         if($espid){
             \Config\Services::sendEmail($mail,"Dispositivo vinculado exitosamente","<h1>Su dispositivo fue vinculado con exito, vuelve al inicio de la pagina para poder configurarlo a gusto</h1>");
-            unlink($ruta);
+            
         }else{
             \Config\Services::sendEmail($mail,"Hubo un error al vincular tu esp","<h1>Eso flaco</h1>");
         }
