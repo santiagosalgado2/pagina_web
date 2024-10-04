@@ -18,7 +18,7 @@
 <body class="p-3 mb-2 bg-primary-subtle text-primary-emphasis">
 <nav class="navbar navbar-expand-lg fixed-top" style="  background: linear-gradient(135deg, #f72611,#faa72b);">
   <div class="container-fluid">
-  <a class="navbar-brand" href="#" style="color: black;">
+  <a class="navbar-brand" href="<?php echo base_url("/") ;?>" style="color: black;">
       <img src="<?php echo base_url("/img/logo.png") ;?>" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
       Nombre_pagina
     </a>
