@@ -59,7 +59,7 @@ class Esp32C extends BaseController{
 
     public function insertNewesp(){
 
-        $code = str_replace(':', '-', $this->request->getPost('code'));
+        $code = $this->request->getPost('code');
         $id = session()->get('user_id');
         $mail=session()->get('user_email');
         $location = $this->request->getPost('location');
@@ -82,11 +82,11 @@ class Esp32C extends BaseController{
 
     public function receiveEsp(){
 
-        $mac=str_replace(':', '-', $this->request->getPost('macAddress'));
+        $code= $this->request->getPost('code');
 
         $ip = $this->request->getPost('ipAddress');
 
-        $ruta= WRITEPATH . 'data/' . $mac . '.csv';
+        $ruta= WRITEPATH . 'data/' . $code . '.csv';
 
         $data = [];
         if (($handle = fopen($ruta, 'r')) !== false) {
@@ -96,14 +96,15 @@ class Esp32C extends BaseController{
             fclose($handle);
         }
 
-        list($dmac, $id, $mail, $location) = $data[0];
+        list($vcode, $id, $mail, $location) = $data[0];
 
         $espmodel = new Esp32();
 
-        $espid=$espmodel->insertEsp($ip,$location,$id);
+        $espid=$espmodel->insertEsp($ip,$location,$id,$vcode);
 
         if($espid){
             \Config\Services::sendEmail($mail,"Dispositivo vinculado exitosamente","<h1>Su dispositivo fue vinculado con exito, vuelve al inicio de la pagina para poder configurarlo a gusto</h1>");
+            unlink($ruta);
         }else{
             \Config\Services::sendEmail($mail,"Hubo un error al vincular tu esp","<h1>Eso flaco</h1>");
         }

@@ -36,7 +36,7 @@ class Esp32 extends Model
 
     }
 
-    public function insertEsp($ip,$ubicacion,$id){
+    public function insertEsp($ip,$ubicacion,$id,$code){
 
         $table=$this->db->table("disp_esp32");
 
@@ -44,11 +44,22 @@ class Esp32 extends Model
             "direccion_ip" => $ip,
             "estado" => 1,
             "ubicacion" => $ubicacion,
-            'ID_administrador' => $id
+            'ID_administrador' => $id,
+            'codigo' => $code
 
         ]);
 
         return $this->db->insertID();
 
+    }
+
+    public function getEsp32byAdmin($id){
+        $table = $this->db->table('disp_esp32');
+
+        $table->select('*');
+
+        $table->where(["ID_administrador" => $id]);
+
+        return $table->get()->getResultArray();
     }
 }
