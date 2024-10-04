@@ -59,7 +59,7 @@ class Esp32C extends BaseController{
 
     public function insertNewesp(){
 
-        $code = str_replace(':', '-', $this->request->getPost('code'));
+        $code = $this->request->getPost('code');
         $id = session()->get('user_id');
         $mail=session()->get('user_email');
         $location = $this->request->getPost('location');
@@ -82,11 +82,11 @@ class Esp32C extends BaseController{
 
     public function receiveEsp(){
 
-        $mac=str_replace(':', '-', $this->request->getPost('macAddress'));
+        $code= $this->request->getPost('code');
 
         $ip = $this->request->getPost('ipAddress');
 
-        $ruta= WRITEPATH . 'data/' . $mac . '.csv';
+        $ruta= WRITEPATH . 'data/' . $code . '.csv';
 
         $data = [];
         if (($handle = fopen($ruta, 'r')) !== false) {
