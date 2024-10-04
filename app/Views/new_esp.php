@@ -12,15 +12,15 @@
     <div class="circulo"></div>
     <div class="circulo"></div>
     <div class="circulo"></div>
-    
+    <center>
     <form method="post" action="<?php echo base_url("/new_esp/insert"); ?>">
-
-        <input type="text" name="code">Ingrese el código ubicado en la caja de la Esp32
-        <br><br>
-        <input type="text" name="location">Ingrese la ubicacion donde estara el dispositivo
-
-        <br><br><input type="submit" value="Enviar">
-
-    </form>
+            <div class="mb-3">
+                <input type="text" name="code">Ingrese el código ubicado en la caja de la Esp32
+                <br><br>
+                <input type="text" name="location">Ingrese la ubicacion donde estara el dispositivo
+                <br><br><input type="submit" value="Enviar">
+            </div>
+        </form>
+    </center>
 </body>
 </html>
