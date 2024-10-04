@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 30-09-2024 a las 23:47:20
+-- Tiempo de generación: 04-10-2024 a las 23:54:13
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -60,7 +60,7 @@ CREATE TABLE `codigos_verificacion` (
   `ID_codigo` int(11) NOT NULL,
   `ID_usuario` int(11) NOT NULL,
   `codigo` varchar(10) DEFAULT NULL,
-  `tipo` enum('verificacion','recuperar_contrasena','crear_contrasena') NOT NULL,
+  `tipo` enum('verificacion','recuperar_contrasena','crear_contrasena','cambiar_mail') NOT NULL,
   `fecha_creacion` timestamp NOT NULL DEFAULT current_timestamp(),
   `fecha_expiracion` timestamp NOT NULL DEFAULT (current_timestamp() + interval 1 hour),
   `usado` tinyint(1) DEFAULT 0
@@ -110,19 +110,24 @@ CREATE TABLE `disp_esp32` (
   `ID_dispositivo` int(11) NOT NULL,
   `direccion_ip` varchar(45) NOT NULL,
   `estado` tinyint(1) NOT NULL,
-  `ubicacion` varchar(100) NOT NULL
+  `ubicacion` varchar(100) NOT NULL,
+  `ID_administrador` int(11) NOT NULL,
+  `codigo` varchar(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Volcado de datos para la tabla `disp_esp32`
 --
 
-INSERT INTO `disp_esp32` (`ID_dispositivo`, `direccion_ip`, `estado`, `ubicacion`) VALUES
-(1, '192.168.0.10', 1, 'Aula 101'),
-(2, '192.168.0.11', 1, 'Aula 102'),
-(3, '192.168.0.12', 1, 'Laboratorio'),
-(4, '192.168.0.13', 1, 'Sala de profesores'),
-(5, '192.168.0.14', 1, 'Biblioteca');
+INSERT INTO `disp_esp32` (`ID_dispositivo`, `direccion_ip`, `estado`, `ubicacion`, `ID_administrador`, `codigo`) VALUES
+(1, '192.168.0.10', 1, 'Aula 101', 4, ''),
+(2, '192.168.0.11', 1, 'Aula 102', 9, ''),
+(3, '192.168.0.12', 1, 'Laboratorio', 9, ''),
+(4, '192.168.0.13', 1, 'Sala de profesores', 0, ''),
+(5, '192.168.0.14', 1, 'Biblioteca', 0, ''),
+(6, '10.81.11.242', 1, 'aula 2', 4, ''),
+(7, '10.81.11.242', 1, 'aula 3', 4, ''),
+(8, '10.81.11.242', 1, 'Habitación 1', 9, '8lIsgR9J');
 
 -- --------------------------------------------------------
 
@@ -158,7 +163,20 @@ INSERT INTO `login_attemps` (`ID_login_attemp`, `ID_usuario`, `fecha`, `exitoso`
 (2, 4, '2024-09-25 20:42:49', 1, 'localhost'),
 (3, 4, '2024-09-25 20:43:28', 1, '::1'),
 (4, 4, '2024-09-30 20:54:32', 1, '::1'),
-(5, 4, '2024-09-30 21:15:13', 1, '::1');
+(5, 4, '2024-09-30 21:15:13', 1, '::1'),
+(6, NULL, '2024-10-01 22:48:10', 0, '::1'),
+(7, NULL, '2024-10-01 22:48:16', 0, '::1'),
+(8, NULL, '2024-10-01 22:48:20', 0, '::1'),
+(9, NULL, '2024-10-01 22:49:18', 0, '::1'),
+(10, NULL, '2024-10-01 23:04:14', 0, '::1'),
+(11, 4, '2024-10-01 23:04:51', 1, '::1'),
+(12, 4, '2024-10-02 18:52:13', 1, '::1'),
+(13, 4, '2024-10-02 18:56:46', 0, '::1'),
+(14, 4, '2024-10-02 18:56:52', 1, '::1'),
+(15, 4, '2024-10-02 19:00:31', 1, '::1'),
+(16, 4, '2024-10-04 17:24:28', 1, '::1'),
+(17, 9, '2024-10-04 17:53:14', 0, '::1'),
+(18, 9, '2024-10-04 17:53:19', 1, '::1');
 
 -- --------------------------------------------------------
 
@@ -230,11 +248,10 @@ INSERT INTO `usuarios` (`ID_usuario`, `nombre_usuario`, `email`, `hash_contrasen
 (4, 'admin2', 'admin@gmail.com', '$2y$10$CgcuFSF8TKd3ZYQzfjYpVOsl3SxRLkUibE0U21EujF1TG9jIvO9e.', NULL, '2024-08-30 17:29:40', 1, NULL, 1),
 (5, 'user1', 'user@gmail.com', '$2y$10$OcAVcgVE23oFVYJwzgBYs.2bLIqO2Kpbh1/BZz3/22Aej1/OgIWfi', NULL, '2024-08-30 17:29:43', 1, NULL, 1),
 (8, 'gordo', 'abc@gmail.com', '$2y$10$5H.Zc44WYCZPP3cMZNMBfeC6Y2gOvxTUhQqGqfZm6ieSrUEDcKocu', NULL, '2024-08-30 17:29:46', 2, 4, 1),
-(9, 'santiagosalgado2', 'santiagosalgado@alumnos.itr3.edu.a', '$2y$10$dJuSm8A7xISYyCA.4Yaw7.bR/5uG6M5yVmJ3SudF12LQ2f3HxftsK', NULL, '2024-09-16 21:59:52', 1, NULL, 1),
+(9, 'santiagosalgado2', 'santiagosalgado@alumnos.itr3.edu.ar', '$2y$10$dJuSm8A7xISYyCA.4Yaw7.bR/5uG6M5yVmJ3SudF12LQ2f3HxftsK', NULL, '2024-09-16 21:59:52', 1, NULL, 1),
 (16, 'santiago5', 'santisalgado33@gmail.co', '$2y$10$ZPZK7jH0exu0r6DYkDzpVuIrmlz8LYfpmUCGFEG/U2q3S9ESUDYPe', NULL, '2024-09-16 21:59:41', 2, 4, 1),
 (17, 'gordo3', 'santiagosalgado@alumnos.itr3.edu.ars', '$2y$10$66tqrAOMRA7Emf9/0q59Q.4Hbj2cwK9nrhcC7atZXcJ3j/QFncovW', NULL, '2024-09-16 22:02:36', 2, 4, 1),
-(20, 'santiago7', 'santiagosalgado@alumnos.itr3.edu.ar1', '$2y$10$dgtUdgvrH79c5N2Mj0Dl7eX.V5BJJB7Q22wCIKYPs6nB0QMVDYFJq', NULL, '2024-09-23 22:11:48', 2, 4, 1),
-(21, 'santiago9', 'santiagosalgado@alumnos.itr3.edu.ar', '$2y$10$J0VcREgN8CRAMEgRcpL1cOPrbiQMlYcNyY9D4Llu.kzFReHyVJh3C', NULL, '2024-09-25 20:17:11', 2, 4, 1);
+(20, 'santiago7', 'santiagosalgado@alumnos.itr3.edu.ar1', '$2y$10$dgtUdgvrH79c5N2Mj0Dl7eX.V5BJJB7Q22wCIKYPs6nB0QMVDYFJq', NULL, '2024-09-23 22:11:48', 2, 4, 1);
 
 --
 -- Índices para tablas volcadas
@@ -314,7 +331,7 @@ ALTER TABLE `acceso_usuarios`
 -- AUTO_INCREMENT de la tabla `codigos_verificacion`
 --
 ALTER TABLE `codigos_verificacion`
-  MODIFY `ID_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `ID_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT de la tabla `dispositivos`
@@ -326,7 +343,7 @@ ALTER TABLE `dispositivos`
 -- AUTO_INCREMENT de la tabla `disp_esp32`
 --
 ALTER TABLE `disp_esp32`
-  MODIFY `ID_dispositivo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID_dispositivo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `funciones`
@@ -338,7 +355,7 @@ ALTER TABLE `funciones`
 -- AUTO_INCREMENT de la tabla `login_attemps`
 --
 ALTER TABLE `login_attemps`
-  MODIFY `ID_login_attemp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID_login_attemp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `permisos`

@@ -311,3 +311,151 @@ in APPPATH\Controllers\Esp32C.php on line 92.
  6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
  7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-10-04 21:44:00 --> mysqli_sql_exception: MySQL server has gone away in C:\xampp\htdocs\pagina_web\pagina_web\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\pagina_web\pagina_web\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `d`.`nom...', 0)
+#1 C:\xampp\htdocs\pagina_web\pagina_web\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `d`.`nom...')
+#2 C:\xampp\htdocs\pagina_web\pagina_web\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `d`.`nom...')
+#3 C:\xampp\htdocs\pagina_web\pagina_web\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `d`.`nom...', Array, false)
+#4 C:\xampp\htdocs\pagina_web\pagina_web\app\Models\Esp32.php(35): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\pagina_web\pagina_web\app\Controllers\Esp32C.php(19): App\Models\Esp32->getDevicesbyEsp('8 ', '9')
+#6 C:\xampp\htdocs\pagina_web\pagina_web\system\CodeIgniter.php(933): App\Controllers\Esp32C->devicesbyEsp()
+#7 C:\xampp\htdocs\pagina_web\pagina_web\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+#8 C:\xampp\htdocs\pagina_web\pagina_web\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\pagina_web\pagina_web\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\pagina_web\pagina_web\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\pagina_web\pagina_web\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2024-10-04 21:44:00 --> CodeIgniter\Database\Exceptions\DatabaseException: MySQL server has gone away
+[Method: POST, Route: esp32]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `d`.`nombre`
+FROM `dispositivos` `d`
+JOIN `disp_esp32` `e` ON `e`.`ID_dispositivo`=`d`.`ID_esp32`
+JOIN `acceso_usuarios` `au` ON `au`.`ID_dispositivo`=`d`.`ID_dispositivo`
+JOIN `usuarios` `u` ON `u`.`ID_usuario`=`au`.`ID_usuario`
+WHERE `e`.`ID_dispositivo` = :e.ID_dispositivo:
+AND `u`.`ID_usuario` = :u.ID_usuario:', [...], false)
+ 2 APPPATH\Models\Esp32.php(35): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Esp32C.php(19): App\Models\Esp32->getDevicesbyEsp('8 ', '9')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->devicesbyEsp()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-04 21:44:00 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: MySQL server has gone away
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `d`.`nombre`
+FROM `dispositivos` `d`
+JOIN `disp_esp32` `e` ON `e`.`ID_dispositivo`=`d`.`ID_esp32`
+JOIN `acceso_usuarios` `au` ON `au`.`ID_dispositivo`=`d`.`ID_dispositivo`
+JOIN `usuarios` `u` ON `u`.`ID_usuario`=`au`.`ID_usuario`
+WHERE `e`.`ID_dispositivo` = \'8 \'
+AND `u`.`ID_usuario` = \'9\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `d`.`nombre`
+FROM `dispositivos` `d`
+JOIN `disp_esp32` `e` ON `e`.`ID_dispositivo`=`d`.`ID_esp32`
+JOIN `acceso_usuarios` `au` ON `au`.`ID_dispositivo`=`d`.`ID_dispositivo`
+JOIN `usuarios` `u` ON `u`.`ID_usuario`=`au`.`ID_usuario`
+WHERE `e`.`ID_dispositivo` = \'8 \'
+AND `u`.`ID_usuario` = \'9\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `d`.`nombre`
+FROM `dispositivos` `d`
+JOIN `disp_esp32` `e` ON `e`.`ID_dispositivo`=`d`.`ID_esp32`
+JOIN `acceso_usuarios` `au` ON `au`.`ID_dispositivo`=`d`.`ID_dispositivo`
+JOIN `usuarios` `u` ON `u`.`ID_usuario`=`au`.`ID_usuario`
+WHERE `e`.`ID_dispositivo` = :e.ID_dispositivo:
+AND `u`.`ID_usuario` = :u.ID_usuario:', [...], false)
+ 4 APPPATH\Models\Esp32.php(35): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Esp32C.php(19): App\Models\Esp32->getDevicesbyEsp('8 ', '9')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->devicesbyEsp()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-04 21:44:00 --> [Caused by] mysqli_sql_exception: MySQL server has gone away
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `d`.`nombre`
+FROM `dispositivos` `d`
+JOIN `disp_esp32` `e` ON `e`.`ID_dispositivo`=`d`.`ID_esp32`
+JOIN `acceso_usuarios` `au` ON `au`.`ID_dispositivo`=`d`.`ID_dispositivo`
+JOIN `usuarios` `u` ON `u`.`ID_usuario`=`au`.`ID_usuario`
+WHERE `e`.`ID_dispositivo` = \'8 \'
+AND `u`.`ID_usuario` = \'9\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `d`.`nombre`
+FROM `dispositivos` `d`
+JOIN `disp_esp32` `e` ON `e`.`ID_dispositivo`=`d`.`ID_esp32`
+JOIN `acceso_usuarios` `au` ON `au`.`ID_dispositivo`=`d`.`ID_dispositivo`
+JOIN `usuarios` `u` ON `u`.`ID_usuario`=`au`.`ID_usuario`
+WHERE `e`.`ID_dispositivo` = \'8 \'
+AND `u`.`ID_usuario` = \'9\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `d`.`nombre`
+FROM `dispositivos` `d`
+JOIN `disp_esp32` `e` ON `e`.`ID_dispositivo`=`d`.`ID_esp32`
+JOIN `acceso_usuarios` `au` ON `au`.`ID_dispositivo`=`d`.`ID_dispositivo`
+JOIN `usuarios` `u` ON `u`.`ID_usuario`=`au`.`ID_usuario`
+WHERE `e`.`ID_dispositivo` = \'8 \'
+AND `u`.`ID_usuario` = \'9\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `d`.`nombre`
+FROM `dispositivos` `d`
+JOIN `disp_esp32` `e` ON `e`.`ID_dispositivo`=`d`.`ID_esp32`
+JOIN `acceso_usuarios` `au` ON `au`.`ID_dispositivo`=`d`.`ID_dispositivo`
+JOIN `usuarios` `u` ON `u`.`ID_usuario`=`au`.`ID_usuario`
+WHERE `e`.`ID_dispositivo` = :e.ID_dispositivo:
+AND `u`.`ID_usuario` = :u.ID_usuario:', [...], false)
+ 5 APPPATH\Models\Esp32.php(35): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Esp32C.php(19): App\Models\Esp32->getDevicesbyEsp('8 ', '9')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->devicesbyEsp()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-10-04 21:44:07 --> Error connecting to the database: mysqli_sql_exception: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión in C:\xampp\htdocs\pagina_web\pagina_web\system\Database\MySQLi\Connection.php:186
+Stack trace:
+#0 C:\xampp\htdocs\pagina_web\pagina_web\system\Database\MySQLi\Connection.php(186): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'tesis_g_s2', 3306, '', 0)
+#1 C:\xampp\htdocs\pagina_web\pagina_web\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\pagina_web\pagina_web\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\pagina_web\pagina_web\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\pagina_web\pagina_web\app\Models\Esp32.php(63): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\pagina_web\pagina_web\app\Controllers\Home.php(27): App\Models\Esp32->getEsp32byAdmin('9')
+#6 C:\xampp\htdocs\pagina_web\pagina_web\system\CodeIgniter.php(933): App\Controllers\Home->index()
+#7 C:\xampp\htdocs\pagina_web\pagina_web\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\xampp\htdocs\pagina_web\pagina_web\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\pagina_web\pagina_web\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\pagina_web\pagina_web\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\pagina_web\pagina_web\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión in C:\xampp\htdocs\pagina_web\pagina_web\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\pagina_web\pagina_web\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\pagina_web\pagina_web\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\pagina_web\pagina_web\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\pagina_web\pagina_web\app\Models\Esp32.php(63): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\pagina_web\pagina_web\app\Controllers\Home.php(27): App\Models\Esp32->getEsp32byAdmin('9')
+#5 C:\xampp\htdocs\pagina_web\pagina_web\system\CodeIgniter.php(933): App\Controllers\Home->index()
+#6 C:\xampp\htdocs\pagina_web\pagina_web\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#7 C:\xampp\htdocs\pagina_web\pagina_web\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pagina_web\pagina_web\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\pagina_web\pagina_web\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\pagina_web\pagina_web\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2024-10-04 21:44:07 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 467.
+ 1 SYSTEMPATH\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `disp_esp32`
+WHERE `ID_administrador` = :ID_administrador:', [...], false)
+ 3 APPPATH\Models\Esp32.php(63): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH\Controllers\Home.php(27): App\Models\Esp32->getEsp32byAdmin('9')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
