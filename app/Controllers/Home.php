@@ -21,7 +21,12 @@ class Home extends BaseController
 
         if($session->get("verificado")){ #VERIFICA SI EL USUARIO ESTA VERIFICADO Y HA INICIADO SESIÓN
             $obj=new Esp32(); #INSTANCIA EL MODELO DE ESP32 PARA BUSCAR LOS DISPOSITIVOS A LOS QUE TIENE ACCESO EL USUARIO
-            $datos=$obj->getEsp32byUser($session->get("user_id"));
+            if($session->get('tipo')==2){
+                $datos=$obj->getEsp32byUser($session->get("user_id"));
+            }else{
+                $datos=$obj->getEsp32byAdmin($session->get("user_id"));
+            }
+            
             return view("inicio", ["datos" => $datos]); #ENVIA LOS DATOS A LA VISTA 'INICIO' CON LOS ESP A LOS QUE TIENE ACCESO EL USUARIO
         }else{
             return view('login'); #EN CASO DE QUE EL USUARIO NO HAYA INICIADO SESION, LO ENVIA AL LOGIN
