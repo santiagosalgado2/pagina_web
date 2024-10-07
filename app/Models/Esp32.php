@@ -73,7 +73,7 @@ class Esp32 extends Model
         return $table->get()->getResultArray();
     }
 
-    public function updateEsp32data($data,$condition){
+    public function updateEsp32($data,$condition){
 
         $table = $this->db->table('disp_esp32');
 
