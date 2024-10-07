@@ -89,25 +89,48 @@ class Esp32C extends BaseController{
         $ruta= WRITEPATH . 'data/' . $code . '.csv';
 
         $data = [];
-        if (($handle = fopen($ruta, 'r')) !== false) {
-            while (($row = fgetcsv($handle)) !== false) {
-                $data[] = $row;
-            }
-            fclose($handle);
-        }
-
-        list($vcode, $id, $mail, $location) = $data[0];
 
         $espmodel = new Esp32();
 
-        $espid=$espmodel->insertEsp($ip,$location,$id,$vcode);
-
-        if($espid){
-            \Config\Services::sendEmail($mail,"Dispositivo vinculado exitosamente","<h1>Su dispositivo fue vinculado con exito, vuelve al inicio de la pagina para poder configurarlo a gusto</h1>");
+        if(file_exists($ruta)){
+            if (($handle = fopen($ruta, 'r')) !== false) {
+                while (($row = fgetcsv($handle)) !== false) {
+                    $data[] = $row;
+                }
+                fclose($handle);
+            }
+    
+            list($vcode, $id, $mail, $location) = $data[0];
+    
             
+    
+            $espid=$espmodel->insertEsp($ip,$location,$id,$vcode);
+    
+            if($espid){
+                \Config\Services::sendEmail($mail,"Dispositivo vinculado exitosamente","<h1>Su dispositivo fue vinculado con exito, vuelve al inicio de la pagina para poder configurarlo a gusto</h1>");
+                
+            }else{
+                \Config\Services::sendEmail($mail,"Hubo un error al vincular tu esp","<h1>Eso flaco</h1>");
+            }
+
+            unlink($ruta);
         }else{
-            \Config\Services::sendEmail($mail,"Hubo un error al vincular tu esp","<h1>Eso flaco</h1>");
+
+            $esp=$espmodel->getEsp32byCode($code);
+
+            if($esp[0]['direccion_ip']!==$ip){
+
+                $update=$espmodel->updateEsp32(['direccion_ip' => $ip],['codigo' => $code]);
+
+                return 'Ip cambiada en la bd '.$ip;
+
+            }else{
+                return 'Nada para hacer';
+            }
+
         }
+
+        
 
     }
 
