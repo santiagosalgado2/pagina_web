@@ -17,14 +17,15 @@
     <div class="circulo"></div>
     <div class="circulo"></div>
 
-    <h1>Digite el codigo enviado a su direccion email</h1>
+        <h1>Digite el codigo enviado a su direccion email</h1>
+    <center>
+        <form action="<?php echo base_url("/verification");?>" method="post">
 
-    <form action="<?php echo base_url("/verification");?>" method="post">
+            <input type="text" name="code" required>
 
-        <input type="text" name="code" required>
+            <input type="submit" value="Enviar">
 
-        <input type="submit" value="Enviar">
-
-    </form>
+        </form>
+    </center>
 </body>
 </html>
