@@ -1,0 +1,12 @@
+CRITICAL - 2024-10-07 22:07:13 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "change_email.php"
+[Method: GET, Route: change_email]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('change_email.php')
+ 2 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('change_email', [], true)
+ 3 APPPATH\Controllers\Users.php(218): view('change_email')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Users->changeEmailview()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

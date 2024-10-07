@@ -17,17 +17,89 @@ $session=session();
     <div class="circulo"></div>
     <div class="circulo"></div>
 
-    <h1>Ingrese una nueva contraseña</h1>
 
+    <div class="form-container">
+    <h1>Reestablecer contraseña</h1>
+    <div class="mb-3">
     <form action="<?php echo base_url("/change"); ?>" method="post">
 
-        <input type="password" name="password" placeholder="Contraseña">
+        <span class="textos">Ingresa tu nueva contraseña</span><input type="password" name="password">
 
-        <input type="password" name="pw-confirm" placeholder="Confirmar contraseña">
+        <span class="textos">Confirma tu nueva contraseña</span><input type="password" name="pw-confirm" >
 
         <input type="submit" value="Cambiar">
-
+    </div>
     </form>
+    </div>
 
+
+    <style>
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Altura completa de la ventana */
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f3f3f3; /* Color de fondo suave */
+}
+
+.form-container {
+    background: rgba(211, 64, 64, 0.849);; /* Fondo blanco rojizo */
+    padding: 40px; /* Más padding para un diseño espacioso */
+    border-radius: 12px; /* Bordes más redondeados */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+    width: 500px; /* Ajuste del ancho */
+    border: 2px solid #ff9999; /* Borde suave */
+}
+
+.mb-3 input[type="password"] {
+    width: 100%; /* Ocupa el ancho completo */
+    padding: 14px; /* Más espaciado interno */
+    margin: 15px 0; /* Mayor espaciado entre elementos */
+    border: 1px solid #bbb; /* Borde gris claro */
+    background: rgba(255, 255, 255, .1); /* Fondo translúcido */
+    border-radius: 6px; /* Bordes más redondeados */
+    font-size: 16px; /* Tamaño de fuente */
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+    transition: border-color 0.3s ease; /* Transición suave del borde */
+    color: #333; /* Color del texto */
+}
+
+.mb-3 input[type="password"]:focus {
+    border-color: #888; /* Cambio de color de borde al enfocar */
+    outline: none; /* Quitar borde por defecto */
+}
+
+.mb-3 input[type="submit"] {
+    width: 100%; /* El botón ocupa el mismo ancho que los campos */
+    padding: 14px; /* Espaciado interno */
+    margin: 15px 0; /* Espaciado entre elementos */
+    background-color: #ff4d4d; /* Color rojo más fuerte */
+    color: black; /* Texto blanco */
+    border: none; /* Sin borde */
+    border-radius: 6px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de fuente */
+    cursor: pointer; /* Cambiar cursor */
+    transition: background-color 0.3s ease; /* Transición suave del color */
+}
+
+.mb-3 input[type="submit"]:hover {
+    background-color: #cc0000; /* Color rojo más oscuro al pasar el mouse */
+}
+
+.textos {
+    font-size: larger;
+    font-weight: 600;
+}
+
+h1 {
+    padding-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    
+}
+</style>
 </body>
 </html>
