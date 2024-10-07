@@ -30,9 +30,7 @@
             <a href="<?php echo base_url("/");?>"><button>Volver</button></a>
 
 
-
-
         </ul>
-    </center>       
+        </center>
 </body>
 </html>
