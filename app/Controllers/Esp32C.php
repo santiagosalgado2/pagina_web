@@ -16,7 +16,11 @@ class Esp32C extends BaseController{
 
         $user_id =$session->get("user_id");
 
+        $esp=$espmodel->getEsp32($esp_id);
+
         $datos=$espmodel->getDevicesbyEsp($esp_id,$user_id);
+
+        $session->set('esp_ip',$esp[0]['direccion_ip']);
 
         return view("devices",["datos"=>$datos]);
 
@@ -134,6 +138,10 @@ class Esp32C extends BaseController{
         } else {
             echo $response; // Muestra la respuesta de la ESP32
         }
+    }
+
+    public function control_view(){
+        return view('tele2');
     }
 
 }

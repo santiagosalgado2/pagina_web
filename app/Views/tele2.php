@@ -1,3 +1,10 @@
+<?php
+$session=session();
+
+$ip=$session->get('esp_ip');
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,9 +16,18 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="<?php echo base_url("/css/styletv.css");?>">
+    <link rel="stylesheet" href="<?php echo base_url("/css/estilog.css");?>">
+
 </head>
 
 <body>
+
+    <div class="circulo"></div>
+    <div class="circulo"></div>
+    <div class="circulo"></div>
+    <div class="circulo"></div>
+
+
     <!--container-->
     <div class="container">
         <div class="d-flex flex-row justify-content-between px-3 py-4 align-items-center">
@@ -22,7 +38,7 @@
 
         <div class="d-flex flex-row justify-content-center">
             <div class="menu-grid">
-                <div class="d-flex flex-column align-items-center">
+                <div class="d-flex flex-column align-items-center" onclick="sendData('gordo')">
                     <i class="fas fa-power-off active"></i>
                     <span class="label">Power</span>
                 </div>
@@ -106,6 +122,20 @@
     </div>
 </div>
     </div>
+
+
+
+    <script>
+    function sendData(command) {
+        // Aquí puedes realizar lo que necesites con el dato, como enviar a un servidor
+        console.log("Comando enviado:", command);
+    }
+    </script>
+
+
+
+
+
 </body>
 
 </html>

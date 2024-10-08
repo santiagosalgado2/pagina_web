@@ -30,3 +30,4 @@ $routes->get("change_email","Users::changeEmailview");
 $routes->get("/new_esp","Esp32C::newEspview");
 $routes->post("/new_esp/insert","Esp32C::insertNewesp");
 $routes->post("/new_esp/receive","Esp32C::receiveEsp");
+$routes->get('/prueba_control',"Esp32C::control_view");
