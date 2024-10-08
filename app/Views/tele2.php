@@ -38,15 +38,15 @@ $ip=$session->get('esp_ip');
 
         <div class="d-flex flex-row justify-content-center">
             <div class="menu-grid">
-                <div class="d-flex flex-column align-items-center" onclick="sendData('gordo')">
+                <div class="d-flex flex-column align-items-center" onclick="enviarIR('0xC','0x1000C','<?php echo $ip;?>')">
                     <i class="fas fa-power-off active"></i>
                     <span class="label">Power</span>
                 </div>
-                <div class="d-flex flex-column align-items-center">
+                <div class="d-flex flex-column align-items-center" onclick="enviarIR('0x38','0x10038','<?php echo $ip;?>')">
                     <i class="fas fa-sign-in-alt"></i>
                     <span class="label">Input</span>
                 </div>
-                <div class="d-flex flex-column align-items-center">
+                <div class="d-flex flex-column align-items-center" onclick="enviarIR('0x40','0x10040','<?php echo $ip;?>')">
                     <i class="fas fa-cog"></i>
                     <span class="label">Control</span>
                 </div>
@@ -126,10 +126,36 @@ $ip=$session->get('esp_ip');
 
 
     <script>
-    function sendData(command) {
-        // Aquí puedes realizar lo que necesites con el dato, como enviar a un servidor
-        console.log("Comando enviado:", command);
-    }
+   function enviarIR(signal1, signal2, ip) {
+            // Crea un cuerpo de la solicitud con las dos señales
+            const data = new URLSearchParams();
+            data.append('signal1', signal1);
+            data.append('signal2', signal2);
+            data.append('ip', ip);
+
+            // Realiza la solicitud fetch al controlador en CodeIgniter
+            fetch('http://localhost/pagina_web/pagina_web/public/sendIR', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: data
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error en la respuesta del servidor: ' + response.status);
+                }
+                return response.text();
+            })
+            .then(data => {
+                console.log(data); // Muestra la respuesta en la consola
+                alert(data); // Muestra una alerta con la respuesta
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error: ' + error.message); // Alerta más informativa
+            });
+        }
     </script>
 
 

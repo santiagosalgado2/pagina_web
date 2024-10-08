@@ -127,16 +127,28 @@ class Esp32C extends BaseController{
     }
 
     public function sendIR() {
-        $esp32IP = '10.81.11.233'; // Cambia esto por la IP de tu ESP32
+        $esp32IP = $this->request->getPost('ip');// Cambia esto por la IP de tu ESP32
         $url = "http://$esp32IP/sendIR";
+        $signal1 = $this->request->getPost('signal1');
+        $signal2 = $this->request->getPost('signal2');
 
-        $response = file_get_contents($url); // Envía la solicitud GET
+        echo $esp32IP;
 
-        if ($response === FALSE) {
-        // Manejo del error
-            echo "Error al enviar la solicitud.";
+        $client = \Config\Services::curlrequest();
+
+        // Envía ambas señales a la ESP32
+        $response = $client->post($url, [
+            'form_params' => [
+                'signal1' => $signal1,
+                'signal2' => $signal2
+            ]
+        ]);
+
+        // Verifica que la solicitud haya sido exitosa
+        if ($response->getStatusCode() === 200) {
+            return $this->response->setStatusCode(200)->setBody('Señales enviadas correctamente.');
         } else {
-            echo $response; // Muestra la respuesta de la ESP32
+            return $this->response->setStatusCode(500)->setBody('Error al enviar las señales.');
         }
     }
 

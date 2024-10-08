@@ -23,7 +23,7 @@ $routes->get("/showUsers","Users::showUsers");
 $routes->post("/esp32","Esp32C::devicesbyEsp");
 $routes->get("userInfo","Users::viewUserinfo");
 $routes->get("/prueba","Home::viewPrueba");
-$routes->get("/sendIR","Esp32C::sendIR");
+$routes->post("/sendIR","Esp32C::sendIR");
 $routes->get("/change_user","Users::changeUserview");
 $routes->post("/change_user/change","Users::change_user");
 $routes->get("change_email","Users::changeEmailview");
