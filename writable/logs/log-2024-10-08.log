@@ -1,3 +1,33 @@
+<<<<<<< HEAD
+CRITICAL - 2024-10-08 19:34:23 --> ErrorException: Undefined variable $permiso
+[Method: GET, Route: userInfo]
+in APPPATH\Views\userinfo.php on line 40.
+ 1 APPPATH\Views\userinfo.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $permiso', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\userinfo.php', 40)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\userinfo.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('userinfo', [], true)
+ 5 APPPATH\Controllers\Users.php(191): view('userinfo', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Users->viewUserinfo()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 19:41:09 --> ErrorException: Undefined variable $permiso
+[Method: POST, Route: esp32]
+in APPPATH\Views\devices.php on line 45.
+ 1 APPPATH\Views\devices.php(45): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $permiso', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\devices.php', 45)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\devices.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('devices', [], true)
+ 5 APPPATH\Controllers\Esp32C.php(21): view('devices', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->devicesbyEsp()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+=======
 ERROR - 2024-10-08 19:18:34 --> Error connecting to the database: mysqli_sql_exception: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión in C:\xampp\htdocs\pagina_web\pagina_web\system\Database\MySQLi\Connection.php:186
 Stack trace:
 #0 C:\xampp\htdocs\pagina_web\pagina_web\system\Database\MySQLi\Connection.php(186): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'tesis_g_s2', 3306, '', 0)
@@ -44,6 +74,7 @@ WHERE `nombre_usuario` = :nombre_usuario:', [...], false)
  8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
  9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
 10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
 CRITICAL - 2024-10-08 21:41:30 --> ErrorException: Undefined array key "direccion_ip"
 [Method: POST, Route: esp32]
 in APPPATH\Controllers\Esp32C.php on line 21.
@@ -54,3 +85,6 @@ in APPPATH\Controllers\Esp32C.php on line 21.
  5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
  6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+=======
+>>>>>>> 7f05d0aef27443d9722e8e81791919f10bc480e6
+>>>>>>> a6fb969dba892234f79d54a659a70e19745c9ee0
