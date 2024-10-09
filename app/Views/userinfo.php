@@ -66,7 +66,7 @@
     <center>
     <div class="container">
         <h1>Informacion de tu usuario</h1>
-            <ul>
+            <ul class="info">
                 <li><b>Nombre de usuario: </b><?php echo $data[0]["nombre_usuario"]; ?>   <a href="<?php echo base_url("/change_user"); ?>"><button class="button2">Cambiar</button></a></li>
                 <li><b>Contraseña: </b>********  <a href=<?php echo base_url("/generate/recuperar_contrasena"); ?>><button class="button2">Reestablecer</button></a></li>
                 <li><b>Dirección de e-mail: </b><?php echo $data[0]["email"]; ?>   <a href="<?php echo base_url("/change_email"); ?>"></a></li>
@@ -91,10 +91,17 @@
         font-family: Arial, sans-serif;
         background-color: #f3f3f3; /* Color de fondo suave */
         }
-        ul{
+        .info{
             list-style-position: inside;
+            font-size: 25px;
             
         }
+
+        h1{
+          font-size: 40px;
+          text-align: justify;
+        }
+
         .container{
             max-width: 100%;
             max-height: 100vh; /* Altura máxima no mayor al 100% del viewport */
@@ -103,7 +110,7 @@
             padding: 40px; /* Más padding para un diseño espacioso */
             border-radius: 12px; /* Bordes más redondeados */
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
-            width: 600px; /* Ajuste del ancho */
+            width: 700px; /* Ajuste del ancho */
             border: 2px solid #ff9999; /* Borde suave */
             font-size: 18px;
         }
@@ -129,6 +136,7 @@
             background: #e8e8e8;
             border: 1px solid #e8e8e8;
             box-shadow: 1,5px 1,5px 4px #c5c5c5, 0px 0px 3px #ffffff;
+            margin-left: 17px;
   
         }
 
