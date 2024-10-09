@@ -92,7 +92,7 @@ $ip=$session->get('esp_ip');
             <i class="fas fa-caret-right position-absolute control-icon right"></i>
             <i class="fas fa-caret-right position-absolute control-icon bottom"></i>
             <i class="fas fa-caret-right position-absolute control-icon left"></i>
-            <i class="fas fa-caret-right position-absolute control-icon top"></i>
+            <i class="fas fa-caret-right position-absolute control-icon top" onclick="enviarIR('0x40','0x10040','<?php echo $ip;?>')"></i>
         </div>
 
         <div class="d-flex flex-row justify-content-between mt-5 pt-4 px-3">
