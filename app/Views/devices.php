@@ -66,7 +66,7 @@
     <br><br><br><h1>Dispositivos disponibles con el esp seleccionado</h1>
 
     <?php if($session->get('tipo')==1): ?>
-    <a href="<?php echo base_url("/new_esp");?>"><button>Vincular nuevo dispositivo</button></a>
+    <a href="<?php echo base_url("/new_esp");?>"><button class="button2">Vincular nuevo dispositivo</button></a>
     <?php endif;?>
     <?php if(isset($datos) && !empty($datos)):?>
 
@@ -83,8 +83,8 @@
         <tr>
             <td><?php echo $d["nombre"];?> </td>
             <td>
-                <a href="<?php echo base_url('/prueba_control');?>"><button>Controlar</button></a>
-                <button>Editar</button>
+                <a href="<?php echo base_url('/prueba_control');?>"><button class="button2">Controlar</button></a>
+                <button class="button2">Editar</button>
         
             </td>
         </tr>
@@ -97,7 +97,78 @@
 
     <p>No hay dispositivos vinculados a este esp32</p>
     <?php endif;?>
-    <a href="<?php echo base_url("/");?>"><button>Volver</button></a>
+    <a href="<?php echo base_url("/");?>"><button class="button2">Volver</button></a>
+
+    <style>
+      .button2 {
+            display: inline-block;
+            transition: all 0.2s ease-in;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            color: #090909;
+            padding: 0.2em 0,5em;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 0.5em;
+            background: #e8e8e8;
+            border: 1px solid #e8e8e8;
+            box-shadow: 1,5px 1,5px 4px #c5c5c5, 0px 0px 3px #ffffff;
+  
+        }
+
+        .button2:active {
+            color: #666;
+            box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+        }
+
+        .button2:before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%) scaleY(1) scaleX(1.25);
+            top: 100%;
+            width: 140%;
+            height: 180%;
+            background-color: rgba(0, 0, 0, 0.05);
+            border-radius: 50%;
+            display: block;
+            transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+            z-index: -1;
+        }
+
+        .button2:after {
+            content: "";
+            position: absolute;
+            left: 55%;
+            transform: translateX(-50%) scaleY(1) scaleX(1.45);
+            top: 180%;
+            width: 160%;
+            height: 190%;
+            background-color: #fa8560;
+            border-radius: 50%;
+            display: block;
+            transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+            z-index: -1;
+        }
+
+        .button2:hover {
+            color: #ffffff;
+            border: 1px solid #fa8560;
+        }
+
+        .button2:hover:before {
+            top: -35%;
+            background-color: #fa8560;
+            transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+        }
+
+        .button2:hover:after {
+            top: -45%;
+            background-color: #fa8560;
+            transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+        }
+    </style>
     
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>   
 </body>
