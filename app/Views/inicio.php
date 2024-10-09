@@ -58,14 +58,14 @@
   </div>
 </nav>
     
-    <br><h1 style="margin-top: 40px;">Bienvenido <?php echo $session->get("username");?></h1>
+    <h1 style="margin-top: 40px;">Bienvenido <?php echo $session->get("username");?></h1>
 
    
 
 <main>
     
     <?php if($permiso== 1):?>
-      <a href="<?php echo base_url("/new_esp"); ?>"><button class="button1">Añadir nuevo Esp32</button></a>
+      <a href="<?php echo base_url("/new_esp"); ?>"><button class="button2">Añadir nuevo Esp32</button></a>
     <?php endif;?>
     <?php if (isset($datos) && !empty($datos)): ?>
     <h2>Tus Esp disponibles</h2>
@@ -77,7 +77,7 @@
 
                 <input type="hidden" name="esp_id" value="<?php echo $esp["ID_dispositivo"];?> ">
 
-                <button type="submit" > <?php  echo $esp["ubicacion"];?> </button>
+                <button class="button2" type="submit" > <?php  echo $esp["ubicacion"];?> </button>
 
               </form>
             </li>
@@ -94,7 +94,7 @@
 
 
 <style>
- button {
+ .button2 {
   margin: 2px;
  width: 9em;
  height: 3em;
@@ -108,7 +108,7 @@
  box-shadow: 1,5px 1,5px 4px #c5c5c5, 0px 0px 3px #ffffff;
 }
 
-button::before {
+.button2::before {
  content: '';
  width: 0;
  height: 3em;
@@ -122,7 +122,7 @@ button::before {
  z-index: -1;
 }
 
-button:hover::before {
+.button2:hover::before {
  width: 9em;
 }
 </style>
