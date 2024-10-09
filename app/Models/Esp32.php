@@ -88,4 +88,14 @@ class Esp32 extends Model
         }
 
     }
+
+    public function getEsp32($id){
+        $table = $this->db->table('disp_esp32');
+
+        $table->select('*');
+
+        $table->where(["ID_dispositivo" => $id]);
+
+        return $table->get()->getResultArray();
+    }
 }

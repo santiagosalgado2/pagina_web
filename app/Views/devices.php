@@ -83,7 +83,7 @@
         <tr>
             <td><?php echo $d["nombre"];?> </td>
             <td>
-                <button>Controlar</button>
+                <a href="<?php echo base_url('/prueba_control');?>"><button>Controlar</button></a>
                 <button>Editar</button>
         
             </td>

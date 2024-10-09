@@ -74,4 +74,643 @@ WHERE `nombre_usuario` = :nombre_usuario:', [...], false)
  8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
  9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
 10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+<<<<<<< HEAD
+CRITICAL - 2024-10-08 21:41:30 --> ErrorException: Undefined array key "direccion_ip"
+[Method: POST, Route: esp32]
+in APPPATH\Controllers\Esp32C.php on line 21.
+ 1 APPPATH\Controllers\Esp32C.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "direccion_ip"', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Controllers\\Esp32C.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->devicesbyEsp()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+=======
 >>>>>>> 7f05d0aef27443d9722e8e81791919f10bc480e6
+>>>>>>> a6fb969dba892234f79d54a659a70e19745c9ee0
+CRITICAL - 2024-10-08 22:10:08 --> ErrorException: file_get_contents(http://192.168.0.10/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
+[Method: POST, Route: sendIR]
+in APPPATH\Controllers\Esp32C.php on line 135.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(http://192.168.0.10/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Controllers\\Esp32C.php', 135)
+ 2 APPPATH\Controllers\Esp32C.php(135): file_get_contents('http://192.168.0.10/sendIR')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:10:29 --> ErrorException: file_get_contents(http://192.168.0.10/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
+[Method: POST, Route: sendIR]
+in APPPATH\Controllers\Esp32C.php on line 135.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(http://192.168.0.10/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Controllers\\Esp32C.php', 135)
+ 2 APPPATH\Controllers\Esp32C.php(135): file_get_contents('http://192.168.0.10/sendIR')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:10:50 --> ErrorException: file_get_contents(http://192.168.0.10/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
+[Method: POST, Route: sendIR]
+in APPPATH\Controllers\Esp32C.php on line 135.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(http://192.168.0.10/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Controllers\\Esp32C.php', 135)
+ 2 APPPATH\Controllers\Esp32C.php(135): file_get_contents('http://192.168.0.10/sendIR')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:11:43 --> ErrorException: file_get_contents(http://192.168.0.10/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
+[Method: POST, Route: sendIR]
+in APPPATH\Controllers\Esp32C.php on line 135.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(http://192.168.0.10/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Controllers\\Esp32C.php', 135)
+ 2 APPPATH\Controllers\Esp32C.php(135): file_get_contents('http://192.168.0.10/sendIR')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:12:04 --> ErrorException: file_get_contents(http://192.168.0.10/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
+[Method: POST, Route: sendIR]
+in APPPATH\Controllers\Esp32C.php on line 135.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(http://192.168.0.10/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Controllers\\Esp32C.php', 135)
+ 2 APPPATH\Controllers\Esp32C.php(135): file_get_contents('http://192.168.0.10/sendIR')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:12:41 --> ErrorException: file_get_contents(http://192.168.0.10/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
+[Method: POST, Route: sendIR]
+in APPPATH\Controllers\Esp32C.php on line 135.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(http://192.168.0.10/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Controllers\\Esp32C.php', 135)
+ 2 APPPATH\Controllers\Esp32C.php(135): file_get_contents('http://192.168.0.10/sendIR')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:13:02 --> ErrorException: file_get_contents(http://192.168.0.10/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
+[Method: POST, Route: sendIR]
+in APPPATH\Controllers\Esp32C.php on line 135.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(http://192.168.0.10/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Controllers\\Esp32C.php', 135)
+ 2 APPPATH\Controllers\Esp32C.php(135): file_get_contents('http://192.168.0.10/sendIR')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:13:23 --> ErrorException: file_get_contents(http://192.168.0.10/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
+[Method: POST, Route: sendIR]
+in APPPATH\Controllers\Esp32C.php on line 135.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(http://192.168.0.10/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Controllers\\Esp32C.php', 135)
+ 2 APPPATH\Controllers\Esp32C.php(135): file_get_contents('http://192.168.0.10/sendIR')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:13:44 --> ErrorException: file_get_contents(http://192.168.0.10/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
+[Method: POST, Route: sendIR]
+in APPPATH\Controllers\Esp32C.php on line 135.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(http://192.168.0.10/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Controllers\\Esp32C.php', 135)
+ 2 APPPATH\Controllers\Esp32C.php(135): file_get_contents('http://192.168.0.10/sendIR')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:14:05 --> ErrorException: file_get_contents(http://192.168.0.10/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
+[Method: POST, Route: sendIR]
+in APPPATH\Controllers\Esp32C.php on line 135.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(http://192.168.0.10/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Controllers\\Esp32C.php', 135)
+ 2 APPPATH\Controllers\Esp32C.php(135): file_get_contents('http://192.168.0.10/sendIR')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:14:26 --> ErrorException: Maximum execution time of 120 seconds exceeded
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\Debug\Exceptions.php on line 209.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-10-08 22:14:47 --> ErrorException: Maximum execution time of 120 seconds exceeded
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\Debug\Exceptions.php on line 209.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-10-08 22:15:08 --> ErrorException: file_get_contents(http://192.168.0.10/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
+[Method: POST, Route: sendIR]
+in APPPATH\Controllers\Esp32C.php on line 135.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(http://192.168.0.10/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Controllers\\Esp32C.php', 135)
+ 2 APPPATH\Controllers\Esp32C.php(135): file_get_contents('http://192.168.0.10/sendIR')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:15:08 --> ErrorException: Maximum execution time of 120 seconds exceeded
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\Debug\Exceptions.php on line 209.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-10-08 22:15:29 --> ErrorException: file_get_contents(http://192.168.0.10/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
+[Method: POST, Route: sendIR]
+in APPPATH\Controllers\Esp32C.php on line 135.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(http://192.168.0.10/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Controllers\\Esp32C.php', 135)
+ 2 APPPATH\Controllers\Esp32C.php(135): file_get_contents('http://192.168.0.10/sendIR')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:15:50 --> ErrorException: file_get_contents(http://192.168.0.10/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
+[Method: POST, Route: sendIR]
+in APPPATH\Controllers\Esp32C.php on line 135.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(http://192.168.0.10/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Controllers\\Esp32C.php', 135)
+ 2 APPPATH\Controllers\Esp32C.php(135): file_get_contents('http://192.168.0.10/sendIR')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:16:11 --> ErrorException: file_get_contents(http://192.168.0.10/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
+[Method: POST, Route: sendIR]
+in APPPATH\Controllers\Esp32C.php on line 135.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(http://192.168.0.10/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Controllers\\Esp32C.php', 135)
+ 2 APPPATH\Controllers\Esp32C.php(135): file_get_contents('http://192.168.0.10/sendIR')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:16:33 --> ErrorException: file_get_contents(http://192.168.0.10/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
+[Method: POST, Route: sendIR]
+in APPPATH\Controllers\Esp32C.php on line 135.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(http://192.168.0.10/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Controllers\\Esp32C.php', 135)
+ 2 APPPATH\Controllers\Esp32C.php(135): file_get_contents('http://192.168.0.10/sendIR')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:16:54 --> ErrorException: file_get_contents(http://192.168.0.10/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
+[Method: POST, Route: sendIR]
+in APPPATH\Controllers\Esp32C.php on line 135.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(http://192.168.0.10/sendIR): Failed to open stream: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Controllers\\Esp32C.php', 135)
+ 2 APPPATH\Controllers\Esp32C.php(135): file_get_contents('http://192.168.0.10/sendIR')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:17:15 --> ErrorException: Maximum execution time of 120 seconds exceeded
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\Debug\Exceptions.php on line 209.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-10-08 22:17:36 --> ErrorException: Maximum execution time of 120 seconds exceeded
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\Debug\Exceptions.php on line 209.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-10-08 22:17:57 --> ErrorException: Maximum execution time of 120 seconds exceeded
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\Debug\Exceptions.php on line 209.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-10-08 22:17:59 --> CodeIgniter\HTTP\Exceptions\HTTPException: 6 : Could not resolve host: sendIR
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\HTTP\CURLRequest.php on line 694.
+ 1 SYSTEMPATH\HTTP\CURLRequest.php(694): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('6', 'Could not resolve host: sendIR')
+ 2 SYSTEMPATH\HTTP\CURLRequest.php(383): CodeIgniter\HTTP\CURLRequest->sendRequest([...])
+ 3 SYSTEMPATH\HTTP\CURLRequest.php(152): CodeIgniter\HTTP\CURLRequest->send('POST', 'http:///sendIR')
+ 4 SYSTEMPATH\HTTP\CURLRequest.php(227): CodeIgniter\HTTP\CURLRequest->request('POST', 'http:///sendIR', [...])
+ 5 APPPATH\Controllers\Esp32C.php(139): CodeIgniter\HTTP\CURLRequest->post('http:///sendIR', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:18:02 --> CodeIgniter\HTTP\Exceptions\HTTPException: 6 : Could not resolve host: sendIR
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\HTTP\CURLRequest.php on line 694.
+ 1 SYSTEMPATH\HTTP\CURLRequest.php(694): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('6', 'Could not resolve host: sendIR')
+ 2 SYSTEMPATH\HTTP\CURLRequest.php(383): CodeIgniter\HTTP\CURLRequest->sendRequest([...])
+ 3 SYSTEMPATH\HTTP\CURLRequest.php(152): CodeIgniter\HTTP\CURLRequest->send('POST', 'http:///sendIR')
+ 4 SYSTEMPATH\HTTP\CURLRequest.php(227): CodeIgniter\HTTP\CURLRequest->request('POST', 'http:///sendIR', [...])
+ 5 APPPATH\Controllers\Esp32C.php(139): CodeIgniter\HTTP\CURLRequest->post('http:///sendIR', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:18:05 --> CodeIgniter\HTTP\Exceptions\HTTPException: 6 : Could not resolve host: sendIR
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\HTTP\CURLRequest.php on line 694.
+ 1 SYSTEMPATH\HTTP\CURLRequest.php(694): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('6', 'Could not resolve host: sendIR')
+ 2 SYSTEMPATH\HTTP\CURLRequest.php(383): CodeIgniter\HTTP\CURLRequest->sendRequest([...])
+ 3 SYSTEMPATH\HTTP\CURLRequest.php(152): CodeIgniter\HTTP\CURLRequest->send('POST', 'http:///sendIR')
+ 4 SYSTEMPATH\HTTP\CURLRequest.php(227): CodeIgniter\HTTP\CURLRequest->request('POST', 'http:///sendIR', [...])
+ 5 APPPATH\Controllers\Esp32C.php(139): CodeIgniter\HTTP\CURLRequest->post('http:///sendIR', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:18:08 --> CodeIgniter\HTTP\Exceptions\HTTPException: 6 : Could not resolve host: sendIR
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\HTTP\CURLRequest.php on line 694.
+ 1 SYSTEMPATH\HTTP\CURLRequest.php(694): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('6', 'Could not resolve host: sendIR')
+ 2 SYSTEMPATH\HTTP\CURLRequest.php(383): CodeIgniter\HTTP\CURLRequest->sendRequest([...])
+ 3 SYSTEMPATH\HTTP\CURLRequest.php(152): CodeIgniter\HTTP\CURLRequest->send('POST', 'http:///sendIR')
+ 4 SYSTEMPATH\HTTP\CURLRequest.php(227): CodeIgniter\HTTP\CURLRequest->request('POST', 'http:///sendIR', [...])
+ 5 APPPATH\Controllers\Esp32C.php(139): CodeIgniter\HTTP\CURLRequest->post('http:///sendIR', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:18:10 --> CodeIgniter\HTTP\Exceptions\HTTPException: 6 : Could not resolve host: sendIR
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\HTTP\CURLRequest.php on line 694.
+ 1 SYSTEMPATH\HTTP\CURLRequest.php(694): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('6', 'Could not resolve host: sendIR')
+ 2 SYSTEMPATH\HTTP\CURLRequest.php(383): CodeIgniter\HTTP\CURLRequest->sendRequest([...])
+ 3 SYSTEMPATH\HTTP\CURLRequest.php(152): CodeIgniter\HTTP\CURLRequest->send('POST', 'http:///sendIR')
+ 4 SYSTEMPATH\HTTP\CURLRequest.php(227): CodeIgniter\HTTP\CURLRequest->request('POST', 'http:///sendIR', [...])
+ 5 APPPATH\Controllers\Esp32C.php(139): CodeIgniter\HTTP\CURLRequest->post('http:///sendIR', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:18:18 --> ErrorException: Maximum execution time of 120 seconds exceeded
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\Debug\Exceptions.php on line 209.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-10-08 22:18:39 --> ErrorException: Maximum execution time of 120 seconds exceeded
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\Debug\Exceptions.php on line 209.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-10-08 22:19:00 --> ErrorException: Maximum execution time of 120 seconds exceeded
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\Debug\Exceptions.php on line 209.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-10-08 22:19:21 --> ErrorException: Maximum execution time of 120 seconds exceeded
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\Debug\Exceptions.php on line 209.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-10-08 22:19:42 --> ErrorException: Maximum execution time of 120 seconds exceeded
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\Debug\Exceptions.php on line 209.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-10-08 22:24:03 --> CodeIgniter\HTTP\Exceptions\HTTPException: 28 : Failed to connect to 192.168.0.10 port 80 after 21034 ms: Couldn't connect to server
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\HTTP\CURLRequest.php on line 694.
+ 1 SYSTEMPATH\HTTP\CURLRequest.php(694): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('28', 'Failed to connect to 192.168.0.10 port 80 after 21034 ms: Couldn\'t connect to server')
+ 2 SYSTEMPATH\HTTP\CURLRequest.php(383): CodeIgniter\HTTP\CURLRequest->sendRequest([...])
+ 3 SYSTEMPATH\HTTP\CURLRequest.php(152): CodeIgniter\HTTP\CURLRequest->send('POST', 'http://192.168.0.10/sendIR')
+ 4 SYSTEMPATH\HTTP\CURLRequest.php(227): CodeIgniter\HTTP\CURLRequest->request('POST', 'http://192.168.0.10/sendIR', [...])
+ 5 APPPATH\Controllers\Esp32C.php(139): CodeIgniter\HTTP\CURLRequest->post('http://192.168.0.10/sendIR', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:24:07 --> CodeIgniter\HTTP\Exceptions\HTTPException: 28 : Failed to connect to 192.168.0.10 port 80 after 21049 ms: Couldn't connect to server
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\HTTP\CURLRequest.php on line 694.
+ 1 SYSTEMPATH\HTTP\CURLRequest.php(694): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('28', 'Failed to connect to 192.168.0.10 port 80 after 21049 ms: Couldn\'t connect to server')
+ 2 SYSTEMPATH\HTTP\CURLRequest.php(383): CodeIgniter\HTTP\CURLRequest->sendRequest([...])
+ 3 SYSTEMPATH\HTTP\CURLRequest.php(152): CodeIgniter\HTTP\CURLRequest->send('POST', 'http://192.168.0.10/sendIR')
+ 4 SYSTEMPATH\HTTP\CURLRequest.php(227): CodeIgniter\HTTP\CURLRequest->request('POST', 'http://192.168.0.10/sendIR', [...])
+ 5 APPPATH\Controllers\Esp32C.php(139): CodeIgniter\HTTP\CURLRequest->post('http://192.168.0.10/sendIR', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:24:08 --> CodeIgniter\HTTP\Exceptions\HTTPException: 28 : Failed to connect to 192.168.0.10 port 80 after 21045 ms: Couldn't connect to server
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\HTTP\CURLRequest.php on line 694.
+ 1 SYSTEMPATH\HTTP\CURLRequest.php(694): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('28', 'Failed to connect to 192.168.0.10 port 80 after 21045 ms: Couldn\'t connect to server')
+ 2 SYSTEMPATH\HTTP\CURLRequest.php(383): CodeIgniter\HTTP\CURLRequest->sendRequest([...])
+ 3 SYSTEMPATH\HTTP\CURLRequest.php(152): CodeIgniter\HTTP\CURLRequest->send('POST', 'http://192.168.0.10/sendIR')
+ 4 SYSTEMPATH\HTTP\CURLRequest.php(227): CodeIgniter\HTTP\CURLRequest->request('POST', 'http://192.168.0.10/sendIR', [...])
+ 5 APPPATH\Controllers\Esp32C.php(139): CodeIgniter\HTTP\CURLRequest->post('http://192.168.0.10/sendIR', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:24:09 --> CodeIgniter\HTTP\Exceptions\HTTPException: 28 : Failed to connect to 192.168.0.10 port 80 after 21034 ms: Couldn't connect to server
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\HTTP\CURLRequest.php on line 694.
+ 1 SYSTEMPATH\HTTP\CURLRequest.php(694): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('28', 'Failed to connect to 192.168.0.10 port 80 after 21034 ms: Couldn\'t connect to server')
+ 2 SYSTEMPATH\HTTP\CURLRequest.php(383): CodeIgniter\HTTP\CURLRequest->sendRequest([...])
+ 3 SYSTEMPATH\HTTP\CURLRequest.php(152): CodeIgniter\HTTP\CURLRequest->send('POST', 'http://192.168.0.10/sendIR')
+ 4 SYSTEMPATH\HTTP\CURLRequest.php(227): CodeIgniter\HTTP\CURLRequest->request('POST', 'http://192.168.0.10/sendIR', [...])
+ 5 APPPATH\Controllers\Esp32C.php(139): CodeIgniter\HTTP\CURLRequest->post('http://192.168.0.10/sendIR', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:24:10 --> CodeIgniter\HTTP\Exceptions\HTTPException: 28 : Failed to connect to 192.168.0.10 port 80 after 21034 ms: Couldn't connect to server
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\HTTP\CURLRequest.php on line 694.
+ 1 SYSTEMPATH\HTTP\CURLRequest.php(694): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('28', 'Failed to connect to 192.168.0.10 port 80 after 21034 ms: Couldn\'t connect to server')
+ 2 SYSTEMPATH\HTTP\CURLRequest.php(383): CodeIgniter\HTTP\CURLRequest->sendRequest([...])
+ 3 SYSTEMPATH\HTTP\CURLRequest.php(152): CodeIgniter\HTTP\CURLRequest->send('POST', 'http://192.168.0.10/sendIR')
+ 4 SYSTEMPATH\HTTP\CURLRequest.php(227): CodeIgniter\HTTP\CURLRequest->request('POST', 'http://192.168.0.10/sendIR', [...])
+ 5 APPPATH\Controllers\Esp32C.php(139): CodeIgniter\HTTP\CURLRequest->post('http://192.168.0.10/sendIR', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:24:10 --> CodeIgniter\HTTP\Exceptions\HTTPException: 28 : Failed to connect to 192.168.0.10 port 80 after 21050 ms: Couldn't connect to server
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\HTTP\CURLRequest.php on line 694.
+ 1 SYSTEMPATH\HTTP\CURLRequest.php(694): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('28', 'Failed to connect to 192.168.0.10 port 80 after 21050 ms: Couldn\'t connect to server')
+ 2 SYSTEMPATH\HTTP\CURLRequest.php(383): CodeIgniter\HTTP\CURLRequest->sendRequest([...])
+ 3 SYSTEMPATH\HTTP\CURLRequest.php(152): CodeIgniter\HTTP\CURLRequest->send('POST', 'http://192.168.0.10/sendIR')
+ 4 SYSTEMPATH\HTTP\CURLRequest.php(227): CodeIgniter\HTTP\CURLRequest->request('POST', 'http://192.168.0.10/sendIR', [...])
+ 5 APPPATH\Controllers\Esp32C.php(139): CodeIgniter\HTTP\CURLRequest->post('http://192.168.0.10/sendIR', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:24:24 --> CodeIgniter\HTTP\Exceptions\HTTPException: 28 : Failed to connect to 192.168.0.10 port 80 after 21034 ms: Couldn't connect to server
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\HTTP\CURLRequest.php on line 694.
+ 1 SYSTEMPATH\HTTP\CURLRequest.php(694): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('28', 'Failed to connect to 192.168.0.10 port 80 after 21034 ms: Couldn\'t connect to server')
+ 2 SYSTEMPATH\HTTP\CURLRequest.php(383): CodeIgniter\HTTP\CURLRequest->sendRequest([...])
+ 3 SYSTEMPATH\HTTP\CURLRequest.php(152): CodeIgniter\HTTP\CURLRequest->send('POST', 'http://192.168.0.10/sendIR')
+ 4 SYSTEMPATH\HTTP\CURLRequest.php(227): CodeIgniter\HTTP\CURLRequest->request('POST', 'http://192.168.0.10/sendIR', [...])
+ 5 APPPATH\Controllers\Esp32C.php(139): CodeIgniter\HTTP\CURLRequest->post('http://192.168.0.10/sendIR', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:24:28 --> CodeIgniter\HTTP\Exceptions\HTTPException: 28 : Failed to connect to 192.168.0.10 port 80 after 21053 ms: Couldn't connect to server
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\HTTP\CURLRequest.php on line 694.
+ 1 SYSTEMPATH\HTTP\CURLRequest.php(694): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('28', 'Failed to connect to 192.168.0.10 port 80 after 21053 ms: Couldn\'t connect to server')
+ 2 SYSTEMPATH\HTTP\CURLRequest.php(383): CodeIgniter\HTTP\CURLRequest->sendRequest([...])
+ 3 SYSTEMPATH\HTTP\CURLRequest.php(152): CodeIgniter\HTTP\CURLRequest->send('POST', 'http://192.168.0.10/sendIR')
+ 4 SYSTEMPATH\HTTP\CURLRequest.php(227): CodeIgniter\HTTP\CURLRequest->request('POST', 'http://192.168.0.10/sendIR', [...])
+ 5 APPPATH\Controllers\Esp32C.php(139): CodeIgniter\HTTP\CURLRequest->post('http://192.168.0.10/sendIR', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:24:29 --> CodeIgniter\HTTP\Exceptions\HTTPException: 28 : Failed to connect to 192.168.0.10 port 80 after 21032 ms: Couldn't connect to server
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\HTTP\CURLRequest.php on line 694.
+ 1 SYSTEMPATH\HTTP\CURLRequest.php(694): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('28', 'Failed to connect to 192.168.0.10 port 80 after 21032 ms: Couldn\'t connect to server')
+ 2 SYSTEMPATH\HTTP\CURLRequest.php(383): CodeIgniter\HTTP\CURLRequest->sendRequest([...])
+ 3 SYSTEMPATH\HTTP\CURLRequest.php(152): CodeIgniter\HTTP\CURLRequest->send('POST', 'http://192.168.0.10/sendIR')
+ 4 SYSTEMPATH\HTTP\CURLRequest.php(227): CodeIgniter\HTTP\CURLRequest->request('POST', 'http://192.168.0.10/sendIR', [...])
+ 5 APPPATH\Controllers\Esp32C.php(139): CodeIgniter\HTTP\CURLRequest->post('http://192.168.0.10/sendIR', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:24:30 --> CodeIgniter\HTTP\Exceptions\HTTPException: 28 : Failed to connect to 192.168.0.10 port 80 after 21057 ms: Couldn't connect to server
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\HTTP\CURLRequest.php on line 694.
+ 1 SYSTEMPATH\HTTP\CURLRequest.php(694): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('28', 'Failed to connect to 192.168.0.10 port 80 after 21057 ms: Couldn\'t connect to server')
+ 2 SYSTEMPATH\HTTP\CURLRequest.php(383): CodeIgniter\HTTP\CURLRequest->sendRequest([...])
+ 3 SYSTEMPATH\HTTP\CURLRequest.php(152): CodeIgniter\HTTP\CURLRequest->send('POST', 'http://192.168.0.10/sendIR')
+ 4 SYSTEMPATH\HTTP\CURLRequest.php(227): CodeIgniter\HTTP\CURLRequest->request('POST', 'http://192.168.0.10/sendIR', [...])
+ 5 APPPATH\Controllers\Esp32C.php(139): CodeIgniter\HTTP\CURLRequest->post('http://192.168.0.10/sendIR', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:24:31 --> CodeIgniter\HTTP\Exceptions\HTTPException: 28 : Failed to connect to 192.168.0.10 port 80 after 21050 ms: Couldn't connect to server
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\HTTP\CURLRequest.php on line 694.
+ 1 SYSTEMPATH\HTTP\CURLRequest.php(694): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('28', 'Failed to connect to 192.168.0.10 port 80 after 21050 ms: Couldn\'t connect to server')
+ 2 SYSTEMPATH\HTTP\CURLRequest.php(383): CodeIgniter\HTTP\CURLRequest->sendRequest([...])
+ 3 SYSTEMPATH\HTTP\CURLRequest.php(152): CodeIgniter\HTTP\CURLRequest->send('POST', 'http://192.168.0.10/sendIR')
+ 4 SYSTEMPATH\HTTP\CURLRequest.php(227): CodeIgniter\HTTP\CURLRequest->request('POST', 'http://192.168.0.10/sendIR', [...])
+ 5 APPPATH\Controllers\Esp32C.php(139): CodeIgniter\HTTP\CURLRequest->post('http://192.168.0.10/sendIR', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:24:31 --> CodeIgniter\HTTP\Exceptions\HTTPException: 28 : Failed to connect to 192.168.0.10 port 80 after 21051 ms: Couldn't connect to server
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\HTTP\CURLRequest.php on line 694.
+ 1 SYSTEMPATH\HTTP\CURLRequest.php(694): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('28', 'Failed to connect to 192.168.0.10 port 80 after 21051 ms: Couldn\'t connect to server')
+ 2 SYSTEMPATH\HTTP\CURLRequest.php(383): CodeIgniter\HTTP\CURLRequest->sendRequest([...])
+ 3 SYSTEMPATH\HTTP\CURLRequest.php(152): CodeIgniter\HTTP\CURLRequest->send('POST', 'http://192.168.0.10/sendIR')
+ 4 SYSTEMPATH\HTTP\CURLRequest.php(227): CodeIgniter\HTTP\CURLRequest->request('POST', 'http://192.168.0.10/sendIR', [...])
+ 5 APPPATH\Controllers\Esp32C.php(139): CodeIgniter\HTTP\CURLRequest->post('http://192.168.0.10/sendIR', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:24:45 --> CodeIgniter\HTTP\Exceptions\HTTPException: 28 : Failed to connect to 192.168.0.10 port 80 after 21037 ms: Couldn't connect to server
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\HTTP\CURLRequest.php on line 694.
+ 1 SYSTEMPATH\HTTP\CURLRequest.php(694): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('28', 'Failed to connect to 192.168.0.10 port 80 after 21037 ms: Couldn\'t connect to server')
+ 2 SYSTEMPATH\HTTP\CURLRequest.php(383): CodeIgniter\HTTP\CURLRequest->sendRequest([...])
+ 3 SYSTEMPATH\HTTP\CURLRequest.php(152): CodeIgniter\HTTP\CURLRequest->send('POST', 'http://192.168.0.10/sendIR')
+ 4 SYSTEMPATH\HTTP\CURLRequest.php(227): CodeIgniter\HTTP\CURLRequest->request('POST', 'http://192.168.0.10/sendIR', [...])
+ 5 APPPATH\Controllers\Esp32C.php(139): CodeIgniter\HTTP\CURLRequest->post('http://192.168.0.10/sendIR', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:24:49 --> CodeIgniter\HTTP\Exceptions\HTTPException: 28 : Failed to connect to 192.168.0.10 port 80 after 21035 ms: Couldn't connect to server
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\HTTP\CURLRequest.php on line 694.
+ 1 SYSTEMPATH\HTTP\CURLRequest.php(694): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('28', 'Failed to connect to 192.168.0.10 port 80 after 21035 ms: Couldn\'t connect to server')
+ 2 SYSTEMPATH\HTTP\CURLRequest.php(383): CodeIgniter\HTTP\CURLRequest->sendRequest([...])
+ 3 SYSTEMPATH\HTTP\CURLRequest.php(152): CodeIgniter\HTTP\CURLRequest->send('POST', 'http://192.168.0.10/sendIR')
+ 4 SYSTEMPATH\HTTP\CURLRequest.php(227): CodeIgniter\HTTP\CURLRequest->request('POST', 'http://192.168.0.10/sendIR', [...])
+ 5 APPPATH\Controllers\Esp32C.php(139): CodeIgniter\HTTP\CURLRequest->post('http://192.168.0.10/sendIR', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:24:50 --> CodeIgniter\HTTP\Exceptions\HTTPException: 28 : Failed to connect to 192.168.0.10 port 80 after 21041 ms: Couldn't connect to server
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\HTTP\CURLRequest.php on line 694.
+ 1 SYSTEMPATH\HTTP\CURLRequest.php(694): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('28', 'Failed to connect to 192.168.0.10 port 80 after 21041 ms: Couldn\'t connect to server')
+ 2 SYSTEMPATH\HTTP\CURLRequest.php(383): CodeIgniter\HTTP\CURLRequest->sendRequest([...])
+ 3 SYSTEMPATH\HTTP\CURLRequest.php(152): CodeIgniter\HTTP\CURLRequest->send('POST', 'http://192.168.0.10/sendIR')
+ 4 SYSTEMPATH\HTTP\CURLRequest.php(227): CodeIgniter\HTTP\CURLRequest->request('POST', 'http://192.168.0.10/sendIR', [...])
+ 5 APPPATH\Controllers\Esp32C.php(139): CodeIgniter\HTTP\CURLRequest->post('http://192.168.0.10/sendIR', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:24:51 --> CodeIgniter\HTTP\Exceptions\HTTPException: 28 : Failed to connect to 192.168.0.10 port 80 after 21026 ms: Couldn't connect to server
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\HTTP\CURLRequest.php on line 694.
+ 1 SYSTEMPATH\HTTP\CURLRequest.php(694): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('28', 'Failed to connect to 192.168.0.10 port 80 after 21026 ms: Couldn\'t connect to server')
+ 2 SYSTEMPATH\HTTP\CURLRequest.php(383): CodeIgniter\HTTP\CURLRequest->sendRequest([...])
+ 3 SYSTEMPATH\HTTP\CURLRequest.php(152): CodeIgniter\HTTP\CURLRequest->send('POST', 'http://192.168.0.10/sendIR')
+ 4 SYSTEMPATH\HTTP\CURLRequest.php(227): CodeIgniter\HTTP\CURLRequest->request('POST', 'http://192.168.0.10/sendIR', [...])
+ 5 APPPATH\Controllers\Esp32C.php(139): CodeIgniter\HTTP\CURLRequest->post('http://192.168.0.10/sendIR', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:24:52 --> CodeIgniter\HTTP\Exceptions\HTTPException: 28 : Failed to connect to 192.168.0.10 port 80 after 21021 ms: Couldn't connect to server
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\HTTP\CURLRequest.php on line 694.
+ 1 SYSTEMPATH\HTTP\CURLRequest.php(694): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('28', 'Failed to connect to 192.168.0.10 port 80 after 21021 ms: Couldn\'t connect to server')
+ 2 SYSTEMPATH\HTTP\CURLRequest.php(383): CodeIgniter\HTTP\CURLRequest->sendRequest([...])
+ 3 SYSTEMPATH\HTTP\CURLRequest.php(152): CodeIgniter\HTTP\CURLRequest->send('POST', 'http://192.168.0.10/sendIR')
+ 4 SYSTEMPATH\HTTP\CURLRequest.php(227): CodeIgniter\HTTP\CURLRequest->request('POST', 'http://192.168.0.10/sendIR', [...])
+ 5 APPPATH\Controllers\Esp32C.php(139): CodeIgniter\HTTP\CURLRequest->post('http://192.168.0.10/sendIR', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:24:52 --> CodeIgniter\HTTP\Exceptions\HTTPException: 28 : Failed to connect to 192.168.0.10 port 80 after 21053 ms: Couldn't connect to server
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\HTTP\CURLRequest.php on line 694.
+ 1 SYSTEMPATH\HTTP\CURLRequest.php(694): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('28', 'Failed to connect to 192.168.0.10 port 80 after 21053 ms: Couldn\'t connect to server')
+ 2 SYSTEMPATH\HTTP\CURLRequest.php(383): CodeIgniter\HTTP\CURLRequest->sendRequest([...])
+ 3 SYSTEMPATH\HTTP\CURLRequest.php(152): CodeIgniter\HTTP\CURLRequest->send('POST', 'http://192.168.0.10/sendIR')
+ 4 SYSTEMPATH\HTTP\CURLRequest.php(227): CodeIgniter\HTTP\CURLRequest->request('POST', 'http://192.168.0.10/sendIR', [...])
+ 5 APPPATH\Controllers\Esp32C.php(139): CodeIgniter\HTTP\CURLRequest->post('http://192.168.0.10/sendIR', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:25:06 --> CodeIgniter\HTTP\Exceptions\HTTPException: 28 : Failed to connect to 192.168.0.10 port 80 after 21033 ms: Couldn't connect to server
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\HTTP\CURLRequest.php on line 694.
+ 1 SYSTEMPATH\HTTP\CURLRequest.php(694): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('28', 'Failed to connect to 192.168.0.10 port 80 after 21033 ms: Couldn\'t connect to server')
+ 2 SYSTEMPATH\HTTP\CURLRequest.php(383): CodeIgniter\HTTP\CURLRequest->sendRequest([...])
+ 3 SYSTEMPATH\HTTP\CURLRequest.php(152): CodeIgniter\HTTP\CURLRequest->send('POST', 'http://192.168.0.10/sendIR')
+ 4 SYSTEMPATH\HTTP\CURLRequest.php(227): CodeIgniter\HTTP\CURLRequest->request('POST', 'http://192.168.0.10/sendIR', [...])
+ 5 APPPATH\Controllers\Esp32C.php(139): CodeIgniter\HTTP\CURLRequest->post('http://192.168.0.10/sendIR', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:25:10 --> CodeIgniter\HTTP\Exceptions\HTTPException: 28 : Failed to connect to 192.168.0.10 port 80 after 21037 ms: Couldn't connect to server
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\HTTP\CURLRequest.php on line 694.
+ 1 SYSTEMPATH\HTTP\CURLRequest.php(694): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('28', 'Failed to connect to 192.168.0.10 port 80 after 21037 ms: Couldn\'t connect to server')
+ 2 SYSTEMPATH\HTTP\CURLRequest.php(383): CodeIgniter\HTTP\CURLRequest->sendRequest([...])
+ 3 SYSTEMPATH\HTTP\CURLRequest.php(152): CodeIgniter\HTTP\CURLRequest->send('POST', 'http://192.168.0.10/sendIR')
+ 4 SYSTEMPATH\HTTP\CURLRequest.php(227): CodeIgniter\HTTP\CURLRequest->request('POST', 'http://192.168.0.10/sendIR', [...])
+ 5 APPPATH\Controllers\Esp32C.php(139): CodeIgniter\HTTP\CURLRequest->post('http://192.168.0.10/sendIR', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:25:11 --> CodeIgniter\HTTP\Exceptions\HTTPException: 28 : Failed to connect to 192.168.0.10 port 80 after 21048 ms: Couldn't connect to server
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\HTTP\CURLRequest.php on line 694.
+ 1 SYSTEMPATH\HTTP\CURLRequest.php(694): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('28', 'Failed to connect to 192.168.0.10 port 80 after 21048 ms: Couldn\'t connect to server')
+ 2 SYSTEMPATH\HTTP\CURLRequest.php(383): CodeIgniter\HTTP\CURLRequest->sendRequest([...])
+ 3 SYSTEMPATH\HTTP\CURLRequest.php(152): CodeIgniter\HTTP\CURLRequest->send('POST', 'http://192.168.0.10/sendIR')
+ 4 SYSTEMPATH\HTTP\CURLRequest.php(227): CodeIgniter\HTTP\CURLRequest->request('POST', 'http://192.168.0.10/sendIR', [...])
+ 5 APPPATH\Controllers\Esp32C.php(139): CodeIgniter\HTTP\CURLRequest->post('http://192.168.0.10/sendIR', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:25:12 --> CodeIgniter\HTTP\Exceptions\HTTPException: 28 : Failed to connect to 192.168.0.10 port 80 after 21023 ms: Couldn't connect to server
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\HTTP\CURLRequest.php on line 694.
+ 1 SYSTEMPATH\HTTP\CURLRequest.php(694): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('28', 'Failed to connect to 192.168.0.10 port 80 after 21023 ms: Couldn\'t connect to server')
+ 2 SYSTEMPATH\HTTP\CURLRequest.php(383): CodeIgniter\HTTP\CURLRequest->sendRequest([...])
+ 3 SYSTEMPATH\HTTP\CURLRequest.php(152): CodeIgniter\HTTP\CURLRequest->send('POST', 'http://192.168.0.10/sendIR')
+ 4 SYSTEMPATH\HTTP\CURLRequest.php(227): CodeIgniter\HTTP\CURLRequest->request('POST', 'http://192.168.0.10/sendIR', [...])
+ 5 APPPATH\Controllers\Esp32C.php(139): CodeIgniter\HTTP\CURLRequest->post('http://192.168.0.10/sendIR', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:26:08 --> CodeIgniter\HTTP\Exceptions\HTTPException: 28 : Failed to connect to 192.168.0.10 port 80 after 21030 ms: Couldn't connect to server
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\HTTP\CURLRequest.php on line 694.
+ 1 SYSTEMPATH\HTTP\CURLRequest.php(694): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('28', 'Failed to connect to 192.168.0.10 port 80 after 21030 ms: Couldn\'t connect to server')
+ 2 SYSTEMPATH\HTTP\CURLRequest.php(383): CodeIgniter\HTTP\CURLRequest->sendRequest([...])
+ 3 SYSTEMPATH\HTTP\CURLRequest.php(152): CodeIgniter\HTTP\CURLRequest->send('POST', 'http://192.168.0.10/sendIR')
+ 4 SYSTEMPATH\HTTP\CURLRequest.php(227): CodeIgniter\HTTP\CURLRequest->request('POST', 'http://192.168.0.10/sendIR', [...])
+ 5 APPPATH\Controllers\Esp32C.php(140): CodeIgniter\HTTP\CURLRequest->post('http://192.168.0.10/sendIR', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-08 22:26:12 --> CodeIgniter\HTTP\Exceptions\HTTPException: 28 : Failed to connect to 192.168.0.10 port 80 after 21029 ms: Couldn't connect to server
+[Method: POST, Route: sendIR]
+in SYSTEMPATH\HTTP\CURLRequest.php on line 694.
+ 1 SYSTEMPATH\HTTP\CURLRequest.php(694): CodeIgniter\HTTP\Exceptions\HTTPException::forCurlError('28', 'Failed to connect to 192.168.0.10 port 80 after 21029 ms: Couldn\'t connect to server')
+ 2 SYSTEMPATH\HTTP\CURLRequest.php(383): CodeIgniter\HTTP\CURLRequest->sendRequest([...])
+ 3 SYSTEMPATH\HTTP\CURLRequest.php(152): CodeIgniter\HTTP\CURLRequest->send('POST', 'http://192.168.0.10/sendIR')
+ 4 SYSTEMPATH\HTTP\CURLRequest.php(227): CodeIgniter\HTTP\CURLRequest->request('POST', 'http://192.168.0.10/sendIR', [...])
+ 5 APPPATH\Controllers\Esp32C.php(140): CodeIgniter\HTTP\CURLRequest->post('http://192.168.0.10/sendIR', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendIR()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
