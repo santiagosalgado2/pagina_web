@@ -155,6 +155,9 @@ class Esp32C extends BaseController{
     public function control_view(){
         return view('tele2');
     }
+    public function air_view(){
+        return view('aire');
+    }
 
 
     public function receiveIrCode()
