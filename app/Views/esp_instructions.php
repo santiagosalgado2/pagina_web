@@ -17,6 +17,7 @@
 <h2>Sigue los siguientes pasos para vincular un nuevo Esp32</h2>
 
 <ul>
+    <b>
     <li>Conecta tu Esp32 a la corriente</li>
     <li>Descarga la aplicación <b>EspTouch</b> en tu dispositivo móvil
     <img src="<?php echo base_url("/img/app.png"); ?>" alt="Aplicacion">
@@ -32,32 +33,32 @@
 
     </li>
     <li>En unos segundos recibirá un mail para verificar si el dispositivo se vinculo correctamente</li>
-    
+    </b>
 
 </ul>
 
 <style>
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    background: linear-gradient(135deg, #ff5a3c, #eb4930, #ee695a, #fa8560, #fcb185, #ffddaa);
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
     margin: 0;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    min-height: 145vh;
-    overflow-y: auto; /* Permite el desplazamiento vertical */
+    min-height: 160vh;
+    overflow-y: auto;
 }
 
 h2 {
-    color: #333;
+    color: black;
     margin-bottom: 20px;
     text-align: center;
-    font-size: 28px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
+    font-size: 32px;
+    font-weight: 900;
+    text-transform: capitalize;
+    letter-spacing: 2px;
 }
 
 ul {
@@ -68,23 +69,24 @@ ul {
 }
 
 li {
-    background: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente */
-    margin: 10px 0;
-    padding: 20px; /* Ajusta el padding para un mejor espaciado */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: rgba(211, 64, 64, 0.849);
+    margin: 15px 0;
+    padding: 15px 20px; /* Ajusta el padding para un mejor espaciado */
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: transform 0.2s, box-shadow 0.2s;
-    font-size: 18px;
-    line-height: 1.6;
-    color: #444;
+    transition: transform 0.3s, box-shadow 0.3s;
+    font-size: 20px;
+    line-height: 1.8;
+    color: white;
+    min-height: 50px; /* Asegura que las cajas no sean demasiado pequeñas */
 }
 
 li:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
 li img {
@@ -93,11 +95,11 @@ li img {
     max-width: 100%;
     height: auto;
     width: auto;
-    max-height: 120px; /* Ajusta la altura máxima de las imágenes */
+    max-height: 150px;
 }
 
 b {
-    color: #3498db;
+    color: lightgreen;
     font-weight: bold;
 }
 
@@ -107,16 +109,17 @@ p {
 }
 
 a {
-    color: #3498db;
+    color: #2980b9;
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s;
 }
 
 a:hover {
+    color: #1abc9c;
     text-decoration: underline;
 }
 </style>
-
 
 
 </body>
