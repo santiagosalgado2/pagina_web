@@ -31,3 +31,4 @@ $routes->get("/new_esp","Esp32C::newEspview");
 $routes->post("/new_esp/insert","Esp32C::insertNewesp");
 $routes->post("/new_esp/receive","Esp32C::receiveEsp");
 $routes->get('/prueba_control',"Esp32C::control_view");
+$routes->get('/prueba_aircontrol',"Esp32C::air_view");

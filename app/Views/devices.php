@@ -83,7 +83,7 @@
         <tr>
             <td><?php echo $d["nombre"];?> </td>
             <td>
-                <a href="<?php echo base_url('/prueba_control');?>"><button class="button2">Controlar</button></a>
+                <a href="<?php echo base_url('/prueba_aircontrol');?>"><button class="button2">Controlar</button></a>
                 <button class="button2">Editar</button>
         
             </td>

@@ -4,9 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?php echo base_url("/css/airstyle.css");?>"> 
+    <link rel="stylesheet" href="<?php echo base_url("/css/estilog.css");?>"> 
     <title>Control Remoto</title>
 </head>
 <body>
+
+    <div class="circulo"></div>
+    <div class="circulo"></div>
+    <div class="circulo"></div>
+    <div class="circulo"></div>
+
 <div class="control-remoto">
         <div class="pantalla">AIRE TV</div>
         
@@ -52,7 +59,7 @@
             </div>
         </div>
         <div class="seccion">
-                <div class="boton-direc">DIREC</div>
+                <div class="boton-direc">DIRECCION</div>
             </div>
     </div>
 </body>
