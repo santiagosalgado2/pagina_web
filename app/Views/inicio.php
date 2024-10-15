@@ -64,6 +64,8 @@
 
 <main>
     
+    <a href="<?php echo base_url('/ver_senales');?>">Prueba para ver codigos enviados</a>
+
     <?php if($permiso== 1):?>
       <a href="<?php echo base_url("/new_esp"); ?>"><button class="button2">Añadir nuevo Esp32</button></a>
     <?php endif;?>

@@ -156,4 +156,18 @@ class Esp32C extends BaseController{
         return view('tele2');
     }
 
+
+    public function receiveIrCode()
+    {
+        $irCode = $this->request->getPost('irCode');
+        
+        // Aquí puedes agregar lógica para procesar el código IR si es necesario
+
+        return $this->response->setJSON(['irCode' => $irCode]);
+    }
+
+    public function ver_senales(){
+        
+    }
+
 }
