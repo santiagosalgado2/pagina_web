@@ -26,7 +26,7 @@ class Esp32 extends Model
     public function getDevicesbyEsp($esp,$user){
 
         $table = $this->db->table('dispositivos d');
-        $table->select('d.nombre');
+        $table->select('d.nombre,d.ID_tipo');
         $table->join('disp_esp32 e','e.ID_dispositivo=d.ID_esp32');
         $table->join('acceso_usuarios au','au.ID_dispositivo=d.ID_dispositivo');
         $table->join('usuarios u','u.ID_usuario=au.ID_usuario');
