@@ -22,6 +22,8 @@ class Esp32C extends BaseController{
 
         $session->set('esp_ip',$esp[0]['direccion_ip']);
 
+        $session->set('esp_id',$esp_id);
+
         return view("devices",["datos"=>$datos]);
 
     }
@@ -164,7 +166,9 @@ class Esp32C extends BaseController{
     {
         $irCode = $this->request->getPost('irCode');
 
-        $filePath = WRITEPATH . 'data/8lIsgR9J.csv';
+        $code= $this->request->getPost('code');
+
+        $filePath = WRITEPATH . 'data/'.$code.'.csv';
 
         $file = fopen($filePath, 'a');
         if ($file) {
@@ -178,7 +182,11 @@ class Esp32C extends BaseController{
 
     public function ver_senales(){
 
-        $filePath = WRITEPATH . 'data/8lIsgR9J.csv';
+        $espmodel=new Esp32;
+
+        $esp=$espmodel->getEsp32(session()->get('esp_id'));
+
+        $filePath = WRITEPATH . 'data/'.$esp[0]['codigo'].'.csv';
 
         if (file_exists($filePath)) {
             if (($handle = fopen($filePath, 'r')) !== false) {
@@ -187,14 +195,13 @@ class Esp32C extends BaseController{
                     $data[] = $row[0]; // Asumiendo que solo hay una columna por fila
                 }
                 fclose($handle);
-                /*
-                ESTO HACE QUE EL ARCHIVO SE BORRE AUTOMÁTICAMENTE AL CERRAR LA CONEXIÓN
+                
                 register_shutdown_function(function() use ($filePath) {
                     if (file_exists($filePath)) {
                         unlink($filePath);
                     }
                 });
-                */
+                
 
                 return $this->response->setStatusCode(200)->setJSON($data);
                                 

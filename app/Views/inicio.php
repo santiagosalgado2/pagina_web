@@ -64,7 +64,6 @@
 
 <main>
     
-<a href="<?php echo base_url("/new_esp"); ?>"><button class="button2">Prueba para ver codigos hex</button></a><br><br>
 
 
     <?php if($permiso== 1):?>

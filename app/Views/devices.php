@@ -65,6 +65,9 @@
 
     <br><br><br><h1>Dispositivos disponibles con el esp seleccionado</h1>
 
+    <a href="<?php echo base_url("/ver_senales"); ?>"><button class="button2">Prueba para ver codigos hex</button></a><br><br>
+
+
     <?php if($session->get('tipo')==1): ?>
     <a href="<?php echo base_url("/new_esp");?>"><button class="button2">Vincular nuevo dispositivo</button></a>
     <?php endif;?>
