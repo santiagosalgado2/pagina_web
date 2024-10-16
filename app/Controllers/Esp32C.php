@@ -217,5 +217,8 @@ class Esp32C extends BaseController{
     public function ver_senales_vista(){
         return view('senales');
     }
+    public function ventilador_view(){
+        return view('ventilador');
+    }
 
 }
