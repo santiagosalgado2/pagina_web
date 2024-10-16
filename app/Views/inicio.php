@@ -64,10 +64,11 @@
 
 <main>
     
-    <a href="<?php echo base_url('/ver_senales');?>">Prueba para ver codigos enviados</a>
+<a href="<?php echo base_url("/new_esp"); ?>"><button class="button2">Prueba para ver codigos hex</button></a><br><br>
+
 
     <?php if($permiso== 1):?>
-      <a href="<?php echo base_url("/new_esp"); ?>"><button class="button2">Añadir nuevo Esp32</button></a>
+      <a href="<?php echo base_url("/new_esp"); ?>"><button class="button2">Añadir nuevo Esp32</button></a><br><br>
     <?php endif;?>
     <?php if (isset($datos) && !empty($datos)): ?>
     <h2>Tus Esp disponibles</h2>

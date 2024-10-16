@@ -163,14 +163,52 @@ class Esp32C extends BaseController{
     public function receiveIrCode()
     {
         $irCode = $this->request->getPost('irCode');
-        
-        // Aquí puedes agregar lógica para procesar el código IR si es necesario
 
-        return $this->response->setJSON(['irCode' => $irCode]);
+        $filePath = WRITEPATH . 'data/8lIsgR9J.csv';
+
+        $file = fopen($filePath, 'a');
+        if ($file) {
+            fputcsv($file, [$irCode]);
+            fclose($file);
+            return $this->response->setStatusCode(200)->setBody('Código IR recibido y guardado.');
+        } else {
+            return $this->response->setStatusCode(500)->setBody('Error al guardar el código IR.');
+        }
     }
 
     public function ver_senales(){
-        
+
+        $filePath = WRITEPATH . 'data/8lIsgR9J.csv';
+
+        if (file_exists($filePath)) {
+            if (($handle = fopen($filePath, 'r')) !== false) {
+                $data = [];
+                while (($row = fgetcsv($handle)) !== false) {
+                    $data[] = $row[0]; // Asumiendo que solo hay una columna por fila
+                }
+                fclose($handle);
+                /*
+                ESTO HACE QUE EL ARCHIVO SE BORRE AUTOMÁTICAMENTE AL CERRAR LA CONEXIÓN
+                register_shutdown_function(function() use ($filePath) {
+                    if (file_exists($filePath)) {
+                        unlink($filePath);
+                    }
+                });
+                */
+
+                return $this->response->setStatusCode(200)->setJSON($data);
+                                
+                
+            }else {
+                return $this->response->setStatusCode(500)->setBody('No se pudo abrir el archivo.');
+            }
+        } else {
+            return $this->response->setStatusCode(404)->setBody('El archivo no existe.');
+        }
+    }
+    
+    public function ver_senales_vista(){
+        return view('senales');
     }
 
 }
