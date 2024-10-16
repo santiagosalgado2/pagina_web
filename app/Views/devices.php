@@ -89,7 +89,7 @@
                 } elseif ($d["ID_tipo"] == 2) {
                     $url = base_url('/prueba_control');
                 } else {
-                    $url = '#'; // default URL or handle other types
+                    $url = base_url('/prueba_ventiladorcontrol'); 
                 }
             ?>
         <tr>
