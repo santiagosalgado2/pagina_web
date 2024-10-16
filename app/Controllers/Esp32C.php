@@ -22,6 +22,8 @@ class Esp32C extends BaseController{
 
         $session->set('esp_ip',$esp[0]['direccion_ip']);
 
+        $session->set('esp_id',$esp[0]['ID_dispositivo']);
+
         $session->set('datos', $datos); // Guardar datos en la sesión
 
         return redirect()->to('/devices'); // Redirigir a la vista devices
@@ -35,6 +37,7 @@ class Esp32C extends BaseController{
         return view("devices", ["datos" => $datos]);
 
     }
+
 
     public function newEspview(){
         return view('new_esp');
