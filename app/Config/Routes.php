@@ -35,3 +35,7 @@ $routes->get('/prueba_aircontrol',"Esp32C::air_view");
 $routes->get('/ver_senales','Esp32C::ver_senales_vista');
 $routes->post('/recibir_codigo','Esp32C::receiveIrCode');
 $routes->get('/mostrar_senales','Esp32C::ver_senales');
+$routes->get('/prueba_ventiladorcontrol',"Esp32C::ventilador_view");
+$routes->get('/devices','Esp32C::devices');
+$routes->get('/new_device','Devices::newDeviceView');
+$routes->post('/new_device/insert','Devices::newDevice');

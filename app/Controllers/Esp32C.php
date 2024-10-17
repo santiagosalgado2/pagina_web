@@ -22,11 +22,22 @@ class Esp32C extends BaseController{
 
         $session->set('esp_ip',$esp[0]['direccion_ip']);
 
-        $session->set('esp_id',$esp_id);
+        $session->set('esp_id',$esp[0]['ID_dispositivo']);
 
-        return view("devices",["datos"=>$datos]);
+        $session->set('datos', $datos); // Guardar datos en la sesión
+
+        return redirect()->to('/devices'); // Redirigir a la vista devices
 
     }
+
+    public function devices(){
+
+        $session = session();
+        $datos = $session->get('datos'); // Obtener datos de la sesión
+        return view("devices", ["datos" => $datos]);
+
+    }
+
 
     public function newEspview(){
         return view('new_esp');
@@ -216,6 +227,9 @@ class Esp32C extends BaseController{
     
     public function ver_senales_vista(){
         return view('senales');
+    }
+    public function ventilador_view(){
+        return view('ventilador');
     }
 
 }

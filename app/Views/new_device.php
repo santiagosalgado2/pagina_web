@@ -13,24 +13,25 @@
     <div class="circulo"></div>
     <div class="circulo"></div>
     
-    
+      
     <div class="form-container">
-    <form action="<?php echo base_url("/change");?> " method="post">
-    <h1>Digite su nueva contraseña</h1>
-        <div class="mb-3">
-
-        <span class="textos">Ingrese nueva contraseña</span><input type="password" name="password" required>
-
-        <span class="textos">Confirme su contraseña</span><input type="password" name="pw-confirm"required>
-
-        <input type="submit" value="Confirmar">
-
+        <h1>Registro de nuevo dispositivo</h1>
+    <form method="post" action="<?php echo base_url("/new_device/insert"); ?>">
+            <div class="mb-3">
+            <span class="textos">Ingrese el nombre de su dispositivo</span><input type="text" name="name" >
+                <br><br>
+                <span class="textos">Ingrese el tipo de dispositivo</span>
+                <select name="device_type">
+                    <option value="tv">TV</option>
+                    <option value="aire_acondicionado">Aire Acondicionado</option>
+                    <option value="ventilador">Ventilador</option>
+                </select>
+                <br><br><input type="submit" value="Registrar">
+            </div>
+        </form>
         </div>
 
-    </form>
-    </div>
-
-    <style>
+        <style>
 body {
     display: flex;
     justify-content: center;
@@ -50,7 +51,7 @@ body {
     border: 2px solid #ff9999; /* Borde suave */
 }
 
-.mb-3 input[type="password"] {
+.mb-3 input[type="text"] {
     width: 100%; /* Ocupa el ancho completo */
     padding: 14px; /* Más espaciado interno */
     margin: 15px 0; /* Mayor espaciado entre elementos */
@@ -63,7 +64,25 @@ body {
     color: #333; /* Color del texto */
 }
 
-.mb-3 input[type="password"]:focus {
+.mb-3 input[type="text"]:focus {
+    border-color: #888; /* Cambio de color de borde al enfocar */
+    outline: none; /* Quitar borde por defecto */
+}
+
+.mb-3 select {
+    width: 100%; /* Ocupa el ancho completo */
+    padding: 14px; /* Más espaciado interno */
+    margin: 15px 0; /* Mayor espaciado entre elementos */
+    border: 1px solid #bbb; /* Borde gris claro */
+    background: rgba(255, 255, 255, .1); /* Fondo translúcido */
+    border-radius: 6px; /* Bordes más redondeados */
+    font-size: 16px; /* Tamaño de fuente */
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+    transition: border-color 0.3s ease; /* Transición suave del borde */
+    color: #333; /* Color del texto */
+}
+
+.mb-3 select:focus {
     border-color: #888; /* Cambio de color de borde al enfocar */
     outline: none; /* Quitar borde por defecto */
 }
