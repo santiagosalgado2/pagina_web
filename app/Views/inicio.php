@@ -97,39 +97,6 @@
 
 
 
-<style>
- .button2 {
-  margin: 2px;
- width: 9em;
- height: 3em;
- border-radius: 30em;
- font-size: 15px;
- font-family: inherit;
- border: none;
- position: relative;
- overflow: hidden;
- z-index: 1;
- box-shadow: 1,5px 1,5px 4px #c5c5c5, 0px 0px 3px #ffffff;
-}
-
-.button2::before {
- content: '';
- width: 0;
- height: 3em;
- border-radius: 30em;
- position: absolute;
- top: 0;
- left: 0;
- background-image: linear-gradient(to right, #fa8560 0%, #ffddaa 100%);
- transition: .5s ease;
- display: block;
- z-index: -1;
-}
-
-.button2:hover::before {
- width: 9em;
-}
-</style>
 
 
 
