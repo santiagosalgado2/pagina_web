@@ -62,7 +62,7 @@
     </div>
   </div>
 </nav>
-
+    
 
     <br><br><br><h1>Dispositivos disponibles con el esp seleccionado</h1>
 
@@ -70,7 +70,7 @@
 
 
     <?php if($session->get('tipo')==1): ?>
-    <a href="<?php echo base_url("/new_esp");?>"><button class="button2">Vincular nuevo dispositivo</button></a>
+    <a href="<?php echo base_url("/new_device");?>"><button class="button2">Vincular nuevo dispositivo</button></a>
     <?php endif;?>
     <?php if(isset($datos) && !empty($datos)):?>
 

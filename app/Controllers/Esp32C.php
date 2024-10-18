@@ -7,34 +7,33 @@ use App\Models\Esp32;
 class Esp32C extends BaseController{
 
     public function devicesbyEsp(){
-        
-        $espmodel=new Esp32;
 
         $session = session();
 
-        $esp_id=$this->request->getPost("esp_id");
+        $esp_id = $this->request->getPost("esp_id");
 
-        $user_id =$session->get("user_id");
+        $esp_ip= $this->request->getPost('esp_ip');
 
-        $esp=$espmodel->getEsp32($esp_id);
+        $session->set('esp_id',$esp_id);
 
-        $datos=$espmodel->getDevicesbyEsp($esp_id,$user_id);
-
-        $session->set('esp_ip',$esp[0]['direccion_ip']);
-
-        $session->set('datos', $datos); // Guardar datos en la sesión
+        $session->set('esp_ip',$esp_ip);
 
         return redirect()->to('/devices'); // Redirigir a la vista devices
 
     }
 
     public function devices(){
-
+        $espmodel = new Esp32;
         $session = session();
-        $datos = $session->get('datos'); // Obtener datos de la sesión
+        $esp_id = $session->get('esp_id'); // Obtener el esp_id de la sesión
+    
+        // Obtener los datos directamente desde la base de datos
+        $datos = $espmodel->getDevicesbyEsp($esp_id,$session->get('user_id'));
+        
         return view("devices", ["datos" => $datos]);
 
     }
+
 
     public function newEspview(){
         return view('new_esp');

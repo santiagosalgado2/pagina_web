@@ -12,7 +12,7 @@ class Esp32 extends Model
     {
      
         $builder = $this->db->table('disp_esp32 e');
-        $builder->select('u.nombre_usuario, e.ubicacion, e.ID_dispositivo');
+        $builder->select('u.nombre_usuario, e.ubicacion, e.ID_dispositivo, e.direccion_ip');
         $builder->join('dispositivos d', 'd.ID_esp32 = e.ID_dispositivo');
         $builder->join('acceso_usuarios au', 'au.ID_dispositivo = d.ID_dispositivo');
         $builder->join('usuarios u', 'u.ID_usuario = au.ID_usuario');

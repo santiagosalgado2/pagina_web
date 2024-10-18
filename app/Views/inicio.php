@@ -79,6 +79,8 @@
 
                 <input type="hidden" name="esp_id" value="<?php echo $esp["ID_dispositivo"];?> ">
 
+                <input type="hidden" name="esp_ip" value="<?php echo $esp["direccion_ip"];?> ">
+
                 <button class="button2" type="submit" > <?php  echo $esp["ubicacion"];?> </button>
 
               </form>
