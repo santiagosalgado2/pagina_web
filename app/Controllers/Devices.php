@@ -48,4 +48,82 @@ class Devices extends BaseController{
 
     }
 
+    public function editDeviceview($id){
+
+        $devicemodel=new Dispositivos;
+
+        $device=$devicemodel->user_has_permission($id,session()->get('user_id'));
+
+        if(empty($device)){
+
+            return redirect()->back();
+
+        }else{
+
+            return view('edit_device',['device'=>$device]);
+
+        }
+
+    }
+
+    public function updateDevice(){
+
+        $name=$this->request->getPost('name');
+
+        $id=$this->request->getPost('id');
+
+        $deviceType = $_POST['device_type'];
+
+        $type=0;
+
+        $devicemodel=new Dispositivos;
+
+        switch ($deviceType) {
+            case 'tv':
+                $type=2;
+                break;
+            case 'aire_acondicionado':
+                $type=1;
+                break;
+            case 'ventilador':
+                $type=3;
+                break;
+            default:
+                echo "Error";
+                break;
+        }
+
+        if(!isset($name) OR !isset($id) OR !isset($type)){
+
+            return redirect()->back();
+
+        }else{
+            
+            $device=$devicemodel->updateDevice($name,$type,$id);
+
+            return redirect()->to(base_url('/devices'));
+        }
+
+    }
+
+    public function deleteDevice($id){
+
+        $devicemodel=new Dispositivos;
+
+        $device=$devicemodel->user_has_permission($id,session()->get('user_id'));
+
+        if(empty($device)){
+
+            return redirect()->back();
+
+        }else{
+
+            $devicemodel->deleteDevice($id);
+
+            return redirect()->to(base_url('/devices'));
+
+        }
+
+    }
+
 }
