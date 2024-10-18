@@ -1,0 +1,74 @@
+CRITICAL - 2024-10-17 13:35:08 --> ErrorException: Cannot use App\Models\Acceso_usuarios as Acceso_usuarios because the name is already in use
+[Method: GET, Route: new_device]
+in APPPATH\Controllers\Devices.php on line 8.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-10-17 13:51:51 --> ErrorException: Undefined array key "direccion_ip"
+[Method: GET, Route: /]
+in APPPATH\Views\inicio.php on line 82.
+ 1 APPPATH\Views\inicio.php(82): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "direccion_ip"', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\inicio.php', 82)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\inicio.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('inicio', [], true)
+ 5 APPPATH\Controllers\Home.php(30): view('inicio', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-17 13:51:54 --> ErrorException: Undefined array key "direccion_ip"
+[Method: GET, Route: /]
+in APPPATH\Views\inicio.php on line 82.
+ 1 APPPATH\Views\inicio.php(82): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "direccion_ip"', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\inicio.php', 82)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\inicio.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('inicio', [], true)
+ 5 APPPATH\Controllers\Home.php(30): view('inicio', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-17 13:52:01 --> ErrorException: Undefined array key "direccion_ip"
+[Method: GET, Route: /]
+in APPPATH\Views\inicio.php on line 82.
+ 1 APPPATH\Views\inicio.php(82): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "direccion_ip"', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\inicio.php', 82)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\inicio.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('inicio', [], true)
+ 5 APPPATH\Controllers\Home.php(30): view('inicio', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-17 13:53:03 --> ErrorException: Undefined array key "direccion_ip"
+[Method: GET, Route: /]
+in APPPATH\Views\inicio.php on line 82.
+ 1 APPPATH\Views\inicio.php(82): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "direccion_ip"', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\inicio.php', 82)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\inicio.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('inicio', [], true)
+ 5 APPPATH\Controllers\Home.php(30): view('inicio', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-10-17 13:53:03 --> ErrorException: Undefined array key "direccion_ip"
+[Method: GET, Route: /]
+in APPPATH\Views\inicio.php on line 82.
+ 1 APPPATH\Views\inicio.php(82): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "direccion_ip"', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\inicio.php', 82)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\inicio.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('inicio', [], true)
+ 5 APPPATH\Controllers\Home.php(30): view('inicio', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

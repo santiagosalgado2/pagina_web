@@ -2,8 +2,8 @@
 
 namespace App\Controllers;
 #INCLUYE LOS MODELOS NECESARIOS
+use App\Models\Acceso_usuarios;
 use App\Models\Dispositivos;
-
 use CodeIgniter\Controller;
 
 class Devices extends BaseController{
@@ -22,6 +22,8 @@ class Devices extends BaseController{
 
         $devicemodel=new Dispositivos;
 
+        $user_access=new Acceso_usuarios();
+
         switch ($deviceType) {
             case 'tv':
                 $type=2;
@@ -37,9 +39,12 @@ class Devices extends BaseController{
                 break;
         }
 
-        $devicemodel->insertDevice($name,$type,session()->get('esp_id'));
+        $device=$devicemodel->insertDevice($name,$type,session()->get('esp_id'));
 
-        echo "Dispositivo vinculado correctamente";
+        $user_access->insertAccess(session()->get('user_id'),$device);
+
+
+        return redirect()->back();
 
     }
 
