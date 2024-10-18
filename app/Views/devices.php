@@ -64,8 +64,8 @@
 </nav>
     
 
-    <br><br><br><h1>Dispositivos disponibles con el esp seleccionado</h1>
-
+    <br><br><br><h1>Dispositivo <?php echo $esp[0]['ubicacion']; ?></h1>
+    <div class="acciones">
     <a href="<?php echo base_url("/ver_senales"); ?>"><button class="button2">Prueba para ver codigos hex</button></a><br><br>
 
 
@@ -73,6 +73,8 @@
     <a href="<?php echo base_url("/new_device");?>"><button class="button2">Vincular nuevo dispositivo</button></a>
     <?php endif;?>
     <?php if(isset($datos) && !empty($datos)):?>
+
+      </div>
 
     <table>
 
@@ -97,8 +99,12 @@
             <td><?php echo $d["nombre"];?> </td>
             <td>
                 <a href="<?php echo $url; ?>"><button class="button2">Controlar</button></a>
-                <button class="button2">Editar</button>
-        
+                <?php
+                if($permiso==1):?>  
+                <a href="<?php echo base_url('/edit_device/'.$d['ID_dispositivo']); ?>"><button class="button2">Editar</button></a>
+                <a href="<?php echo base_url('/delete_device/'.$d['ID_dispositivo']); ?>"><button class="button2">Eliminar</button></a>
+                <button class="button2">Grabar control remoto</button>
+                <?php endif;?>
             </td>
         </tr>
         <?php endforeach;?>
@@ -110,9 +116,46 @@
 
     <p>No hay dispositivos vinculados a este esp32</p>
     <?php endif;?>
-    <a href="<?php echo base_url("/");?>"><button class="button2">Volver</button></a>
 
     
+    <style>
+
+      table {
+        min-width: 700px;
+        border-collapse: collapse;
+        margin: 0 auto;
+        border:2px solid #ff9999;
+        border-radius: 12px;
+        background-color: rgba(211, 64, 64, 0.849);
+        color: white;
+      }
+
+      td,tr,th {
+        border: 1px solid #ff9999;
+        padding: 10px;
+        text-align: center;
+        font-size: 20px;
+      }
+      .acciones{
+        text-align: center;
+        margin: 0 auto;
+        margin-bottom: 33px;
+        
+      }
+      .acciones button {
+        font-size: 18px;
+        padding: 15px 30px;
+      }
+
+      h1{
+        text-align: center;
+        margin-bottom: 37px;
+      }
+    </style>
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>   
+
+
 </body>
 </html>

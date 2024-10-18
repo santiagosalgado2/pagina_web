@@ -29,8 +29,10 @@ class Esp32C extends BaseController{
     
         // Obtener los datos directamente desde la base de datos
         $datos = $espmodel->getDevicesbyEsp($esp_id,$session->get('user_id'));
+
+        $esp=$espmodel->getEsp32($esp_id);
         
-        return view("devices", ["datos" => $datos]);
+        return view("devices", ["datos" => $datos, "esp" => $esp]);
 
     }
 

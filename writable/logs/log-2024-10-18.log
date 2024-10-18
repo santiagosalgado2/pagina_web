@@ -1,0 +1,14 @@
+CRITICAL - 2024-10-18 17:32:38 --> ErrorException: Undefined array key "ID_dispositivo"
+[Method: GET, Route: devices]
+in APPPATH\Views\devices.php on line 102.
+ 1 APPPATH\Views\devices.php(102): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "ID_dispositivo"', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\devices.php', 102)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\devices.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('devices', [], true)
+ 5 APPPATH\Controllers\Esp32C.php(33): view('devices', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->devices()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
