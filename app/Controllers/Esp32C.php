@@ -140,11 +140,10 @@ class Esp32C extends BaseController{
     public function sendIR() {
         // Obtén la IP y las señales
         $esp32IP = trim($this->request->getPost('ip'));  // Elimina posibles espacios en blanco
-        $signal1 = $this->request->getPost('signal1');
-        $signal2 = $this->request->getPost('signal2');
+        $signal = $this->request->getPost('signal');
     
         // Verifica que todos los datos estén presentes
-        if (!$esp32IP || !$signal1 || !$signal2) {
+        if (!$esp32IP || !$signal) {
             return $this->response->setStatusCode(400)->setBody('Faltan parámetros.');
         }
     
@@ -157,8 +156,7 @@ class Esp32C extends BaseController{
         // Envía ambas señales a la ESP32
         $response = $client->post($url, [
             'form_params' => [
-                'signal1' => $signal1,
-                'signal2' => $signal2
+                'plain' => $signal
             ]
         ]);
     

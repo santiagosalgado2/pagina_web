@@ -2,6 +2,54 @@
 $session=session();
 
 $ip=$session->get('esp_ip');
+
+$subir_volumen = [
+    4100, 3950, 550, 1950, 550, 1950, 550, 1950, 550, 1950,
+    550, 950, 550, 1000, 500, 2000, 500, 1000,
+    550, 1950, 500, 2000, 550, 1950, 500, 2000,
+    500, 1000, 500, 1000, 550, 950, 550, 950,
+    550, 1950, 550, 1950, 550, 1000, 500, 2000,
+    500, 1000, 500, 1000, 500, 1000, 500, 1000,
+    500
+];
+
+// Apagar
+$apagar = [
+    4050, 4000, 500, 2000, 500, 1950, 550, 2000, 500, 2000,
+    500, 1000, 550, 950, 550, 1950, 550, 950,
+    550, 1950, 550, 950, 550, 2000, 500, 1000,
+    500, 1000, 500, 1000, 500, 1000, 500, 1000,
+    500, 2000, 500, 2000, 500, 1000, 550, 1950,
+    550, 950, 550, 1950, 550, 950, 550, 1950,
+    550
+];
+
+// Bajar volumen
+$bajar_volumen = [
+    4100, 3950, 550, 1950, 550, 1950, 550, 1950, 550, 1950,
+    550, 950, 550, 950, 550, 2000, 550, 950,
+    550, 1950, 500, 2000, 500, 2000, 500, 1000,
+    500, 1000, 500, 1000, 500, 1000, 550, 950,
+    550, 1950, 550, 1950, 550, 950, 500, 2050,
+    450, 1000, 550, 1000, 450, 1050, 500, 2000,
+    500
+];
+
+// Netflix
+$netflix = [
+    4050, 4000, 500, 2000, 500, 1950, 550, 2000, 500, 2000,
+    550, 1950, 550, 1950, 550, 1950, 550, 950,
+    550, 1950, 550, 1950, 550, 2000, 500, 2000,
+    500, 1000, 500, 950, 550, 1000, 500, 1000,
+    500, 1000, 500, 1000, 500, 2000, 550, 950,
+    550, 950, 550, 950, 550, 950, 550, 950,
+    550
+];
+
+$subir_volumen_string = implode(',', $subir_volumen);
+$apagar_string = implode(',', $apagar);
+$bajar_volumen_string = implode(',', $bajar_volumen);
+$netflix_string = implode(',', $netflix);
 ?>
 
 
@@ -38,7 +86,7 @@ $ip=$session->get('esp_ip');
 
         <div class="d-flex flex-row justify-content-center">
             <div class="menu-grid">
-                <div class="d-flex flex-column align-items-center" onclick="enviarIR('0xC','0x1000C','<?php echo $ip;?>')">
+                <div class="d-flex flex-column align-items-center" onclick="enviarIR('<?php echo $apagar_string;?>','<?php echo $ip;?>')">
                     <i class="fas fa-power-off active"></i>
                     <span class="label">Power</span>
                 </div>
@@ -54,7 +102,7 @@ $ip=$session->get('esp_ip');
                     <i class="fas fa-bars"></i>
                     <span class="label">Menu</span>
                 </div>
-                <div class="d-flex flex-column align-items-center">
+                <div class="d-flex flex-column align-items-center" onclick="enviarIR('<?php echo $netflix_string;?>','<?php echo $ip;?>')">
                     <i class="fas fa-circle"></i>
                     <span class="label">Netflix</span>
                 </div>
@@ -78,9 +126,9 @@ $ip=$session->get('esp_ip');
                 <span class="label">Home</span>
             </div>
             <div class="d-flex flex-column rounded-bg py-3 px-4 justify-content-center align-items-center">
-                <i class="fas fa-plus py-3 control-icon"></i>
+                <i class="fas fa-plus py-3 control-icon" onclick="enviarIR('<?php echo $subir_volumen_string;?>','<?php echo $ip;?>')"></i>
                 <span class="label py-3">Volume</span>
-                <i class="fas fa-minus py-3 control-icon"></i>
+                <i class="fas fa-minus py-3 control-icon" onclick="enviarIR('<?php echo $bajar_volumen_string;?>','<?php echo $ip;?>')"></i>
             </div>
         </div>
 
@@ -126,11 +174,10 @@ $ip=$session->get('esp_ip');
 
 
     <script>
-   function enviarIR(signal1, signal2, ip) {
+   function enviarIR(signal, ip) {
             // Crea un cuerpo de la solicitud con las dos señales
             const data = new URLSearchParams();
-            data.append('signal1', signal1);
-            data.append('signal2', signal2);
+            data.append('signal', signal);
             data.append('ip', ip);
 
             // Realiza la solicitud fetch al controlador en CodeIgniter
@@ -141,20 +188,7 @@ $ip=$session->get('esp_ip');
                 },
                 body: data
             })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Error en la respuesta del servidor: ' + response.status);
-                }
-                return response.text();
-            })
-            .then(data => {
-                console.log(data); // Muestra la respuesta en la consola
-                alert(data); // Muestra una alerta con la respuesta
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Error: ' + error.message); // Alerta más informativa
-            });
+            
         }
     </script>
 
