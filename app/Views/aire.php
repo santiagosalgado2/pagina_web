@@ -15,7 +15,7 @@
     <div class="circulo"></div>
 
 <div class="control-remoto">
-        <div class="pantalla">AIRE TV</div>
+        <div class="pantalla">AIRE </div>
         
         <div class="seccion">
             <div class="temp-botones">
