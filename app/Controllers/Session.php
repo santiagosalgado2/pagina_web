@@ -31,7 +31,7 @@ class Session extends BaseController{
 
         $ip=$this->request->getIPAddress(); #SE OBTIENE LA DIRECCION IP DEL USUARIO
 
-        $log_att=new Login_attemps; #SE INSTANCIA LE MODELO LOGIN_ATTEMPS
+        $log_att=new Login_attemps; #SE INSTANCIA EL MODELO LOGIN_ATTEMPS
 
         
         $data=[

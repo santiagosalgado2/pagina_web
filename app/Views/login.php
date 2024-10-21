@@ -40,6 +40,8 @@ $session=session();
 				<?php
 
 	$error_data = $session->getFlashdata("error");
+	$success_data = $session->getFlashdata("success");
+
 	if($error_data){
 		if(!is_array($error_data)){
 			echo $error_data ;
@@ -50,6 +52,10 @@ $session=session();
 			
 	}
 			
+	}
+
+	if($success_data){
+		echo $success_data;
 	}
 	
 	?>
