@@ -66,6 +66,15 @@
 
     <center>
     <div class="container">
+      <h1><?php 
+        if($session->getFlashdata("error")){
+            echo $session->getFlashdata("error");
+        }
+        if($session->getFlashdata("success")){
+            echo $session->getFlashdata("success");
+        }
+      ?>
+      </h1>
         <h1>Informacion de tu usuario</h1>
             <ul class="info">
                 <li><b>Nombre de usuario: </b><?php echo $data[0]["nombre_usuario"]; ?>   <a href="<?php echo base_url("/change_user"); ?>"><button class="button2">Cambiar</button></a></li>

@@ -62,9 +62,18 @@
   </div>
 </nav>
     <br><br><br><h1>Información de tus usuarios</h1>
-
-    <h2> <a href="<?php echo base_url("/new_user");?>">Crear un nuevo usuario</a> </h2>
-
+      <div class="acciones">
+     <a href="<?php echo base_url("/new_user");?>"><button class="button2">Crear un nuevo usuario</button></a> 
+    <a href="<?php echo base_url("/");?>"><button class="button2">Volver</button></a><br>
+    <?php 
+     $error_data = $session->getFlashdata("error");
+     if($error_data){
+      echo "<h1>".$error_data."</h1>";
+     }
+     
+     ?>
+     </div>
+    
     <?php if(isset($datos) && !empty($datos)):?>
 
         <table>
@@ -86,9 +95,45 @@
     <?php else:?>
         <h2>No tienes usuarios creados</h2>
     <?php endif;?>
-    <a href="<?php echo base_url("/");?>"><button class="button2">Volver</button></a>
 
     
+
+    <style>
+
+      table {
+        min-width: 700px;
+        border-collapse: collapse;
+        margin: 0 auto;
+        border:2px solid #ff9999;
+        border-radius: 12px;
+        background-color: rgba(211, 64, 64, 0.849);
+        color: white;
+      }
+
+      td,tr,th {
+        border: 1px solid #ff9999;
+        padding: 10px;
+        text-align: center;
+        font-size: 20px;
+      }
+      .acciones{
+        text-align: center;
+        margin: 0 auto;
+        margin-bottom: 33px;
+        
+      }
+      .acciones button {
+        font-size: 18px;
+        padding: 15px 30px;
+      }
+
+      h1{
+        text-align: center;
+        margin-bottom: 37px;
+      }
+    </style>
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>   
 </body>
 </html>

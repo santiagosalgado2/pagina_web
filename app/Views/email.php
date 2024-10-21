@@ -1,3 +1,7 @@
+<?php 
+session();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +23,7 @@
     
     <div class="form-container">
         <h1>Reestablece tu contraseña</h1>
+        
         <form method="post" action="<?php echo base_url("/generate2/recuperar_contrasena");?>">
             <div class="mb-3">
                     <span class="textos">Ingrese el email asociado a su cuenta</span><input type="email" name="mail">
@@ -26,6 +31,10 @@
                 <br><br><input type="submit" value="Enviar">
             </div>
         </form>
+        <?php if(isset($error)):?>
+        <div class="error"><h1><?php echo $error;?></h1></div>
+            
+            <?php endif;?>
     </div>
     
    

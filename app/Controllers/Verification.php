@@ -106,9 +106,6 @@ class Verification extends BaseController{
 
                 #SI ES PARA REESTABLECER SU CONTRASEÑA, SE UPDATEA EL CODIGO (SE LO MARCA COMO QUE YA FUE USADO) Y SE LO RETORNA A LA VISTA
 
-            }elseif($code[0]["tipo"]== "cambiar_mail"){
-                $this->objusers->updateData(["email" => $session->get("user_email")],["ID_usuario" => $session->get("user_id")]);
-                echo "Direccion cambiada correctamente";
             }
             
             else{

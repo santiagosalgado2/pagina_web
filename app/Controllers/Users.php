@@ -24,6 +24,8 @@ class Users extends BaseController{
     #FUNCION PARA CAMBIAR LA CONTRASEÑA DE UN USUARIO, PARA LLEGAR ACA TIENE QUE INGRESAR PREVIAMENTE UN CODIGO ENVIADO A SU MAIL POR SEGURIDAD:
     #TAMBIEN SE UTILIZA PARA QUE UN NUEVO USUARIO CREADO POR UN ADMIN SETEE SU CONTRASEÑA
     public function changePw(){
+
+        $session=session();
         #SE OBTIENEN LOS DATOS INGRESADOS A TRAVES DEL METODO POST:
         $pw1=$this->request->getPost("password");
 
@@ -43,14 +45,15 @@ class Users extends BaseController{
 
         if($pw1!=$pw2){
             #EN CASO DE QUE LOS 2 CAMPOS NO COINCIDAN, SE MUESTRA ESTE MENSAJE CON UN BOTON PARA QUE PUEDA REGRESAR AL INICIO
-            echo "Contraseñas no coinciden";
-            echo '<br><a href="'.base_url("/").'">Volver al inicio</a>';
+            $error="Las contraseñas no coinciden, intentelo nuevamente";
+            return view('email',["error" => $error]);
 
         }
         
         elseif(!$this->validate($validationrules)){
             #EN CASO DE QUE LA CONTRASEÑA NO CUMPLA CON LOS REQUISITOS SE MUESTRA ESTE MENSAJE
-            echo "La contraseña debe contener 8 caracteres, una mayúscula y un número";
+            $error='La contraseña debe tener 8 caracteres y al menos una mayuscula y un numero, intentelo nuevamente';
+            return view('email',["error" => $error]);
         }
 
         else{
@@ -63,10 +66,11 @@ class Users extends BaseController{
 
             if($n==true){
                 #SI LA ACTUALIZACION FUE EXITOSA, SE MUESTRA ESTE MENSAJE CON EL BOTON PARA VOLVER AL INICIO
-                echo "Contraseña actualizada";
-                echo '<br><a href="'.base_url("/").'">Volver al inicio</a>';
+                $session->setFlashdata('success',"Contraseña actualizada, ya puedes iniciar sesión");
+                return redirect()->to(base_url("/"));
             }else{
-                echo "Ha ocurrido un error";
+                $error='Ha ocurrido un error inesperado, intente nuevamente';
+                return view('email',["error" => $error]);
             }
 
         }
@@ -100,7 +104,8 @@ class Users extends BaseController{
 
         if($user){
             #EN CASO DE QUE EXISTA, EL USUARIO NO PODRA SER CREADO
-            echo "El correo electrónico o el nombre de usuario ya existe";
+            $session->setFlashdata("error","El nombre de usuario o el correo electrónico ya estan en uso");
+            return redirect()->to(base_url("/showUsers"));
 
         }else{
             #SI LOS DATOS SON CORRECTOS, SE ARMA UN ARRAY CON LOS DATOS A INSERTAR EN LA BD
@@ -204,38 +209,18 @@ class Users extends BaseController{
         $username=$this->request->getPost("username");
 
         if($this->usersmodel->getUser(["nombre_usuario" => $username])){
-            echo "El nombre de usuario ya está en uso";
+            $session->setFlashdata("error","El nombre de usuario ya está en uso");
+            return redirect()->to(base_url("/userInfo"));
         }else{
             $this->usersmodel->updateData(["nombre_usuario" => $username],["ID_usuario" => $session->get("user_id")]);
             $session->set("username", $username);
-            echo "Nombre de usuario cambiado correctamente";
+            $session->setFlashdata("success","Nombre de usuario cambiado correctamente");
+            return redirect()->to(base_url("/userInfo"));
         }
 
-        echo '<br><br><a href="'.base_url("/").'">Volver al inicio</a>';
+      
     }
+ 
 
-    public function changeEmailview(){
-        return view("change_email");
-    }
-
-    public function changeEmail(){
-        $session=session();
-        $mail = $this->request->getPost("mail");
-
-        if($this->usersmodel->getUser(["email"=> $mail])){
-            echo "La dirección e-mail ya esta en uso";
-            echo '<br><br><a href="'.base_url("/").'">Volver al inicio</a>';
-        }else{
-            $code=\Config\Services::generateCode(); 
-
-            $this->verificationmodel->insertCode($session->get("user_id"),$code,"cambiar_mail");
-
-            $session->set("user_email", $mail);
-
-            return view("verification");
-
-
-        }
-    }
 
 }
