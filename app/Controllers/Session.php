@@ -70,6 +70,7 @@ class Session extends BaseController{
 
             }else{
                 #EN CASO DE ESTARLO, EL INICIO DE SESION FUE EXITOSO, SE SETEA EN LA SESION QUE ESTA VERIFICADO Y SE LO ENVIA AL INICIO DE LA PAGINA
+                \Config\Services::sendEmail($session->get('user_email'),"Nuevo inicio de sesión en tu cuenta","<h1>Ha habido un nuevo inicio de sesión desde la siguiente dirección IP: ".$ip."</h1>");
                 $session->set("verificado",true);
                 return redirect()->to(base_url("/"));
             }
