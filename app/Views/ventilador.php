@@ -16,7 +16,7 @@
     
     <div class="remote-control">
         <div class="top-section">
-            <button class="button" id="on-off">ON/OFF</button>
+            <button class="button" id="on-off" onclick="enviarHex('0xBA45FF00','NEC',32,<?php echo session()->get('esp_ip');?>)">ON/OFF</button>
             <button class="button" id="tiempo">TIEMPO</button>
             <button class="button" id="velocidad">VELOCIDAD</button>
             <button class="button" id="modo-brisa">MODO BRISA</button>
@@ -26,6 +26,8 @@
         </div>
     </div>
 
+    <script src="<?php echo base_url('/js/sendIR.js');?>">
 
+    </script>
 </body>
 </html>
