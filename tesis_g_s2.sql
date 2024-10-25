@@ -259,7 +259,8 @@ CREATE TABLE `permisos` (
 
 INSERT INTO `permisos` (`ID_permiso`, `nombre`, `descripcion`) VALUES
 (1, 'administrador', '-');
-
+INSERT INTO 'permisos' ('ID_permiso','nombre','descripcion')VALUES
+(2,'profesor','-');
 -- --------------------------------------------------------
 
 --
