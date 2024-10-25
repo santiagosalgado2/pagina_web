@@ -141,31 +141,54 @@ class Esp32C extends BaseController{
         // Obtén la IP y las señales
         $esp32IP = trim($this->request->getPost('ip'));  // Elimina posibles espacios en blanco
         $signal = $this->request->getPost('signal');
-    
+        $protocol= $this->request->getPost('protocol');
+        $bits= $this->request->getPost('bits');
+        $url = "http://$esp32IP/sendIR";    
         // Verifica que todos los datos estén presentes
         if (!$esp32IP || !$signal) {
             return $this->response->setStatusCode(400)->setBody('Faltan parámetros.');
         }
+
+        elseif(!$protocol || !$bits){
+            $client = \Config\Services::curlrequest();
     
+            // Envía ambas señales a la ESP32
+            $response = $client->post($url, [
+                'form_params' => [
+                    'plain' => $signal
+                ]
+            ]);
+        
+            // Verifica que la solicitud haya sido exitosa
+            if ($response->getStatusCode() === 200) {
+                return $this->response->setStatusCode(200)->setBody('Señales enviadas correctamente.');
+            } else {
+                return $this->response->setStatusCode(500)->setBody('Error al enviar las señales.');
+            }
+        }
+        else{
+            $client = \Config\Services::curlrequest();
+    
+            // Envía ambas señales a la ESP32
+            $response = $client->post($url, [
+                'form_params' => [
+                    'hex' => $signal,
+                    'protocol' => $protocol,
+                    'bits' => $bits
+                ]
+            ]);
+        
+            // Verifica que la solicitud haya sido exitosa
+            if ($response->getStatusCode() === 200) {
+                return $this->response->setStatusCode(200)->setBody('Señales enviadas correctamente.');
+            } else {
+                return $this->response->setStatusCode(500)->setBody('Error al enviar las señales.');
+            }
+        }
         // Formatea correctamente la URL
-        $url = "http://$esp32IP/sendIR";
     
         // Configura la solicitud cURL
-        $client = \Config\Services::curlrequest();
-    
-        // Envía ambas señales a la ESP32
-        $response = $client->post($url, [
-            'form_params' => [
-                'plain' => $signal
-            ]
-        ]);
-    
-        // Verifica que la solicitud haya sido exitosa
-        if ($response->getStatusCode() === 200) {
-            return $this->response->setStatusCode(200)->setBody('Señales enviadas correctamente.');
-        } else {
-            return $this->response->setStatusCode(500)->setBody('Error al enviar las señales.');
-        }
+
     }
     
     

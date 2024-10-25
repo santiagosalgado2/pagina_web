@@ -1,3 +1,47 @@
+<?php
+
+$apagar = [
+
+    9050, 4550,
+    550, 600,
+    600, 550,
+    650, 500,
+    600, 550,
+    600, 500,
+    600, 550,
+    600, 550,
+    600, 550,
+    600,1650,
+    600, 1650,
+    600, 1650,
+    600, 1650,
+    600, 1650,
+    600, 1650,
+    600, 1600,
+    650, 1650,
+    600, 1650,
+    600, 500,
+    650, 1600,
+    650, 500,
+    650, 500,
+    650, 500,
+    600, 1650,
+    600, 550,
+    600, 500,
+    650, 1600,
+    650, 500,
+    650, 1600,
+    650, 1600,
+    650, 1600,
+    650, 500,
+    600, 1650,
+    600
+];
+
+$apagar_string = implode(',', $apagar);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +60,7 @@
     
     <div class="remote-control">
         <div class="top-section">
-            <button class="button" id="on-off">ON/OFF</button>
+            <button class="button" id="on-off" onclick="enviarIR('<?php echo $apagar_string;?>','<?php echo session()->get('esp_ip');?>')">ON/OFF</button>
             <button class="button" id="tiempo">TIEMPO</button>
             <button class="button" id="velocidad">VELOCIDAD</button>
             <button class="button" id="modo-brisa">MODO BRISA</button>
@@ -26,6 +70,8 @@
         </div>
     </div>
 
+    <script src="<?php echo base_url('/js/sendIR.js');?>">
 
+    </script>
 </body>
 </html>

@@ -46,10 +46,51 @@ $netflix = [
     550
 ];
 
+$rawData = [
+
+    9050, 4550,
+    550, 600,
+    600, 550,
+    650, 500,
+    600, 550,
+    600, 500,
+    600, 550,
+    600, 550,
+    600, 550,
+    600,1650,
+    600, 1650,
+    600, 1650,
+    600, 1650,
+    600, 1650,
+    600, 1650,
+    600, 1600,
+    650, 1650,
+    600, 1650,
+    600, 500,
+    650, 1600,
+    650, 500,
+    650, 500,
+    650, 500,
+    600, 1650,
+    600, 550,
+    600, 500,
+    650, 1600,
+    650, 500,
+    650, 1600,
+    650, 1600,
+    650, 1600,
+    650, 500,
+    600, 1650,
+    600
+];
+
+
+
 $subir_volumen_string = implode(',', $subir_volumen);
 $apagar_string = implode(',', $apagar);
 $bajar_volumen_string = implode(',', $bajar_volumen);
 $netflix_string = implode(',', $netflix);
+$rawData_string = implode(',', $rawData);
 ?>
 
 
@@ -102,7 +143,7 @@ $netflix_string = implode(',', $netflix);
                     <i class="fas fa-bars"></i>
                     <span class="label">Menu</span>
                 </div>
-                <div class="d-flex flex-column align-items-center" onclick="enviarIR('<?php echo $netflix_string;?>','<?php echo $ip;?>')">
+                <div class="d-flex flex-column align-items-center" onclick="enviarIR('<?php echo $rawData_string;?>','<?php echo $ip;?>')">
                     <i class="fas fa-circle"></i>
                     <span class="label">Netflix</span>
                 </div>
@@ -121,7 +162,7 @@ $netflix_string = implode(',', $netflix);
             </div>
             <div class="d-flex flex-column align-items-center">
                 <div class="d-flex flex-row grey-bg justify-content-center align-items-center">
-                    <i class="fas fa-home p-3 home-icon"></i>
+                    <i class="fas fa-home p-3 home-icon" onclick="enviarHex('0xBA45FF00','NEC',32,<?php echo session()->get('esp_ip');?>)"></i>
                 </div>
                 <span class="label">Home</span>
             </div>
@@ -173,23 +214,8 @@ $netflix_string = implode(',', $netflix);
 
 
 
-    <script>
-   function enviarIR(signal, ip) {
-            // Crea un cuerpo de la solicitud con las dos señales
-            const data = new URLSearchParams();
-            data.append('signal', signal);
-            data.append('ip', ip);
+    <script src="<?php echo base_url('/js/sendIR.js');?>">
 
-            // Realiza la solicitud fetch al controlador en CodeIgniter
-            fetch('http://localhost/pagina_web/pagina_web/public/sendIR', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: data
-            })
-            
-        }
     </script>
 
 
