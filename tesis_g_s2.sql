@@ -259,7 +259,7 @@ CREATE TABLE `permisos` (
 
 INSERT INTO `permisos` (`ID_permiso`, `nombre`, `descripcion`) VALUES
 (1, 'administrador', '-');
-
+(2,'profesor','-');
 -- --------------------------------------------------------
 
 --
@@ -270,7 +270,8 @@ CREATE TABLE `senalesir` (
   `ID_senal` int(11) NOT NULL,
   `codigo_hexadecimal` varchar(90) NOT NULL,
   `ID_dispositivo` int(11) NOT NULL,
-  `ID_funcion` int(11) NOT NULL
+  `ID_funcion` int(11) NOT NULL,
+  `Khz` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
