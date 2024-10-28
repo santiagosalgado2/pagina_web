@@ -86,8 +86,6 @@ class Esp32C extends BaseController{
     
             list($vcode, $id, $mail, $location) = $data[0];
     
-            
-    
             $espid=$espmodel->insertEsp($ip,$location,$id,$vcode);
     
             if($espid){
