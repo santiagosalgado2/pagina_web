@@ -102,7 +102,7 @@
                 <?php
                 if($permiso==1):?>  
                 <a href="<?php echo base_url('/edit_device/'.$d['ID_dispositivo']); ?>"><button class="button2">Editar</button></a>
-                <a href="<?php echo base_url('/delete_device/'.$d['ID_dispositivo']); ?>"><button class="button2">Eliminar</button></a>
+                <button class="button2" onclick="deleteDevice('<?php echo base_url('/delete_device/'.$d['ID_dispositivo']);?>')">Eliminar</button>
                 <button class="button2">Grabar control remoto</button>
                 <?php endif;?>
             </td>
@@ -156,6 +156,16 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>   
 
+<script>
 
+      function deleteDevice(url){
+
+        if (confirm("¿Estás seguro de que deseas eliminar este dispositivo? Se eliminaran todos los accesos y las señales asociadas al mismo")) {
+          window.location.href = url;
+        }
+
+      }
+
+</script>
 </body>
 </html>
