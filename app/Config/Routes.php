@@ -41,4 +41,5 @@ $routes->post('/new_device/insert','Devices::newDevice');
 $routes->get("/edit_device/(:segment)" , "Devices::editDeviceview/$1");
 $routes->post("/edit_device/update","Devices::updateDevice");
 $routes->get("/delete_device/(:segment)" , "Devices::deleteDevice/$1");
+$routes->get("/gordo","Home::gordo");
 
