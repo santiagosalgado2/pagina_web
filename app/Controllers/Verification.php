@@ -45,6 +45,9 @@ class Verification extends BaseController{
                     "user_email" => $mail,
                 ];
                 $session->set($data);
+            }else{
+                $session->setFlashdata("error","El mail ingresado no se encuentra registrado");
+                return redirect()->to(base_url("/"));
             }
         
         #SI SE ACCEDE A TRAVES DE GET, QUIERE DECIR QUE EL USUARIO DESEA VERIFICARSE Y LOS DATOS DE SESION YA ESTAN SETEADOS
