@@ -24,7 +24,7 @@
   <div class="container-fluid">
   <a class="navbar-brand" href="<?php echo base_url("/") ;?>" style="color: black;">
       <img src="<?php echo base_url("/img/logo.png") ;?>" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-      Nombre_pagina
+      IRconnect
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
