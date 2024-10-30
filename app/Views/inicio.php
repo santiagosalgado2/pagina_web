@@ -30,9 +30,6 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="<?php echo base_url("/") ;?>" style="color: black;">Inicio</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" style="color: black;">Link</a>
-        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black;">
             Mi usuario
@@ -45,9 +42,6 @@
             <li><a class="dropdown-item" href="<?php echo base_url("/showUsers");?> " style="color: black;">Administrar mis usuarios</a></li>
             <?php endif;?>
           </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true" style="color: black;">Disabled</a>
         </li>
       </ul>
       <form class="d-flex" role="search">
