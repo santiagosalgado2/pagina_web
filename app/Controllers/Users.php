@@ -205,13 +205,18 @@ class Users extends BaseController{
     }
 
     public function change_user(){
+        #FUNCION PARA CAMBIAR EL NOMBRE DE USUARIO
+
         $session=session();
         $username=$this->request->getPost("username");
 
         if($this->usersmodel->getUser(["nombre_usuario" => $username])){
+            #SI EL NOMBRE DE USUARIO YA ESTA EN USO
             $session->setFlashdata("error","El nombre de usuario ya está en uso");
             return redirect()->to(base_url("/userInfo"));
+            
         }else{
+            #SI EL NOMBRE DE USUARIO ESTA DISPONIBLE
             $this->usersmodel->updateData(["nombre_usuario" => $username],["ID_usuario" => $session->get("user_id")]);
             $session->set("username", $username);
             $session->setFlashdata("success","Nombre de usuario cambiado correctamente");
