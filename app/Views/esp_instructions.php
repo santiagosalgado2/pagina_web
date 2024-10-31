@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="<?php echo base_url("/css/defaultstyle.css");?>"> 
     <link rel="stylesheet" href="<?php echo base_url("/css/espinstructionstyle.css");?>"> 
     
-    <title>Document</title>
+    <title>Instrucciones de conexión</title>
 </head>
 <body>
 

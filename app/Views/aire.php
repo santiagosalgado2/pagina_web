@@ -249,7 +249,7 @@ $sleep_string = implode(",", $sleep);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?php echo base_url("/css/airstyle.css");?>"> 
     <link rel="stylesheet" href="<?php echo base_url("/css/defaultstyle.css");?>"> 
-    <title>Control Remoto</title>
+    <title>Control Remoto Aire acondicionado</title>
 </head>
 <body>
 

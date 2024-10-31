@@ -9,7 +9,7 @@ session();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?php echo base_url("/css/defaultstyle.css");?>"> 
     <link rel="stylesheet" href="<?php echo base_url("/css/emailstyle.css");?>"> 
-    <title>Document</title>
+    <title>Reestablecer contraseña</title>
 </head>
 <body>
 
