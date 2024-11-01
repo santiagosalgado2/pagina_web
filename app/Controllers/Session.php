@@ -62,7 +62,7 @@ class Session extends BaseController{
 
             if(!$remember){
                 /*SI EL USUARIO NO MARCÓ LA CASILLA RECORDARME, SE ESTABLECE QUE LA SESION FINALICE UNA VEZ EL USUARIO CIERRA SU NAVEGADOR,
-                POR DEFECTO, LAS SESIONES ESTAN CONFIGURADAS PARA DURAR APROXIMADAMENTE 1 MES*/
+                POR DEFECTO, LAS SESIONES ESTAN CONFIGURADAS PARA DURAR APROXIMADAMENTE 1*/
                 setcookie('ci_session', session_id(), 0, '/');
 
             }
@@ -81,7 +81,6 @@ class Session extends BaseController{
                 return redirect()->to(base_url("/"));
             }
 
-            
         #EN CASO DE QUE LOS DATOS SEAN INCORRECTOS:
         }else{
 
