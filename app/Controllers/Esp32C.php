@@ -53,7 +53,14 @@ class Esp32C extends BaseController{
         $id = session()->get('user_id');
         $mail=session()->get('user_email');
         $location = $this->request->getPost('location');
-        
+        $model=new Esp32;
+
+        if($model->getEsp32byCode($code)){
+            #SI EL CODIGO YA EXISTE EN LA BD, SE RETORNA UN MENSAJE DE ERROR
+            session()->setFlashdata('error', 'El código ya está registrado. Intentelo nuevamente');
+
+            return redirect()->to('/new_esp');
+        }
         #SE CREA UN ARCHIVO CSV QUE VA A TENER COMO NOMBRE EL CODIGO DEL ESP32 Y COMO CONTENIDO LOS DATOS OBTENIDOS DEL FORMULARIO Y DE LA SESION
         $fileName = "{$code}.csv";
         $filePath = WRITEPATH . 'data/' . $fileName;
