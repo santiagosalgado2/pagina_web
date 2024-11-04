@@ -153,7 +153,8 @@
 <script>
 
       function deleteDevice(url){
-
+        //CUANDO EL USUARIO TOCA ELIMINAR, SE EJECUTA ESTE JS QUE PREGUNTA SI ESTA SEGURO DE ELIMINAR EL DISPOSITIVO. EN CASO DE ACEPTAR, SE EJECUTA LA URL QUE SE PASA COMO PARAMETRO
+        //QUE LLEVA AL USUARIO AL CONTROLADOR ENCARGADO DE ELIMINAR EL REGISTRO DE LA BASE DE DATOS
         if (confirm("¿Estás seguro de que deseas eliminar este dispositivo? Se eliminaran todos los accesos y las señales asociadas al mismo")) {
           window.location.href = url;
         }

@@ -204,6 +204,7 @@ class Esp32C extends BaseController{
 
         $filePath = WRITEPATH . 'data/'.$code.'.csv';
 
+        #LA LETRA A SIGNIFICA APPEND, Y EL ARCHIVO SE ABRIRA PARA ESCRIBIR AL FINAL DEL ARCHIVO. SI EL ARCHIVO NO EXISTE, PHP LO CREA
         $file = fopen($filePath, 'a');
         if ($file) {
             #SE CREA EL ARCHIVO CSV Y SE INSERTA EL ARCHIVO
@@ -226,10 +227,13 @@ class Esp32C extends BaseController{
 
         if (file_exists($filePath)) {
             if (($handle = fopen($filePath, 'r')) !== false) {
+                #DENTRO DEL IF SE DECLARA A HANDLE COMO UN MANEJADOR DEL CSV, SI LA APERTURA FUE EXITOSA SE 
+                #DECLARA UN ARRAY VACIO PARA LUEGO ITERAR LOS DATOS DEL CSV Y GUARDARLOS EN EL ARRAY
                 $data = [];
                 while (($row = fgetcsv($handle)) !== false) {
+                    #LA CONDICION VALIDA QUE HAYA DATOS PARA LEER
                     #ITERA LAS SEÑALES Y LAS GUARDA EN UN ARRAY
-                    $data[] = $row[0];
+                    $data[] = $row[0]; #EN ESTE CASO SE PONE 0 PORQUE SOLO HAY UNA COLUMNA
                 }
                 fclose($handle);
                 
