@@ -1,7 +1,9 @@
-body{
+body {
     height: 100vh;
-    background: linear-gradient(135deg, #ff5a3c, #eb4930, #ee695a,#fa8560, #fcb185, #ffddaa);   
+    background: linear-gradient(135deg, #2C3E50, #4CA1AF); /* Azul marino a azul petróleo */
+    color: #333333; /* Gris carbón para el texto */
 }
+
 .circulo {
     position: absolute;
     border-radius: 50%;
@@ -59,7 +61,7 @@ body{
     display: inline-block;
     padding: 12px 24px;
     margin-top: 20px;
-    background-color: #f44336; /* Color rojo */
+    background-color: #4CA1AF; /* Color rojo */
     color: white;
     text-align: center;
     font-size: 18px;
@@ -70,6 +72,6 @@ body{
 }
 
 .boton:hover {
-    background-color: #d32f2f; /* Color más oscuro al pasar el mouse */
+    background-color: #2C3E50; /* Color más oscuro al pasar el mouse */
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4); /* Aumentar sombra en hover */
 }
