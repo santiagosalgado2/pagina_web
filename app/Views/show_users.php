@@ -24,7 +24,7 @@
     <nav class="navbar navbar-expand-lg fixed-top">
   <div class="container-fluid justify-content-center"> <!-- centrado aquí -->
 =======
-    <nav class="navbar navbar-expand-lg fixed-top" style="background: linear-gradient(135deg, #f72611, #faa72b);">
+    <nav class="navbar navbar-expand-lg fixed-top">
   <div class="container-fluid justify-content-center"> 
 >>>>>>> 6c208627c58059c99a5b006c844c8dde01751792
     <div class="d-flex align-items-center">
