@@ -4,29 +4,14 @@ function enviarIR(signal, ip) {
     data.append('signal', signal);
     data.append('ip', ip);
 
-    // Realiza la solicitud fetch al controlador en CodeIgniter
+    // Realiza la solicitud a la ruta del controlador
     fetch('http://localhost/pagina_web/pagina_web/public/sendIR', {
         method: 'POST',
+        //Se configura el encabezado Content-Type de la siguiente manera. Es un metodo de codificacion de datos usado en solicitudes POST
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
         },
         body: data
     })
     
-}
-
-function enviarHex(signal,protocol,bits,ip){
-const data = new URLSearchParams();
-    data.append('signal', signal);
-    data.append('protocol', protocol);
-    data.append('bits', bits);
-    data.append('ip', ip);
-    fetch('http://localhost/pagina_web/pagina_web/public/sendIR', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: data
-    })
-
 }

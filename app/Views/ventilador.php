@@ -85,7 +85,7 @@ $modobrisa_string = implode(',', $modobrisa);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Control Remoto</title>
+    <title>Control Remoto ventilador</title>
     <link rel="stylesheet" href="<?php echo base_url("/css/defaultstyle.css");?>"> 
     <link rel="stylesheet" href="<?php echo base_url("/css/ventilador.css");?>"> 
 </head>

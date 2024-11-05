@@ -5,6 +5,9 @@
     <title>Ver Señales</title>
     <script>
         function fetchSignals() {
+            //ESTA FUNCION LO QUE HACE ES EJECUTAR EL CONTROLADOR DE ESA RUTA 
+            //EL CONTROLADOR ENVIARA LAS SEÑALES ITERANDO EL ARCHIVO CSV Y DEVOLVIENDO UN JSON
+            //Y ESTA FUNCION SE ENCARGA DE RELLENAR EL DIV CON ID signals CON LAS SEÑALES
             fetch('http://localhost/pagina_web/pagina_web/public/mostrar_senales')
                 .then(response => response.json())
                 .then(data => {
@@ -18,8 +21,8 @@
                 })
                 .catch(error => console.error('Error fetching signals:', error));
         }
-
-        setInterval(fetchSignals, 1000); // Actualizar cada 1 segundo
+        //ESTO HACE QUE SE EJECUTE CADA UN SEGUNDO
+        setInterval(fetchSignals, 1000); 
     </script>
 </head>
 <body>

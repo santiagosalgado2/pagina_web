@@ -8,7 +8,7 @@ use CodeIgniter\Model;
 class Acceso_usuarios extends Model{
 
     public function insertAccess($user_id,$device_id){
-
+        
         $tabla=$this->db->table('acceso_usuarios');
 
         $data=array(

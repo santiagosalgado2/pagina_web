@@ -1,5 +1,5 @@
 <?php
-
+#ARRAYS CON LOS VALORES CRUDOS DE LAS SEÑALES
 $on_off= [
     3050, 1750,
     450, 1050, 500, 1050, 500, 350, 450, 350,
@@ -230,6 +230,7 @@ $sleep= [
     400
 ];
 
+#IMPLODE TRANSFORMA LOS ARRAYS A UN STRING CON LOS NUMEROS SEPARADOS POR ,
 $on_off_string = implode(",", $on_off);
 $tempup_string = implode(",", $tempup);
 $tempdown_string = implode(",", $tempdown);
@@ -249,7 +250,7 @@ $sleep_string = implode(",", $sleep);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?php echo base_url("/css/airstyle.css");?>"> 
     <link rel="stylesheet" href="<?php echo base_url("/css/defaultstyle.css");?>"> 
-    <title>Control Remoto</title>
+    <title>Control Remoto Aire acondicionado</title>
 </head>
 <body>
 

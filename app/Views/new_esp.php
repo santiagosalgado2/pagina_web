@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?php echo base_url("/css/defaultstyle.css");?>"> 
     <link rel="stylesheet" href="<?php echo base_url("/css/newespstyle.css");?>"> 
-    <title>Document</title>
+    <title>Nuevo Esp32</title>
 </head>
 <body>
 
@@ -25,6 +25,13 @@
                 <br><br><input type="submit" value="Registrar">
             </div>
         </form>
+        <?php 
+        $session=session();
+        $error=$session->getFlashdata('error');
+        if(isset($error)):?>
+        <div class="error"><h1><?php echo $error;?></h1></div>
+            
+            <?php endif;?>
         </div>
 
 </body>

@@ -31,6 +31,12 @@ class Session extends BaseController{
 
         $ip=$this->request->getIPAddress(); #SE OBTIENE LA DIRECCION IP DEL USUARIO
 
+        $userAgent = $this->request->getUserAgent();
+        $browser = $userAgent->getBrowser(); #OBTENER EL NAVEGADOR DEL USUARIO DESDE UN USERAGENT
+        $version = $userAgent->getVersion(); #OBTENER LA VERSION DEL NAVEGADOR
+        $platform = $userAgent->getPlatform(); #OBTENER EL SO
+
+
         $log_att=new Login_attemps; #SE INSTANCIA EL MODELO LOGIN_ATTEMPS
 
         
@@ -56,7 +62,7 @@ class Session extends BaseController{
 
             if(!$remember){
                 /*SI EL USUARIO NO MARCÓ LA CASILLA RECORDARME, SE ESTABLECE QUE LA SESION FINALICE UNA VEZ EL USUARIO CIERRA SU NAVEGADOR,
-                POR DEFECTO, LAS SESIONES ESTAN CONFIGURADAS PARA DURAR APROXIMADAMENTE 1 MES*/
+                POR DEFECTO, LAS SESIONES ESTAN CONFIGURADAS PARA DURAR APROXIMADAMENTE 1*/
                 setcookie('ci_session', session_id(), 0, '/');
 
             }
@@ -70,12 +76,11 @@ class Session extends BaseController{
 
             }else{
                 #EN CASO DE ESTARLO, EL INICIO DE SESION FUE EXITOSO, SE SETEA EN LA SESION QUE ESTA VERIFICADO Y SE LO ENVIA AL INICIO DE LA PAGINA
-                \Config\Services::sendEmail($session->get('user_email'),"Nuevo inicio de sesión en tu cuenta","<h1>Hubo un nuevo inicio de sesión desde la siguiente dirección IP: ".$ip."</h1>");
+                \Config\Services::sendEmail($session->get('user_email'),"Nuevo inicio de sesión en tu cuenta","<h1>Hubo un nuevo inicio de sesión desde la siguiente dirección IP: ".$ip." <br> Navegador: $browser<br>Version: $version<br>Sistema operativo: $platform</h1>");
                 $session->set("verificado",true);
                 return redirect()->to(base_url("/"));
             }
 
-            
         #EN CASO DE QUE LOS DATOS SEAN INCORRECTOS:
         }else{
 
