@@ -11,15 +11,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
     <title>Bienvenido <?php echo $session->get('username');?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?php echo base_url("/css/style.css");?>">
+    <link rel="stylesheet" href="<?php echo base_url("/css/style.css") . '?v=' . time(); ?>">
 </head>
 <body class="p-3 mb-2 bg-primary-subtle text-primary-emphasis">
-<nav class="navbar navbar-expand-lg fixed-top" style="background: linear-gradient(135deg, #f72611, #faa72b);">
+<nav class="navbar navbar-expand-lg fixed-top">
   <div class="container-fluid justify-content-center"> <!-- centrado aquí -->
     <div class="d-flex align-items-center">
-      <a class="navbar-brand" href="<?php echo base_url("/") ;?>" style="color: black;">
+      <a class="navbar-brand" href="<?php echo base_url("/") ;?>" style="color: white;">
         <img src="<?php echo base_url("/img/logo1.png") ;?>" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
         IRconnect
       </a>
@@ -30,10 +31,10 @@
     <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent"> <!-- centrado aquí -->
       <ul class="navbar-nav mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="<?php echo base_url("/") ;?>" style="color: black;">Inicio</a>
+          <a class="nav-link active" aria-current="page" href="<?php echo base_url("/") ;?>" style="color: white;">Inicio</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black;">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
             Mi usuario
           </a>
           <ul class="dropdown-menu">
@@ -86,43 +87,6 @@
 
 
 </main>
-
-
-<style>
-  .button2 {
-    margin: 2px;
-   width: 9em;
-   height: 3em;
-   border-radius: 30em;
-   font-size: 15px;
-   font-family: inherit;
-   border: none;
-   position: relative;
-   overflow: hidden;
-   z-index: 1;
-   box-shadow: 1,5px 1,5px 4px #c5c5c5, 0px 0px 3px #ffffff;
-  }
-  
-  .button2::before {
-   content: '';
-   width: 0;
-   height: 3em;
-   border-radius: 30em;
-   position: absolute;
-   top: 0;
-   left: 0;
-   background-image: linear-gradient(to right, #fa8560 0%, #ffddaa 100%);
-   transition: .5s ease;
-   display: block;
-   z-index: -1;
-  }
-  
-  .button2:hover::before {
-   width: 9em;
-  }
-
-  
-</style>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

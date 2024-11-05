@@ -10,8 +10,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?php echo base_url("/css/defaultstyle.css");?>"> 
-    <link rel="stylesheet" href="<?php echo base_url("/css/devicestyle.css");?>"> 
+    <link rel="stylesheet" href="<?php echo base_url("/css/userstyle.css") . '?v=' . time(); ?>">
+ 
     <title>Dispositivos</title>
 </head>
 <body>
@@ -21,10 +21,10 @@
     <div class="circulo"></div>
     <div class="circulo"></div>
 
-    <nav class="navbar navbar-expand-lg fixed-top" style="background: linear-gradient(135deg, #f72611, #faa72b);">
+    <nav class="navbar navbar-expand-lg fixed-top">
   <div class="container-fluid justify-content-center"> <!-- centrado aquí -->
     <div class="d-flex align-items-center">
-      <a class="navbar-brand" href="<?php echo base_url("/") ;?>" style="color: black;">
+      <a class="navbar-brand" href="<?php echo base_url("/") ;?>" style="color: white;">
         <img src="<?php echo base_url("/img/logo1.png") ;?>" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
         IRconnect
       </a>
@@ -35,10 +35,10 @@
     <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent"> <!-- centrado aquí -->
       <ul class="navbar-nav mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="<?php echo base_url("/") ;?>" style="color: black;">Inicio</a>
+          <a class="nav-link active" aria-current="page" href="<?php echo base_url("/") ;?>" style="color: white;">Inicio</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black;">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
             Mi usuario
           </a>
           <ul class="dropdown-menu">
@@ -110,40 +110,7 @@
     <?php endif;?>
 
     
-    <style>
 
-      table {
-        min-width: 700px;
-        border-collapse: collapse;
-        margin: 0 auto;
-        border:2px solid #ff9999;
-        border-radius: 12px;
-        background-color: rgba(211, 64, 64, 0.849);
-        color: white;
-      }
-
-      td,tr,th {
-        border: 1px solid #ff9999;
-        padding: 10px;
-        text-align: center;
-        font-size: 20px;
-      }
-      .acciones{
-        text-align: center;
-        margin: 0 auto;
-        margin-bottom: 33px;
-        
-      }
-      .acciones button {
-        font-size: 18px;
-        padding: 15px 30px;
-      }
-
-      h1{
-        text-align: center;
-        margin-bottom: 37px;
-      }
-    </style>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>   

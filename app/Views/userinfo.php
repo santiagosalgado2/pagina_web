@@ -11,8 +11,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?php echo base_url("/css/defaultstyle.css");?>">
-    <link rel="stylesheet" href="<?php echo base_url("/css/userinfostyle.css");?>">
+    <link rel="stylesheet" href="<?php echo base_url("/css/userinfostyle.css") . '?v=' . time(); ?>"> 
+    <link rel="stylesheet" href="<?php echo base_url("/css/formstyle.css") . '?v=' . time(); ?>"> 
     <title>Información de usuario</title>
 </head>
 <body>
@@ -22,10 +22,10 @@
     <div class="circulo"></div>
     <div class="circulo"></div>
     
-    <nav class="navbar navbar-expand-lg fixed-top" style="background: linear-gradient(135deg, #f72611, #faa72b);">
+    <nav class="navbar navbar-expand-lg fixed-top">
   <div class="container-fluid justify-content-center"> <!-- centrado aquí -->
     <div class="d-flex align-items-center">
-      <a class="navbar-brand" href="<?php echo base_url("/") ;?>" style="color: black;">
+      <a class="navbar-brand" href="<?php echo base_url("/") ;?>" style="color: white;">
         <img src="<?php echo base_url("/img/logo1.png") ;?>" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
         IRconnect
       </a>
@@ -36,10 +36,10 @@
     <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent"> <!-- centrado aquí -->
       <ul class="navbar-nav mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="<?php echo base_url("/") ;?>" style="color: black;">Inicio</a>
+          <a class="nav-link active" aria-current="page" href="<?php echo base_url("/") ;?>" style="color: white;">Inicio</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black;">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
             Mi usuario
           </a>
           <ul class="dropdown-menu">
