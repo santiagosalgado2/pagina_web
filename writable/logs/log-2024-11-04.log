@@ -1,0 +1,14 @@
+CRITICAL - 2024-11-04 21:45:01 --> ErrorException: Undefined array key 0
+[Method: GET, Route: userInfo]
+in APPPATH\Views\userinfo.php on line 72.
+ 1 APPPATH\Views\userinfo.php(72): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\userinfo.php', 72)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\userinfo.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('userinfo', [], true)
+ 5 APPPATH\Controllers\Users.php(196): view('userinfo', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Users->viewUserinfo()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

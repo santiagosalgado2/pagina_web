@@ -25,6 +25,13 @@
                 <br><br><input type="submit" value="Registrar">
             </div>
         </form>
+        <?php 
+        $session=session();
+        $error=$session->getFlashdata('error');
+        if(isset($error)):?>
+        <div class="error"><h1><?php echo $error;?></h1></div>
+            
+            <?php endif;?>
         </div>
 
 </body>

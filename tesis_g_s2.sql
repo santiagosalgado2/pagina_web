@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 24-10-2024 a las 22:46:18
+-- Servidor: localhost
+-- Tiempo de generación: 04-11-2024 a las 22:17:56
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -49,11 +49,13 @@ INSERT INTO `acceso_usuarios` (`ID_a_u`, `ID_usuario`, `ID_dispositivo`) VALUES
 (9, 7, 9),
 (10, 8, 2),
 (11, 8, 5),
-(12, 4, 34),
-(13, 4, 35),
-(14, 4, 36),
-(15, 4, 37),
-(16, 17, 37);
+(13, 4, 36),
+(14, 4, 37),
+(15, 4, 38),
+(16, 4, 39),
+(17, 4, 40),
+(18, 4, 41),
+(19, 9, 42);
 
 -- --------------------------------------------------------
 
@@ -65,47 +67,11 @@ CREATE TABLE `codigos_verificacion` (
   `ID_codigo` int(11) NOT NULL,
   `ID_usuario` int(11) NOT NULL,
   `codigo` varchar(10) DEFAULT NULL,
-  `tipo` enum('verificacion','recuperar_contrasena','crear_contrasena') NOT NULL,
+  `tipo` enum('verificacion','recuperar_contrasena','crear_contrasena','cambiar_mail') NOT NULL,
   `fecha_creacion` timestamp NOT NULL DEFAULT current_timestamp(),
   `fecha_expiracion` timestamp NOT NULL DEFAULT (current_timestamp() + interval 1 hour),
   `usado` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Volcado de datos para la tabla `codigos_verificacion`
---
-
-INSERT INTO `codigos_verificacion` (`ID_codigo`, `ID_usuario`, `codigo`, `tipo`, `fecha_creacion`, `fecha_expiracion`, `usado`) VALUES
-(1, 11, '366755', 'verificacion', '2024-08-30 18:15:28', '2024-08-30 19:15:28', 1),
-(2, 11, '164652', 'verificacion', '2024-08-30 18:34:00', '2024-08-30 19:34:00', 1),
-(3, 11, '935656', 'verificacion', '2024-08-30 18:36:02', '2024-08-30 19:36:02', 0),
-(4, 11, '141797', 'verificacion', '2024-08-30 18:36:17', '2024-08-30 19:36:17', 1),
-(5, 11, '545367', 'verificacion', '2024-08-30 18:36:44', '2024-08-30 19:36:44', 0),
-(6, 12, '372068', 'verificacion', '2024-08-30 22:35:56', '2024-08-30 23:35:56', 1),
-(7, 12, '837246', 'verificacion', '2024-08-30 22:38:24', '2024-08-30 23:38:24', 0),
-(8, 12, '999469', 'verificacion', '2024-08-30 22:39:04', '2024-08-30 23:39:04', 1),
-(9, 13, '724611', 'verificacion', '2024-09-03 01:21:59', '2024-09-03 02:21:59', 1),
-(10, 13, '761192', 'verificacion', '2024-09-03 01:22:38', '2024-09-03 02:22:38', 0),
-(11, 13, '262961', 'verificacion', '2024-09-03 01:22:58', '2024-09-03 02:22:58', 1),
-(12, 13, '147777', 'verificacion', '2024-09-03 02:08:51', '2024-09-03 03:08:51', 1),
-(13, 13, '562926', 'recuperar_contrasena', '2024-09-03 02:26:53', '2024-09-03 03:26:53', 1),
-(14, 13, '428911', 'recuperar_contrasena', '2024-09-03 02:27:51', '2024-09-03 03:27:51', 1),
-(15, 13, '731376', 'recuperar_contrasena', '2024-09-03 02:30:16', '2024-09-03 03:30:16', 1),
-(16, 13, '143680', 'recuperar_contrasena', '2024-09-03 02:32:37', '2024-09-03 03:32:37', 1),
-(17, 14, '433259', 'verificacion', '2024-09-03 14:47:06', '2024-09-03 15:47:06', 1),
-(18, 14, '108313', 'recuperar_contrasena', '2024-09-03 14:47:57', '2024-09-03 15:47:57', 1),
-(19, 14, '550808', 'recuperar_contrasena', '2024-09-03 14:52:46', '2024-09-03 15:52:46', 1),
-(20, 15, '514633', '', '2024-09-05 01:59:58', '2024-09-05 02:59:58', 0),
-(21, 15, '395070', 'verificacion', '2024-09-05 02:02:42', '2024-09-05 03:02:42', 1),
-(22, 14, '130694', 'recuperar_contrasena', '2024-09-09 16:47:34', '2024-09-09 17:47:34', 1),
-(23, 16, '107508', 'crear_contrasena', '2024-09-11 20:44:43', '2024-09-11 21:44:43', 0),
-(24, 14, '266947', 'recuperar_contrasena', '2024-09-15 00:32:40', '2024-09-15 01:32:40', 1),
-(25, 17, '148464', 'crear_contrasena', '2024-09-15 00:36:48', '2024-09-15 01:36:48', 0),
-(26, 9, '116576', 'recuperar_contrasena', '2024-10-03 14:32:32', '2024-10-03 15:32:32', 1),
-(27, 9, '109516', 'recuperar_contrasena', '2024-10-03 14:32:56', '2024-10-03 15:32:56', 0),
-(28, 17, '459414', 'recuperar_contrasena', '2024-10-07 12:59:22', '2024-10-07 13:59:22', 1),
-(29, 17, '444337', 'recuperar_contrasena', '2024-10-07 12:59:57', '2024-10-07 13:59:57', 0),
-(30, 17, '122043', 'verificacion', '2024-10-07 13:00:19', '2024-10-07 14:00:19', 1);
 
 -- --------------------------------------------------------
 
@@ -140,9 +106,13 @@ INSERT INTO `dispositivos` (`ID_dispositivo`, `nombre`, `ID_tipo`, `ID_esp32`) V
 (13, 'Aire acondicionado LG - Biblioteca', 1, 5),
 (14, 'Televisor Hisense - Biblioteca', 2, 5),
 (15, 'Ventilador Atma - Biblioteca', 3, 5),
-(34, 'tele de mi pieza', 2, 7),
-(35, 'Aire de mi pieza', 1, 7),
-(37, 'venti', 3, 7);
+(36, 'Aire sala info', 1, 13),
+(37, 'Tele sala', 2, 13),
+(38, 'Ventilador sala', 3, 13),
+(39, 'Tele aula 2', 2, 6),
+(40, 'Aire sala 23', 1, 12),
+(41, 'Tele', 2, 12),
+(42, 'asd', 2, 11);
 
 -- --------------------------------------------------------
 
@@ -164,13 +134,16 @@ CREATE TABLE `disp_esp32` (
 --
 
 INSERT INTO `disp_esp32` (`ID_dispositivo`, `direccion_ip`, `estado`, `ubicacion`, `ID_administrador`, `codigo`) VALUES
-(1, '192.168.0.10', 1, 'Aula 101', 0, ''),
-(2, '192.168.0.11', 1, 'Aula 102', 0, ''),
-(3, '192.168.0.12', 1, 'Laboratorio', 0, ''),
+(1, '10.81.11.67', 1, 'Aula 101', 4, ''),
+(2, '192.168.0.11', 1, 'Aula 102', 9, ''),
+(3, '192.168.0.12', 1, 'Laboratorio', 9, ''),
 (4, '192.168.0.13', 1, 'Sala de profesores', 0, ''),
 (5, '192.168.0.14', 1, 'Biblioteca', 0, ''),
-(6, '192.168.1.115', 1, 'Pieza', 9, 'ABCD1234'),
-(7, '192.168.1.115', 1, 'Mi pieza', 4, '8lIsgR9J');
+(6, '10.81.11.242', 1, 'aula 2', 4, ''),
+(7, '10.81.11.242', 1, 'aula 3', 4, ''),
+(8, '10.81.11.228', 1, 'Habitación 1', 9, ''),
+(11, '192.168.2.200', 1, 'Cocina 4', 9, 'ABCD1234'),
+(12, '10.81.11.177', 1, 'Aula informatica', 4, '8lIsgR9J');
 
 -- --------------------------------------------------------
 
@@ -192,7 +165,7 @@ CREATE TABLE `funciones` (
 CREATE TABLE `login_attemps` (
   `ID_login_attemp` int(11) NOT NULL,
   `ID_usuario` int(11) DEFAULT NULL,
-  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp(),
   `exitoso` tinyint(1) NOT NULL,
   `direccion_ip` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
@@ -202,44 +175,58 @@ CREATE TABLE `login_attemps` (
 --
 
 INSERT INTO `login_attemps` (`ID_login_attemp`, `ID_usuario`, `fecha`, `exitoso`, `direccion_ip`) VALUES
-(1, 4, '2024-09-26 00:01:33', 1, '::1'),
-(2, 4, '2024-09-26 00:07:57', 1, '::1'),
-(5, 4, '2024-09-26 00:13:29', 1, '::1'),
-(6, NULL, '2024-09-26 00:13:46', 0, '::1'),
-(7, 4, '2024-09-26 00:13:57', 0, '::1'),
-(8, NULL, '2024-09-28 17:42:00', 0, '::1'),
-(9, 4, '2024-09-28 17:42:53', 1, '::1'),
-(10, 4, '2024-09-28 17:47:20', 0, '::1'),
-(11, 17, '2024-09-28 17:49:45', 0, '::1'),
-(12, 17, '2024-09-28 17:49:54', 0, '::1'),
-(13, 4, '2024-09-28 17:50:14', 1, '::1'),
-(14, 4, '2024-09-28 17:50:32', 1, '::1'),
-(15, 9, '2024-10-03 14:32:10', 0, '::1'),
-(16, 9, '2024-10-03 14:32:16', 0, '::1'),
-(17, 9, '2024-10-03 14:33:21', 1, '::1'),
-(18, 4, '2024-10-07 12:54:17', 1, '::1'),
-(19, 17, '2024-10-07 12:58:50', 0, '::1'),
-(20, 17, '2024-10-07 12:59:05', 0, '::1'),
-(21, 17, '2024-10-07 13:00:19', 1, '::1'),
-(22, 4, '2024-10-07 13:00:47', 1, '::1'),
-(23, 8, '2024-10-07 13:03:58', 1, '::1'),
-(24, 4, '2024-10-07 13:19:37', 1, '::1'),
-(25, 4, '2024-10-08 14:22:16', 1, '::1'),
-(26, 4, '2024-10-08 14:30:08', 1, '::1'),
-(27, 4, '2024-10-14 02:50:53', 1, '::1'),
-(28, 9, '2024-10-16 15:02:34', 1, '::1'),
-(29, 4, '2024-10-17 13:20:57', 1, '::1'),
-(30, 4, '2024-10-17 13:21:26', 0, '::1'),
-(31, 4, '2024-10-17 13:21:30', 1, '::1'),
-(32, 17, '2024-10-17 13:51:17', 1, '::1'),
-(33, 17, '2024-10-17 13:52:00', 1, '::1'),
-(34, 4, '2024-10-17 13:53:13', 1, '::1'),
-(35, 17, '2024-10-17 13:55:28', 1, '::1'),
-(36, 4, '2024-10-19 16:44:41', 1, '::1'),
-(37, 4, '2024-10-22 18:41:41', 1, '::1'),
-(38, 4, '2024-10-24 14:35:44', 1, '::1'),
-(39, 4, '2024-10-24 14:56:48', 1, '::1'),
-(40, 4, '2024-10-24 20:10:31', 1, '::1');
+(1, 4, '2024-09-25 20:41:44', 1, '::1'),
+(2, 4, '2024-09-25 20:42:49', 1, 'localhost'),
+(3, 4, '2024-09-25 20:43:28', 1, '::1'),
+(4, 4, '2024-09-30 20:54:32', 1, '::1'),
+(5, 4, '2024-09-30 21:15:13', 1, '::1'),
+(6, NULL, '2024-10-01 22:48:10', 0, '::1'),
+(7, NULL, '2024-10-01 22:48:16', 0, '::1'),
+(8, NULL, '2024-10-01 22:48:20', 0, '::1'),
+(9, NULL, '2024-10-01 22:49:18', 0, '::1'),
+(10, NULL, '2024-10-01 23:04:14', 0, '::1'),
+(11, 4, '2024-10-01 23:04:51', 1, '::1'),
+(12, 4, '2024-10-02 18:52:13', 1, '::1'),
+(13, 4, '2024-10-02 18:56:46', 0, '::1'),
+(14, 4, '2024-10-02 18:56:52', 1, '::1'),
+(15, 4, '2024-10-02 19:00:31', 1, '::1'),
+(16, 4, '2024-10-04 17:24:28', 1, '::1'),
+(17, 9, '2024-10-04 17:53:14', 0, '::1'),
+(18, 9, '2024-10-04 17:53:19', 1, '::1'),
+(19, NULL, '2024-10-07 21:40:21', 0, '::1'),
+(20, 4, '2024-10-07 21:40:24', 1, '::1'),
+(21, 9, '2024-10-07 21:51:54', 1, '::1'),
+(22, 22, '2024-10-07 22:14:33', 0, '::1'),
+(23, 22, '2024-10-07 22:15:00', 1, '::1'),
+(24, 22, '2024-10-07 22:16:47', 1, '::1'),
+(25, 4, '2024-10-08 19:18:39', 1, '::1'),
+(26, 4, '2024-10-16 00:34:24', 1, '::1'),
+(27, 4, '2024-10-16 00:34:37', 1, '::1'),
+(28, 8, '2024-10-18 17:12:45', 1, '::1'),
+(29, NULL, '2024-10-18 17:14:10', 0, '::1'),
+(30, 4, '2024-10-18 17:14:14', 1, '::1'),
+(31, 4, '2024-10-18 18:08:24', 1, '::1'),
+(32, 8, '2024-10-18 18:08:35', 1, '::1'),
+(33, 4, '2024-10-18 22:59:12', 1, '::1'),
+(34, 4, '2024-10-21 21:49:10', 1, '::1'),
+(35, 9, '2024-10-21 22:16:24', 1, '::1'),
+(36, NULL, '2024-10-23 19:28:15', 0, '::1'),
+(37, 4, '2024-10-23 19:28:21', 1, '::1'),
+(38, 9, '2024-10-23 19:32:00', 1, '::1'),
+(39, 9, '2024-10-23 19:32:48', 1, '::1'),
+(40, 9, '2024-10-23 19:34:56', 1, '::1'),
+(41, 4, '2024-10-25 17:16:31', 1, '::1'),
+(42, 4, '2024-10-25 17:17:30', 1, '::1'),
+(43, 9, '2024-10-29 21:26:40', 1, '::1'),
+(44, NULL, '2024-10-29 22:01:52', 0, '::1'),
+(45, 4, '2024-10-29 22:01:55', 1, '::1'),
+(46, 9, '2024-10-29 22:03:59', 1, '::1'),
+(47, 23, '2024-10-30 19:54:55', 1, '::1'),
+(48, 23, '2024-10-30 19:56:06', 1, '::1'),
+(49, 23, '2024-10-30 20:16:52', 1, '::1'),
+(50, 23, '2024-10-30 20:24:21', 1, '::1'),
+(51, NULL, '2024-11-04 20:51:25', 0, '::1'),
+(52, 4, '2024-11-04 20:51:32', 1, '::1');
 
 -- --------------------------------------------------------
 
@@ -259,7 +246,8 @@ CREATE TABLE `permisos` (
 
 INSERT INTO `permisos` (`ID_permiso`, `nombre`, `descripcion`) VALUES
 (1, 'administrador', '-'),
-(2,'profesor','-');
+(2, 'profesor', '-');
+
 -- --------------------------------------------------------
 
 --
@@ -270,8 +258,7 @@ CREATE TABLE `senalesir` (
   `ID_senal` int(11) NOT NULL,
   `codigo_hexadecimal` varchar(90) NOT NULL,
   `ID_dispositivo` int(11) NOT NULL,
-  `ID_funcion` int(11) NOT NULL,
-  `Khz` int(11) NOT NULL
+  `ID_funcion` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
@@ -306,7 +293,7 @@ CREATE TABLE `usuarios` (
   `email` varchar(100) NOT NULL,
   `hash_contrasena` varchar(128) DEFAULT NULL,
   `salt` varchar(100) DEFAULT NULL,
-  `fecha_creacion` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `fecha_creacion` timestamp NOT NULL DEFAULT current_timestamp(),
   `ID_permiso` int(11) NOT NULL,
   `ID_administrador` int(11) DEFAULT NULL,
   `verificado` tinyint(1) DEFAULT 0
@@ -317,12 +304,15 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`ID_usuario`, `nombre_usuario`, `email`, `hash_contrasena`, `salt`, `fecha_creacion`, `ID_permiso`, `ID_administrador`, `verificado`) VALUES
-(4, 'admin2', 'admin@gmail.com', '$2y$10$CgcuFSF8TKd3ZYQzfjYpVOsl3SxRLkUibE0U21EujF1TG9jIvO9e.', NULL, '2024-10-08 13:48:03', 1, NULL, 1),
+(4, 'admin3', 'admin@gmail.com', '$2y$10$CgcuFSF8TKd3ZYQzfjYpVOsl3SxRLkUibE0U21EujF1TG9jIvO9e.', NULL, '2024-08-30 17:29:40', 1, NULL, 1),
 (5, 'user1', 'user@gmail.com', '$2y$10$OcAVcgVE23oFVYJwzgBYs.2bLIqO2Kpbh1/BZz3/22Aej1/OgIWfi', NULL, '2024-08-30 17:29:43', 1, NULL, 1),
 (8, 'gordo', 'abc@gmail.com', '$2y$10$5H.Zc44WYCZPP3cMZNMBfeC6Y2gOvxTUhQqGqfZm6ieSrUEDcKocu', NULL, '2024-08-30 17:29:46', 2, 4, 1),
-(9, 'santiagosalgado2', 'santiagosalgado@alumnos.itr3.edu.ar', '$2y$10$XlIpLb5HHd6kz2cAcoWpSOhdTSuinJWTN.F9iBRoUD3Ytc3i2tiO2', NULL, '2024-10-03 14:33:10', 1, NULL, 1),
-(14, 'santiago', 'santiagosalgado2007@gmail.com', '$2y$10$lxr7OMDXOil2/kLr3oSnceACUwL3Nz4q47hTKaMDVIj6z1wwVlTL2', NULL, '2024-09-15 00:32:57', 1, NULL, 1),
-(17, 'santiago3', 'santisalgado33@gmail.com', '$2y$10$TfSHnHF88EAezeFBGWLdGuBTOzDrpaFy/rB.TFAYNR6Eig7BP.pt.', NULL, '2024-10-07 13:00:30', 2, 4, 1);
+(9, 'santiagosalgado2', 'santiagosalgado@alumnos.itr3.edu.ar3', '$2y$10$qHa8TDB1iczmwP42Rl2SDOyfIiRy2/MSkuPhf9I72ECXOnHC9sZZ6', NULL, '2024-09-16 21:59:52', 1, NULL, 1),
+(16, 'santiago5', 'santisalgado33@gmail.co', '$2y$10$ZPZK7jH0exu0r6DYkDzpVuIrmlz8LYfpmUCGFEG/U2q3S9ESUDYPe', NULL, '2024-09-16 21:59:41', 2, 4, 1),
+(17, 'gordo3', 'santiagosalgado@alumnos.itr3.edu.ars', '$2y$10$66tqrAOMRA7Emf9/0q59Q.4Hbj2cwK9nrhcC7atZXcJ3j/QFncovW', NULL, '2024-09-16 22:02:36', 2, 4, 1),
+(20, 'santiago7', 'santiagosalgado@alumnos.itr3.edu.ar1', '$2y$10$dgtUdgvrH79c5N2Mj0Dl7eX.V5BJJB7Q22wCIKYPs6nB0QMVDYFJq', NULL, '2024-09-23 22:11:48', 2, 4, 1),
+(22, 'gord22', 'santiagosalgado@alumnos.itr3.edu.ar4', '$2y$10$2LeGj3q3rmNlxMdffnntl.4XMlA1z5vh.s3MmvYy6AG5MuZrh6IZG', NULL, '2024-10-07 21:58:44', 2, 9, 1),
+(23, 'santiago9', 'santiagosalgado@alumnos.itr3.edu.ar', '$2y$10$o/wDt1KxN9FIMsEs7PEF4OPfjQgGucIKg5sacNEdQ/crsh49mB5ni', NULL, '2024-10-30 19:54:10', 1, NULL, 1);
 
 --
 -- Índices para tablas volcadas
@@ -396,25 +386,25 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `acceso_usuarios`
 --
 ALTER TABLE `acceso_usuarios`
-  MODIFY `ID_a_u` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `ID_a_u` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `codigos_verificacion`
 --
 ALTER TABLE `codigos_verificacion`
-  MODIFY `ID_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `ID_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 
 --
 -- AUTO_INCREMENT de la tabla `dispositivos`
 --
 ALTER TABLE `dispositivos`
-  MODIFY `ID_dispositivo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `ID_dispositivo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT de la tabla `disp_esp32`
 --
 ALTER TABLE `disp_esp32`
-  MODIFY `ID_dispositivo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `ID_dispositivo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `funciones`
@@ -426,13 +416,13 @@ ALTER TABLE `funciones`
 -- AUTO_INCREMENT de la tabla `login_attemps`
 --
 ALTER TABLE `login_attemps`
-  MODIFY `ID_login_attemp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `ID_login_attemp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT de la tabla `permisos`
 --
 ALTER TABLE `permisos`
-  MODIFY `ID_permiso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID_permiso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `senalesir`
@@ -444,19 +434,22 @@ ALTER TABLE `senalesir`
 -- AUTO_INCREMENT de la tabla `tipo_dispositivos`
 --
 ALTER TABLE `tipo_dispositivos`
-  MODIFY `ID_tipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID_tipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `ID_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `ID_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 DELIMITER $$
 --
 -- Eventos
 --
 CREATE DEFINER=`root`@`localhost` EVENT `borrar_codigos_expirados` ON SCHEDULE EVERY 1 HOUR STARTS '2024-08-30 13:42:37' ON COMPLETION NOT PRESERVE ENABLE DO DELETE FROM codigos_verificacion WHERE fecha_expiracion < CURRENT_TIMESTAMP()$$
+
+CREATE DEFINER=`root`@`localhost` EVENT `eliminar_codigos_expirados` ON SCHEDULE EVERY 1 HOUR STARTS '2024-09-13 15:04:46' ON COMPLETION NOT PRESERVE ENABLE DO DELETE FROM codigos_verificacion
+  WHERE fecha_expiracion < NOW()$$
 
 DELIMITER ;
 COMMIT;
