@@ -20,13 +20,9 @@
     <div class="circulo"></div>
     <div class="circulo"></div>
 
-<<<<<<< HEAD
+
     <nav class="navbar navbar-expand-lg fixed-top">
   <div class="container-fluid justify-content-center"> <!-- centrado aquí -->
-=======
-    <nav class="navbar navbar-expand-lg fixed-top">
-  <div class="container-fluid justify-content-center"> 
->>>>>>> 6c208627c58059c99a5b006c844c8dde01751792
     <div class="d-flex align-items-center">
       <a class="navbar-brand" href="<?php echo base_url("/") ;?>" style="color: white;">
         <img src="<?php echo base_url("/img/logo1.png") ;?>" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
@@ -36,7 +32,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
     </div>
-    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent"> 
+    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent"> <!-- centrado aquí -->
       <ul class="navbar-nav mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="<?php echo base_url("/") ;?>" style="color: white;">Inicio</a>
