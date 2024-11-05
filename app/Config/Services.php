@@ -63,9 +63,9 @@ class Services extends BaseService
 
         while(true){
 
-            $hex = bin2hex(random_bytes(3)); // Genera 6 caracteres hexadecimales
-            $number = base_convert($hex, 16, 10);
-            $codigo = substr($number, 0, 6);
+            $hex = bin2hex(random_bytes(3)); // Genera 6 caracteres hexadecimales. Convierte 3 bytes a hexadecimal y cada byte se transforma en 2 caracteres hexadecimales.
+            $number = base_convert($hex, 16, 10); // Convierte el número hexadecimal a decimal.
+            $codigo = substr($number, 0, 6); // Toma los primeros 6 caracteres del número decimal.
 
             if(empty($usersmodel->getCode(["codigo" => $codigo]))){
 

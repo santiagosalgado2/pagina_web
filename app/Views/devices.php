@@ -105,8 +105,8 @@
     </table>
 
     <?php else:?>
-
-    <p>No hay dispositivos vinculados a este esp32</p>
+      <br><br>
+    <h1>No hay dispositivos vinculados a este esp32</h1>
     <?php endif;?>
 
     
