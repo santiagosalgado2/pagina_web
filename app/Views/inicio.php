@@ -17,6 +17,13 @@
     <link rel="stylesheet" href="<?php echo base_url("/css/style.css") . '?v=' . time(); ?>">
 </head>
 <body class="p-3 mb-2 bg-primary-subtle text-primary-emphasis">
+
+<div class="circulo"></div>
+    <div class="circulo"></div>
+    <div class="circulo"></div>
+    <div class="circulo"></div>
+
+
 <nav class="navbar navbar-expand-lg fixed-top">
   <div class="container-fluid justify-content-center"> <!-- centrado aquí -->
     <div class="d-flex align-items-center">
@@ -61,10 +68,10 @@
 
 
     <?php if($permiso== 1):?>
-      <a href="<?php echo base_url("/new_esp"); ?>"><button class="button2">Añadir nuevo Esp32</button></a><br><br>
+      <a href="<?php echo base_url("/new_esp"); ?>"><center><button class="button2">Añadir nuevo Esp32</button></center></a><br><br>
     <?php endif;?>
     <?php if (isset($datos) && !empty($datos)): ?>
-    <h2>Tus Esp disponibles</h2>
+    <h1>Tus Esp disponibles</h1>
     
     <ul>
         <?php foreach ($datos as $esp): ?>
@@ -75,14 +82,14 @@
 
                 <input type="hidden" name="esp_ip" value="<?php echo $esp["direccion_ip"];?> ">
 
-                <button class="button2" type="submit" > <?php  echo $esp["ubicacion"];?> </button>
+                <center><button class="button2" type="submit" id="esp"> <?php  echo $esp["ubicacion"];?> </button></center>
 
               </form>
             </li>
         <?php endforeach; ?>
     </ul>
 <?php else: ?>
-    <p>No hay ESP32 disponibles.</p>
+    <h2>No hay ESP32 disponibles.</h2>
 <?php endif; ?>
 
 
