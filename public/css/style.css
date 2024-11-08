@@ -1,12 +1,118 @@
-body{
-	height: 100vh;
-    background: linear-gradient(135deg, #6A82FB, #FC5C7D);
-   
+.button2 {
+    margin: 2px;
+    width: 9em;
+    height: 3em;
+    border-radius: 30em;
+    font-size: 20px;
+    font-family: inherit;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    color: #FFFFFF; /* Blanco para el texto */
+    background: #2C3E50; /* Azul marino oscuro */
+    box-shadow: 1px 1px 4px #c5c5c5, 0px 0px 3px #ffffff;
 }
+.button2::before {
+    content: '';
+    width: 0;
+    height: 3em;
+    border-radius: 30em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to right, #2980B9 0%, #4CA1AF 100%); /* Azul profundo a azul petróleo */
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
+}
+  
+  .button2:hover::before {
+   width: 9em;
+  }
+
+#esp{
+    margin:15px;
+}
+ul li{
+    list-style: none;
+}
+
+  h1, h2 {
+    color: #ebebeb;
+    text-align: center; /* Azul marino oscuro */
+}
+
 h1{
-    color: rgb(0, 0, 0);
+    font-size: 60px;
+    padding: 30px;
 }
-p{
-    color: hsl(0, 0%, 0%);
+
+p {
+    color: #c2c4c2; /* Gris carbón */
 }
+  body {
+    height: 100vh;
+    background: linear-gradient(135deg, #2C3E50, #4CA1AF); /* Azul marino a azul petróleo */
+    color: #333333; /* Gris carbón para el texto */
+}
+
+/* Barra de navegación */
+nav.navbar {
+    background: linear-gradient(135deg, #0F2027, #203A43, #2C5364); /* Negro a azul oscuro */
+}
+
+/* Links de navegación */
+.navbar .nav-link {
+    color: #BDC3C7; /* Gris claro */
+}
+
+.navbar .nav-link:hover {
+    color: #2980B9; /* Azul profundo */
+}
+
+.circulo {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    animation: flotando 10s infinite ease-in-out;
+}
+
+.circulo:nth-child(1) {
+    width: 200px;
+    height: 200px;
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.circulo:nth-child(2) {
+    width: 150px;
+    height: 150px;
+    top: 70%;
+    left: 30%;
+    animation-delay: 2s;
+}
+
+.circulo:nth-child(3) {
+    width: 300px;
+    height: 300px;
+    top: 40%;
+    right: 10%;
+    animation-delay: 4s;
+}
+
+.circulo:nth-child(4) {
+    width: 100px;
+    height: 100px;
+    bottom: 15%;
+    right: 40%;
+    animation-delay: 6s;
+}
+@keyframes flotando{0%, 100% {
+    transform: translateY(0) translateX(0);
+}
+50% {
+    transform: translateY(-50px) translateX(50px);
+}}
 

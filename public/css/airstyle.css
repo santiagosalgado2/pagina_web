@@ -4,7 +4,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f0f0f0;
+    background: linear-gradient(135deg, #2C3E50, #4CA1AF);
     font-family: Arial, sans-serif;
 }
 .control-remoto {
@@ -136,3 +136,48 @@ body {
     display: inline-block;
     translate: 65px;
 }
+
+.circulo {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    animation: flotando 10s infinite ease-in-out;
+}
+
+.circulo:nth-child(1) {
+    width: 200px;
+    height: 200px;
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.circulo:nth-child(2) {
+    width: 150px;
+    height: 150px;
+    top: 70%;
+    left: 30%;
+    animation-delay: 2s;
+}
+
+.circulo:nth-child(3) {
+    width: 300px;
+    height: 300px;
+    top: 40%;
+    right: 10%;
+    animation-delay: 4s;
+}
+
+.circulo:nth-child(4) {
+    width: 100px;
+    height: 100px;
+    bottom: 15%;
+    right: 40%;
+    animation-delay: 6s;
+}
+@keyframes flotando{0%, 100% {
+    transform: translateY(0) translateX(0);
+}
+50% {
+    transform: translateY(-50px) translateX(50px);
+}}

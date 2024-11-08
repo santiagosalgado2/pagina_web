@@ -7,8 +7,8 @@ session();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?php echo base_url("/css/defaultstyle.css");?>"> 
-    <link rel="stylesheet" href="<?php echo base_url("/css/emailstyle.css");?>"> 
+    <link rel="stylesheet" href="<?php echo base_url("/css/form.css") . '?v=' . time(); ?>">
+
     <title>Reestablecer contraseña</title>
 </head>
 <body>
