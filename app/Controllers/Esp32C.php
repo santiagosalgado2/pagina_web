@@ -21,7 +21,7 @@ class Esp32C extends BaseController{
 
         $session->set('esp_ip',$esp_ip);
 
-        return redirect()->to('/devices'); // Redirigir a la vista devices
+        return redirect()->to('/devices'); 
 
     }
 
@@ -119,6 +119,9 @@ class Esp32C extends BaseController{
             }
 
             unlink($ruta);
+
+            return 'Esp32 vinculada con exito';
+            
         }else{
 
 
