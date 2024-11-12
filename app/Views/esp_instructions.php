@@ -14,7 +14,7 @@
 <div class="circulo"></div>
 <div class="circulo"></div>
 
-<h2>Sigue los siguientes pasos para vincular un nuevo Esp32</h2>
+<h2 style="color:white;">Sigue los siguientes pasos para vincular un nuevo Esp32</h2>
 
 <ul>
     <b>
