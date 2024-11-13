@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 11-11-2024 a las 22:13:24
+-- Tiempo de generación: 12-11-2024 a las 21:49:24
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -256,7 +256,7 @@ INSERT INTO `permisos` (`ID_permiso`, `nombre`, `descripcion`) VALUES
 
 CREATE TABLE `senalesir` (
   `ID_senal` int(11) NOT NULL,
-  `codigo_hexadecimal` varchar(90) NOT NULL,
+  `codigo_raw` text NOT NULL,
   `ID_dispositivo` int(11) NOT NULL,
   `ID_funcion` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
@@ -304,7 +304,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`ID_usuario`, `nombre_usuario`, `email`, `hash_contrasena`, `salt`, `fecha_creacion`, `ID_permiso`, `ID_administrador`, `verificado`) VALUES
-(4, 'admin3', 'admin@gmail.com', '$2y$10$CgcuFSF8TKd3ZYQzfjYpVOsl3SxRLkUibE0U21EujF1TG9jIvO9e.', NULL, '2024-08-30 17:29:40', 1, NULL, 1),
+(4, 'admin5', 'admin@gmail.com', '$2y$10$CgcuFSF8TKd3ZYQzfjYpVOsl3SxRLkUibE0U21EujF1TG9jIvO9e.', NULL, '2024-08-30 17:29:40', 1, NULL, 1),
 (5, 'user1', 'user@gmail.com', '$2y$10$OcAVcgVE23oFVYJwzgBYs.2bLIqO2Kpbh1/BZz3/22Aej1/OgIWfi', NULL, '2024-08-30 17:29:43', 1, NULL, 1),
 (8, 'abc', 'abc@gmail.com', '$2y$10$5H.Zc44WYCZPP3cMZNMBfeC6Y2gOvxTUhQqGqfZm6ieSrUEDcKocu', NULL, '2024-08-30 17:29:46', 2, 4, 1),
 (9, 'santiagosalgado2', 'santiagosalgado@alumnos.itr3.edu.ar3', '$2y$10$qHa8TDB1iczmwP42Rl2SDOyfIiRy2/MSkuPhf9I72ECXOnHC9sZZ6', NULL, '2024-09-16 21:59:52', 1, NULL, 1),
