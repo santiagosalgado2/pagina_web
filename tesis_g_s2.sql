@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 04-11-2024 a las 22:17:56
+-- Tiempo de generación: 12-11-2024 a las 21:49:24
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -67,7 +67,7 @@ CREATE TABLE `codigos_verificacion` (
   `ID_codigo` int(11) NOT NULL,
   `ID_usuario` int(11) NOT NULL,
   `codigo` varchar(10) DEFAULT NULL,
-  `tipo` enum('verificacion','recuperar_contrasena','crear_contrasena','cambiar_mail') NOT NULL,
+  `tipo` enum('verificacion','recuperar_contrasena','crear_contrasena') NOT NULL,
   `fecha_creacion` timestamp NOT NULL DEFAULT current_timestamp(),
   `fecha_expiracion` timestamp NOT NULL DEFAULT (current_timestamp() + interval 1 hour),
   `usado` tinyint(1) DEFAULT 0
@@ -111,8 +111,7 @@ INSERT INTO `dispositivos` (`ID_dispositivo`, `nombre`, `ID_tipo`, `ID_esp32`) V
 (38, 'Ventilador sala', 3, 13),
 (39, 'Tele aula 2', 2, 6),
 (40, 'Aire sala 23', 1, 12),
-(41, 'Tele', 2, 12),
-(42, 'asd', 2, 11);
+(41, 'Tele', 2, 12);
 
 -- --------------------------------------------------------
 
@@ -226,7 +225,8 @@ INSERT INTO `login_attemps` (`ID_login_attemp`, `ID_usuario`, `fecha`, `exitoso`
 (49, 23, '2024-10-30 20:16:52', 1, '::1'),
 (50, 23, '2024-10-30 20:24:21', 1, '::1'),
 (51, NULL, '2024-11-04 20:51:25', 0, '::1'),
-(52, 4, '2024-11-04 20:51:32', 1, '::1');
+(52, 4, '2024-11-04 20:51:32', 1, '::1'),
+(53, 4, '2024-11-05 19:21:56', 1, '::1');
 
 -- --------------------------------------------------------
 
@@ -256,7 +256,7 @@ INSERT INTO `permisos` (`ID_permiso`, `nombre`, `descripcion`) VALUES
 
 CREATE TABLE `senalesir` (
   `ID_senal` int(11) NOT NULL,
-  `codigo_hexadecimal` varchar(90) NOT NULL,
+  `codigo_raw` text NOT NULL,
   `ID_dispositivo` int(11) NOT NULL,
   `ID_funcion` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
@@ -304,15 +304,16 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`ID_usuario`, `nombre_usuario`, `email`, `hash_contrasena`, `salt`, `fecha_creacion`, `ID_permiso`, `ID_administrador`, `verificado`) VALUES
-(4, 'admin3', 'admin@gmail.com', '$2y$10$CgcuFSF8TKd3ZYQzfjYpVOsl3SxRLkUibE0U21EujF1TG9jIvO9e.', NULL, '2024-08-30 17:29:40', 1, NULL, 1),
+(4, 'admin5', 'admin@gmail.com', '$2y$10$CgcuFSF8TKd3ZYQzfjYpVOsl3SxRLkUibE0U21EujF1TG9jIvO9e.', NULL, '2024-08-30 17:29:40', 1, NULL, 1),
 (5, 'user1', 'user@gmail.com', '$2y$10$OcAVcgVE23oFVYJwzgBYs.2bLIqO2Kpbh1/BZz3/22Aej1/OgIWfi', NULL, '2024-08-30 17:29:43', 1, NULL, 1),
-(8, 'gordo', 'abc@gmail.com', '$2y$10$5H.Zc44WYCZPP3cMZNMBfeC6Y2gOvxTUhQqGqfZm6ieSrUEDcKocu', NULL, '2024-08-30 17:29:46', 2, 4, 1),
+(8, 'abc', 'abc@gmail.com', '$2y$10$5H.Zc44WYCZPP3cMZNMBfeC6Y2gOvxTUhQqGqfZm6ieSrUEDcKocu', NULL, '2024-08-30 17:29:46', 2, 4, 1),
 (9, 'santiagosalgado2', 'santiagosalgado@alumnos.itr3.edu.ar3', '$2y$10$qHa8TDB1iczmwP42Rl2SDOyfIiRy2/MSkuPhf9I72ECXOnHC9sZZ6', NULL, '2024-09-16 21:59:52', 1, NULL, 1),
 (16, 'santiago5', 'santisalgado33@gmail.co', '$2y$10$ZPZK7jH0exu0r6DYkDzpVuIrmlz8LYfpmUCGFEG/U2q3S9ESUDYPe', NULL, '2024-09-16 21:59:41', 2, 4, 1),
-(17, 'gordo3', 'santiagosalgado@alumnos.itr3.edu.ars', '$2y$10$66tqrAOMRA7Emf9/0q59Q.4Hbj2cwK9nrhcC7atZXcJ3j/QFncovW', NULL, '2024-09-16 22:02:36', 2, 4, 1),
+(17, '123', 'santiagosalgado@alumnos.itr3.edu.ars', '$2y$10$66tqrAOMRA7Emf9/0q59Q.4Hbj2cwK9nrhcC7atZXcJ3j/QFncovW', NULL, '2024-09-16 22:02:36', 2, 4, 1),
 (20, 'santiago7', 'santiagosalgado@alumnos.itr3.edu.ar1', '$2y$10$dgtUdgvrH79c5N2Mj0Dl7eX.V5BJJB7Q22wCIKYPs6nB0QMVDYFJq', NULL, '2024-09-23 22:11:48', 2, 4, 1),
-(22, 'gord22', 'santiagosalgado@alumnos.itr3.edu.ar4', '$2y$10$2LeGj3q3rmNlxMdffnntl.4XMlA1z5vh.s3MmvYy6AG5MuZrh6IZG', NULL, '2024-10-07 21:58:44', 2, 9, 1),
-(23, 'santiago9', 'santiagosalgado@alumnos.itr3.edu.ar', '$2y$10$o/wDt1KxN9FIMsEs7PEF4OPfjQgGucIKg5sacNEdQ/crsh49mB5ni', NULL, '2024-10-30 19:54:10', 1, NULL, 1);
+(22, 'santiago12', 'santiagosalgado@alumnos.itr3.edu.ar4', '$2y$10$2LeGj3q3rmNlxMdffnntl.4XMlA1z5vh.s3MmvYy6AG5MuZrh6IZG', NULL, '2024-10-07 21:58:44', 2, 9, 1),
+(23, 'santiago9', 'santiagosalgado@alumnos.itr3.edu.ar', '$2y$10$o/wDt1KxN9FIMsEs7PEF4OPfjQgGucIKg5sacNEdQ/crsh49mB5ni', NULL, '2024-10-30 19:54:10', 1, NULL, 1),
+(24, 'santiago', 'santiagosalgado2007@gmail.com', '$2y$10$DSzgB2175b9RLp7PMRM4F.xzFsmGx3xZvTtQopgp3nax2MPJcBime', NULL, '2024-11-04 21:50:04', 1, NULL, 1);
 
 --
 -- Índices para tablas volcadas
@@ -392,7 +393,7 @@ ALTER TABLE `acceso_usuarios`
 -- AUTO_INCREMENT de la tabla `codigos_verificacion`
 --
 ALTER TABLE `codigos_verificacion`
-  MODIFY `ID_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+  MODIFY `ID_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
 -- AUTO_INCREMENT de la tabla `dispositivos`
@@ -416,7 +417,7 @@ ALTER TABLE `funciones`
 -- AUTO_INCREMENT de la tabla `login_attemps`
 --
 ALTER TABLE `login_attemps`
-  MODIFY `ID_login_attemp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `ID_login_attemp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT de la tabla `permisos`
@@ -440,18 +441,7 @@ ALTER TABLE `tipo_dispositivos`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `ID_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
-
-DELIMITER $$
---
--- Eventos
---
-CREATE DEFINER=`root`@`localhost` EVENT `borrar_codigos_expirados` ON SCHEDULE EVERY 1 HOUR STARTS '2024-08-30 13:42:37' ON COMPLETION NOT PRESERVE ENABLE DO DELETE FROM codigos_verificacion WHERE fecha_expiracion < CURRENT_TIMESTAMP()$$
-
-CREATE DEFINER=`root`@`localhost` EVENT `eliminar_codigos_expirados` ON SCHEDULE EVERY 1 HOUR STARTS '2024-09-13 15:04:46' ON COMPLETION NOT PRESERVE ENABLE DO DELETE FROM codigos_verificacion
-  WHERE fecha_expiracion < NOW()$$
-
-DELIMITER ;
+  MODIFY `ID_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
