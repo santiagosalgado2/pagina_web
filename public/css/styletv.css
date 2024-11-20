@@ -5,12 +5,25 @@ body {
     height: 100vh;
     background: linear-gradient(135deg, #2C3E50, #4CA1AF);
 }
+nav.navbar {
+    background: linear-gradient(135deg, #0F2027, #203A43, #2C5364); /* Negro a azul oscuro */
+    
+}
 
+/* Links de navegación */
+.navbar .nav-link {
+    color: #BDC3C7; /* Gris claro */
+}
+
+.navbar .nav-link:hover {
+    color: #2980B9; /* Azul profundo */
+}   
 .container {
     background: #e5e5e5;
     border-radius: 30px;
-    height: 850px;
+    height: 780px;
     width: 350px;
+    transform: translateY(25px);
 }
 
 div.menu-grid {
