@@ -195,9 +195,10 @@ class Esp32C extends BaseController{
         $esp=$espmodel->getEsp32byCode($code);
 
         if($esp){
-            return true;
-        }else{
-            return false;
+            return $this->response->setJSON(true);
+        } else {
+        
+            return $this->response->setJSON(false);
         }
 
     }
