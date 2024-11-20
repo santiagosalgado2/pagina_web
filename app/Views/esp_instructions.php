@@ -49,7 +49,7 @@
                 .then(response => response.json())
                 .then(data => {
                     if (data === true) {
-                        window.location.href = baseUrl;
+                        window.location.href = `${baseUrl}?success=1`;
                     }
                 })
                 .catch(error => console.error('Error:', error));

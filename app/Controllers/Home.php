@@ -26,8 +26,13 @@ class Home extends BaseController
             }else{
                 $datos=$obj->getEsp32byAdmin($session->get("user_id"));
             }
-            
-            return view("inicio", ["datos" => $datos]); #ENVIA LOS DATOS A LA VISTA 'INICIO' CON LOS ESP A LOS QUE TIENE ACCESO EL USUARIO
+
+            if(isset($_GET['success'])){ 
+                return view("inicio", ["datos" => $datos, "success"=>"ESP32 vinculado correctamente"]);
+            } #ENVIA LOS DATOS A LA VISTA 'INICIO' CON LOS ESP A LOS QUE TIENE ACCESO EL USUARIO
+            else{
+                return view("inicio", ["datos" => $datos]);
+            }
         }else{
             return view('login'); #EN CASO DE QUE EL USUARIO NO HAYA INICIADO SESION, LO ENVIA AL LOGIN
         }

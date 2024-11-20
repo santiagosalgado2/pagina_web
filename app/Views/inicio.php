@@ -57,6 +57,7 @@
     </div>
   </div>
 </nav>
+    
 
     
     <h1 style="margin-top: 40px;">Bienvenido <?php echo $session->get("username");?></h1>
@@ -65,7 +66,13 @@
 
 <main>
     
-
+<?php if(isset($success)): ?>
+  <center>
+    <div style="background-color: green; border: 1px solid green; padding: 10px; border-radius: 5px; height:70px; width: 220px; ">
+        ✔ <?php echo $success; ?>
+    </div>
+    </center>
+<?php endif; ?>
 
     <?php if($permiso== 1):?>
       <a href="<?php echo base_url("/new_esp"); ?>"><center><button class="button2">Añadir nuevo Esp32</button></center></a><br><br>
