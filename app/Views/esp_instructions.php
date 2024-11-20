@@ -32,14 +32,14 @@
     <img src="<?php echo base_url("/img/message.png"); ?>" alt="Mensaje de exito">
 
     </li>
-    <li>En unos segundos recibirá un mail para verificar si el dispositivo se vinculo correctamente</li>
+    <li>En unos segundos recibirá un mail para verificar si el dispositivo se vinculo correctamente y será redirigido automáticamente a la página de inicio</li>
     </b>
 
 </ul>
 
 <script>
 
-    
+
     document.addEventListener('DOMContentLoaded', function() {
         const code = '<?= $code ?>'; 
         const baseUrl = '<?= base_url() ?>';
