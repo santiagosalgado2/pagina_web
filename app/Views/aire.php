@@ -308,9 +308,7 @@ $sleep_string = implode(",", $sleep);
     </div>
 
 
-    <script src="<?php echo base_url('/js/sendIR.js');?>">
-
-    </script>
+    <script src="<?php echo base_url('/js/sendIR.js');?>"></script>
 
 
 
