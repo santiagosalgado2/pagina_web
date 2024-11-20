@@ -9,7 +9,18 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f3f3f3; /* Color de fondo suave */
     }
-
+    nav.navbar {
+        background: linear-gradient(135deg, #0F2027, #203A43, #2C5364); /* Negro a azul oscuro */
+    }
+    
+    /* Links de navegación */
+    .navbar .nav-link {
+        color: #BDC3C7; /* Gris claro */
+    }
+    
+    .navbar .nav-link:hover {
+        color: #2980B9; /* Azul profundo */
+    }   
 .form-container {
     background: #4CA1AF;; /* Fondo blanco rojizo */
     padding: 40px; /* Más padding para un diseño espacioso */
