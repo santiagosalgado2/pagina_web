@@ -18,9 +18,9 @@
         <h1>Registro de nuevo Esp32</h1>
     <form method="post" action="<?php echo base_url("/new_esp/insert"); ?>">
             <div class="mb-3">
-            <span class="textos">Ingrese el código incluído con su dispositivo</span><input type="text" name="code" >
+            <span class="textos">Ingrese el código incluído con su dispositivo</span><input type="text" name="code" required>
                 <br><br>
-                <span class="textos">Ingrese la ubicacion donde estara el dispositivo</span><input type="text" name="location">
+                <span class="textos">Ingrese la ubicacion donde estara el dispositivo</span><input type="text" name="location" required>
                 <br><br><input type="submit" value="Registrar">
             </div>
         </form>

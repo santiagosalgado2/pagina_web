@@ -23,9 +23,9 @@ $session=session();
     <div class="mb-3">
     <form action="<?php echo base_url("/change"); ?>" method="post">
 
-        <span class="textos">Ingresa tu nueva contraseña</span><input type="password" name="password">
+        <span class="textos">Ingresa tu nueva contraseña</span><input type="password" name="password" required>
 
-        <span class="textos">Confirma tu nueva contraseña</span><input type="password" name="pw-confirm" >
+        <span class="textos">Confirma tu nueva contraseña</span><input type="password" name="pw-confirm" required>
 
         <input type="submit" value="Cambiar">
     </div>
