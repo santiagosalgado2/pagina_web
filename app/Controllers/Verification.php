@@ -71,7 +71,13 @@ class Verification extends BaseController{
             #O RECUPERACION DE CONTRASEÑA
             if($tipo=="verificacion"){
                 \Config\Services::sendEmail($mail,"Tu codigo para verificarte en el sitio","<h1>Utiliza este codigo: <b>".$codigo."</b> Para verificar tu usuario</h1>");
-            }else{
+            }
+            elseif($tipo=="cambiar_usuario"){
+                \Config\Services::sendEmail($mail,"Tu codigo para cambiar tu nombre de usuario","<h1>Utiliza este codigo: <b>".$codigo."</b> Para cambiar tu nombre de usuario</h1>");
+
+            }
+            
+            else{
                 \Config\Services::sendEmail($mail,"Tu codigo para cambiar tu contraseña","<h1>Utiliza este codigo: <b>".$codigo."</b> Para cambiar tu contraseña</h1>");
             }
             #SE RETORNA A LA VISTA PARA QUE COLOQUE EL CODIGO ENVIADO
@@ -109,6 +115,10 @@ class Verification extends BaseController{
 
                 #SI ES PARA REESTABLECER SU CONTRASEÑA, SE UPDATEA EL CODIGO (SE LO MARCA COMO QUE YA FUE USADO) Y SE LO RETORNA A LA VISTA
 
+            }
+
+            elseif($code[0]['tipo']=="cambiar_usuario"){
+                return view('change_user');
             }
             
             else{

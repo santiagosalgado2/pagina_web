@@ -69,7 +69,7 @@
       </h1>
         <h1>Informacion de tu usuario</h1>
             <ul class="info">
-                <li><b>Nombre de usuario: </b><?php echo $data[0]["nombre_usuario"]; ?>   <a href="<?php echo base_url("/change_user"); ?>"><button class="button2">Cambiar</button></a></li>
+                <li><b>Nombre de usuario: </b><?php echo $data[0]["nombre_usuario"]; ?>   <a href="<?php echo base_url("/generate/cambiar_usuario"); ?>"><button class="button2">Cambiar</button></a></li>
                 <li><b>Contraseña: </b>********  <a href=<?php echo base_url("/generate/recuperar_contrasena"); ?>><button class="button2">Reestablecer</button></a></li>
                 <li><b>Dirección de e-mail: </b><?php echo $data[0]["email"]; ?>   <a href="<?php echo base_url("/change_email"); ?>"></a></li>
                 <li><b>Fecha de creación: </b><?php echo $data[0]["fecha_creacion"]; ?></li>
