@@ -76,7 +76,7 @@ class Esp32C extends BaseController{
 
         #SE RETORNA AL USUARIO A UNA VISTA QUE LE DETALLA COMO TIENE QUE HACER PARA CONECTAR LA PLACA A WIFI
 
-        return view('esp_instructions.php');
+        return view('esp_instructions.php',['code'=>$code]);
     }
 
     public function receiveEsp(){
@@ -188,6 +188,19 @@ class Esp32C extends BaseController{
 
     }
     
+    public function return_after_vinculation($code){
+
+        $espmodel=new Esp32;
+
+        $esp=$espmodel->getEsp32byCode($code);
+
+        if($esp){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
     
 
     public function control_view(){

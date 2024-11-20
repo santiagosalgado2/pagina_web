@@ -37,7 +37,27 @@
 
 </ul>
 
+<script>
 
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        const code = '<?= $code ?>'; 
+        const baseUrl = '<?= base_url() ?>';
+
+        setInterval(() => {
+            fetch(`${baseUrl}/return_after_vinculation/${code}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data === true) {
+                        window.location.href = baseUrl;
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }, 1000); // 1000 ms = 1 segundo
+    });
+
+
+</script>
 
 </body>
 </html>
