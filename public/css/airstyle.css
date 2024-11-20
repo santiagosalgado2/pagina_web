@@ -22,7 +22,7 @@ nav.navbar {
     color: #2980B9; /* Azul profundo */
 }   
 .control-remoto {
-    width: 200px;
+    width: 250px;
     height: 450px;
     background-color: #f4f4f4;
     border-radius: 20px;
@@ -148,7 +148,7 @@ nav.navbar {
     cursor: pointer;
     border: 1px solid #aaa;
     display: inline-block;
-    translate: 30px;
+    translate: 55px;
 }
 
 .circulo {
