@@ -238,7 +238,7 @@ $back= [
     450, 450, 450, 400, 500, 400, 450, 450,
     950, 800, 950, 850, 500
 ];
-// Netflix reemplaza al boton smart tv del control original
+# Netflix reemplaza al boton smart tv del control original
 $netflix = [
     2750, 850,
     450, 850, 500, 400, 500, 400, 450, 800,

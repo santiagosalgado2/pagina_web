@@ -95,7 +95,6 @@
                 if($permiso==1):?>  
                 <a href="<?php echo base_url('/edit_device/'.$d['ID_dispositivo']); ?>"><button class="button2">Editar</button></a>
                 <button class="button2" onclick="deleteDevice('<?php echo base_url('/delete_device/'.$d['ID_dispositivo']);?>')">Eliminar</button>
-                <button class="button2">Grabar control remoto</button>
                 <?php endif;?>
             </td>
         </tr>
