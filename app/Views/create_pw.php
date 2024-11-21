@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?php echo base_url("/css/form.css") . '?v=' . time(); ?>">
+    <link rel="icon" type="image/png" href="<?php echo base_url("/img/logo1.png") ;?>">
  
     <title>Cambio de contraseña</title>
 </head>

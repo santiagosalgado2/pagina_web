@@ -2,6 +2,8 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="<?php echo base_url("/img/logo1.png") ;?>">
+
     <title>Ver Señales</title>
     <script>
         function fetchSignals() {
