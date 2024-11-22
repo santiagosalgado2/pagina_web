@@ -2,6 +2,9 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="<?php echo base_url("/img/logo1.png") ;?>">
+    <link rel="stylesheet" href="<?php echo base_url("/css/estilog.css") . '?v=' . time(); ?>">
+
     <title>Ver Señales</title>
     <script>
         function fetchSignals() {
@@ -26,6 +29,20 @@
     </script>
 </head>
 <body>
+<h1>Prueba para ver codigos hexadecimales</h1>
+<div class="circulo"></div>
+    <div class="circulo"></div>
+    <div class="circulo"></div>
+    <div class="circulo"></div>
+    <h2>
     <div id="signals"></div>
+    </h2>
+
+<style>
+    body{
+        color: white;
+    }
+</style>
+
 </body>
 </html>
