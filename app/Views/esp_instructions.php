@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?php echo base_url("/css/instructions.css") . '?v=' . time(); ?>">
+    <link rel="icon" type="image/png" href="<?php echo base_url("/img/logo1.png") ;?>">
 
     <title>Instrucciones de conexión</title>
 </head>
@@ -49,7 +50,7 @@
                 .then(response => response.json())
                 .then(data => {
                     if (data === true) {
-                        window.location.href = baseUrl;
+                        window.location.href = `${baseUrl}?success=1`;
                     }
                 })
                 .catch(error => console.error('Error:', error));
