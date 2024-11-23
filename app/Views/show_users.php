@@ -12,7 +12,7 @@
         <link rel="icon" type="image/png" href="<?php echo base_url("/img/logo1.png") ;?>">
   
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <title>Document</title>
+    <title>Lista de usuarios</title>
 </head>
 <body>
 
@@ -75,6 +75,7 @@
                 <th>Nombre de usuario</th>
                 <th>Dirección de E-mail</th>
                 <th>Fecha de creación</th>
+                <th>Acciones</th>
             </thead>
             <tbody>
                 <?php foreach($datos as $d):?>
@@ -82,6 +83,10 @@
                         <td><?php echo $d["nombre_usuario"];?> </td>
                         <td><?php echo $d["email"];?> </td>
                         <td><?php echo $d["fecha_creacion"];?> </td>
+                        <form action="<?php echo base_url('/pruebaid');?>" method="post">
+                          <input type="hidden" name="id" value="<?php echo $d["ID_usuario"];?>">
+                        <td><button type="submit" class="button2">Administrar permisos</button></td>
+                        </form>
                     </tr>
                 <?php endforeach;?>
             </tbody>

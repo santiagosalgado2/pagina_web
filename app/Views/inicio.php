@@ -73,7 +73,23 @@
     </div>
     </center>
 <?php endif; ?>
+<?php
+$success2=$session->getFlashdata("success");
+if($success2!=null){
+    echo "<center><div style='background-color: green; border: 1px solid green; padding: 10px; border-radius: 5px; height:70px; width: 220px; '>
+    ✔ $success2
+    </div></center>";
+}
 
+?>
+<?php
+$error=$session->getFlashdata("error");
+if($error!=null){
+    echo "<center><div style='background-color: red; border: 1px solid red; padding: 10px; border-radius: 5px; height:70px; width: 220px; color:white;'>
+    ❌ $error
+    </div></center>";
+}
+?>
     <?php if($permiso== 1):?>
       <a href="<?php echo base_url("/new_esp"); ?>"><center><button class="button2">Añadir nuevo Esp32</button></center></a><br><br>
     <?php endif;?>

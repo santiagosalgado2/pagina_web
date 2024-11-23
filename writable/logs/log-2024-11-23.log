@@ -1,0 +1,68 @@
+CRITICAL - 2024-11-23 19:35:40 --> TypeError: CodeIgniter\Database\BaseBuilder::hasOperator(): Argument #1 ($str) must be of type string, int given, called in C:\xampp\htdocs\pagina_web\pagina_web\system\Database\BaseBuilder.php on line 801
+[Method: POST, Route: change]
+in SYSTEMPATH\Database\BaseBuilder.php on line 3428.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(801): CodeIgniter\Database\BaseBuilder->hasOperator(101444)
+ 2 SYSTEMPATH\Database\BaseBuilder.php(717): CodeIgniter\Database\BaseBuilder->whereHaving('QBWhere', '101444', null, 'AND ', true)
+ 3 APPPATH\Models\Verificacion.php(40): CodeIgniter\Database\BaseBuilder->where('101444')
+ 4 APPPATH\Controllers\Users.php(68): App\Models\Verificacion->updateCode('101444')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Users->changePw()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-23 19:38:08 --> TypeError: CodeIgniter\Database\BaseBuilder::hasOperator(): Argument #1 ($str) must be of type string, int given, called in C:\xampp\htdocs\pagina_web\pagina_web\system\Database\BaseBuilder.php on line 801
+[Method: POST, Route: change]
+in SYSTEMPATH\Database\BaseBuilder.php on line 3428.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(801): CodeIgniter\Database\BaseBuilder->hasOperator(101444)
+ 2 SYSTEMPATH\Database\BaseBuilder.php(717): CodeIgniter\Database\BaseBuilder->whereHaving('QBWhere', '101444', null, 'AND ', true)
+ 3 APPPATH\Models\Verificacion.php(40): CodeIgniter\Database\BaseBuilder->where('101444')
+ 4 APPPATH\Controllers\Users.php(68): App\Models\Verificacion->updateCode('101444')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Users->changePw()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-23 19:46:24 --> ErrorException: Undefined array key 0
+[Method: GET, Route: userInfo]
+in APPPATH\Views\userinfo.php on line 74.
+ 1 APPPATH\Views\userinfo.php(74): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\userinfo.php', 74)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\userinfo.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('userinfo', [], true)
+ 5 APPPATH\Controllers\Users.php(207): view('userinfo', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Users->viewUserinfo()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-23 19:46:44 --> ErrorException: Undefined array key 0
+[Method: GET, Route: userInfo]
+in APPPATH\Views\userinfo.php on line 74.
+ 1 APPPATH\Views\userinfo.php(74): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\userinfo.php', 74)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\userinfo.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('userinfo', [], true)
+ 5 APPPATH\Controllers\Users.php(207): view('userinfo', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Users->viewUserinfo()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-23 19:59:33 --> ErrorException: Undefined array key "ID_usuario"
+[Method: GET, Route: showUsers]
+in APPPATH\Views\show_users.php on line 87.
+ 1 APPPATH\Views\show_users.php(87): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "ID_usuario"', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\show_users.php', 87)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\show_users.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('show_users', [], true)
+ 5 APPPATH\Controllers\Users.php(190): view('show_users', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Users->showUsers()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

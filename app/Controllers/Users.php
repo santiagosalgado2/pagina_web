@@ -44,21 +44,31 @@ class Users extends BaseController{
         ];
 
         if($pw1!=$pw2){
-            #EN CASO DE QUE LOS 2 CAMPOS NO COINCIDAN, SE MUESTRA ESTE MENSAJE CON UN BOTON PARA QUE PUEDA REGRESAR AL INICIO
-            $error="Las contraseñas no coinciden, intentelo nuevamente";
-            return view('email',["error" => $error]);
+            #EN CASO DE QUE LOS 2 CAMPOS NO COINCIDAN
+            $session->setFlashdata('error',"Las contraseñas no coinciden");
+            return redirect()->to(base_url("/"));
 
         }
         
         elseif(!$this->validate($validationrules)){
             #EN CASO DE QUE LA CONTRASEÑA NO CUMPLA CON LOS REQUISITOS SE MUESTRA ESTE MENSAJE
-            $error='La contraseña debe tener 8 caracteres y al menos una mayuscula y un numero, intentelo nuevamente';
-            return view('email',["error" => $error]);
+            $session->setFlashdata('error',"La contraseña debe tener al menos 8 caracteres, una letra mayúscula y un número");
+            return redirect()->to(base_url("/"));
         }
 
         else{
             #EN CASO DE QUE LOS DATOS SEAN CORRECTOS:
             $session = session();
+
+            $code=(string)$session->get('code');
+
+
+            if(isset($code)){
+                $this->verificationmodel->updateCode(['codigo'=>$code]);
+                $this->usersmodel->verifyUser($session->get("user_id"));
+                
+                #SE ACTUALIZA EL CODIGO EN LA BD PARA QUE NO PUEDA SER UTILIZADO NUEVAMENTE
+            }
 
             $hash=password_hash($pw1,PASSWORD_DEFAULT);#SE HASHEA LA CONTRASEÑA
 
@@ -66,7 +76,7 @@ class Users extends BaseController{
 
             if($n==true){
                 #SI LA ACTUALIZACION FUE EXITOSA, SE MUESTRA ESTE MENSAJE CON EL BOTON PARA VOLVER AL INICIO
-                $session->setFlashdata('success',"Contraseña actualizada, ya puedes iniciar sesión");
+                $session->setFlashdata('success',"Contraseña actualizada correctamente");
                 return redirect()->to(base_url("/"));
             }else{
                 $error='Ha ocurrido un error inesperado, intente nuevamente';
@@ -158,6 +168,8 @@ class Users extends BaseController{
                 #LO ENVIA A LA VISTA PARA QUE PUEDA CREAR SU CONTRASEÑA
                 $session=session();
                 
+                $session->set("code",$code);
+
                 $session->set("user_id", $user_id);
 
                 return view("create_pw");
@@ -224,6 +236,11 @@ class Users extends BaseController{
         }
 
       
+    }
+
+    public function pruebaId(){
+
+        echo $this->request->getPost("id");
     }
  
 
