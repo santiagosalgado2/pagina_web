@@ -142,6 +142,7 @@ class Users extends BaseController{
             #SE ENVIA UN EMAIL AL NUEVO USUARIO CREADO CON LA URL PARA SETEAR SU CONTRASEÑA
             \Config\Services::sendEmail($mail,"Te han creado un usuario en nuestro sitio web. Tu enlace para generar tu contraseña","<h2>El usuario ".$session->get("username")." te ha creado un usuario dentro de nuestro sitio. Utiliza este enlace para generar tu contraseña <br>".$url."<br>Para iniciar sesión, utiliza este nombre de usuario: ".$username."</h2>");
             #SE RETORNA AL ADMINISTRADOR A LA LISTA DE USUARIOS CREADOS
+            $session->setFlashdata("success","Usuario creado correctamente");
             return redirect()->to(base_url("/showUsers"));
 
         }
@@ -243,12 +244,44 @@ class Users extends BaseController{
     public function administrarPermisos(){
 
         $espmodel=new Esp32();
+
         $usermodel=new Usuarios();
+
         $aumodel=new Acceso_usuarios();
-        var_dump($permisos=$aumodel->getpermissionid($this->request->getPost("id")));
-        // $user=$usermodel->getUser(["ID_usuario" => $this->request->getPost("id")]);
-        // $datos=$espmodel->arrayByDevices(session()->get("user_id"));
-        // return view("permisos",["datos" => $datos,"user" => $user,'permisos' => $permisos]);
+
+
+        $permisos=$aumodel->getpermissionid($this->request->getPost("id"));
+
+        $user=$usermodel->getUser(["ID_usuario" => $this->request->getPost("id")]);
+
+        $datos=$espmodel->arrayByDevices(session()->get("user_id"));
+
+
+        return view("permisos",["datos" => $datos,"user" => $user,'permisos' => $permisos]);
+    }
+
+    public function actualizarPermiso(){
+
+        $user = $this->request->getPost("user");
+        $permisos = $this->request->getPost("permiso");
+        $aumodel = new Acceso_usuarios();
+    
+        foreach ($permisos as $idDispositivo => $permiso) {
+            if ($permiso == "permitido") {
+                if (!$aumodel->getpermission($user, $idDispositivo)) {
+                    $aumodel->insertAccess($user, $idDispositivo);
+                }
+            } elseif ($permiso == "denegado") {
+                if ($aumodel->getpermission($user, $idDispositivo)) {
+                    $aumodel->deleteAccess($user, $idDispositivo);
+                }
+            }
+        }
+    
+        // Redirigir con un mensaje de éxito
+        session()->setFlashdata("success", "Permisos actualizados correctamente");
+        return redirect()->to(base_url("/showUsers"));
+
     }
  
 

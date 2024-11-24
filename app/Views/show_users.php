@@ -67,7 +67,15 @@
      
      ?>
      </div>
-    
+     <?php 
+    $success = session()->getFlashdata('success');
+    if(isset($success)): ?>
+  <center>
+    <div style="background-color: green; border: 1px solid green; padding: 10px; border-radius: 5px; height:70px; width: 220px; ">
+        ✔ <?php echo $success; ?>
+    </div>
+    </center>
+<?php endif; ?>
     <?php if(isset($datos) && !empty($datos)):?>
 
         <table>
