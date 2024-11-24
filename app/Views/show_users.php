@@ -83,7 +83,7 @@
                         <td><?php echo $d["nombre_usuario"];?> </td>
                         <td><?php echo $d["email"];?> </td>
                         <td><?php echo $d["fecha_creacion"];?> </td>
-                        <form action="<?php echo base_url('/pruebaid');?>" method="post">
+                        <form action="<?php echo base_url('/permisos');?>" method="post">
                           <input type="hidden" name="id" value="<?php echo $d["ID_usuario"];?>">
                         <td><button type="submit" class="button2">Administrar permisos</button></td>
                         </form>
