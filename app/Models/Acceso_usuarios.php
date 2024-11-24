@@ -22,4 +22,14 @@ class Acceso_usuarios extends Model{
 
     }
 
+    public function getpermissionid($user){
+        $tabla=$this->db->table('acceso_usuarios');
+
+        $tabla->select('*');
+
+        $tabla->where('ID_usuario',$user);
+
+        return $tabla->get()->getResultArray();
+    }
+
 }

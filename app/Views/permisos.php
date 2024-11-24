@@ -8,8 +8,7 @@
 <body>
     <h1><center>Administrar Permisos de <?php echo $user[0]['nombre_usuario']; ?></center></h1>
 
-    <form>
-        <input type="hidden" name="id_usuario" value="<?php echo $user[0]['ID_usuario']; ?>">
+
        
    
 
@@ -25,7 +24,14 @@
                     <tr>
                         <td><?php echo $disp['nombre']; ?></td>
                         <td>
-                            <input type="checkbox" name="seleccionados[]" value="<?php echo $disp['nombre']; ?>">
+                        <form action="/ruta/actualizarPermiso" method="POST">
+                            <input type="hidden" name="user" value="<?php echo $user[0]['nombre_usuario']; ?>">
+                            <input type="hidden" name="device" value="<?php echo $disp['ID_dispositivo']; ?>">
+                            <select name="permiso" onchange="this.form.submit()">
+                                <option value="Permitido">Permitido</option>
+                                <option value="Denegado">Denegado</option>
+                            </select>
+                        </form>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -34,8 +40,7 @@
     <?php endforeach; ?>
 
 
-    <button type="submit">Guardar</button>
-    </form>
+
 
 </body>
 </html>

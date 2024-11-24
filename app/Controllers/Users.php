@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\Usuarios;
 use App\Models\Esp32;
+use App\Models\Acceso_usuarios;
 
 use App\Models\Verificacion;
 
@@ -243,9 +244,11 @@ class Users extends BaseController{
 
         $espmodel=new Esp32();
         $usermodel=new Usuarios();
-        $user=$usermodel->getUser(["ID_usuario" => $this->request->getPost("id")]);
-        $datos=$espmodel->arrayByDevices(session()->get("user_id"));
-        return view("permisos",["datos" => $datos,"user" => $user]);
+        $aumodel=new Acceso_usuarios();
+        var_dump($permisos=$aumodel->getpermissionid($this->request->getPost("id")));
+        // $user=$usermodel->getUser(["ID_usuario" => $this->request->getPost("id")]);
+        // $datos=$espmodel->arrayByDevices(session()->get("user_id"));
+        // return view("permisos",["datos" => $datos,"user" => $user,'permisos' => $permisos]);
     }
  
 
