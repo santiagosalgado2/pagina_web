@@ -1,0 +1,206 @@
+CRITICAL - 2024-11-24 00:01:41 --> ErrorException: Array to string conversion
+[Method: POST, Route: permisos]
+in APPPATH\Views\permisos.php on line 15.
+ 1 APPPATH\Views\permisos.php(15): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\permisos.php', 15)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\permisos.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('permisos', [], true)
+ 5 APPPATH\Controllers\Users.php(248): view('permisos', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Users->administrarPermisos()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-24 00:03:07 --> ErrorException: Undefined array key 0
+[Method: POST, Route: permisos]
+in APPPATH\Views\permisos.php on line 15.
+ 1 APPPATH\Views\permisos.php(15): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\permisos.php', 15)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\permisos.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('permisos', [], true)
+ 5 APPPATH\Controllers\Users.php(248): view('permisos', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Users->administrarPermisos()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-24 00:21:28 --> ErrorException: Undefined array key "nombre_usuario"
+[Method: POST, Route: permisos]
+in APPPATH\Views\permisos.php on line 9.
+ 1 APPPATH\Views\permisos.php(9): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nombre_usuario"', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\permisos.php', 9)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\permisos.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('permisos', [], true)
+ 5 APPPATH\Controllers\Users.php(248): view('permisos', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Users->administrarPermisos()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-24 00:22:53 --> ErrorException: Undefined array key "nombre"
+[Method: POST, Route: permisos]
+in APPPATH\Views\permisos.php on line 9.
+ 1 APPPATH\Views\permisos.php(9): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nombre"', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\permisos.php', 9)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\permisos.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('permisos', [], true)
+ 5 APPPATH\Controllers\Users.php(248): view('permisos', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Users->administrarPermisos()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-11-24 03:27:17 --> mysqli_sql_exception: Unknown column 'ID_permiso' in 'field list' in C:\xampp\htdocs\pagina_web\pagina_web\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\pagina_web\pagina_web\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `ID_perm...', 0)
+#1 C:\xampp\htdocs\pagina_web\pagina_web\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `ID_perm...')
+#2 C:\xampp\htdocs\pagina_web\pagina_web\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `ID_perm...')
+#3 C:\xampp\htdocs\pagina_web\pagina_web\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `ID_perm...', Array, false)
+#4 C:\xampp\htdocs\pagina_web\pagina_web\app\Models\Acceso_usuarios.php(32): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\pagina_web\pagina_web\app\Controllers\Users.php(248): App\Models\Acceso_usuarios->getpermissionid('28')
+#6 C:\xampp\htdocs\pagina_web\pagina_web\system\CodeIgniter.php(933): App\Controllers\Users->administrarPermisos()
+#7 C:\xampp\htdocs\pagina_web\pagina_web\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#8 C:\xampp\htdocs\pagina_web\pagina_web\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\pagina_web\pagina_web\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\pagina_web\pagina_web\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\pagina_web\pagina_web\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2024-11-24 03:27:17 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'ID_permiso' in 'field list'
+[Method: POST, Route: permisos]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `ID_permiso`
+FROM `acceso_usuarios`
+WHERE `ID_usuario` = :ID_usuario:', [...], false)
+ 2 APPPATH\Models\Acceso_usuarios.php(32): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Users.php(248): App\Models\Acceso_usuarios->getpermissionid('28')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Users->administrarPermisos()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-24 03:27:17 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'ID_permiso' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `ID_permiso`
+FROM `acceso_usuarios`
+WHERE `ID_usuario` = \'28\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `ID_permiso`
+FROM `acceso_usuarios`
+WHERE `ID_usuario` = \'28\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `ID_permiso`
+FROM `acceso_usuarios`
+WHERE `ID_usuario` = :ID_usuario:', [...], false)
+ 4 APPPATH\Models\Acceso_usuarios.php(32): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Users.php(248): App\Models\Acceso_usuarios->getpermissionid('28')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Users->administrarPermisos()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-24 03:27:17 --> [Caused by] mysqli_sql_exception: Unknown column 'ID_permiso' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `ID_permiso`
+FROM `acceso_usuarios`
+WHERE `ID_usuario` = \'28\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `ID_permiso`
+FROM `acceso_usuarios`
+WHERE `ID_usuario` = \'28\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `ID_permiso`
+FROM `acceso_usuarios`
+WHERE `ID_usuario` = \'28\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `ID_permiso`
+FROM `acceso_usuarios`
+WHERE `ID_usuario` = :ID_usuario:', [...], false)
+ 5 APPPATH\Models\Acceso_usuarios.php(32): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Users.php(248): App\Models\Acceso_usuarios->getpermissionid('28')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Users->administrarPermisos()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-24 18:24:15 --> TypeError: Cannot access offset of type string on string
+[Method: POST, Route: permisos]
+in APPPATH\Views\permisos.php on line 24.
+ 1 SYSTEMPATH\View\View.php(234): include()
+ 2 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('permisos', [], true)
+ 4 APPPATH\Controllers\Users.php(259): view('permisos', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Users->administrarPermisos()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-24 18:25:57 --> TypeError: Cannot access offset of type string on string
+[Method: POST, Route: permisos]
+in APPPATH\Views\permisos.php on line 24.
+ 1 SYSTEMPATH\View\View.php(234): include()
+ 2 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('permisos', [], true)
+ 4 APPPATH\Controllers\Users.php(259): view('permisos', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Users->administrarPermisos()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-24 18:26:08 --> TypeError: Cannot access offset of type string on string
+[Method: POST, Route: permisos]
+in APPPATH\Views\permisos.php on line 24.
+ 1 SYSTEMPATH\View\View.php(234): include()
+ 2 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('permisos', [], true)
+ 4 APPPATH\Controllers\Users.php(259): view('permisos', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Users->administrarPermisos()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-24 18:26:16 --> TypeError: Cannot access offset of type string on string
+[Method: POST, Route: permisos]
+in APPPATH\Views\permisos.php on line 24.
+ 1 SYSTEMPATH\View\View.php(234): include()
+ 2 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('permisos', [], true)
+ 4 APPPATH\Controllers\Users.php(259): view('permisos', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Users->administrarPermisos()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-24 18:29:04 --> ErrorException: Undefined array key 2
+[Method: POST, Route: permisos]
+in APPPATH\Views\permisos.php on line 4.
+ 1 APPPATH\Views\permisos.php(4): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 2', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\permisos.php', 4)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\permisos.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('permisos', [], true)
+ 5 APPPATH\Controllers\Users.php(259): view('permisos', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Users->administrarPermisos()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-24 18:30:07 --> ErrorException: Undefined array key "ID_usuario"
+[Method: POST, Route: permisos]
+in APPPATH\Views\permisos.php on line 4.
+ 1 APPPATH\Views\permisos.php(4): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "ID_usuario"', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\permisos.php', 4)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\permisos.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('permisos', [], true)
+ 5 APPPATH\Controllers\Users.php(259): view('permisos', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Users->administrarPermisos()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

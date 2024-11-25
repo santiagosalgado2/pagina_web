@@ -51,7 +51,7 @@ class Usuarios extends Model{
 
         $table=$this->db->table("usuarios u");
 
-        $table->select("u.nombre_usuario, u.fecha_creacion, u.email");
+        $table->select("u.nombre_usuario, u.fecha_creacion, u.email, u.ID_usuario");
 
         $table->join("usuarios a","u.ID_administrador=a.ID_usuario");
 
