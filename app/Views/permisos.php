@@ -66,7 +66,13 @@ foreach ($permisos as $permiso) {
   </div>
 </nav>
 
-<h1><center>Administrar Permisos de <?php echo $user[0]['nombre_usuario']; ?></center></h1>
+<div>-</div>
+<div>-</div>
+<div>-</div>
+<div>-</div>
+<div>-</div>
+
+<h1><center  style="color: white;">Administrar Permisos de <?php echo $user[0]['nombre_usuario']; ?></center></h1>
        
     <form action="<?php echo base_url('/actualizar_permiso');?>" method="POST">
     
@@ -76,7 +82,7 @@ foreach ($permisos as $permiso) {
                 <caption><?php echo $ubicacion;?></caption>
                 <tr>
                     <th>Nombre del dispositivo</th>
-                    <th>Seleccionar</th>
+                    <th>Acceso</th>
                 </tr>
                 <?php foreach ($dispositivos as $disp): ?>
                     <?php
