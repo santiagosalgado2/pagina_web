@@ -98,4 +98,16 @@ class Esp32 extends Model
 
         return $table->get()->getResultArray();
     }
+
+    public function arrayByDevices($id){
+
+        $esp=$this->getEsp32byAdmin($id);
+        $r=[];
+        foreach($esp as $e){
+            $r[$e['ubicacion']]=$this->db->table('dispositivos')->select('ID_dispositivo, nombre')->where(['ID_esp32'=>$e['ID_dispositivo']])->get()->getResultArray();
+        }
+
+        return $r;
+
+    }
 }

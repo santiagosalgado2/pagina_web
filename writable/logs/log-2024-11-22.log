@@ -1,0 +1,20 @@
+CRITICAL - 2024-11-22 17:52:53 --> ErrorException: Undefined array key 0
+[Method: POST, Route: new_esp/receive]
+in APPPATH\Controllers\Esp32C.php on line 133.
+ 1 APPPATH\Controllers\Esp32C.php(133): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Controllers\\Esp32C.php', 133)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->receiveEsp()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-22 17:54:58 --> ErrorException: Undefined array key 0
+[Method: POST, Route: new_esp/receive]
+in APPPATH\Controllers\Esp32C.php on line 133.
+ 1 APPPATH\Controllers\Esp32C.php(133): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Controllers\\Esp32C.php', 133)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->receiveEsp()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

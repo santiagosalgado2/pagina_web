@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use App\Models\Usuarios;
+use App\Models\Esp32;
+use App\Models\Acceso_usuarios;
 
 use App\Models\Verificacion;
 
@@ -44,21 +46,31 @@ class Users extends BaseController{
         ];
 
         if($pw1!=$pw2){
-            #EN CASO DE QUE LOS 2 CAMPOS NO COINCIDAN, SE MUESTRA ESTE MENSAJE CON UN BOTON PARA QUE PUEDA REGRESAR AL INICIO
-            $error="Las contraseñas no coinciden, intentelo nuevamente";
-            return view('email',["error" => $error]);
+            #EN CASO DE QUE LOS 2 CAMPOS NO COINCIDAN
+            $session->setFlashdata('error',"Las contraseñas no coinciden");
+            return redirect()->to(base_url("/"));
 
         }
         
         elseif(!$this->validate($validationrules)){
             #EN CASO DE QUE LA CONTRASEÑA NO CUMPLA CON LOS REQUISITOS SE MUESTRA ESTE MENSAJE
-            $error='La contraseña debe tener 8 caracteres y al menos una mayuscula y un numero, intentelo nuevamente';
-            return view('email',["error" => $error]);
+            $session->setFlashdata('error',"La contraseña debe tener al menos 8 caracteres, una letra mayúscula y un número");
+            return redirect()->to(base_url("/"));
         }
 
         else{
             #EN CASO DE QUE LOS DATOS SEAN CORRECTOS:
             $session = session();
+
+            $code=(string)$session->get('code');
+
+
+            if(isset($code)){
+                $this->verificationmodel->updateCode(['codigo'=>$code]);
+                $this->usersmodel->verifyUser($session->get("user_id"));
+                
+                #SE ACTUALIZA EL CODIGO EN LA BD PARA QUE NO PUEDA SER UTILIZADO NUEVAMENTE
+            }
 
             $hash=password_hash($pw1,PASSWORD_DEFAULT);#SE HASHEA LA CONTRASEÑA
 
@@ -66,7 +78,7 @@ class Users extends BaseController{
 
             if($n==true){
                 #SI LA ACTUALIZACION FUE EXITOSA, SE MUESTRA ESTE MENSAJE CON EL BOTON PARA VOLVER AL INICIO
-                $session->setFlashdata('success',"Contraseña actualizada, ya puedes iniciar sesión");
+                $session->setFlashdata('success',"Contraseña actualizada correctamente");
                 return redirect()->to(base_url("/"));
             }else{
                 $error='Ha ocurrido un error inesperado, intente nuevamente';
@@ -130,6 +142,7 @@ class Users extends BaseController{
             #SE ENVIA UN EMAIL AL NUEVO USUARIO CREADO CON LA URL PARA SETEAR SU CONTRASEÑA
             \Config\Services::sendEmail($mail,"Te han creado un usuario en nuestro sitio web. Tu enlace para generar tu contraseña","<h2>El usuario ".$session->get("username")." te ha creado un usuario dentro de nuestro sitio. Utiliza este enlace para generar tu contraseña <br>".$url."<br>Para iniciar sesión, utiliza este nombre de usuario: ".$username."</h2>");
             #SE RETORNA AL ADMINISTRADOR A LA LISTA DE USUARIOS CREADOS
+            $session->setFlashdata("success","Usuario creado correctamente");
             return redirect()->to(base_url("/showUsers"));
 
         }
@@ -158,6 +171,8 @@ class Users extends BaseController{
                 #LO ENVIA A LA VISTA PARA QUE PUEDA CREAR SU CONTRASEÑA
                 $session=session();
                 
+                $session->set("code",$code);
+
                 $session->set("user_id", $user_id);
 
                 return view("create_pw");
@@ -224,6 +239,49 @@ class Users extends BaseController{
         }
 
       
+    }
+
+    public function administrarPermisos(){
+
+        $espmodel=new Esp32();
+
+        $usermodel=new Usuarios();
+
+        $aumodel=new Acceso_usuarios();
+
+
+        $permisos=$aumodel->getpermissionid($this->request->getPost("id"));
+
+        $user=$usermodel->getUser(["ID_usuario" => $this->request->getPost("id")]);
+
+        $datos=$espmodel->arrayByDevices(session()->get("user_id"));
+
+
+        return view("permisos",["datos" => $datos,"user" => $user,'permisos' => $permisos]);
+    }
+
+    public function actualizarPermiso(){
+
+        $user = $this->request->getPost("user");
+        $permisos = $this->request->getPost("permiso");
+        $aumodel = new Acceso_usuarios();
+    
+        foreach ($permisos as $idDispositivo => $permiso) {
+            if ($permiso == "permitido") {
+                if (!$aumodel->getpermission($user, $idDispositivo)) {
+                    $aumodel->insertAccess($user, $idDispositivo);
+                }
+            } elseif ($permiso == "denegado") {
+                if ($aumodel->getpermission($user, $idDispositivo)) {
+                    $aumodel->deleteAccess($user, $idDispositivo);
+                }
+            }
+        }
+    
+        // Redirigir con un mensaje de éxito
+        session()->setFlashdata("success", "Permisos actualizados correctamente");
+        return redirect()->to(base_url("/showUsers"));
+
     }
  
 
