@@ -10,6 +10,8 @@ foreach ($permisos as $permiso) {
         $resultado[$idUsuario] = [$idDispositivo]; // Creamos el array si no existe
     }
 }
+
+$permiso=session()->get('tipo');
 #var_dump($resultado);
 ?>
 
@@ -88,9 +90,9 @@ foreach ($permisos as $permiso) {
                     <?php
                     
                     if(isset($resultado[$user[0]['ID_usuario']]) && in_array($disp['ID_dispositivo'], $resultado[$user[0]['ID_usuario']])) {
-                        $permiso = true;
+                        $permiso2 = true;
                     } else {
-                        $permiso = false;
+                        $permiso2 = false;
                     }
                         
                     ?>
@@ -100,8 +102,8 @@ foreach ($permisos as $permiso) {
                         
                             <input type="hidden" name="user" value="<?php echo $user[0]['ID_usuario']; ?>">
                             <select name="permiso[<?php echo $disp['ID_dispositivo']; ?>]" class="form-select" aria-label="Default select example">
-                                    <option value="permitido" <?php echo $permiso == true ? 'selected' : ''; ?>>Permitido</option>
-                                    <option value="denegado" <?php echo $permiso == false ? 'selected' : ''; ?>>Denegado</option>
+                                    <option value="permitido" <?php echo $permiso2 == true ? 'selected' : ''; ?>>Permitido</option>
+                                    <option value="denegado" <?php echo $permiso2 == false ? 'selected' : ''; ?>>Denegado</option>
                             </select>
                         
                         </td>
