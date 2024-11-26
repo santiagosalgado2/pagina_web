@@ -22,4 +22,42 @@ class Acceso_usuarios extends Model{
 
     }
 
+    public function deleteAccess($user_id,$device_id){
+        $tabla=$this->db->table('acceso_usuarios');
+
+        $tabla->where('ID_usuario',$user_id);
+
+        $tabla->where('ID_dispositivo',$device_id);
+
+        $tabla->delete();
+    }
+
+    public function getpermissionid($user){
+        $tabla=$this->db->table('acceso_usuarios');
+
+        $tabla->select('Id_usuario, ID_dispositivo');
+
+        $tabla->where('ID_usuario',$user);
+
+        return $tabla->get()->getResultArray();
+    }
+
+    public function getpermission($user,$device){
+        $tabla=$this->db->table('acceso_usuarios');
+
+        $tabla->where('ID_usuario',$user);
+
+        $tabla->where('ID_dispositivo',$device);
+
+        return $tabla->get()->getResultArray();
+    }
+
+    public function deleteaccessbydevice($device){
+        $tabla=$this->db->table('acceso_usuarios');
+
+        $tabla->where('ID_dispositivo',$device);
+
+        $tabla->delete();
+    }
+
 }

@@ -48,8 +48,8 @@ class Devices extends BaseController{
 
     }
 
-    public function editDeviceview($id){
-
+    public function editDeviceview(){
+        $id=$this->request->getPost('id');
         $devicemodel=new Dispositivos;
 
         $device=$devicemodel->user_has_permission($id,session()->get('user_id'));
@@ -109,6 +109,7 @@ class Devices extends BaseController{
     public function deleteDevice($id){
 
         $devicemodel=new Dispositivos;
+        $aumodel=new Acceso_usuarios;
 
         $device=$devicemodel->user_has_permission($id,session()->get('user_id'));
 
@@ -119,7 +120,7 @@ class Devices extends BaseController{
         }else{
 
             $devicemodel->deleteDevice($id);
-
+            $aumodel->deleteaccessbydevice($id);
             return redirect()->to(base_url('/devices'));
 
         }

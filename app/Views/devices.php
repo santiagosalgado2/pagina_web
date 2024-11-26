@@ -10,7 +10,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?php echo base_url("/css/userstyle.css") . '?v=' . time(); ?>">
     <link rel="icon" type="image/png" href="<?php echo base_url("/img/logo1.png") ;?>">
  
     <title>Dispositivos</title>
@@ -94,7 +93,10 @@
                 <a href="<?php echo $url; ?>"><button class="button2">Controlar</button></a>
                 <?php
                 if($permiso==1):?>  
-                <a href="<?php echo base_url('/edit_device/'.$d['ID_dispositivo']); ?>"><button class="button2">Editar</button></a>
+                <form action="<?php echo base_url('/edit_device');?>" method="post">
+                  <input type="hidden" name="id" value="<?php echo $d['ID_dispositivo'];?>">
+                  <button class="button2" type="submit">Editar</button></a>
+                </form>
                 <button class="button2" onclick="deleteDevice('<?php echo base_url('/delete_device/'.$d['ID_dispositivo']);?>')">Eliminar</button>
                 <?php endif;?>
             </td>
@@ -127,5 +129,174 @@
       }
 
 </script>
+
+
+<style>
+  body {
+    height: 100vh;
+    background: linear-gradient(135deg, #2C3E50, #4CA1AF); /* Azul marino a azul petróleo */
+    color: #333333; /* Gris carbón para el texto */
+}
+
+/* Barra de navegación */
+nav.navbar {
+    background: linear-gradient(135deg, #0F2027, #203A43, #2C5364); /* Negro a azul oscuro */
+}
+
+/* Links de navegación */
+.navbar .nav-link {
+    color: #BDC3C7; /* Gris claro */
+}
+
+.navbar .nav-link:hover {
+    color: #2980B9; /* Azul profundo */
+}
+
+.circulo {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    animation: flotando 10s infinite ease-in-out;
+}
+
+.circulo:nth-child(1) {
+    width: 200px;
+    height: 200px;
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.circulo:nth-child(2) {
+    width: 150px;
+    height: 150px;
+    top: 70%;
+    left: 30%;
+    animation-delay: 2s;
+}
+
+.circulo:nth-child(3) {
+    width: 300px;
+    height: 300px;
+    top: 40%;
+    right: 10%;
+    animation-delay: 4s;
+}
+
+.circulo:nth-child(4) {
+    width: 100px;
+    height: 100px;
+    bottom: 15%;
+    right: 40%;
+    animation-delay: 6s;
+}
+@keyframes flotando{0%, 100% {
+    transform: translateY(0) translateX(0);
+}
+50% {
+    transform: translateY(-50px) translateX(50px);
+}}
+.textos {
+    font-size: larger;
+    font-weight: 600;
+}
+.button2 {
+    display: inline-block;
+    transition: all 0.2s ease-in;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    color: #ffffff;
+    padding: 0.2em 0,5em;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 0.5em;
+    background: #2C3E50;
+    border: 1px solid #2C3E50;
+    box-shadow: 1px 1px 4px #c5c5c5, 0px 0px 3px #ffffff;
+
+}
+
+.button2:active {
+    color: #666;
+    box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+}
+
+.button2:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.25);
+    top: 100%;
+    width: 140%;
+    height: 180%;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    display: block;
+    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    z-index: -1;
+}
+
+.button2:after {
+    content: "";
+    position: absolute;
+    left: 55%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.45);
+    top: 180%;
+    width: 160%;
+    height: 190%;
+    background-color: #fa8560;
+    border-radius: 50%;
+    display: block;
+    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    z-index: -1;
+}
+
+.button2:hover {
+    color: #ffffff;
+    border: 1px solid #2C3E50;
+}
+
+.button2:hover:before {
+    top: -35%;
+    background-image: linear-gradient(to right, #2980B9 0%, #4CA1AF 100%);
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+
+table {
+    min-width: 700px;
+    border-collapse: collapse;
+    margin: 0 auto;
+    border:2px solid #2C3E50;
+    border-radius: 12px;
+    background-color: #4CA1AF;
+    color: #000000;
+  }
+
+  td,tr,th {
+    border: 1px solid #2C3E50;
+    padding: 8px;
+    text-align: center;
+    font-size: 20px;
+  }
+  .acciones{
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 33px;
+    
+  }
+  .acciones button {
+    font-size: 18px;
+    padding: 15px 30px;
+  }
+
+  h1{
+    text-align: center;
+    margin-bottom: 37px;
+    color: white;
+    
+  }
+</style>
 </body>
 </html>

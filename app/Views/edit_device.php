@@ -61,9 +61,9 @@
         <input type="text" name="name" value="<?php echo $device[0]['nombre'];?>">
         <input type="hidden" name="id" value="<?php echo $device[0]['ID_dispositivo'];?>">
         <select name="device_type">
-                    <option value="tv">TV</option>
-                    <option value="aire_acondicionado">Aire Acondicionado</option>
-                    <option value="ventilador">Ventilador</option>
+                    <option value="tv" <?php echo $device[0]['ID_tipo']==2 ? 'selected' : '';?> >TV</option>
+                    <option value="aire_acondicionado" <?php echo $device[0]['ID_tipo']==1 ? 'selected' : '';?> >Aire Acondicionado</option>
+                    <option value="ventilador" <?php echo $device[0]['ID_tipo']==3 ? 'selected' : '';?> >Ventilador</option>
                 </select>
         <input type="submit" value="Editar">
         </div>
