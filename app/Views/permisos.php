@@ -71,8 +71,7 @@ $permiso=session()->get('tipo');
 <div>-</div>
 <div>-</div>
 <div>-</div>
-<div>-</div>
-<div>-</div>
+
 
 <h1><center  style="color: white;">Administrar Permisos de <?php echo $user[0]['nombre_usuario']; ?></center></h1>
        

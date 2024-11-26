@@ -38,7 +38,7 @@ $routes->get('/prueba_ventiladorcontrol',"Esp32C::ventilador_view");
 $routes->get('/devices','Esp32C::devices');
 $routes->get('/new_device','Devices::newDeviceView');
 $routes->post('/new_device/insert','Devices::newDevice');
-$routes->get("/edit_device/(:segment)" , "Devices::editDeviceview/$1");
+$routes->post("/edit_device" , "Devices::editDeviceview");
 $routes->post("/edit_device/update","Devices::updateDevice");
 $routes->get("/delete_device/(:segment)" , "Devices::deleteDevice/$1");
 $routes->get("/return_after_vinculation/(:segment)" , "Esp32C::return_after_vinculation/$1");
