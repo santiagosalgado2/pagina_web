@@ -48,8 +48,8 @@ class Devices extends BaseController{
 
     }
 
-    public function editDeviceview($id){
-
+    public function editDeviceview(){
+        $id=$this->request->getPost('id');
         $devicemodel=new Dispositivos;
 
         $device=$devicemodel->user_has_permission($id,session()->get('user_id'));
