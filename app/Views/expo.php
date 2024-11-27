@@ -102,17 +102,37 @@
     <div id="amarillo" class="luz amarilla"></div>
     <div id="verde" class="luz verde"></div>
   </div>
-  <button onclick="toggleRed()">Encender/Apagar Rojo</button>
-  <button onclick="toggleYellow()">Encender/Apagar Amarillo</button>
-  <button onclick="toggleGreen()">Encender/Apagar Verde</button>
-  <button onclick="runTrafficLight()">Modo Semáforo</button>
 
 
 <script>
+      
+const redLight = document.getElementById('rojo');
+    const yellowLight = document.getElementById('amarillo');
+    const greenLight = document.getElementById('verde');
+
+    // Función para apagar todas las luces
+    function resetLights() {
+      redLight.style.backgroundColor = 'gray';
+      yellowLight.style.backgroundColor = 'gray';
+      greenLight.style.backgroundColor = 'gray';
+    }
+
+    // Función para activar el modo semáforo
+    function runTrafficLight() {
+      resetLights();
+
+      setTimeout(() => { redLight.style.backgroundColor = 'red'; }, 0);
+      setTimeout(() => { redLight.style.backgroundColor = 'gray'; yellowLight.style.backgroundColor = 'yellow'; }, 5000);
+      setTimeout(() => { yellowLight.style.backgroundColor = 'gray'; greenLight.style.backgroundColor = 'green'; }, 7000);
+      setTimeout(() => { greenLight.style.backgroundColor = 'gray'; }, 12000);
+    }
+
   function fetchEstado() {
     fetch('http://localhost/pagina_web/pagina_web/public/expo/getEstado')
       .then(response => response.json())
       .then(data => {
+    console.log(data);
+
         resetLights();
 
         switch (data.estado) {
