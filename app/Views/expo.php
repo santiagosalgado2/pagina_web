@@ -126,13 +126,13 @@ function runTrafficLight() {
         resetLights();  // Apagar todas las luces
         switch (estado[i]) {
             case 'rojo':
-                redLight.style.backgroundColor = 'red';  // Enciende el rojo
+                redLight.style.backgroundColor = 'rojo';  // Enciende el rojo
                 break;
             case 'amarillo':
-                yellowLight.style.backgroundColor = 'yellow';  // Enciende el amarillo
+                yellowLight.style.backgroundColor = 'amarillo';  // Enciende el amarillo
                 break;
             case 'verde':
-                greenLight.style.backgroundColor = 'green';  // Enciende el verde
+                greenLight.style.backgroundColor = 'verde';  // Enciende el verde
                 break;
         }
 
