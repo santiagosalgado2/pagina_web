@@ -106,49 +106,54 @@
 
 <script>
       
-      let redLight = document.getElementById("rojo");
-let yellowLight = document.getElementById("amarillo");
-let greenLight = document.getElementById("verde");
+const redLight = document.getElementById('rojo');
+    const yellowLight = document.getElementById('amarillo');
+    const greenLight = document.getElementById('verde');
 
-function resetLights() {
-    redLight.style.backgroundColor = 'black';  // Apagar el rojo
-    yellowLight.style.backgroundColor = 'black';  // Apagar el amarillo
-    greenLight.style.backgroundColor = 'black';  // Apagar el verde
-}
-
-function runTrafficLight() {
-    let estado = ['rojo', 'amarillo', 'verde']; // Orden de las luces
-    let tiempos = [5000, 2000, 5000]; // Duración de cada luz en milisegundos
-
-    let i = 0;  // Inicia con el rojo
-
-    function cicloSemaforo() {
-        resetLights();  // Apagar todas las luces
-        switch (estado[i]) {
-            case 'rojo':
-                redLight.style.backgroundColor = 'rojo';  // Enciende el rojo
-                break;
-            case 'amarillo':
-                yellowLight.style.backgroundColor = 'amarillo';  // Enciende el amarillo
-                break;
-            case 'verde':
-                greenLight.style.backgroundColor = 'verde';  // Enciende el verde
-                break;
-        }
-
-        // Esperar el tiempo correspondiente antes de cambiar al siguiente color
-        setTimeout(() => {
-            i = (i + 1) % estado.length;  // Cambia al siguiente color, reiniciando al rojo después del verde
-            cicloSemaforo();  // Llama a la función recursiva para el siguiente ciclo
-        }, tiempos[i]);
+    // Función para apagar todas las luces
+    function resetLights() {
+      redLight.style.backgroundColor = 'gray';
+      yellowLight.style.backgroundColor = 'gray';
+      greenLight.style.backgroundColor = 'gray';
     }
 
-    cicloSemaforo();  // Iniciar el ciclo de luces
-}
+    // Función para activar el modo semáforo
+    function runTrafficLight() {
+      resetLights();
 
-// Llamada a la función para ejecutar el semáforo coordinado
-runTrafficLight();
-// Consulta cada segundo
+      setTimeout(() => { redLight.style.backgroundColor = 'red'; }, 0);
+      setTimeout(() => { redLight.style.backgroundColor = 'gray'; yellowLight.style.backgroundColor = 'yellow'; }, 5000);
+      setTimeout(() => { yellowLight.style.backgroundColor = 'gray'; greenLight.style.backgroundColor = 'green'; }, 7000);
+      setTimeout(() => { greenLight.style.backgroundColor = 'gray'; }, 12000);
+    }
+
+  function fetchEstado() {
+    fetch('http://localhost/pagina_web/pagina_web/public/expo/getEstado')
+      .then(response => response.json())
+      .then(data => {
+    console.log(data);
+
+        resetLights();
+
+        switch (data.estado) {
+          case 'rojo':
+            redLight.style.backgroundColor = 'red';
+            break;
+          case 'amarillo':
+            yellowLight.style.backgroundColor = 'yellow';
+            break;
+          case 'verde':
+            greenLight.style.backgroundColor = 'green';
+            break;
+          case 'semaforo':
+            runTrafficLight();
+            break;
+        }
+      })
+      .catch(error => console.error('Error:', error));
+  }
+
+  setInterval(fetchEstado, 1000); // Consulta cada segundo
 </script>
   
 
