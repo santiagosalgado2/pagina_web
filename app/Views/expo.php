@@ -148,7 +148,7 @@ function runTrafficLight() {
 
 // Llamada a la función para ejecutar el semáforo coordinado
 runTrafficLight();
-  setInterval(fetchEstado, 1000); // Consulta cada segundo
+// Consulta cada segundo
 </script>
   
 </body>
