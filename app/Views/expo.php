@@ -156,5 +156,6 @@ const redLight = document.getElementById('rojo');
   setInterval(fetchEstado, 1000); // Consulta cada segundo
 </script>
   
+
 </body>
 </html>
