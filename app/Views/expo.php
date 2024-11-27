@@ -121,10 +121,26 @@ const redLight = document.getElementById('rojo');
     function runTrafficLight() {
       resetLights();
 
-      setTimeout(() => { redLight.style.backgroundColor = 'red'; }, 0);
-      setTimeout(() => { redLight.style.backgroundColor = 'gray'; yellowLight.style.backgroundColor = 'yellow'; }, 5000);
-      setTimeout(() => { yellowLight.style.backgroundColor = 'gray'; greenLight.style.backgroundColor = 'green'; }, 7000);
-      setTimeout(() => { greenLight.style.backgroundColor = 'gray'; }, 12000);
+      setTimeout(() => {
+            redLight.style.backgroundColor = 'red';  // Enciende el rojo
+        }, 0);
+
+        // Después de 5 segundos, apaga el rojo y enciende el amarillo
+        setTimeout(() => {
+            redLight.style.backgroundColor = 'gray';  // Apaga el rojo
+            yellowLight.style.backgroundColor = 'yellow';  // Enciende el amarillo
+        }, 5000);
+
+        // Después de 2 segundos, apaga el amarillo y enciende el verde
+        setTimeout(() => {
+            yellowLight.style.backgroundColor = 'gray';  // Apaga el amarillo
+            greenLight.style.backgroundColor = 'green';  // Enciende el verde
+        }, 7000);
+
+        // Después de 5 segundos, apaga el verde
+        setTimeout(() => {
+            greenLight.style.backgroundColor = 'gray';  // Apaga el verde
+        }, 12000);
     }
 
   function fetchEstado() {
