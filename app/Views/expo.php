@@ -106,9 +106,9 @@
 
 <script>
       
-      let redLight = document.getElementById("red");
-let yellowLight = document.getElementById("yellow");
-let greenLight = document.getElementById("green");
+      let redLight = document.getElementById("rojo");
+let yellowLight = document.getElementById("amarillo");
+let greenLight = document.getElementById("verde");
 
 function resetLights() {
     redLight.style.backgroundColor = 'black';  // Apagar el rojo
