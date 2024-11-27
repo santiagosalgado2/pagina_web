@@ -51,5 +51,18 @@ class Home extends BaseController
     public function expo(){
         return view('expo');
     }
+
+    public function actualizar(){
+        $estado = $this->request->getGet('estado');
+        if ($estado) {
+            file_put_contents(WRITEPATH . 'semaforo_estado.txt', $estado);
+            return $this->response->setStatusCode(200);
+        }
+    }
+
+    public function getEstado(){
+        $estado = file_get_contents(WRITEPATH . 'semaforo_estado.txt');
+        return $this->response->setJSON(['estado' => $estado]);
+    }
     
 }

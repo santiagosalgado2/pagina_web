@@ -107,43 +107,34 @@
   <button onclick="toggleGreen()">Encender/Apagar Verde</button>
   <button onclick="runTrafficLight()">Modo Semáforo</button>
 
-  <script>
-    const redLight = document.getElementById('rojo');
-    const yellowLight = document.getElementById('amarillo');
-    const greenLight = document.getElementById('verde');
 
-    // Función para encender o apagar el rojo
-    function toggleRed() {
-      redLight.style.backgroundColor = redLight.style.backgroundColor === 'red' ? 'gray' : 'red';
-    }
+<script>
+  function fetchEstado() {
+    fetch('http://localhost/pagina_web/pagina_web/public/expo/getEstado')
+      .then(response => response.json())
+      .then(data => {
+        resetLights();
 
-    // Función para encender o apagar el amarillo
-    function toggleYellow() {
-      yellowLight.style.backgroundColor = yellowLight.style.backgroundColor === 'yellow' ? 'gray' : 'yellow';
-    }
+        switch (data.estado) {
+          case 'rojo':
+            redLight.style.backgroundColor = 'red';
+            break;
+          case 'amarillo':
+            yellowLight.style.backgroundColor = 'yellow';
+            break;
+          case 'verde':
+            greenLight.style.backgroundColor = 'green';
+            break;
+          case 'semaforo':
+            runTrafficLight();
+            break;
+        }
+      })
+      .catch(error => console.error('Error:', error));
+  }
 
-    // Función para encender o apagar el verde
-    function toggleGreen() {
-      greenLight.style.backgroundColor = greenLight.style.backgroundColor === 'green' ? 'gray' : 'green';
-    }
-
-    // Modo semáforo (automático)
-    function runTrafficLight() {
-      // Apagar todas las luces antes de iniciar
-      resetLights();
-
-      setTimeout(() => { redLight.style.backgroundColor = 'red'; }, 0);
-      setTimeout(() => { redLight.style.backgroundColor = 'gray'; yellowLight.style.backgroundColor = 'yellow'; }, 5000);
-      setTimeout(() => { yellowLight.style.backgroundColor = 'gray'; greenLight.style.backgroundColor = 'green'; }, 7000);
-      setTimeout(() => { greenLight.style.backgroundColor = 'gray'; }, 12000);
-    }
-
-    // Apaga todas las luces
-    function resetLights() {
-      redLight.style.backgroundColor = 'gray';
-      yellowLight.style.backgroundColor = 'gray';
-      greenLight.style.backgroundColor = 'gray';
-    }
-  </script>
+  setInterval(fetchEstado, 500); // Consulta cada segundo
+</script>
+  
 </body>
 </html>

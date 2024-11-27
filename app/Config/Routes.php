@@ -45,4 +45,6 @@ $routes->get("/return_after_vinculation/(:segment)" , "Esp32C::return_after_vinc
 $routes->post('/permisos','Users::administrarPermisos');
 $routes->post('/actualizar_permiso','Users::actualizarPermiso');
 $routes->get('/expo',"Home::expo");
+$routes->post('/expo/actualizar',"Home::actualizar");
+$routes->get('/expo/getEstado',"Home::getEstado");
 
