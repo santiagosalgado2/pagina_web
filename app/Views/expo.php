@@ -153,7 +153,7 @@ const redLight = document.getElementById('rojo');
       .catch(error => console.error('Error:', error));
   }
 
-  setInterval(fetchEstado, 500); // Consulta cada segundo
+  setInterval(fetchEstado, 1000); // Consulta cada segundo
 </script>
   
 </body>
