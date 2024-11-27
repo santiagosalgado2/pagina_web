@@ -112,46 +112,35 @@ const redLight = document.getElementById('rojo');
 
     // Función para apagar todas las luces
     function resetLights() {
-      redLight.style.backgroundColor = 'gray';
-      yellowLight.style.backgroundColor = 'gray';
-      greenLight.style.backgroundColor = 'gray';
-    }
+    redLight.style.backgroundColor = 'black'; // Apagar el rojo
+    yellowLight.style.backgroundColor = 'black'; // Apagar el amarillo
+    greenLight.style.backgroundColor = 'black'; // Apagar el verde
+}
 
-    // Función para activar el modo semáforo
-    function runTrafficLight() {
-      resetLights();
+function runTrafficLight() {
+    fetchEstado();  // Llama la función para actualizar el estado
+}
 
-      setTimeout(() => { redLight.style.backgroundColor = 'red'; }, 0);
-      setTimeout(() => { redLight.style.backgroundColor = 'gray'; yellowLight.style.backgroundColor = 'yellow'; }, 5000);
-      setTimeout(() => { yellowLight.style.backgroundColor = 'gray'; greenLight.style.backgroundColor = 'green'; }, 7000);
-      setTimeout(() => { greenLight.style.backgroundColor = 'gray'; }, 12000);
-    }
-
-  function fetchEstado() {
+function fetchEstado() {
     fetch('http://localhost/pagina_web/pagina_web/public/expo/getEstado')
-      .then(response => response.json())
-      .then(data => {
-    console.log(data);
+        .then(response => response.json())
+        .then(data => {
+            resetLights();
 
-        resetLights();
-
-        switch (data.estado) {
-          case 'rojo':
-            redLight.style.backgroundColor = 'red';
-            break;
-          case 'amarillo':
-            yellowLight.style.backgroundColor = 'yellow';
-            break;
-          case 'verde':
-            greenLight.style.backgroundColor = 'green';
-            break;
-          case 'semaforo':
-            runTrafficLight();
-            break;
-        }
-      })
-      .catch(error => console.error('Error:', error));
-  }
+            switch (data.estado) {
+                case 'rojo':
+                    redLight.style.backgroundColor = 'red';  // Enciende el rojo
+                    break;
+                case 'amarillo':
+                    yellowLight.style.backgroundColor = 'yellow';  // Enciende el amarillo
+                    break;
+                case 'verde':
+                    greenLight.style.backgroundColor = 'green';  // Enciende el verde
+                    break;
+            }
+        })
+        .catch(error => console.error('Error:', error));
+}
 
   setInterval(fetchEstado, 1000); // Consulta cada segundo
 </script>

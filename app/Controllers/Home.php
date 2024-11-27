@@ -55,7 +55,14 @@ class Home extends BaseController
     public function actualizar(){
         $estado = $this->request->getGet('estado');
         if ($estado) {
-            file_put_contents(WRITEPATH . 'semaforo_estado.txt', $estado);
+            // Verifica el valor del estado y actualiza el archivo
+            $estadoAnterior = file_get_contents(WRITEPATH . 'semaforo_estado.txt');
+            
+            // Guarda el nuevo estado solo si es diferente
+            if ($estado !== $estadoAnterior) {
+                file_put_contents(WRITEPATH . 'semaforo_estado.txt', $estado);
+            }
+            
             return $this->response->setStatusCode(200);
         }
     }
