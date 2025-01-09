@@ -49,7 +49,7 @@ class Home extends BaseController
     }
 
     public function expo(){
-        return view('expo');
+        return view('landing_page');
     }
 
     public function actualizar(){
