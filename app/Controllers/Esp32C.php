@@ -222,7 +222,12 @@ class Esp32C extends BaseController{
     {
         #EL ESP ENVIA EL CODIGO HEXADECIMAL DE LA SEÑAL (ACTUALMENTE NO ESTAMOS TRABAJANDO CON SEÑALES EN FORMA HEXADECIMAL SINO EN FORMATO RAW (CRUDO) PERO SOLO ERA UNA PRUEBA)
         #LA ESP TAMBIEN ENVIA SU CODIGO IDENTIFICADOR, EL MISMO QUE SE USA PARA LA VINCULACION
-        $irCode = $this->request->getPost('irCode');
+
+        $irCode1 = str_replace(" ",",",$this->request->getPost('irCode'));
+
+        $irCode2 = preg_replace('/^\d+\s/', '', $irCode1);
+
+        $irCode = substr($irCode2, 1);
 
         $code= $this->request->getPost('code');
 
