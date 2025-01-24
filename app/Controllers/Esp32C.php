@@ -227,7 +227,9 @@ class Esp32C extends BaseController{
 
         $irCode2 = preg_replace('/^\d+\s/', '', $irCode1);
 
-        $irCode = substr($irCode2, 1);
+        $irCode3 = substr($irCode2, 1);
+
+        $irCode = str_replace(["\r", "\n"], '', subject: $irCode3);
 
         $code= $this->request->getPost('code');
 
@@ -236,6 +238,7 @@ class Esp32C extends BaseController{
         #LA LETRA A SIGNIFICA APPEND, Y EL ARCHIVO SE ABRIRA PARA ESCRIBIR AL FINAL DEL ARCHIVO. SI EL ARCHIVO NO EXISTE, PHP LO CREA
         $file = fopen($filePath, 'a');
         if ($file) {
+            file_put_contents($filePath, '');
             #SE CREA EL ARCHIVO CSV Y SE INSERTA EL ARCHIVO
             fputcsv($file, [$irCode]);
             fclose($file);
@@ -266,13 +269,13 @@ class Esp32C extends BaseController{
                 }
                 fclose($handle);
                 
-             register_shutdown_function(function() use ($filePath) {
-                    #ESTA FUNCION SE EJECUTA CUANDO EL CONTROLADOR DEJA DE SER EJECUTADO
-                 #CUANDO EL USUARIO SALGA DE LA PAGINA, SE ELIMINA EL ARCHIVO CSV
-                 if (file_exists($filePath)) {
-                    file_put_contents($filePath, '');
-                 }
-             });
+            //  register_shutdown_function(function() use ($filePath) {
+            //         #ESTA FUNCION SE EJECUTA CUANDO EL CONTROLADOR DEJA DE SER EJECUTADO
+            //      #CUANDO EL USUARIO SALGA DE LA PAGINA, SE ELIMINA EL ARCHIVO CSV
+            //      if (file_exists($filePath)) {
+            //         file_put_contents($filePath, '');
+            //      }
+            //  });
 
                 #DESCOMENTANDO ESTO, UNA VEZ QUE SE RECIBE UNA SEÑAL SE BORRA EL CSV POR LO QUE SOLO ES POSIBLE VER UNA SEÑAL A LA VEZ
                 
