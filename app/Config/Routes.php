@@ -47,4 +47,8 @@ $routes->post('/actualizar_permiso','Users::actualizarPermiso');
 $routes->get('/expo',"Home::expo");
 $routes->get('/expo/actualizar',"Home::actualizar");
 $routes->get('/expo/getEstado',"Home::getEstado");
+$routes->post('/grabar_aire',"Esp32C::grabarAireview");
+$routes->post('/grabar_tele',"Esp32C::grabarTeleview");
+$routes->post('/grabar_ventilador',"Esp32C::grabarVentiladorview");
+$routes->post('/insertar_senal',"Devices::insertarSenal");
 

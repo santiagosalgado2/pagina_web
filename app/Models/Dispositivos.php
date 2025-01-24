@@ -64,4 +64,15 @@ class Dispositivos extends Model{
 
     }
 
+    public function insertSignal($signal,$device,$function){
+        $tabla=$this->db->table('senalesir');
+        $data = array(
+            "codigo_hexadecimal	"=>$signal,
+            "ID_dispositivo"=>$device,
+            "ID_funcion"=>$function
+        );
+
+        $tabla->insert($data);
+    }
+
 }

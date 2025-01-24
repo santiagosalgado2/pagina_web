@@ -127,4 +127,31 @@ class Devices extends BaseController{
 
     }
 
+    public function insertarSenal(){
+        $senal=$this->request->getJSON()->irCode;
+
+        $dispositivo=$this->request->getJSON()->deviceId;
+
+        $funcion=$this->request->getJSON()->functionId;
+
+        $devicemodel=new Dispositivos;
+
+        $device=$devicemodel->user_has_permission($dispositivo,session()->get('user_id'));
+
+        if(empty($device)){
+
+            return redirect()->back();
+        }else{
+            if($devicemodel->insertSignal($senal,$dispositivo,$funcion)){
+                return $this->response->setStatusCode(200)->setBody('Señal guardada correctamente.');
+            }else{
+                return $this->response->setStatusCode(500)->setBody('Error al guardar la señal.');
+            }
+        }
+
+
+
+
+    }
+
 }
