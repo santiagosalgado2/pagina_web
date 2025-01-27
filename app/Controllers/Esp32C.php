@@ -269,13 +269,13 @@ class Esp32C extends BaseController{
                 }
                 fclose($handle);
                 
-            //  register_shutdown_function(function() use ($filePath) {
-            //         #ESTA FUNCION SE EJECUTA CUANDO EL CONTROLADOR DEJA DE SER EJECUTADO
-            //      #CUANDO EL USUARIO SALGA DE LA PAGINA, SE ELIMINA EL ARCHIVO CSV
-            //      if (file_exists($filePath)) {
-            //         file_put_contents($filePath, '');
-            //      }
-            //  });
+             register_shutdown_function(function() use ($filePath) {
+                    #ESTA FUNCION SE EJECUTA CUANDO EL CONTROLADOR DEJA DE SER EJECUTADO
+                 #CUANDO EL USUARIO SALGA DE LA PAGINA, SE ELIMINA EL ARCHIVO CSV
+                 if (file_exists($filePath)) {
+                    file_put_contents($filePath, '');
+                 }
+             });
 
                 #DESCOMENTANDO ESTO, UNA VEZ QUE SE RECIBE UNA SEÑAL SE BORRA EL CSV POR LO QUE SOLO ES POSIBLE VER UNA SEÑAL A LA VEZ
                 

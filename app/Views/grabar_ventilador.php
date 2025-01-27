@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const deviceId = document.getElementById('deviceId').value; // ID del dispositivo
 
             // Mostrar mensaje de espera
-            alert('Esperando la lectura de la señal IR. Por favor, presione el botón en su control remoto original.');
+            alert('Esperando la lectura de la señal IR. Por favor, presione el botón en su control remoto original y luego pulse aceptar');
 
             // Llamar a la función que verifica continuamente el CSV
             waitForSignal(functionId, deviceId);
@@ -118,11 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     body: JSON.stringify({ irCode, deviceId, functionId }),
                 });
 
-                if (!saveResponse.ok) {
-                    throw new Error('Error al guardar la señal en la base de datos.');
-                }
-
-                alert(`Señal grabada correctamente para la función ${functionId}.`);
+                alert(`Señal grabada correctamente`);
             } else {
                 // Si no hay señales, esperar y volver a intentar
                 setTimeout(() => waitForSignal(functionId, deviceId), 1000);
