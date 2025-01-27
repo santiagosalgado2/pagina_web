@@ -1,85 +1,9 @@
 <?php
+$session=session();
 
-$apagar  = [
-    1350, 350,
-    1300, 400, 450, 1200, 1350, 350, 1300, 400,
-    450, 1200, 500, 1200, 450, 1200, 500, 1200,
-    500, 1200, 450, 1200, 1350, 7200, 1350, 350,
-    1300, 400, 450, 1200, 1350, 350, 1300, 350,
-    500, 1200, 500, 1200, 450, 1200, 500, 1200,
-    450, 1250, 450, 1200, 1300, 7250, 1350, 350,
-    1300, 400, 450, 1200, 1300, 400, 1300, 400,
-    450, 1200, 500, 1200, 450, 1200, 450, 1250,
-    450, 1250, 400, 1250, 1300, 7250, 1250, 450,
-    1250, 450, 450, 1200, 1250, 450, 1250, 450,
-    400, 1250, 400, 1300, 400, 1300, 350, 1300,
-    400, 1300, 350, 1300, 1250, 7300, 1250, 450,
-    1250, 450, 400, 1300, 1200, 450, 1250, 450,
-    400, 1250, 400, 1300, 400, 1300, 350, 1300,
-    400, 1250, 450, 1250, 1250, 7300, 1250, 450,
-    1250, 450, 400, 1250, 1250, 450, 1250, 450,
-    400, 1250, 450, 1250, 400, 1250, 450, 1250,
-    450, 1250, 450, 1200, 1300
-];
-
-$tiempo= [
-    1350, 350,
-    1300, 350, 500, 1200, 1300, 400, 1300, 350,
-    500, 1200, 450, 1200, 500, 1200, 500, 1200,
-    450, 1200, 1350, 350, 450, 8050, 1350, 400,
-    1300, 350, 500, 1200, 1300, 350, 1350, 350,
-    500, 1200, 450, 1200, 500, 1200, 450, 1200,
-    500, 1200, 1300, 400, 450, 8050, 1350, 350,
-    1350, 350, 500, 1200, 1300, 350, 1350, 350,
-    450, 1200, 500, 1200, 500, 1200, 450, 1200,
-    500, 1200, 1300, 400, 450, 8050, 1350, 350,
-    1350, 350, 450, 1200, 1350, 350, 1350, 350,
-    450, 1200, 500, 1150, 550, 1150, 500, 1200,
-    500, 1150, 1350, 350, 450
-];
-
-$velocidad= [
-    1350, 400,
-    1300, 350, 500, 1200, 1300, 350, 1350, 350,
-    450, 1250, 450, 1200, 1300, 400, 450, 1200,
-    500, 1200, 450, 1200, 500, 8050, 1350, 350,
-    1350, 350, 450, 1200, 1350, 350, 1300, 400,
-    450, 1200, 500, 1200, 1300, 350, 500, 1200,
-    500, 1200, 450, 1200, 500, 8050, 1350, 350,
-    1300, 400, 450, 1200, 1350, 350, 1300, 350,
-    500, 1200, 500, 1200, 1300, 350, 500, 1200,
-    450, 1250, 450, 1200, 500, 8050, 1350, 350,
-    1300, 400, 450, 1200, 1300, 400, 1300, 350,
-    500, 1200, 500, 1200, 1300, 350, 500, 1200,
-    450, 1200, 500, 1200, 500, 8050, 1350, 350,
-    1300, 350, 500, 1200, 1300, 400, 1300, 350,
-    500, 1200, 450, 1250, 1300, 350, 500, 1150,
-    500, 1200, 500, 1150, 500
-];
-
-$modobrisa= [
-    1350, 350,
-    1300, 400, 450, 1200, 1300, 400, 1300, 350,
-    500, 1150, 500, 1200, 500, 1200, 1300, 400,
-    450, 1200, 500, 1150, 500, 8050, 1350, 400,
-    1300, 350, 450, 1200, 1350, 350, 1300, 400,
-    450, 1200, 500, 1200, 450, 1200, 1350, 400,
-    450, 1200, 450, 1250, 450, 8050, 1350, 350,
-    1300, 400, 450, 1200, 1350, 350, 1300, 400,
-    450, 1200, 500, 1200, 450, 1200, 1350, 350,
-    500, 1200, 450, 1250, 450, 8050, 1350, 350,
-    1300, 400, 450, 1250, 1250, 400, 1300, 400,
-    400, 1250, 450, 1250, 450, 1250, 1250, 400,
-    450, 1250, 400, 1250, 450
-];
-
-$apagar_string = implode(',', $apagar);
-$tiempo_string = implode(',', $tiempo);
-$velocidad_string= implode(',', $velocidad);
-$modobrisa_string = implode(',', $modobrisa);
+$ip=$session->get('esp_ip');
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -139,19 +63,58 @@ $modobrisa_string = implode(',', $modobrisa);
   </div>
 </nav>
     
-    <div class="remote-control">
+<div>
+    <input type="hidden" id="deviceId" value="<?php echo $id;?>" /> <!-- Reemplaza 12345 con el ID real del dispositivo -->
+    <input type="hidden" id="espIp" value="<?php echo $ip;?>" /> <!-- Reemplaza 12345 con el ID real del dispositivo -->
+    <div class="remote-control" data-url-send-signal="<?= base_url('/enviar_senal') ?>">
         <div class="top-section">
-            <button class="button" id="on-off" onclick="enviarIR('<?php echo $apagar_string;?>','<?php echo session()->get('esp_ip');?>')">ON/OFF</button>
-            <button class="button" id="tiempo" onclick="enviarIR('<?php echo $tiempo_string;?>','<?php echo session()->get('esp_ip');?>')">TIEMPO</button>
-            <button class="button" id="velocidad" onclick="enviarIR('<?php echo $velocidad_string;?>','<?php echo session()->get('esp_ip');?>')">VELOCIDAD</button>
-            <button class="button" id="modo-brisa" onclick="enviarIR('<?php echo $modobrisa_string;?>','<?php echo session()->get('esp_ip');?>')">MODO BRISA</button>
+            <button class="button" id="on-off" data-id="1">ON/OFF</button>
+            <button class="button" id="tiempo" data-id="29">TIEMPO</button>
+            <button class="button" id="velocidad" data-id="30">VELOCIDAD</button>
+            <button class="button" id="modo-brisa" data-id="33">MODO BRISA</button>
         </div>
         <div class="logo-section">
             <p>Liliana</p>
         </div>
     </div>
+    </div>
 
-    <script src="<?php echo base_url('/js/sendIR.js');?>"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const remoteControl = document.querySelector('.remote-control');
+    const sendSignalUrl = remoteControl.getAttribute('data-url-send-signal'); // URL para leer señales
+
+    // Seleccionar todos los botones que tienen el atributo "data-id"
+    const buttons = document.querySelectorAll('[data-id]');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', function () {
+            const functionId = this.getAttribute('data-id'); // ID de la función
+            const deviceId = document.getElementById('deviceId').value;
+            const espIp = document.getElementById('espIp').value; // ID del dispositivo            // Llamar a la función que verifica continuamente el CSV
+            waitForSignal(functionId, deviceId, espIp);
+        });
+    });
+
+    // Función para verificar continuamente el CSV
+    async function waitForSignal(functionId, deviceId, espIp) {
+        try {
+            const response = await fetch(sendSignalUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ deviceId, functionId, espIp }),
+            });
+
+
+        } catch (error) {
+            console.error(error);
+            alert(error.message);
+        }
+    }
+});
+
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 </body>

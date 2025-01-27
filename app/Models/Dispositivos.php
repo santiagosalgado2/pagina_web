@@ -75,4 +75,11 @@ class Dispositivos extends Model{
         $tabla->insert($data);
     }
 
+    public function getSignal($disp,$func){
+        $tabla=$this->db->table('senalesir');
+        $tabla->where('ID_dispositivo',$disp);
+        $tabla->where('ID_funcion',$func);
+        return $tabla->get()->getResultArray();
+    }
+
 }
