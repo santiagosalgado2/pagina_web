@@ -65,7 +65,7 @@
     <div>
     <input type="hidden" id="deviceId" value="<?php echo $id;?>" /> <!-- Reemplaza 12345 con el ID real del dispositivo -->
     <div class="remote-control" data-url-receive-code="<?= base_url('/mostrar_senales') ?>" 
-    data-url-save-signal="<?= base_url('/insertar_senal'); ?>">
+    data-url-save-signal="<?= base_url('/insertar_senal'); ?>" data-url-verify-signal="<?= base_url('/verificar_senal');?>">
     <div class="container">
         <div class="d-flex flex-row justify-content-between px-3 py-4 align-items-center">
             <i class="fas fa-chevron-left"></i>
@@ -167,7 +167,9 @@
     document.addEventListener('DOMContentLoaded', function () {
     const remoteControl = document.querySelector('.remote-control');
     const receiveCodeUrl = remoteControl.getAttribute('data-url-receive-code'); // URL para leer señales
-    const saveSignalUrl = remoteControl.getAttribute('data-url-save-signal'); // URL para guardar señal
+    const saveSignalUrl = remoteControl.getAttribute('data-url-save-signal');
+    const verifySignalUrl = remoteControl.getAttribute('data-url-verify-signal'); // URL para guardar señal
+     // URL para guardar señal
 
     // Seleccionar todos los botones que tienen el atributo "data-id"
     const buttons = document.querySelectorAll('[data-id]');
@@ -203,13 +205,35 @@
                 // Señal encontrada, guardar en la base de datos
                 const irCode = signals[0]; // Primera señal encontrada
 
-                const saveResponse = await fetch(saveSignalUrl, {
+                const verifyResponse =await fetch(verifySignalUrl, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ irCode, deviceId, functionId }),
+                    body: JSON.stringify({ deviceId, functionId }),
                 });
 
-                alert(`Señal grabada correctamente`);
+                if (verifyResponse.status === 200) { 
+            // Mostrar un confirm al usuario
+                    const userConfirmed = confirm("Esta señal ya está grabada, ¿deseas sobreescribirla?");
+            // Si el usuario confirma
+                    if (userConfirmed) {
+                        const saveResponse = await fetch(saveSignalUrl, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ irCode, deviceId, functionId }),
+                        });
+
+                        alert(`Señal actualizada correctamente`);
+                    }
+                }else{
+                    const saveResponse = await fetch(saveSignalUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ irCode, deviceId, functionId }),
+                    });
+
+                    alert(`Señal grabada correctamente`);
+                }
+                
             } else {
                 // Si no hay señales, esperar y volver a intentar
                 setTimeout(() => waitForSignal(functionId, deviceId), 1000);

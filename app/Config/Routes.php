@@ -52,4 +52,5 @@ $routes->post('/grabar_tele',"Esp32C::grabarTeleview");
 $routes->post('/grabar_ventilador',"Esp32C::grabarVentiladorview");
 $routes->post('/insertar_senal',"Devices::insertarSenal");
 $routes->post('/enviar_senal',"Esp32C::sendIR");
+$routes->post('/verificar_senal', 'Devices::verifySignal');
 
