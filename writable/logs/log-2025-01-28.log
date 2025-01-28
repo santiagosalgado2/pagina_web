@@ -1,0 +1,10 @@
+CRITICAL - 2025-01-28 21:44:10 --> ErrorException: Undefined property: App\Controllers\Handle::$modelo
+[Method: GET, Route: pruebinha]
+in APPPATH\Controllers\Handle.php on line 15.
+ 1 APPPATH\Controllers\Handle.php(15): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Handle::$modelo', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Controllers\\Handle.php', 15)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Handle->insertData()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Handle))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
