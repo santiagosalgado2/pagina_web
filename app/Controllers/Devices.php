@@ -121,6 +121,7 @@ class Devices extends BaseController{
 
             $devicemodel->deleteDevice($id);
             $aumodel->deleteaccessbydevice($id);
+            $devicemodel->deleteSignalsbyDevice($id);
             return redirect()->to(base_url('/devices'));
 
         }
@@ -142,15 +143,42 @@ class Devices extends BaseController{
 
             return redirect()->back();
         }else{
-            if($devicemodel->insertSignal($senal,$dispositivo,$funcion)){
-                return $this->response->setStatusCode(200)->setBody('Señal guardada correctamente.');
+            if($devicemodel->getSignal($dispositivo,$funcion)){
+                if($devicemodel->updateSignal($senal,$dispositivo,$funcion)){
+                    return $this->response->setStatusCode(200)->setBody('Señal guardada correctamente.');
+                }else{
+                    return $this->response->setStatusCode(500)->setBody('Error al guardar la señal.');
+                }
             }else{
-                return $this->response->setStatusCode(500)->setBody('Error al guardar la señal.');
+                if($devicemodel->insertSignal($senal,$dispositivo,$funcion)){
+                    return $this->response->setStatusCode(200)->setBody('Señal guardada correctamente.');
+                }else{
+                    return $this->response->setStatusCode(500)->setBody('Error al guardar la señal.');
+                }
             }
         }
 
+    }
 
+    public function verifySignal(){
+        $funcion=$this->request->getJSON()->functionId;
 
+        $dispositivo=$this->request->getJSON()->deviceId;
+
+        $devicemodel=new Dispositivos;
+
+        $device=$devicemodel->user_has_permission($dispositivo,session()->get('user_id'));
+
+        if(empty($device)){
+
+            return redirect()->back();
+        }else{
+            if($devicemodel->getSignal($dispositivo,$funcion)){
+                return $this->response->setStatusCode(200)->setBody('Señal ya existe.');
+            }else{
+                return $this->response->setStatusCode(500)->setBody('Señal no existe.');
+            }
+        }
 
     }
 

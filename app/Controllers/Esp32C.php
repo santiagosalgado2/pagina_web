@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Esp32;
+use App\Models\Dispositivos;
 
 class Esp32C extends BaseController{
 
@@ -153,11 +154,12 @@ class Esp32C extends BaseController{
         #FUNCION POR LA CUAL SE ENVIAN LAS SEÑALES IR A LA ESP32 DESDE LA PAGINA WEB
         #USANDO JS SE ENVIAN MEDIANTE POST LA IP DEL ESP32 Y LA SEÑAL EN CRUDO
         #EL TRIM SE USA PARA ELIMINAR ESPACIOS EN BLANCO Y QUE LA URL NO TENGA PROBLEMAS
-        $esp32IP = trim($this->request->getPost('ip'));  
-        $signal = $this->request->getPost('signal');
+        $esp32IP = trim($this->request->getJSON()->espIp);  
+        $deviceId = $this->request->getJSON()->deviceId;
+        $functionId = $this->request->getJSON()->functionId;
         $url = "http://$esp32IP/sendIR";    
         
-        if (!$esp32IP || !$signal) {
+        if (!$esp32IP || !$deviceId || !$functionId) {
             return $this->response->setStatusCode(400)->setBody('Faltan parámetros.');
         }
 
@@ -166,13 +168,21 @@ class Esp32C extends BaseController{
             #EN CASO DE QUE EL CONTROLADOR HAYA RECIBIDO CORRECTAMENTE LOS DATOS, SE CREA UN CLIENTE CURL, QUE ES UNA HERRAMIENTA QUE PERMITE ENVIAR SOLICITUDES HTTP A UNA URL
             #Y RECIBIR UN RESULTADO. ESTA HERRAMIENTA VIENE INCLUIDA EN CODEIGNITER
 
+            $devicemodel=new Dispositivos;
+
+            $signal=$devicemodel->getSignal($deviceId,$functionId);
+
+            if(!$signal){
+                return $this->response->setStatusCode(500)->setBody('Señal no encontrada en la base de datos');
+            }
+
             $client = \Config\Services::curlrequest();
             
             #ENVIA EL PARAMETRO 'PLAIN' QUE TENDRA COMO VALOR LA SEÑAL EN CRUDO QUE SE DESEA EMITIR
             #LA ESP RECIBIRA ESTE DATO Y EMITIRA LA SEÑAL CORRESPONDIENTE
             $response = $client->post($url, [
                 'form_params' => [
-                    'plain' => $signal
+                    'plain' => $signal[0]["codigo_hexadecimal"]
                 ]
             ]);
         
@@ -187,6 +197,8 @@ class Esp32C extends BaseController{
 
 
     }
+
+
     
     public function return_after_vinculation($code){
 
@@ -205,14 +217,14 @@ class Esp32C extends BaseController{
     
 
     public function control_view(){
-        return view('tele2');
+        return view('tele2',['id'=>$this->request->getPost('id')]);
     }
     public function air_view(){
-        return view('aire');
+        return view('aire',['id'=>$this->request->getPost('id')]);
     }
 
     public function ventilador_view(){
-        return view('ventilador');
+        return view('ventilador',['id'=>$this->request->getPost('id')]);
     }
 
 
@@ -269,13 +281,13 @@ class Esp32C extends BaseController{
                 }
                 fclose($handle);
                 
-            //  register_shutdown_function(function() use ($filePath) {
-            //         #ESTA FUNCION SE EJECUTA CUANDO EL CONTROLADOR DEJA DE SER EJECUTADO
-            //      #CUANDO EL USUARIO SALGA DE LA PAGINA, SE ELIMINA EL ARCHIVO CSV
-            //      if (file_exists($filePath)) {
-            //         file_put_contents($filePath, '');
-            //      }
-            //  });
+             register_shutdown_function(function() use ($filePath) {
+                    #ESTA FUNCION SE EJECUTA CUANDO EL CONTROLADOR DEJA DE SER EJECUTADO
+                 #CUANDO EL USUARIO SALGA DE LA PAGINA, SE ELIMINA EL ARCHIVO CSV
+                 if (file_exists($filePath)) {
+                    file_put_contents($filePath, '');
+                 }
+             });
 
                 #DESCOMENTANDO ESTO, UNA VEZ QUE SE RECIBE UNA SEÑAL SE BORRA EL CSV POR LO QUE SOLO ES POSIBLE VER UNA SEÑAL A LA VEZ
                 

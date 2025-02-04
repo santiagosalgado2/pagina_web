@@ -6,6 +6,9 @@ use CodeIgniter\Config\BaseService;
 
 use \App\Models\Verificacion;
 
+use \App\Models\Manejador;
+
+
 /**
  * Services Configuration file.
  *
@@ -21,6 +24,14 @@ use \App\Models\Verificacion;
  */
 class Services extends BaseService
 {
+
+    public $manejador;
+
+    public function __construct(){
+
+        $this->modelo= new Manejador;
+
+    }
     /*
      * public static function example($getShared = true)
      * {
@@ -77,6 +88,8 @@ class Services extends BaseService
         }
 
     }
+
+    
 
     
 }

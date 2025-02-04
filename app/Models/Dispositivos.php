@@ -75,4 +75,30 @@ class Dispositivos extends Model{
         $tabla->insert($data);
     }
 
+    public function updateSignal($signal,$device,$function){
+        $tabla=$this->db->table('senalesir');
+        $data = array(
+            "codigo_hexadecimal"=>$signal
+        );
+
+        $tabla->where('ID_dispositivo',$device);
+        $tabla->where('ID_funcion',$function);
+
+        $tabla->update($data);
+
+    }
+
+    public function getSignal($disp,$func){
+        $tabla=$this->db->table('senalesir');
+        $tabla->where('ID_dispositivo',$disp);
+        $tabla->where('ID_funcion',$func);
+        return $tabla->get()->getResultArray();
+    }
+
+    public function deleteSignalsbyDevice($id){
+        $tabla=$this->db->table('senalesir');
+        $tabla->where('ID_dispositivo',$id);
+        $tabla->delete();
+    }
+
 }

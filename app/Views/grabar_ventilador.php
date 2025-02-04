@@ -59,7 +59,7 @@
     <div>
     <input type="hidden" id="deviceId" value="<?php echo $id;?>" /> <!-- Reemplaza 12345 con el ID real del dispositivo -->
     <div class="remote-control" data-url-receive-code="<?= base_url('/mostrar_senales') ?>" 
-    data-url-save-signal="<?= base_url('/insertar_senal'); ?>">
+    data-url-save-signal="<?= base_url('/insertar_senal'); ?>" data-url-verify-signal="<?= base_url('/verificar_senal');?>">
         <div class="top-section">
             <button class="button" id="on-off" data-id="1">ON/OFF</button>
             <button class="button" id="tiempo" data-id="29">TIEMPO</button>
@@ -77,7 +77,9 @@
 document.addEventListener('DOMContentLoaded', function () {
     const remoteControl = document.querySelector('.remote-control');
     const receiveCodeUrl = remoteControl.getAttribute('data-url-receive-code'); // URL para leer señales
-    const saveSignalUrl = remoteControl.getAttribute('data-url-save-signal'); // URL para guardar señal
+    const saveSignalUrl = remoteControl.getAttribute('data-url-save-signal');
+    const verifySignalUrl = remoteControl.getAttribute('data-url-verify-signal'); // URL para guardar señal
+     // URL para guardar señal
 
     const buttons = document.querySelectorAll('.remote-control .button');
 
@@ -87,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const deviceId = document.getElementById('deviceId').value; // ID del dispositivo
 
             // Mostrar mensaje de espera
-            alert('Esperando la lectura de la señal IR. Por favor, presione el botón en su control remoto original.');
+            alert('Esperando la lectura de la señal IR. Por favor, presione el botón en su control remoto original y luego pulse aceptar');
 
             // Llamar a la función que verifica continuamente el CSV
             waitForSignal(functionId, deviceId);
@@ -112,17 +114,35 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Señal encontrada, guardar en la base de datos
                 const irCode = signals[0]; // Primera señal encontrada
 
-                const saveResponse = await fetch(saveSignalUrl, {
+                const verifyResponse =await fetch(verifySignalUrl, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ irCode, deviceId, functionId }),
+                    body: JSON.stringify({ deviceId, functionId }),
                 });
 
-                if (!saveResponse.ok) {
-                    throw new Error('Error al guardar la señal en la base de datos.');
-                }
+                if (verifyResponse.status === 200) { 
+            // Mostrar un confirm al usuario
+                    const userConfirmed = confirm("Esta señal ya está grabada, ¿deseas sobreescribirla?");
+            // Si el usuario confirma
+                    if (userConfirmed) {
+                        const saveResponse = await fetch(saveSignalUrl, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ irCode, deviceId, functionId }),
+                        });
 
-                alert(`Señal grabada correctamente para la función ${functionId}.`);
+                        alert(`Señal actualizada correctamente`);
+                    }
+                }else{
+                    const saveResponse = await fetch(saveSignalUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ irCode, deviceId, functionId }),
+                    });
+
+                    alert(`Señal grabada correctamente`);
+                }
+                
             } else {
                 // Si no hay señales, esperar y volver a intentar
                 setTimeout(() => waitForSignal(functionId, deviceId), 1000);
@@ -134,8 +154,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-
-    </script>
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 </body>
