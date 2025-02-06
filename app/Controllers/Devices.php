@@ -4,6 +4,7 @@ namespace App\Controllers;
 #INCLUYE LOS MODELOS NECESARIOS
 use App\Models\Acceso_usuarios;
 use App\Models\Dispositivos;
+use App\Models\Manejador;
 use CodeIgniter\Controller;
 
 class Devices extends BaseController{
@@ -137,6 +138,8 @@ class Devices extends BaseController{
 
         $devicemodel=new Dispositivos;
 
+        $handlemodel=new Manejador;
+
         $device=$devicemodel->user_has_permission($dispositivo,session()->get('user_id'));
 
         if(empty($device)){
@@ -145,12 +148,16 @@ class Devices extends BaseController{
         }else{
             if($devicemodel->getSignal($dispositivo,$funcion)){
                 if($devicemodel->updateSignal($senal,$dispositivo,$funcion)){
+                    $handlemodel->deleteActionData(session()->get('action_id'));
+
                     return $this->response->setStatusCode(200)->setBody('Señal guardada correctamente.');
                 }else{
                     return $this->response->setStatusCode(500)->setBody('Error al guardar la señal.');
                 }
             }else{
                 if($devicemodel->insertSignal($senal,$dispositivo,$funcion)){
+                    $handlemodel->deleteActionData(session()->get('action_id'));
+
                     return $this->response->setStatusCode(200)->setBody('Señal guardada correctamente.');
                 }else{
                     return $this->response->setStatusCode(500)->setBody('Error al guardar la señal.');

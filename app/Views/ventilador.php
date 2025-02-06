@@ -62,10 +62,12 @@ $ip=$session->get('esp_ip');
     </div>
   </div>
 </nav>
-    
+
 <div>
     <input type="hidden" id="deviceId" value="<?php echo $id;?>" /> <!-- Reemplaza 12345 con el ID real del dispositivo -->
-    <input type="hidden" id="espIp" value="<?php echo $ip;?>" /> <!-- Reemplaza 12345 con el ID real del dispositivo -->
+    <input type="hidden" id="actionId" value="<?php echo session()->get('action_id');?>" />
+     <!-- Reemplaza 12345 con el ID real del dispositivo -->
+    <input type="hidden" id="deleteAction" value="<?php echo base_url('/front/eliminar_accion') ?>" />
     <div class="remote-control" data-url-send-signal="<?= base_url('/enviar_senal') ?>">
         <div class="top-section">
             <button class="button" id="on-off" data-id="1">ON/OFF</button>
@@ -81,6 +83,32 @@ $ip=$session->get('esp_ip');
 
 
     <script>
+  window.addEventListener('beforeunload', function (e) {
+    const urlElement = document.getElementById('deleteAction');
+    const actionElement = document.getElementById('actionId');
+
+    if (urlElement && actionElement) {
+      const url = urlElement.value;
+      const action_id = actionElement.value;
+
+      if (url && action_id) {
+        const payload = new Blob([JSON.stringify({ action_id })], { type: 'application/json' });
+        navigator.sendBeacon(url, payload);
+      }
+    }
+
+    // Mensaje de confirmación antes de salir
+    const confirmationMessage = '¿Estás seguro de que deseas abandonar esta página?';
+    e.returnValue = confirmationMessage;
+    return confirmationMessage;
+  });
+</script>
+
+
+
+
+
+    <script>
     document.addEventListener('DOMContentLoaded', function () {
     const remoteControl = document.querySelector('.remote-control');
     const sendSignalUrl = remoteControl.getAttribute('data-url-send-signal'); // URL para leer señales
@@ -92,21 +120,40 @@ $ip=$session->get('esp_ip');
         button.addEventListener('click', function () {
             const functionId = this.getAttribute('data-id'); // ID de la función
             const deviceId = document.getElementById('deviceId').value;
-            const espIp = document.getElementById('espIp').value; // ID del dispositivo            // Llamar a la función que verifica continuamente el CSV
-            waitForSignal(functionId, deviceId, espIp);
+            const action_id = document.getElementById('actionId').value; // ID del dispositivo            // Llamar a la función que verifica continuamente el CSV
+            waitForSignal(functionId, deviceId, action_id);
         });
     });
 
     // Función para verificar continuamente el CSV
-    async function waitForSignal(functionId, deviceId, espIp) {
+    async function waitForSignal(functionId, deviceId, action_id) {
         try {
+
+            const num=1;
             const response = await fetch(sendSignalUrl, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ deviceId, functionId, espIp }),
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams({ deviceId, functionId, action_id, num }),
             });
 
+            if (response.status === 500) {
+              alert('La señal no está grabada');
+            } else if (response.status === 200) {
+              const checkSignalUrl = '<?= base_url('/js/verificar_senal') ?>';
+              let signalSent = false;
 
+              while (!signalSent) {
+                const checkResponse = await fetch(checkSignalUrl, {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                  body: new URLSearchParams({ action_id }),
+                });
+
+                if (checkResponse.status === 200) {
+                  signalSent = true;
+                }
+              }
+            }
         } catch (error) {
             console.error(error);
             alert(error.message);

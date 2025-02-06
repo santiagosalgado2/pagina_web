@@ -46,17 +46,6 @@ class Manejador extends Model{
 
         $tabla->delete();
 
-        if($query=$this->getActionQuery($esp)){
-
-            $tabla2=$this->db->table('datos_solicitud')->where('ID_solicitud',$query[0]['ID_solicitud'])->delete();
-
-        }
-
-        if($this->db->affectedRows()>0){
-            return true;
-        }else{
-            return false;
-        }
     }
 
     public function getActionQuery($esp){
@@ -69,13 +58,43 @@ class Manejador extends Model{
         return $result;
     }
 
-    public function insertDataQuery($key,$value){
+    public function insertDataQuery($key,$value=null,$id){
+
+        if($value==null){
+            $valor=null;
+        }else{
+            $valor=$value;
+        }
 
         $tabla=$this->db->table('datos_solicitud');
+        
+        $tabla->insert(['ID_solicitud'=>$id,'clave'=>$key,'valor'=>$valor]);
+    }
 
-        $tabla->insert(['ID_solicitud'=>$key,'dato'=>$value]);
+    public function getActionData($id){
+        $tabla=$this->db->table('datos_solicitud');
 
-        return $this->db->insertID();
+        $tabla->where('ID_solicitud',$id);
+
+        $result=$tabla->get()->getResultArray();
+
+        return $result;
+    }
+
+    public function updateActionData($id, $data){
+        $tabla=$this->db->table('datos_solicitud');
+
+        $tabla->where('ID_solicitud',$id);
+
+        $result=$tabla->update(['valor'=>$data]);
+    }
+
+    public function deleteActionData($id){
+        $tabla=$this->db->table('datos_solicitud');
+
+        $tabla->where('ID_solicitud',$id);
+
+        $tabla->delete();
 
     }
 
