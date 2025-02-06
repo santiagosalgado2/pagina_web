@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\Esp32;
 use App\Models\Dispositivos;
+use App\Models\Manejador;
 
 class Esp32C extends BaseController{
 
@@ -18,9 +19,13 @@ class Esp32C extends BaseController{
 
         $esp_ip= $this->request->getPost('esp_ip');
 
+        $esp_code = $this->request->getPost('esp_code');
+
         $session->set('esp_id',$esp_id);
 
         $session->set('esp_ip',$esp_ip);
+
+        $session->set('esp_code',$esp_code);
 
         return redirect()->to('/devices'); 
 
@@ -80,120 +85,38 @@ class Esp32C extends BaseController{
         return view('esp_instructions.php',['code'=>$code]);
     }
 
-    public function receiveEsp(){
-
-        #ESTE CONTROLADOR ES EJECUTADO POR LA ESP32 Y SE UTILIZA PARA FINALIZAR EL PROCESO DE VINCULACIÓN
-        #LA ESP ENVIA MEDIANTE POST EL CODIGO IDENTIFICADOR Y SU DIRECCION IP UNA VEZ CONECTADA A WIFI
-
-        $code= $this->request->getPost('code');
-
-        $ip = $this->request->getPost('ipAddress');
-
-        $ruta= WRITEPATH . 'data/' . $code . '.csv';
-
-        $data = [];
-
-        $espmodel = new Esp32();
-
-        if(file_exists($ruta)){
-
-            #SI EL ARCHIVO EXISTE, QUIERE DECIR QUE EL USUARIO HA COMPLETADO EL FORMULARIO DE VINCULACION Y DESEA REALIZAR UNA VINCULACION DE UN NUEVO ESP32
-            #ESTE CONTROLADOR VA A BUSCAR EL ARCHIVO CSV QUE TENGA COMO NOMBRE EL CODIGO DE LA ESP32 Y VA A ITERAR LOS DATOS DEL ARCHIVO
-
-            if (($handle = fopen($ruta, 'r')) !== false) {
-                while (($row = fgetcsv($handle)) !== false) {
-                    $data[] = $row;
-                }
-                fclose($handle);
-            }
     
-            list($vcode, $id, $mail, $location) = $data[0]; #LISTA DE LOS DATOS OBTENIDOS DEL ARCHIVO CSV
-
-            #SE INSERTA LA ESP A LA BD Y SE NOTIFICA AL USUARIO POR MAIL EL RESULTADO DE LA VINCULACION
-            $espid=$espmodel->insertEsp($ip,$location,$id,$vcode);
-    
-            if($espid){
-                \Config\Services::sendEmail($mail,"Dispositivo vinculado exitosamente","<h1>Su dispositivo fue vinculado con exito, vuelve al inicio de la pagina para poder configurarlo a gusto</h1>");
-                
-            }else{
-                \Config\Services::sendEmail($mail,"Hubo un error al vincular tu esp","<h1>Ha ocurrido un error. Intente nuevamente</h1>");
-            }
-
-            unlink($ruta);
-
-            return 'Esp32 vinculada con exito';
-            
-        }else{
-
-
-            #SI EL ARCHIVO NO SE ENCUENTRA QUIERE DECIR QUE EL ESP YA ESTA REGISTRADO EN LA BD. SE BUSCA EN LA BD EL ESP32 POR SU CODIGO
-            #Y SE ACTUALIZA LA DIRECCION IP EN CASO DE QUE SEA NECESARIO HACERLO
-
-            $esp=$espmodel->getEsp32byCode($code);
-
-            if($esp[0]['direccion_ip']!==$ip){
-
-                $update=$espmodel->updateEsp32(['direccion_ip' => $ip],['codigo' => $code]);
-
-                return 'Ip cambiada en la bd '.$ip;
-
-            }else{
-                return 'Nada para hacer';
-            }
-
-        }
-
-        
-
-    }
-
-
     #FUNCIONES DE PRUEBA
 
     public function sendIR() {
         #FUNCION POR LA CUAL SE ENVIAN LAS SEÑALES IR A LA ESP32 DESDE LA PAGINA WEB
         #USANDO JS SE ENVIAN MEDIANTE POST LA IP DEL ESP32 Y LA SEÑAL EN CRUDO
         #EL TRIM SE USA PARA ELIMINAR ESPACIOS EN BLANCO Y QUE LA URL NO TENGA PROBLEMAS
-        $esp32IP = trim($this->request->getJSON()->espIp);  
-        $deviceId = $this->request->getJSON()->deviceId;
-        $functionId = $this->request->getJSON()->functionId;
-        $url = "http://$esp32IP/sendIR";    
-        
-        if (!$esp32IP || !$deviceId || !$functionId) {
-            return $this->response->setStatusCode(400)->setBody('Faltan parámetros.');
-        }
-
-        else{
-            
-            #EN CASO DE QUE EL CONTROLADOR HAYA RECIBIDO CORRECTAMENTE LOS DATOS, SE CREA UN CLIENTE CURL, QUE ES UNA HERRAMIENTA QUE PERMITE ENVIAR SOLICITUDES HTTP A UNA URL
-            #Y RECIBIR UN RESULTADO. ESTA HERRAMIENTA VIENE INCLUIDA EN CODEIGNITER
-
+        $action_id = $this->request->getPost('action_id');
+        $deviceId = $this->request->getPost('deviceId');
+        $functionId = $this->request->getPost('functionId');
+        $num = $this->request->getPost('num');
+       
+ 
             $devicemodel=new Dispositivos;
+
+            $handlemodel=new Manejador;
 
             $signal=$devicemodel->getSignal($deviceId,$functionId);
 
-            if(!$signal){
-                return $this->response->setStatusCode(500)->setBody('Señal no encontrada en la base de datos');
+            if($num==1 && $signal){
+                $insert=$handlemodel->insertDataQuery($functionId,$signal[0]['codigo_hexadecimal'],$action_id);
+
+                return $this->response->setStatusCode(200)->setBody('Señal enviada a la bd');
+            }elseif($num==2){
+                $handlemodel->deleteActionData($action_id);
+                $insert=$handlemodel->insertDataQuery($functionId,null,$action_id);
+
+                return $this->response->setStatusCode(200)->setBody('Señal enviada a la bd');
+            }else{
+                return $this->response->setStatusCode(500)->setBody('Error al enviar la señal');
             }
 
-            $client = \Config\Services::curlrequest();
-            
-            #ENVIA EL PARAMETRO 'PLAIN' QUE TENDRA COMO VALOR LA SEÑAL EN CRUDO QUE SE DESEA EMITIR
-            #LA ESP RECIBIRA ESTE DATO Y EMITIRA LA SEÑAL CORRESPONDIENTE
-            $response = $client->post($url, [
-                'form_params' => [
-                    'plain' => $signal[0]["codigo_hexadecimal"]
-                ]
-            ]);
-        
-            // Verifica que la solicitud haya sido exitosa
-            if ($response->getStatusCode() === 200) {
-                return $this->response->setStatusCode(200)->setBody('Señales enviadas correctamente.');
-            } else {
-                return $this->response->setStatusCode(500)->setBody('Error al enviar las señales.');
-            }
-        }
-        
 
 
     }
@@ -217,14 +140,35 @@ class Esp32C extends BaseController{
     
 
     public function control_view(){
+
+        $handlemodel=new Manejador;
+
+        $action_id=$handlemodel->insertActionQuery(1,session()->get('esp_code'));
+
+        session()->set('action_id',$action_id);
+
         return view('tele2',['id'=>$this->request->getPost('id')]);
     }
     public function air_view(){
+
+        $handlemodel=new Manejador;
+
+        $action_id=$handlemodel->insertActionQuery(1,session()->get('esp_code'));
+
+        session()->set('action_id',$action_id);
         return view('aire',['id'=>$this->request->getPost('id')]);
     }
 
     public function ventilador_view(){
+
+        $handlemodel=new Manejador;
+
+        $action_id=$handlemodel->insertActionQuery(1,session()->get('esp_code'));
+
+        session()->set('action_id',$action_id);
+
         return view('ventilador',['id'=>$this->request->getPost('id')]);
+        
     }
 
 
@@ -308,17 +252,72 @@ class Esp32C extends BaseController{
     }
 
     public function grabarAireview(){
+        $handlemodel=new Manejador;
+        $action_id=$handlemodel->insertActionQuery(2,session()->get('esp_code'));
+
+        session()->set('action_id',$action_id);
         return view('grabar_aire',['id'=>$this->request->getPost('id')]);
     }
 
     public function grabarTeleview(){
+        $handlemodel=new Manejador;
+
+        $action_id=$handlemodel->insertActionQuery(2,session()->get('esp_code'));
+
+        session()->set('action_id',$action_id);
         return view('grabar_tele',['id'=>$this->request->getPost('id')]);
     }
 
     public function grabarVentiladorview(){
+        $handlemodel=new Manejador;
+
+        $action_id=$handlemodel->insertActionQuery(2,session()->get('esp_code'));
+
+        session()->set('action_id',$action_id);
         return view('grabar_ventilador',['id'=>$this->request->getPost('id')]);
     }
 
+    public function verifySignal(){
+        $handlemodel=new Manejador;
 
+        $action_id = $this->request->getPost('action_id');
+
+        if($data=$handlemodel->getActionData($action_id)){
+            return $this->response->setStatusCode(500);
+        }else{
+            return $this->response->setStatusCode(code: 200);
+        }
+    }
+
+    public function deleteAction(){
+        $json = $this->request->getJSON();
+        if ($json && isset($json->action_id)) {
+            $handlemodel = new Manejador;
+            $id = $json->action_id;
+            $handlemodel->deleteActionData($id);
+            $handlemodel->deleteActionQuery(session()->get('esp_code'));
+    
+            session()->remove('action_id');
+        }
+
+    }
+
+    public function verifyRecording(){
+
+        $action_id= $this->request->getJSON()->action_id;
+
+        $functionId = $this->request->getJSON()->functionId;
+
+        $handlemodel=new Manejador;
+
+        $data=$handlemodel->getActionData($action_id);
+
+        if($data && $data[0]['clave'] == $functionId){
+            $senal=$data[0]['valor'];
+            return $this->response->setStatusCode(200)->setJSON(['irCode'=>$senal]);
+        }else{
+            return $this->response->setStatusCode(500);
+        }
+    }
 
 }

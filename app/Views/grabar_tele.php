@@ -63,9 +63,12 @@
 </nav>
     <!--container-->
     <div>
-    <input type="hidden" id="deviceId" value="<?php echo $id;?>" /> <!-- Reemplaza 12345 con el ID real del dispositivo -->
-    <div class="remote-control" data-url-receive-code="<?= base_url('/mostrar_senales') ?>" 
-    data-url-save-signal="<?= base_url('/insertar_senal'); ?>" data-url-verify-signal="<?= base_url('/verificar_senal');?>">
+    <input type="hidden" id="deviceId" value="<?php echo $id;?>" />
+    <input type="hidden" id="actionId" value="<?php echo session()->get('action_id');?>" />
+    <input type="hidden" id="deleteAction" value="<?php echo base_url('/front/eliminar_accion') ?>" /> <!-- Reemplaza 12345 con el ID real del dispositivo -->
+    <div class="remote-control" data-url-receive-code="<?= base_url('/enviar_senal') ?>" 
+    data-url-save-signal="<?= base_url('/insertar_senal'); ?>" data-url-verify-signal="<?= base_url('/js/verificar_grabacion');?>"
+    data-url-verify-record="<?= base_url('/verificar_grabacion'); ?>">
     <div class="container">
         <div class="d-flex flex-row justify-content-between px-3 py-4 align-items-center">
             <i class="fas fa-chevron-left"></i>
@@ -164,54 +167,89 @@
 
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
+  window.addEventListener('beforeunload', function (e) {
+    const urlElement = document.getElementById('deleteAction');
+    const actionElement = document.getElementById('actionId');
+
+    if (urlElement && actionElement) {
+      const url = urlElement.value;
+      const action_id = actionElement.value;
+
+      if (url && action_id) {
+        const payload = new Blob([JSON.stringify({ action_id })], { type: 'application/json' });
+        navigator.sendBeacon(url, payload);
+      }
+    }
+
+    // Mensaje de confirmación antes de salir
+    const confirmationMessage = '¿Estás seguro de que deseas abandonar esta página?';
+    e.returnValue = confirmationMessage;
+    return confirmationMessage;
+  });
+
+
+document.addEventListener('DOMContentLoaded', function () {
     const remoteControl = document.querySelector('.remote-control');
     const receiveCodeUrl = remoteControl.getAttribute('data-url-receive-code'); // URL para leer señales
     const saveSignalUrl = remoteControl.getAttribute('data-url-save-signal');
     const verifySignalUrl = remoteControl.getAttribute('data-url-verify-signal'); // URL para guardar señal
-     // URL para guardar señal
+    const verifyRecordUrl = remoteControl.getAttribute('data-url-verify-record'); // URL para verificar si la señal ya está grabada
 
-    // Seleccionar todos los botones que tienen el atributo "data-id"
     const buttons = document.querySelectorAll('[data-id]');
 
     buttons.forEach(button => {
         button.addEventListener('click', function () {
             const functionId = this.getAttribute('data-id'); // ID de la función
             const deviceId = document.getElementById('deviceId').value; // ID del dispositivo
+            const action_id = document.getElementById('actionId').value;
 
             // Mostrar mensaje de espera
             alert('Esperando la lectura de la señal IR. Por favor, presione el botón en su control remoto original y luego pulse aceptar');
 
             // Llamar a la función que verifica continuamente el CSV
-            waitForSignal(functionId, deviceId);
+            waitForSignal(functionId, deviceId, action_id);
         });
     });
 
     // Función para verificar continuamente el CSV
-    async function waitForSignal(functionId, deviceId) {
+    async function waitForSignal(functionId, deviceId, action_id) {
         try {
+
+            const num=2;
+
             const response = await fetch(receiveCodeUrl, {
-                method: 'GET',
-                headers: { 'Content-Type': 'application/json' },
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams({ deviceId, functionId, action_id, num }),
             });
 
-            if (!response.ok) {
+            if (response.status !== 200) {
                 throw new Error('Error al verificar la señal.');
             }
 
-            const signals = await response.json();
+            let irCode=null;
 
-            if (signals.length > 0) {
-                // Señal encontrada, guardar en la base de datos
-                const irCode = signals[0]; // Primera señal encontrada
+            while (irCode === null){
+              const verifyResponse =await fetch(verifySignalUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ action_id, functionId }),
+                });
 
-                const verifyResponse =await fetch(verifySignalUrl, {
+              if(verifyResponse.status === 200){
+                const verifyData = await verifyResponse.json();
+                if (verifyData.irCode) {
+                  irCode = verifyData.irCode;
+                }
+              }
+            }
+                  const verifyRecord =await fetch(verifyRecordUrl, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ deviceId, functionId }),
                 });
 
-                if (verifyResponse.status === 200) { 
+                if (verifyRecord.status === 200) { 
             // Mostrar un confirm al usuario
                     const userConfirmed = confirm("Esta señal ya está grabada, ¿deseas sobreescribirla?");
             // Si el usuario confirma
@@ -223,6 +261,8 @@
                         });
 
                         alert(`Señal actualizada correctamente`);
+                    }else{
+                      alert('la señal no sera sobreescrita');
                     }
                 }else{
                     const saveResponse = await fetch(saveSignalUrl, {
@@ -232,23 +272,25 @@
                     });
 
                     alert(`Señal grabada correctamente`);
+                    
                 }
-                
-            } else {
-                // Si no hay señales, esperar y volver a intentar
-                setTimeout(() => waitForSignal(functionId, deviceId), 1000);
-            }
-        } catch (error) {
+                }        catch (error) {
             console.error(error);
             alert(error.message);
         }
-    }
-});
+              }
+              
+
+            
+                
+            } 
+ 
+     // Aquí se cierra la función waitForSignal
+
+);
 
 </script>
-    <script src="<?php echo base_url('/js/sendIR.js');?>">
-
-    </script>
+    
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
