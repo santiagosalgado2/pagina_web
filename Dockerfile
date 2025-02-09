@@ -15,6 +15,9 @@ RUN a2enmod rewrite
 # Copia el contenido de tu proyecto al contenedor
 COPY . /var/www/html
 
+# Asegura que los directorios necesarios existen antes de cambiar los permisos
+RUN mkdir -p /var/www/html/writable /var/www/html/cache /var/www/html/logs
+
 # Configura los permisos para evitar problemas con CodeIgniter
 RUN chown -R www-data:www-data /var/www/html/writable /var/www/html/cache /var/www/html/logs
 RUN chmod -R 775 /var/www/html/writable /var/www/html/cache /var/www/html/logs
