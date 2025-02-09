@@ -26,10 +26,10 @@ class Database extends Config
      */
     public array $default = [
         'DSN'          => '',
-        'hostname'     => 'localhost',
-        'username'     => 'root',
-        'password'     => '',
-        'database'     => 'tesis_g_s2',
+        'hostname'     => 'buxqviuvvilpl9qfx3lu-mysql.services.clever-cloud.com',
+        'username'     => 'ug6otrttdnfzyvwo',
+        'password'     => 'WUaxmb5HDr93EWqyvblE',
+        'database'     => 'buxqviuvvilpl9qfx3lu',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
         'pConnect'     => false,
@@ -52,10 +52,10 @@ class Database extends Config
 
     public array $handle = [
         'DSN'      => '',
-        'hostname' => 'localhost',
-        'username' => 'root',
-        'password' => '',
-        'database' => 'manejador',
+        'hostname' => 'bb0igg8i0jiopgmex8c4-mysql.services.clever-cloud.com',
+        'username' => 'u5glncypugmkp1mr',
+        'password' => 'sxeU4tx7VYPnfNgze5Dm',
+        'database' => 'bb0igg8i0jiopgmex8c4',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,
