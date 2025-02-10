@@ -5,6 +5,17 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
+
+
+ $routes->setDefaultNamespace('App\Controllers');
+ $routes->setDefaultController('Home');
+ $routes->setDefaultMethod('index');
+ $routes->setTranslateURIDashes(false);
+ $routes->set404Override();
+ $routes->setAutoRoute(true);
+
+
+
 $routes->get('/', 'Home::index');
 $routes->post("/connect_esp32", "Esp32C::receiveConn");
 $routes->post('/login', 'Session::login');
