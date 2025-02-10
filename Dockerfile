@@ -20,3 +20,6 @@ RUN echo "DocumentRoot /var/www/html/public" > /etc/apache2/sites-available/000-
 
 # Expon el puerto 80 para el servidor web
 EXPOSE 80
+
+
+CMD ["apache2-foreground"]

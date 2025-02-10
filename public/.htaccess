@@ -1,4 +1,3 @@
-# filepath: /c:/xampp/htdocs/pagina_web/pagina_web/public/.htaccess
 # Disable directory browsing
 Options -Indexes
 
@@ -44,7 +43,7 @@ Options -Indexes
 <IfModule !mod_rewrite.c>
     # If we don't have mod_rewrite installed, all 404's
     # can be sent to index.php, and everything works as normal.
-   
+    ErrorDocument 404 /index.php
 </IfModule>
 
 # Disable server signature start
