@@ -6,10 +6,6 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
-
-
-
-
 $routes->get('/', 'Home::index');
 $routes->post("/connect_esp32", "Esp32C::receiveConn");
 $routes->post('/login', 'Session::login');
