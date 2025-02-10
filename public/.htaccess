@@ -11,7 +11,7 @@ Options -Indexes
 	Options +FollowSymlinks
 	RewriteEngine On
 
-	RewriteBase /public
+	RewriteBase /
 
 
 	# If you installed CodeIgniter in a subfolder, you will need to
