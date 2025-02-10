@@ -1,3 +1,4 @@
+# filepath: /c:/xampp/htdocs/pagina_web/pagina_web/public/.htaccess
 # Disable directory browsing
 Options -Indexes
 
