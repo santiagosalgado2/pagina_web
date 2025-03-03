@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-01-2025 a las 22:54:02
+-- Tiempo de generación: 03-03-2025 a las 19:54:03
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -49,7 +49,8 @@ INSERT INTO `acciones` (`ID_accion`, `nombre`) VALUES
 CREATE TABLE `datos_solicitud` (
   `ID_d_s` int(11) NOT NULL,
   `clave` varchar(80) DEFAULT NULL,
-  `valor` text DEFAULT NULL
+  `valor` text DEFAULT NULL,
+  `ID_solicitud` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
@@ -101,13 +102,13 @@ ALTER TABLE `acciones`
 -- AUTO_INCREMENT de la tabla `datos_solicitud`
 --
 ALTER TABLE `datos_solicitud`
-  MODIFY `ID_d_s` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_d_s` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=417;
 
 --
 -- AUTO_INCREMENT de la tabla `solicitudes`
 --
 ALTER TABLE `solicitudes`
-  MODIFY `ID_solicitud` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_solicitud` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=159;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
