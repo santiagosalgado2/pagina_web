@@ -3,321 +3,6 @@ $session=session();
 
 $ip=$session->get('esp_ip');
 
-$subir_volumen  = [
-    2650, 950,
-    500, 800, 500, 400, 500, 400, 500, 800,
-    800, 500, 500, 400, 500, 350, 500, 400,
-    500, 400, 500, 400, 500, 350, 500, 400,
-    500, 400, 500, 400, 500, 350, 950, 850,
-    500, 350, 550, 350, 500, 400, 500
-];
-
-// Apagar
-$apagar = [
-    2800, 850,
-    500, 800, 500, 400, 500, 400, 500, 800,
-    900, 400, 500, 400, 500, 350, 550, 350,
-    500, 400, 500, 400, 500, 400, 500, 350,
-    500, 400, 500, 400, 500, 400, 500, 350,
-    950, 400, 500, 850, 500, 350, 500
-];
-
-// Bajar volumen
-$bajar_volumen = [
-    2750, 850,
-    500, 800, 500, 400, 500, 400, 500, 800,
-    900, 400, 500, 400, 500, 350, 500, 400,
-    500, 400, 500, 350, 550, 350, 500, 400,
-    500, 400, 500, 350, 500, 400, 950, 850,
-    500, 350, 500, 400, 950
-];
-
-$canalup = [
-    2750, 900,
-    500, 800, 500, 400, 500, 400, 500, 800,
-    850, 450, 500, 400, 500, 400, 500, 350,
-    500, 400, 500, 400, 500, 400, 500, 350,
-    500, 400, 950, 850, 500, 350, 950, 400,
-    500, 850, 500, 350, 500
-];
-
-$canaldown = [
-    2800, 800,
-    500, 850, 500, 400, 500, 400, 450, 850,
-    900, 400, 500, 400, 450, 400, 500, 400,
-    500, 400, 500, 400, 450, 400, 500, 400,
-    500, 400, 950, 800, 500, 400, 950, 400,
-    500, 800, 950
-];
-
-$mute= [
-    2800, 850,
-    450, 850, 500, 400, 500, 400, 450, 850,
-    900, 400, 500, 400, 450, 400, 500, 400,
-    500, 400, 500, 400, 450, 400, 500, 400,
-    500, 400, 500, 400, 450, 400, 500, 400,
-    950, 400, 500, 800, 950
-];
-
-$home= [
-    2750, 850,
-    500, 850, 500, 400, 500, 350, 500, 800,
-    950, 400, 500, 350, 500, 400, 500, 400,
-    500, 400, 500, 350, 500, 400, 500, 400,
-    500, 400, 900, 850, 950, 850, 900, 850,
-    500, 400, 500
-];
-$ok= [
-    2800, 800,
-    500, 850, 500, 400, 500, 350, 1400, 1250,
-    500, 350, 500, 400, 500, 400, 500, 400,
-    500, 350, 500, 400, 500, 400, 500, 400,
-    950, 800, 950, 400, 500, 400, 500, 800,
-    500, 400, 500
-];
-
-$uparrow= [
-    2800, 850,
-    450, 850, 500, 400, 500, 400, 500, 800,
-    900, 400, 500, 400, 500, 350, 500, 400,
-    500, 400, 500, 400, 500, 350, 500, 400,
-    500, 400, 950, 850, 900, 400, 500, 850,
-    500, 400, 450, 400, 500
-];
-
-$leftarrow= [
-    2800, 800,
-    500, 850, 500, 400, 500, 400, 500, 800,
-    900, 400, 500, 400, 450, 400, 500, 400,
-    500, 400, 500, 400, 500, 350, 500, 400,
-    500, 400, 950, 800, 950, 400, 500, 850,
-    950, 800, 500
-];
-
-$rightarrow= [
-    2750, 850,
-    450, 900, 450, 450, 450, 400, 450, 850,
-    900, 400, 500, 400, 450, 450, 450, 450,
-    450, 450, 450, 400, 450, 450, 450, 450,
-    450, 450, 850, 900, 900, 450, 400, 900,
-    900, 450, 450
-];
-
-$downarrow= [
-    2700, 900,
-    500, 850, 500, 400, 500, 350, 500, 800,
-    850, 450, 550, 350, 500, 400, 500, 400,
-    500, 400, 500, 350, 500, 400, 500, 400,
-    500, 400, 950, 800, 950, 400, 500, 800,
-    550, 350, 950
-];
-
-$uno= [
-    2650, 950,
-    500, 800, 550, 350, 500, 400, 500, 800,
-    800, 500, 500, 400, 500, 350, 550, 350,
-    500, 400, 500, 400, 500, 350, 550, 350,
-    500, 400, 500, 400, 500, 400, 500, 350,
-    500, 400, 500, 400, 500, 350, 950
-];
-
-$dos= [
-    2700, 900,
-    500, 800, 500, 400, 500, 400, 500, 800,
-    850, 450, 500, 400, 500, 350, 550, 350,
-    500, 400, 500, 400, 500, 350, 550, 350,
-    500, 400, 500, 400, 500, 350, 550, 350,
-    500, 400, 500, 400, 950, 800, 500
-];
-
-$tres= [
-    2750, 850,
-    500, 850, 500, 400, 500, 350, 500, 800,
-    900, 400, 500, 400, 500, 400, 500, 400,
-    500, 350, 500, 400, 500, 400, 500, 400,
-    500, 350, 500, 400, 500, 400, 500, 400,
-    500, 350, 500, 400, 950, 400, 500
-];
-
-$cuatro= [
-    2750, 850,
-    500, 850, 500, 350, 500, 400, 500, 800,
-    900, 400, 500, 400, 500, 400, 500, 350,
-    500, 400, 500, 400, 500, 400, 500, 350,
-    500, 400, 500, 400, 500, 400, 500, 350,
-    500, 400, 950, 850, 500, 350, 500
-];
-
-$cinco= [
-    2750, 850,
-    500, 800, 500, 400, 500, 400, 500, 800,
-    900, 400, 500, 400, 500, 400, 450, 400,
-    500, 400, 500, 400, 500, 400, 450, 400,
-    500, 400, 500, 400, 500, 400, 450, 400,
-    500, 400, 950, 800, 950
-];
-
-$seis= [
-    2750, 850,
-    500, 850, 500, 350, 500, 400, 500, 800,
-    900, 400, 500, 400, 500, 400, 500, 350,
-    500, 400, 500, 400, 500, 400, 500, 350,
-    500, 400, 500, 400, 500, 400, 500, 350,
-    500, 400, 950, 400, 500, 800, 500
-];
-
-$siete= [
-    2700, 900,
-    500, 850, 500, 400, 500, 350, 500, 800,
-    850, 450, 500, 400, 500, 400, 500, 400,
-    500, 350, 500, 400, 500, 400, 500, 400,
-    500, 350, 500, 400, 500, 400, 500, 400,
-    500, 350, 950, 400, 500, 400, 500
-];
-
-$ocho= [
-    2750, 850,
-    450, 850, 500, 400, 500, 400, 500, 800,
-    900, 400, 500, 350, 500, 400, 500, 400,
-    500, 400, 500, 350, 500, 400, 500, 400,
-    500, 400, 500, 350, 500, 400, 500, 400,
-    950, 800, 500, 400, 500, 400, 500
-];
-
-$nueve= [
-    2750, 850,
-    500, 850, 450, 400, 500, 400, 500, 800,
-    900, 400, 500, 400, 500, 400, 500, 350,
-    500, 400, 500, 400, 500, 400, 500, 350,
-    500, 400, 500, 400, 500, 400, 500, 350,
-    950, 850, 500, 400, 900
-];
-
-$cero= [
-    2700, 900,
-    500, 850, 500, 400, 500, 350, 500, 800,
-    850, 450, 500, 400, 500, 400, 500, 400,
-    500, 350, 500, 400, 500, 400, 500, 400,
-    500, 350, 500, 400, 500, 400, 500, 350,
-    550, 350, 500, 400, 500, 400, 500, 350,
-    550
-];
-
-$tres_puntitos= [
-    2750, 850,
-    550, 800, 500, 400, 500, 400, 500, 800,
-    850, 450, 500, 350, 500, 400, 500, 400,
-    500, 400, 500, 350, 500, 400, 500, 400,
-    950, 350, 550, 800, 500, 400, 950, 350,
-    500, 850, 500, 400, 500
-];
-
-$input= [
-    2700, 900,
-    500, 800, 500, 400, 500, 400, 500, 800,
-    850, 450, 500, 400, 500, 350, 500, 400,
-    500, 400, 500, 400, 500, 350, 500, 400,
-    500, 400, 500, 400, 950, 350, 500, 400,
-    500, 850, 500, 350, 500, 400, 500
-];
-
-$config= [
-    2700, 900,
-    500, 800, 500, 400, 500, 400, 500, 800,
-    850, 450, 500, 400, 500, 350, 500, 400,
-    500, 400, 500, 400, 500, 350, 500, 400,
-    500, 400, 950, 800, 500, 400, 500, 400,
-    500, 350, 550, 350, 500, 400, 500
-];
-
-$back= [
-    2700, 900,
-    500, 850, 450, 450, 450, 400, 500, 800,
-    850, 500, 450, 400, 500, 400, 450, 450,
-    450, 450, 450, 400, 500, 400, 450, 450,
-    450, 450, 450, 400, 500, 400, 450, 450,
-    950, 800, 950, 850, 500
-];
-# Netflix reemplaza al boton smart tv del control original
-$netflix = [
-    2750, 850,
-    450, 850, 500, 400, 500, 400, 450, 800,
-    950, 400, 500, 350, 500, 400, 500, 400,
-    500, 400, 450, 400, 500, 400, 500, 400,
-    900, 850, 950, 400, 500, 400, 450, 400,
-    500, 400, 500, 850, 450
-];
-
-$rawData = [
-
-    9050, 4550,
-    550, 600,
-    600, 550,
-    650, 500,
-    600, 550,
-    600, 500,
-    600, 550,
-    600, 550,
-    600, 550,
-    600,1650,
-    600, 1650,
-    600, 1650,
-    600, 1650,
-    600, 1650,
-    600, 1650,
-    600, 1600,
-    650, 1650,
-    600, 1650,
-    600, 500,
-    650, 1600,
-    650, 500,
-    650, 500,
-    650, 500,
-    600, 1650,
-    600, 550,
-    600, 500,
-    650, 1600,
-    650, 500,
-    650, 1600,
-    650, 1600,
-    650, 1600,
-    650, 500,
-    600, 1650,
-    600
-];
-
-
-
-$subir_volumen_string = implode(',', $subir_volumen);
-$apagar_string = implode(',', $apagar);
-$bajar_volumen_string = implode(',', $bajar_volumen);
-$netflix_string = implode(',', $netflix);
-$rawData_string = implode(',', $rawData);
-$canalup_string = implode(',', $canalup);
-$canaldown_string = implode(',', $canaldown);
-$mute_string = implode(',', $mute);
-$home_string = implode(',', $home);
-$ok_string = implode(',', $ok);
-$uparrow_string = implode(',', $uparrow);
-$leftarrow_string = implode(',', $leftarrow);
-$rightarrow_string = implode(',', $rightarrow);
-$downarrow_string = implode(',', $downarrow);
-$uno_string = implode(',', $uno);
-$dos_string = implode(',', $dos);
-$tres_string = implode(',', $tres);
-$cuatro_string = implode(',', $cuatro);
-$cinco_string = implode(',', $cinco);
-$seis_string = implode(',', $seis);
-$siete_string = implode(',', $siete);
-$ocho_string = implode(',', $ocho);
-$nueve_string = implode(',', $nueve);
-$cero_string = implode(',', $cero);
-$tres_puntitos_string = implode(',', $tres_puntitos);
-$input_string = implode(',', $input);
-$config_string = implode(',', $config);
-$back_string = implode(',', $back);
-
-
 ?>
 
 
@@ -336,7 +21,6 @@ $back_string = implode(',', $back);
     <link rel="stylesheet" href="<?php echo base_url("/css/styletv.css") . '?v=' . time(); ?>">
 </head>
 
-<body>
 
     <div class="circulo"></div>
     <div class="circulo"></div>
@@ -383,7 +67,12 @@ $back_string = implode(',', $back);
     </div>
   </div>
 </nav>
-    <!--container-->
+<div>
+    <input type="hidden" id="deviceId" value="<?php echo $id;?>" />
+    <input type="hidden" id="actionId" value="<?php echo session()->get('action_id');?>" /> <!-- Reemplaza 12345 con el ID real del dispositivo -->
+
+    <input type="hidden" id="deleteAction" value="<?php echo base_url('/front/eliminar_accion') ?>" />
+    <div class="remote-control" data-url-send-signal="<?= base_url('/enviar_senal') ?>">
     <div class="container">
         <div class="d-flex flex-row justify-content-between px-3 py-4 align-items-center">
             <i class="fas fa-chevron-left"></i>
@@ -393,27 +82,27 @@ $back_string = implode(',', $back);
 
         <div class="d-flex flex-row justify-content-center">
             <div class="menu-grid">
-                <div class="d-flex flex-column align-items-center" onclick="enviarIR('<?php echo $apagar_string;?>','<?php echo $ip;?>')">
+                <div class="d-flex flex-column align-items-center" data-id="1">
                     <i class="fas fa-power-off active"></i>
                     <span class="label">Power</span>
                 </div>
-                <div class="d-flex flex-column align-items-center" onclick="enviarIR('<?php echo $input_string;?>','<?php echo $ip;?>')">
+                <div class="d-flex flex-column align-items-center" data-id="2">
                     <i class="fas fa-sign-in-alt"></i>
                     <span class="label">Input</span>
                 </div>
-                <div class="d-flex flex-column align-items-center" onclick="enviarIR('<?php echo $config_string;?>','<?php echo $ip;?>')">
+                <div class="d-flex flex-column align-items-center" data-id="3">
                     <i class="fas fa-cog"></i>
                     <span class="label">Control</span>
                 </div>
-                <div class="d-flex flex-column align-items-center"> 
+                <div class="d-flex flex-column align-items-center" data-id="4"> 
                     <i class="fas fa-bars"></i>
                     <span class="label">Menu</span>
                 </div>
-                <div class="d-flex flex-column align-items-center" onclick="enviarIR('<?php echo $netflix_string;?>','<?php echo $ip;?>')">
+                <div class="d-flex flex-column align-items-center" data-id="5">
                     <i class="fas fa-circle"></i>
                     <span class="label">Netflix</span>
                 </div>
-                <div class="d-flex flex-column align-items-center" onclick="enviarIR('<?php echo $back_string;?>','<?php echo $ip;?>')">
+                <div class="d-flex flex-column align-items-center" data-id="6">
                     <i class="fas fa-arrow-left"></i>
                     <span class="label">Back</span>
                 </div>
@@ -422,67 +111,142 @@ $back_string = implode(',', $back);
 
         <div class="d-flex flex-row mt-4 justify-content-between px-2">
             <div class="d-flex flex-column rounded-bg py-3 px-4 justify-content-center align-items-center">
-                <i class="fas fa-chevron-up py-3 control-icon" onclick="enviarIR('<?php echo $canalup_string;?>','<?php echo $ip;?>')"></i>
+                <i class="fas fa-chevron-up py-3 control-icon" data-id="7"></i>
                 <span class="label py-3">Channel</span>
-                <i class="fas fa-chevron-down py-3 control-icon" onclick="enviarIR('<?php echo $canaldown_string;?>','<?php echo $ip;?>')"></i>
+                <i class="fas fa-chevron-down py-3 control-icon" data-id="8"></i>
             </div>
             <div class="d-flex flex-column align-items-center">
                 <div class="d-flex flex-row grey-bg justify-content-center align-items-center">
-                    <i class="fas fa-home p-3 home-icon" onclick="enviarHex('<?php echo $home_string;?>','<?php echo session()->get('esp_ip');?>')"></i>
+                    <i class="fas fa-home p-3 home-icon" data-id="9"></i>
                 </div>
                 <span class="label">Home</span>
             </div>
             <div class="d-flex flex-column rounded-bg py-3 px-4 justify-content-center align-items-center">
-                <i class="fas fa-plus py-3 control-icon" onclick="enviarIR('<?php echo $subir_volumen_string;?>','<?php echo $ip;?>')"></i>
+                <i class="fas fa-plus py-3 control-icon" data-id="10"></i>
                 <span class="label py-3">Volume</span>
-                <i class="fas fa-minus py-3 control-icon" onclick="enviarIR('<?php echo $bajar_volumen_string;?>','<?php echo $ip;?>')"></i>
+                <i class="fas fa-minus py-3 control-icon" data-id="11"></i>
             </div>
         </div>
 
         <div class="mt-5 pt-4 position-relative d-flex flex-row justify-content-center align-items-center">
-            <div class="circle ok-inner position-absolute" onclick="enviarIR('<?php echo $ok_string;?>','<?php echo $ip;?>')">
+            <div class="circle ok-inner position-absolute" data-id="16">
                 <span>OK</span>
             </div>
             <div class="circle ok-outer position-absolute"></div>
-            <i class="fas fa-caret-right position-absolute control-icon right" onclick="enviarIR('<?php echo $rightarrow_string;?>','<?php echo $ip;?>')"></i>
-            <i class="fas fa-caret-right position-absolute control-icon bottom" onclick="enviarIR('<?php echo $downarrow_string;?>','<?php echo $ip;?>')"></i>
-            <i class="fas fa-caret-right position-absolute control-icon left" onclick="enviarIR('<?php echo $leftarrow_string;?>','<?php echo $ip;?>')"></i>
-            <i class="fas fa-caret-right position-absolute control-icon top" onclick="enviarIR('<?php echo $uparrow_string;?>','<?php echo $ip;?>')"></i>
+            <i class="fas fa-caret-right position-absolute control-icon right" data-id="14"></i>
+            <i class="fas fa-caret-right position-absolute control-icon bottom" data-id="15"></i>
+            <i class="fas fa-caret-right position-absolute control-icon left" data-id="13"></i>
+            <i class="fas fa-caret-right position-absolute control-icon top" data-id="12"></i>
         </div>
 
         <div class="d-flex flex-row justify-content-between mt-5 pt-4 px-3">
             <div class="d-flex flex-row grey-bg">
-                <i class="fas fa-ellipsis-h p-3 control-icon" onclick="enviarIR('<?php echo $tres_puntitos_string;?>','<?php echo $ip;?>')"></i>
+                <i class="fas fa-ellipsis-h p-3 control-icon" data-id="17"></i>
             </div>
             <div class="d-flex flex-row grey-bg">
-                <i class="fas fa-volume-mute p-3 control-icon" onclick="enviarIR('<?php echo $mute_string;?>','<?php echo $ip;?>')"></i>
+                <i class="fas fa-volume-mute p-3 control-icon" data-id="18"></i>
             </div>
         </div>
         <div>
-        <button class="button-small" onclick="enviarIR('<?php echo $uno_string;?>','<?php echo $ip;?>')">1</button>
-        <button class="button-small" onclick="enviarIR('<?php echo $dos_string;?>','<?php echo $ip;?>')">2</button>
-        <button class="button-small" onclick="enviarIR('<?php echo $tres_string;?>','<?php echo $ip;?>')">3</button>
+        <button class="button-small" data-id="19">1</button>
+        <button class="button-small" data-id="20">2</button>
+        <button class="button-small" data-id="21">3</button>
     </div>
     <div>
-        <button class="button-small" onclick="enviarIR('<?php echo $cuatro_string;?>','<?php echo $ip;?>')">4</button>
-        <button class="button-small" onclick="enviarIR('<?php echo $cinco_string;?>','<?php echo $ip;?>')">5</button>
-        <button class="button-small" onclick="enviarIR('<?php echo $seis_string;?>','<?php echo $ip;?>')">6</button>
+        <button class="button-small" data-id="22">4</button>
+        <button class="button-small" data-id="23">5</button>
+        <button class="button-small" data-id="24">6</button>
     </div>
     <div>
-        <button class="button-small" onclick="enviarIR('<?php echo $siete_string;?>','<?php echo $ip;?>')">7</button>
-        <button class="button-small" onclick="enviarIR('<?php echo $ocho_string;?>','<?php echo $ip;?>')">8</button>
-        <button class="button-small" onclick="enviarIR('<?php echo $nueve_string;?>','<?php echo $ip;?>')">9</button>
+        <button class="button-small" data-id="25">7</button>
+        <button class="button-small" data-id="26">8</button>
+        <button class="button-small" data-id="27">9</button>
     </div>
-        <button class="button-rect" onclick="enviarIR('<?php echo $cero_string;?>','<?php echo $ip;?>')">0</button>
+        <button class="button-rect" data-id="28">0</button>
     </div>
 </div>
     </div>
+</div>
+</div>
 
 
+<script>
+  window.addEventListener('beforeunload', function (e) {
+    const urlElement = document.getElementById('deleteAction');
+    const actionElement = document.getElementById('actionId');
 
-    <script src="<?php echo base_url('/js/sendIR.js');?>">
+    if (urlElement && actionElement) {
+      const url = urlElement.value;
+      const action_id = actionElement.value;
 
-    </script>
+      if (url && action_id) {
+        const payload = new Blob([JSON.stringify({ action_id })], { type: 'application/json' });
+        navigator.sendBeacon(url, payload);
+      }
+    }
+
+    // Mensaje de confirmación antes de salir
+    const confirmationMessage = '¿Estás seguro de que deseas abandonar esta página?';
+    e.returnValue = confirmationMessage;
+    return confirmationMessage;
+  });
+</script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const remoteControl = document.querySelector('.remote-control');
+    const sendSignalUrl = remoteControl.getAttribute('data-url-send-signal'); // URL para leer señales
+
+    // Seleccionar todos los botones que tienen el atributo "data-id"
+    const buttons = document.querySelectorAll('[data-id]');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', function () {
+            const functionId = this.getAttribute('data-id'); // ID de la función
+            const deviceId = document.getElementById('deviceId').value;
+            const action_id = document.getElementById('actionId').value; // ID del dispositivo            // Llamar a la función que verifica continuamente el CSV
+            waitForSignal(functionId, deviceId, action_id);
+        });
+    });
+
+    // Función para verificar continuamente el CSV
+    async function waitForSignal(functionId, deviceId, action_id) {
+        try {
+          const num=1;
+
+            const response = await fetch(sendSignalUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams({ deviceId, functionId, action_id, num }),
+            });
+
+            if (response.status === 500) {
+              alert('La señal no está grabada');
+            } else if (response.status === 200) {
+              const checkSignalUrl = '<?= base_url('/js/verificar_senal') ?>';
+              let signalSent = false;
+
+              while (!signalSent) {
+                const checkResponse = await fetch(checkSignalUrl, {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                  body: new URLSearchParams({ action_id }),
+                });
+
+                if (checkResponse.status === 200) {
+                  signalSent = true;
+                }
+              }
+            }
+        } catch (error) {
+            console.error(error);
+            alert(error.message);
+        }
+    }
+});
+
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 

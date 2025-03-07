@@ -164,6 +164,10 @@
                     case 'semaforo':
                         runTrafficLight(); // Activar el ciclo del semáforo
                         break;
+                    case 'apagado':
+                        resetLights(); // Apagar todas las luces
+                        break;
+                    
                 }
             })
             .catch(error => console.error('Error:', error));

@@ -4,6 +4,7 @@ namespace App\Controllers;
 #INCLUYE LOS MODELOS NECESARIOS
 use App\Models\Acceso_usuarios;
 use App\Models\Dispositivos;
+use App\Models\Manejador;
 use CodeIgniter\Controller;
 
 class Devices extends BaseController{
@@ -121,8 +122,69 @@ class Devices extends BaseController{
 
             $devicemodel->deleteDevice($id);
             $aumodel->deleteaccessbydevice($id);
+            $devicemodel->deleteSignalsbyDevice($id);
             return redirect()->to(base_url('/devices'));
 
+        }
+
+    }
+
+    public function insertarSenal(){
+        $senal=$this->request->getJSON()->irCode;
+
+        $dispositivo=$this->request->getJSON()->deviceId;
+
+        $funcion=$this->request->getJSON()->functionId;
+
+        $devicemodel=new Dispositivos;
+
+        $handlemodel=new Manejador;
+
+        $device=$devicemodel->user_has_permission($dispositivo,session()->get('user_id'));
+
+        if(empty($device)){
+
+            return redirect()->back();
+        }else{
+            if($devicemodel->getSignal($dispositivo,$funcion)){
+                if($devicemodel->updateSignal($senal,$dispositivo,$funcion)){
+                    $handlemodel->deleteActionData(session()->get('action_id'));
+
+                    return $this->response->setStatusCode(200)->setBody('Señal guardada correctamente.');
+                }else{
+                    return $this->response->setStatusCode(500)->setBody('Error al guardar la señal.');
+                }
+            }else{
+                if($devicemodel->insertSignal($senal,$dispositivo,$funcion)){
+                    $handlemodel->deleteActionData(session()->get('action_id'));
+
+                    return $this->response->setStatusCode(200)->setBody('Señal guardada correctamente.');
+                }else{
+                    return $this->response->setStatusCode(500)->setBody('Error al guardar la señal.');
+                }
+            }
+        }
+
+    }
+
+    public function verifySignal(){
+        $funcion=$this->request->getJSON()->functionId;
+
+        $dispositivo=$this->request->getJSON()->deviceId;
+
+        $devicemodel=new Dispositivos;
+
+        $device=$devicemodel->user_has_permission($dispositivo,session()->get('user_id'));
+
+        if(empty($device)){
+
+            return redirect()->back();
+        }else{
+            if($devicemodel->getSignal($dispositivo,$funcion)){
+                return $this->response->setStatusCode(200)->setBody('Señal ya existe.');
+            }else{
+                return $this->response->setStatusCode(500)->setBody('Señal no existe.');
+            }
         }
 
     }

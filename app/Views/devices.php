@@ -81,16 +81,23 @@
           <?php 
                 if ($d["ID_tipo"] == 1) {
                     $url = base_url('/prueba_aircontrol');
+                    $grabar=base_url('/grabar_aire');
                 } elseif ($d["ID_tipo"] == 2) {
                     $url = base_url('/prueba_control');
+                    $grabar=base_url('/grabar_tele');
                 } else {
-                    $url = base_url('/prueba_ventiladorcontrol'); 
+                    $url = base_url('/prueba_ventiladorcontrol');
+                    $grabar=base_url('/grabar_ventilador'); 
                 }
             ?>
         <tr>
             <td><?php echo $d["nombre"];?> </td>
+        
             <td>
-                <a href="<?php echo $url; ?>"><button class="button2">Controlar</button></a>
+            <form action="<?php echo $url;?>" method="post">
+                  <input type="hidden" name="id" value="<?php echo $d['ID_dispositivo'];?>">
+                  <button class="button2" type="submit">Controlar</button></a>
+                </form>
                 <?php
                 if($permiso==1):?>  
                 <form action="<?php echo base_url('/edit_device');?>" method="post">
@@ -98,6 +105,11 @@
                   <button class="button2" type="submit">Editar</button></a>
                 </form>
                 <button class="button2" onclick="deleteDevice('<?php echo base_url('/delete_device/'.$d['ID_dispositivo']);?>')">Eliminar</button>
+                <form action="<?php echo $grabar;?>" method="post">
+                  <input type="hidden" name="id" value="<?php echo $d['ID_dispositivo'];?>">
+                  <button class="button2" type="submit">Grabar señales</button></a>
+                </form>
+
                 <?php endif;?>
             </td>
         </tr>

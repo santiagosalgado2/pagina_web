@@ -1,0 +1,126 @@
+CRITICAL - 2025-01-24 20:17:33 --> ErrorException: Undefined variable $apagar_string
+[Method: POST, Route: grabar_ventilador]
+in APPPATH\Views\grabar_ventilador.php on line 62.
+ 1 APPPATH\Views\grabar_ventilador.php(62): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $apagar_string', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\grabar_ventilador.php', 62)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\grabar_ventilador.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('grabar_ventilador', [], true)
+ 5 APPPATH\Controllers\Esp32C.php(304): view('grabar_ventilador')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->grabarVentiladorview()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-01-24 20:20:28 --> ErrorException: Undefined variable $apagar_string
+[Method: POST, Route: grabar_ventilador]
+in APPPATH\Views\grabar_ventilador.php on line 62.
+ 1 APPPATH\Views\grabar_ventilador.php(62): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $apagar_string', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\grabar_ventilador.php', 62)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\grabar_ventilador.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('grabar_ventilador', [], true)
+ 5 APPPATH\Controllers\Esp32C.php(304): view('grabar_ventilador')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->grabarVentiladorview()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-01-24 20:21:51 --> ErrorException: Undefined variable $apagar_string
+[Method: POST, Route: grabar_ventilador]
+in APPPATH\Views\grabar_ventilador.php on line 62.
+ 1 APPPATH\Views\grabar_ventilador.php(62): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $apagar_string', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\grabar_ventilador.php', 62)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\grabar_ventilador.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('grabar_ventilador', [], true)
+ 5 APPPATH\Controllers\Esp32C.php(304): view('grabar_ventilador')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->grabarVentiladorview()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-01-24 21:34:58 --> ErrorException: Undefined property: stdClass::$deviceID
+[Method: POST, Route: insertar_senal]
+in APPPATH\Controllers\Devices.php on line 133.
+ 1 APPPATH\Controllers\Devices.php(133): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$deviceID', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Controllers\\Devices.php', 133)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Devices->insertarSenal()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Devices))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-01-24 21:44:29 --> ErrorException: Undefined property: stdClass::$deviceID
+[Method: POST, Route: insertar_senal]
+in APPPATH\Controllers\Devices.php on line 133.
+ 1 APPPATH\Controllers\Devices.php(133): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$deviceID', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Controllers\\Devices.php', 133)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Devices->insertarSenal()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Devices))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-01-24 21:47:33 --> ErrorException: Undefined property: stdClass::$deviceID
+[Method: POST, Route: insertar_senal]
+in APPPATH\Controllers\Devices.php on line 133.
+ 1 APPPATH\Controllers\Devices.php(133): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$deviceID', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Controllers\\Devices.php', 133)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Devices->insertarSenal()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Devices))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-01-24 21:48:57 --> mysqli_sql_exception: Table 'tesis_g_s2.senales' doesn't exist in C:\xampp\htdocs\pagina_web\pagina_web\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\pagina_web\pagina_web\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `se...', 0)
+#1 C:\xampp\htdocs\pagina_web\pagina_web\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `se...')
+#2 C:\xampp\htdocs\pagina_web\pagina_web\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `se...')
+#3 C:\xampp\htdocs\pagina_web\pagina_web\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `se...', Array, false)
+#4 C:\xampp\htdocs\pagina_web\pagina_web\app\Models\Dispositivos.php(75): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\pagina_web\pagina_web\app\Controllers\Devices.php(145): App\Models\Dispositivos->insertSignal('550,1950,550,19...', '49', '1')
+#6 C:\xampp\htdocs\pagina_web\pagina_web\system\CodeIgniter.php(933): App\Controllers\Devices->insertarSenal()
+#7 C:\xampp\htdocs\pagina_web\pagina_web\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Devices))
+#8 C:\xampp\htdocs\pagina_web\pagina_web\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\pagina_web\pagina_web\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\pagina_web\pagina_web\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\pagina_web\pagina_web\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2025-01-24 21:48:57 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'tesis_g_s2.senales' doesn't exist
+[Method: POST, Route: insertar_senal]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `senales` (`codigo_hexadecimal`, `ID_dispositivo`, `ID_funcion`) VALUES (:codigo_hexadecimal	:, :ID_dispositivo:, :ID_funcion:)', [...], false)
+ 2 APPPATH\Models\Dispositivos.php(75): CodeIgniter\Database\BaseBuilder->insert([...])
+ 3 APPPATH\Controllers\Devices.php(145): App\Models\Dispositivos->insertSignal('550,1950,550,1950,550,1950,600,1900,600,900,600,900,600,1900,600,900,600,1950,550,900,600,1950,550,950,550,950,550,950,550,950,550,950,550,1950,550,1950,550,950,550,1950,550,950,550,2000,550,950,550,1950,500', '49', '1')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Devices->insertarSenal()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Devices))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-01-24 21:48:57 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'tesis_g_s2.senales' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `senales` (`codigo_hexadecimal`, `ID_dispositivo`, `ID_funcion`) VALUES (\'550,1950,550,1950,550,1950,600,1900\\r,600,900,600,900,600,1900,600,900\\r,600,1950,550,900,600,1950,550,950\\r,550,950,550,950,550,950,550,950\\r,550,1950,550,1950,550,950,550,1950\\r,550,950,550,2000,550,950,550,1950\\r,500\\r\', \'49\', \'1\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `senales` (`codigo_hexadecimal`, `ID_dispositivo`, `ID_funcion`) VALUES (\'550,1950,550,1950,550,1950,600,1900\\r,600,900,600,900,600,1900,600,900\\r,600,1950,550,900,600,1950,550,950\\r,550,950,550,950,550,950,550,950\\r,550,1950,550,1950,550,950,550,1950\\r,550,950,550,2000,550,950,550,1950\\r,500\\r\', \'49\', \'1\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `senales` (`codigo_hexadecimal`, `ID_dispositivo`, `ID_funcion`) VALUES (:codigo_hexadecimal	:, :ID_dispositivo:, :ID_funcion:)', [...], false)
+ 4 APPPATH\Models\Dispositivos.php(75): CodeIgniter\Database\BaseBuilder->insert([...])
+ 5 APPPATH\Controllers\Devices.php(145): App\Models\Dispositivos->insertSignal('550,1950,550,1950,550,1950,600,1900,600,900,600,900,600,1900,600,900,600,1950,550,900,600,1950,550,950,550,950,550,950,550,950,550,950,550,1950,550,1950,550,950,550,1950,550,950,550,2000,550,950,550,1950,500', '49', '1')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Devices->insertarSenal()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Devices))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-01-24 21:48:57 --> [Caused by] mysqli_sql_exception: Table 'tesis_g_s2.senales' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `senales` (`codigo_hexadecimal`, `ID_dispositivo`, `ID_funcion`) VALUES (\'550,1950,550,1950,550,1950,600,1900\\r,600,900,600,900,600,1900,600,900\\r,600,1950,550,900,600,1950,550,950\\r,550,950,550,950,550,950,550,950\\r,550,1950,550,1950,550,950,550,1950\\r,550,950,550,2000,550,950,550,1950\\r,500\\r\', \'49\', \'1\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `senales` (`codigo_hexadecimal`, `ID_dispositivo`, `ID_funcion`) VALUES (\'550,1950,550,1950,550,1950,600,1900\\r,600,900,600,900,600,1900,600,900\\r,600,1950,550,900,600,1950,550,950\\r,550,950,550,950,550,950,550,950\\r,550,1950,550,1950,550,950,550,1950\\r,550,950,550,2000,550,950,550,1950\\r,500\\r\', \'49\', \'1\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `senales` (`codigo_hexadecimal`, `ID_dispositivo`, `ID_funcion`) VALUES (\'550,1950,550,1950,550,1950,600,1900\\r,600,900,600,900,600,1900,600,900\\r,600,1950,550,900,600,1950,550,950\\r,550,950,550,950,550,950,550,950\\r,550,1950,550,1950,550,950,550,1950\\r,550,950,550,2000,550,950,550,1950\\r,500\\r\', \'49\', \'1\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `senales` (`codigo_hexadecimal`, `ID_dispositivo`, `ID_funcion`) VALUES (:codigo_hexadecimal	:, :ID_dispositivo:, :ID_funcion:)', [...], false)
+ 5 APPPATH\Models\Dispositivos.php(75): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Devices.php(145): App\Models\Dispositivos->insertSignal('550,1950,550,1950,550,1950,600,1900,600,900,600,900,600,1900,600,900,600,1950,550,900,600,1950,550,950,550,950,550,950,550,950,550,950,550,1950,550,1950,550,950,550,1950,550,950,550,2000,550,950,550,1950,500', '49', '1')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Devices->insertarSenal()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Devices))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-11-2024 a las 16:25:39
+-- Tiempo de generación: 28-01-2025 a las 22:23:21
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -38,9 +38,7 @@ CREATE TABLE `acceso_usuarios` (
 --
 
 INSERT INTO `acceso_usuarios` (`ID_a_u`, `ID_usuario`, `ID_dispositivo`) VALUES
-(1, 4, 1),
 (2, 4, 2),
-(3, 4, 3),
 (4, 5, 4),
 (5, 5, 5),
 (6, 5, 6),
@@ -49,13 +47,20 @@ INSERT INTO `acceso_usuarios` (`ID_a_u`, `ID_usuario`, `ID_dispositivo`) VALUES
 (9, 7, 9),
 (10, 8, 2),
 (11, 8, 5),
-(12, 4, 34),
-(13, 4, 35),
 (14, 4, 36),
-(15, 4, 37),
-(16, 17, 37),
-(20, 4, 41),
-(22, 4, 43);
+(35, 28, 13),
+(36, 28, 14),
+(38, 8, 13),
+(39, 8, 14),
+(40, 8, 15),
+(41, 28, 2),
+(43, 4, 45),
+(44, 4, 46),
+(45, 4, 47),
+(46, 17, 47),
+(47, 4, 48),
+(50, 4, 51),
+(51, 4, 52);
 
 -- --------------------------------------------------------
 
@@ -94,15 +99,6 @@ INSERT INTO `codigos_verificacion` (`ID_codigo`, `ID_usuario`, `codigo`, `tipo`,
 (14, 13, '428911', 'recuperar_contrasena', '2024-09-03 02:27:51', '2024-09-03 03:27:51', 1),
 (15, 13, '731376', 'recuperar_contrasena', '2024-09-03 02:30:16', '2024-09-03 03:30:16', 1),
 (16, 13, '143680', 'recuperar_contrasena', '2024-09-03 02:32:37', '2024-09-03 03:32:37', 1),
-(17, 14, '433259', 'verificacion', '2024-09-03 14:47:06', '2024-09-03 15:47:06', 1),
-(18, 14, '108313', 'recuperar_contrasena', '2024-09-03 14:47:57', '2024-09-03 15:47:57', 1),
-(19, 14, '550808', 'recuperar_contrasena', '2024-09-03 14:52:46', '2024-09-03 15:52:46', 1),
-(20, 15, '514633', '', '2024-09-05 01:59:58', '2024-09-05 02:59:58', 0),
-(21, 15, '395070', 'verificacion', '2024-09-05 02:02:42', '2024-09-05 03:02:42', 1),
-(22, 14, '130694', 'recuperar_contrasena', '2024-09-09 16:47:34', '2024-09-09 17:47:34', 1),
-(23, 16, '107508', 'crear_contrasena', '2024-09-11 20:44:43', '2024-09-11 21:44:43', 0),
-(24, 14, '266947', 'recuperar_contrasena', '2024-09-15 00:32:40', '2024-09-15 01:32:40', 1),
-(25, 17, '148464', 'crear_contrasena', '2024-09-15 00:36:48', '2024-09-15 01:36:48', 0),
 (26, 9, '116576', 'recuperar_contrasena', '2024-10-03 14:32:32', '2024-10-03 15:32:32', 1),
 (27, 9, '109516', 'recuperar_contrasena', '2024-10-03 14:32:56', '2024-10-03 15:32:56', 0),
 (28, 17, '459414', 'recuperar_contrasena', '2024-10-07 12:59:22', '2024-10-07 13:59:22', 1),
@@ -112,7 +108,38 @@ INSERT INTO `codigos_verificacion` (`ID_codigo`, `ID_usuario`, `codigo`, `tipo`,
 (32, 14, '478726', 'recuperar_contrasena', '2024-11-06 01:57:47', '2024-11-06 02:57:47', 1),
 (33, 19, '128607', 'verificacion', '2024-11-06 02:00:13', '2024-11-06 03:00:13', 1),
 (34, 9, '128971', 'cambiar_usuario', '2024-11-20 15:23:16', '2024-11-20 16:23:16', 1),
-(35, 9, '813296', 'cambiar_usuario', '2024-11-20 15:24:01', '2024-11-20 16:24:01', 1);
+(35, 9, '813296', 'cambiar_usuario', '2024-11-20 15:24:01', '2024-11-20 16:24:01', 1),
+(36, 20, '130617', 'verificacion', '2024-11-21 00:01:28', '2024-11-21 01:01:28', 0),
+(37, 9, '768737', 'verificacion', '2024-11-21 00:10:09', '2024-11-21 01:10:09', 1),
+(38, 9, '508290', 'cambiar_usuario', '2024-11-21 00:14:49', '2024-11-21 01:14:49', 1),
+(39, 9, '143086', 'recuperar_contrasena', '2024-11-21 00:15:36', '2024-11-21 01:15:36', 0),
+(40, 9, '487667', 'recuperar_contrasena', '2024-11-21 00:15:49', '2024-11-21 01:15:49', 0),
+(41, 21, '128826', 'crear_contrasena', '2024-11-21 00:17:19', '2024-11-21 01:17:19', 0),
+(42, 22, '101444', 'crear_contrasena', '2024-11-23 19:09:20', '2024-11-23 20:09:20', 0),
+(43, 4, '113052', 'recuperar_contrasena', '2024-11-23 19:13:21', '2024-11-23 20:13:21', 0),
+(44, 21, '584227', 'verificacion', '2024-11-23 19:13:38', '2024-11-23 20:13:38', 1),
+(45, 21, '401242', 'recuperar_contrasena', '2024-11-23 19:14:06', '2024-11-23 20:14:06', 1),
+(46, 21, '460013', 'recuperar_contrasena', '2024-11-23 19:15:27', '2024-11-23 20:15:27', 1),
+(47, 21, '259507', 'recuperar_contrasena', '2024-11-23 19:16:06', '2024-11-23 20:16:06', 1),
+(48, 21, '109945', 'recuperar_contrasena', '2024-11-23 19:17:02', '2024-11-23 20:17:02', 1),
+(49, 21, '229361', 'recuperar_contrasena', '2024-11-23 19:17:50', '2024-11-23 20:17:50', 0),
+(50, 21, '112860', 'recuperar_contrasena', '2024-11-23 19:22:19', '2024-11-23 20:22:19', 1),
+(51, 21, '707585', 'recuperar_contrasena', '2024-11-23 19:24:39', '2024-11-23 20:24:39', 1),
+(52, 21, '732215', 'recuperar_contrasena', '2024-11-23 19:25:21', '2024-11-23 20:25:21', 1),
+(53, 21, '752028', 'recuperar_contrasena', '2024-11-23 19:25:38', '2024-11-23 20:25:38', 1),
+(54, 21, '335862', 'recuperar_contrasena', '2024-11-23 19:30:49', '2024-11-23 20:30:49', 1),
+(55, 21, '102088', 'recuperar_contrasena', '2024-11-23 19:31:23', '2024-11-23 20:31:23', 1),
+(56, 21, '157374', 'recuperar_contrasena', '2024-11-23 19:32:04', '2024-11-23 20:32:04', 1),
+(57, 21, '462062', 'recuperar_contrasena', '2024-11-23 19:32:54', '2024-11-23 20:32:54', 1),
+(58, 21, '585155', 'recuperar_contrasena', '2024-11-23 19:34:05', '2024-11-23 20:34:05', 1),
+(59, 23, '163024', 'crear_contrasena', '2024-11-23 19:41:19', '2024-11-23 20:41:19', 0),
+(60, 24, '136951', 'crear_contrasena', '2024-11-23 19:42:52', '2024-11-23 20:42:52', 1),
+(61, 25, '552487', 'crear_contrasena', '2024-11-23 19:46:17', '2024-11-23 20:46:17', 0),
+(62, 26, '595277', 'crear_contrasena', '2024-11-23 19:47:24', '2024-11-23 20:47:24', 0),
+(63, 27, '123240', 'crear_contrasena', '2024-11-23 19:48:49', '2024-11-23 20:48:49', 1),
+(64, 27, '568574', 'verificacion', '2024-11-23 19:49:35', '2024-11-23 20:49:35', 1),
+(65, 28, '177460', 'crear_contrasena', '2024-11-23 19:51:27', '2024-11-23 20:51:27', 1),
+(66, 29, '135198', 'crear_contrasena', '2024-11-24 19:11:30', '2024-11-24 20:11:30', 0);
 
 -- --------------------------------------------------------
 
@@ -132,9 +159,7 @@ CREATE TABLE `dispositivos` (
 --
 
 INSERT INTO `dispositivos` (`ID_dispositivo`, `nombre`, `ID_tipo`, `ID_esp32`) VALUES
-(1, 'Aire acondicionado Samsung - Aula 101', 1, 1),
 (2, 'Televisor LG - Aula 101', 2, 1),
-(3, 'Ventilador Philips - Aula 101', 3, 1),
 (4, 'Aire acondicionado Daikin - Aula 102', 1, 2),
 (5, 'Televisor Sony - Aula 102', 2, 2),
 (6, 'Ventilador Rowenta - Aula 102', 3, 2),
@@ -147,11 +172,12 @@ INSERT INTO `dispositivos` (`ID_dispositivo`, `nombre`, `ID_tipo`, `ID_esp32`) V
 (13, 'Aire acondicionado LG - Biblioteca', 1, 5),
 (14, 'Televisor Hisense - Biblioteca', 2, 5),
 (15, 'Ventilador Atma - Biblioteca', 3, 5),
-(34, 'tele de mi pieza', 2, 7),
-(35, 'Aire de mi pieza', 1, 7),
-(37, 'ventilador', 3, 7),
-(41, 'Aire de mi pieza', 1, 12),
-(43, 'tele de mi pieza', 2, 19);
+(45, 'ventilador', 3, 1),
+(46, 'tele de mi pieza', 2, 7),
+(47, 'venti', 3, 7),
+(48, 'Aire de mi pieza', 1, 7),
+(51, 'Tele', 2, 6),
+(52, 'ventilador', 3, 6);
 
 -- --------------------------------------------------------
 
@@ -173,17 +199,13 @@ CREATE TABLE `disp_esp32` (
 --
 
 INSERT INTO `disp_esp32` (`ID_dispositivo`, `direccion_ip`, `estado`, `ubicacion`, `ID_administrador`, `codigo`) VALUES
-(1, '192.168.0.10', 1, 'Aula 101', 0, ''),
+(1, '192.168.0.10', 1, 'Aula 101', 4, ''),
 (2, '192.168.0.11', 1, 'Aula 102', 0, ''),
 (3, '192.168.0.12', 1, 'Laboratorio', 0, ''),
 (4, '192.168.0.13', 1, 'Sala de profesores', 0, ''),
-(5, '192.168.0.14', 1, 'Biblioteca', 0, ''),
-(6, '192.168.1.115', 1, 'Pieza', 9, 'ABCD1234'),
-(7, '192.168.1.115', 1, 'Mi pieza', 4, '8lIsgR9'),
-(12, '1.1.1.1', 1, 'Prueba', 4, 'Abc123'),
-(17, '192.168.1.115', 1, 'casa 3', 9, '8lIsgR9'),
-(19, '192.168.1.115', 1, 'fg', 4, '8lIsgR9'),
-(20, '192.168.1.115', 1, 'asd', 4, '8lIsgR9J');
+(5, '192.168.0.14', 1, 'Biblioteca', 4, ''),
+(6, '192.168.1.115', 1, 'Pieza', 4, 'ABCD1234'),
+(7, '192.168.1.115', 1, 'Mi pieza', 4, '8lIsgR9J');
 
 -- --------------------------------------------------------
 
@@ -195,6 +217,51 @@ CREATE TABLE `funciones` (
   `ID_funcion` int(11) NOT NULL,
   `nombre` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Volcado de datos para la tabla `funciones`
+--
+
+INSERT INTO `funciones` (`ID_funcion`, `nombre`) VALUES
+(1, 'power'),
+(2, 'input'),
+(3, 'control'),
+(4, 'menu'),
+(5, 'netflix'),
+(6, 'back'),
+(7, 'chanelup'),
+(8, 'chaneldown'),
+(9, 'home'),
+(10, 'volup'),
+(11, 'voldown'),
+(12, 'arrowup'),
+(13, 'arrowleft'),
+(14, 'arrowright'),
+(15, 'arrowdown'),
+(16, 'ok'),
+(17, 'options'),
+(18, 'mute'),
+(19, 'num1'),
+(20, 'num2'),
+(21, 'num3'),
+(22, 'num4'),
+(23, 'num5'),
+(24, 'num6'),
+(25, 'num7'),
+(26, 'num8'),
+(27, 'num9'),
+(28, 'num0'),
+(29, 'time'),
+(30, 'speed'),
+(31, 'tempup'),
+(32, 'tempdown'),
+(33, 'swing'),
+(34, 'sleep'),
+(35, 'timeron'),
+(36, 'timeroff'),
+(37, 'leddisplay'),
+(38, 'turbo'),
+(39, 'direction');
 
 -- --------------------------------------------------------
 
@@ -272,7 +339,38 @@ INSERT INTO `login_attemps` (`ID_login_attemp`, `ID_usuario`, `fecha`, `exitoso`
 (57, 4, '2024-11-10 22:45:00', 1, '::1'),
 (58, 4, '2024-11-19 00:24:34', 1, '::1'),
 (59, 4, '2024-11-20 15:21:40', 1, '::1'),
-(60, 9, '2024-11-20 15:22:36', 1, '::1');
+(60, 9, '2024-11-20 15:22:36', 1, '::1'),
+(61, 4, '2024-11-20 23:43:21', 1, '::1'),
+(62, 9, '2024-11-20 23:51:11', 1, '::1'),
+(63, 4, '2024-11-20 23:53:47', 0, '::1'),
+(64, NULL, '2024-11-20 23:53:50', 0, '::1'),
+(65, 9, '2024-11-20 23:55:22', 1, '::1'),
+(66, 4, '2024-11-21 00:02:36', 1, '::1'),
+(67, 9, '2024-11-21 00:10:00', 0, '::1'),
+(68, 9, '2024-11-21 00:10:09', 1, '::1'),
+(69, 4, '2024-11-21 00:22:29', 1, '::1'),
+(70, 4, '2024-11-21 12:40:26', 1, '::1'),
+(71, 17, '2024-11-21 22:29:16', 1, '::1'),
+(72, 4, '2024-11-23 19:05:33', 1, '::1'),
+(73, 4, '2024-11-23 19:13:13', 1, '::1'),
+(74, 21, '2024-11-23 19:13:38', 1, '::1'),
+(75, 21, '2024-11-23 19:32:40', 0, '::1'),
+(76, 21, '2024-11-23 19:32:47', 1, '::1'),
+(77, 4, '2024-11-23 19:40:38', 1, '::1'),
+(78, 4, '2024-11-23 19:46:57', 1, '::1'),
+(79, 4, '2024-11-23 19:48:13', 1, '::1'),
+(80, 27, '2024-11-23 19:49:35', 1, '::1'),
+(81, 4, '2024-11-23 19:51:13', 1, '::1'),
+(82, 28, '2024-11-23 19:52:10', 1, '::1'),
+(83, 4, '2024-11-23 19:53:15', 1, '::1'),
+(84, 28, '2024-11-24 18:59:08', 1, '::1'),
+(85, 4, '2024-11-24 18:59:27', 1, '::1'),
+(86, 4, '2024-11-25 14:00:40', 1, '::1'),
+(87, 4, '2024-11-26 01:39:20', 1, '::1'),
+(88, 4, '2024-11-26 01:49:21', 1, '::1'),
+(89, 4, '2025-01-09 17:25:29', 1, '::1'),
+(90, 4, '2025-01-09 18:34:32', 1, '::1'),
+(91, 4, '2025-01-24 19:27:01', 1, '::1');
 
 -- --------------------------------------------------------
 
@@ -291,7 +389,8 @@ CREATE TABLE `permisos` (
 --
 
 INSERT INTO `permisos` (`ID_permiso`, `nombre`, `descripcion`) VALUES
-(1, 'administrador', '-');
+(1, 'administrador', '-'),
+(2, 'usuario', '-');
 
 -- --------------------------------------------------------
 
@@ -300,11 +399,18 @@ INSERT INTO `permisos` (`ID_permiso`, `nombre`, `descripcion`) VALUES
 --
 
 CREATE TABLE `senalesir` (
-  `ID_senal` int(11) NOT NULL,
-  `codigo_hexadecimal` varchar(90) NOT NULL,
+  `codigo_hexadecimal` longtext NOT NULL,
   `ID_dispositivo` int(11) NOT NULL,
   `ID_funcion` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Volcado de datos para la tabla `senalesir`
+--
+
+INSERT INTO `senalesir` (`codigo_hexadecimal`, `ID_dispositivo`, `ID_funcion`) VALUES
+('550,600,550,600,550,1700,550,1700,600,550,650,1600,550,600,550,600,550,550,550,600,550,1700,550,1750,600,500,600,1650,600,600,500,600,550,600,500,1750,550,1700,600,1650,600,1700,550,600,550,550,550,600,550,1700,550,600,550,550,650,500,600,550,550,1700,550,1750,500,1750,550', 51, 1),
+('500,2050,500,1950,550,2000,500,2000,500,2000,500,2000,550,1950,550,1950,550,950,550,2000,450,1050,500,1000,500,1000,500,1000,500,1000,500,1000,500,1000,500,1000,550,950,550,950,550,1950,550,950,550,2000,500,2000,500', 52, 1);
 
 -- --------------------------------------------------------
 
@@ -338,7 +444,7 @@ CREATE TABLE `usuarios` (
   `email` varchar(100) NOT NULL,
   `hash_contrasena` varchar(128) DEFAULT NULL,
   `salt` varchar(100) DEFAULT NULL,
-  `fecha_creacion` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `fecha_creacion` timestamp NOT NULL DEFAULT current_timestamp(),
   `ID_permiso` int(11) NOT NULL,
   `ID_administrador` int(11) DEFAULT NULL,
   `verificado` tinyint(1) DEFAULT 0
@@ -352,10 +458,10 @@ INSERT INTO `usuarios` (`ID_usuario`, `nombre_usuario`, `email`, `hash_contrasen
 (4, 'admin2', 'admin@gmail.com', '$2y$10$CgcuFSF8TKd3ZYQzfjYpVOsl3SxRLkUibE0U21EujF1TG9jIvO9e.', NULL, '2024-10-08 13:48:03', 1, NULL, 1),
 (5, 'user1', 'user@gmail.com', '$2y$10$OcAVcgVE23oFVYJwzgBYs.2bLIqO2Kpbh1/BZz3/22Aej1/OgIWfi', NULL, '2024-08-30 17:29:43', 1, NULL, 1),
 (8, 'catriel', 'abc@gmail.com', '$2y$10$5H.Zc44WYCZPP3cMZNMBfeC6Y2gOvxTUhQqGqfZm6ieSrUEDcKocu', NULL, '2024-11-20 15:24:45', 2, 4, 1),
-(9, 'santiagosalgado3', 'santiagosalgado@alumnos.itr3.edu.ar', '$2y$10$XlIpLb5HHd6kz2cAcoWpSOhdTSuinJWTN.F9iBRoUD3Ytc3i2tiO2', NULL, '2024-11-20 15:23:45', 1, NULL, 1),
-(14, 'santiago', 'santiagosalgado2007@gmail.co', '$2y$10$RvAPqk1VfdVdsrEDtAloneM.tSVJL76F6LIftUHr6rExHBFo4NJI6', NULL, '2024-11-06 01:59:28', 1, NULL, 1),
+(9, 'santiagosalgado3', 'santiagosalgado@alumnos.itr3.edu.a', '$2y$10$XlIpLb5HHd6kz2cAcoWpSOhdTSuinJWTN.F9iBRoUD3Ytc3i2tiO2', NULL, '2024-11-20 15:23:45', 1, NULL, 1),
 (17, 'santiago3', 'santisalgado33@gmail.com', '$2y$10$TfSHnHF88EAezeFBGWLdGuBTOzDrpaFy/rB.TFAYNR6Eig7BP.pt.', NULL, '2024-10-07 13:00:30', 2, 4, 1),
-(19, 'santiagosalgado', 'santiagosalgado2007@gmail.com', '$2y$10$Iwx1U4GhOSG3zBgkbBKC7O2vBYUHCLdk5TGfFKSgbyoNERVP4stHW', NULL, '2024-11-06 02:00:29', 1, NULL, 1);
+(21, 'profesor3', 'santiagosalgado2007@gmail.co', '$2y$10$8h6uoxrzFbV6wyKgsaXuzu/.5n96zB1Qs.iOW4W83DGVCozN0Cy6G', NULL, '2024-11-21 00:17:19', 2, 9, 1),
+(28, 'usuarioprueba', 'santiagosalgado@alumnos.itr3.edu.ar', '$2y$10$jA1wcs8vyAP6pjA3rFKaK.kg9nSUbQOFEN6aBUVNe2sHkIbjRU9k2', NULL, '2024-11-23 19:51:27', 2, 4, 1);
 
 --
 -- Índices para tablas volcadas
@@ -407,7 +513,7 @@ ALTER TABLE `permisos`
 -- Indices de la tabla `senalesir`
 --
 ALTER TABLE `senalesir`
-  ADD PRIMARY KEY (`ID_senal`);
+  ADD PRIMARY KEY (`ID_dispositivo`,`ID_funcion`);
 
 --
 -- Indices de la tabla `tipo_dispositivos`
@@ -429,49 +535,43 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `acceso_usuarios`
 --
 ALTER TABLE `acceso_usuarios`
-  MODIFY `ID_a_u` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `ID_a_u` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT de la tabla `codigos_verificacion`
 --
 ALTER TABLE `codigos_verificacion`
-  MODIFY `ID_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `ID_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT de la tabla `dispositivos`
 --
 ALTER TABLE `dispositivos`
-  MODIFY `ID_dispositivo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `ID_dispositivo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT de la tabla `disp_esp32`
 --
 ALTER TABLE `disp_esp32`
-  MODIFY `ID_dispositivo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `ID_dispositivo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `funciones`
 --
 ALTER TABLE `funciones`
-  MODIFY `ID_funcion` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_funcion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT de la tabla `login_attemps`
 --
 ALTER TABLE `login_attemps`
-  MODIFY `ID_login_attemp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `ID_login_attemp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 
 --
 -- AUTO_INCREMENT de la tabla `permisos`
 --
 ALTER TABLE `permisos`
-  MODIFY `ID_permiso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de la tabla `senalesir`
---
-ALTER TABLE `senalesir`
-  MODIFY `ID_senal` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_permiso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_dispositivos`
@@ -483,7 +583,7 @@ ALTER TABLE `tipo_dispositivos`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `ID_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `ID_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 DELIMITER $$
 --
