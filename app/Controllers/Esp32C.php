@@ -41,6 +41,12 @@ class Esp32C extends BaseController{
 
         $esp=$espmodel->getEsp32($esp_id);
         
+        if(session()->getFlashdata('error')){
+            $error=session()->getFlashdata('error');
+            return view("devices", ["datos" => $datos, "esp" => $esp, "error"=>$error]);
+
+        }
+
         #TRAE LOS DATOS DE LOS DISPOSITIVOS Y DE LA ESP SELECCIONADA POR EL USUARIO Y LO ENVIA A LA VISTA DEVICES
         return view("devices", ["datos" => $datos, "esp" => $esp]);
 
@@ -143,7 +149,7 @@ class Esp32C extends BaseController{
 
         $handlemodel=new Manejador;
         if($handlemodel->getActionQuery(session()->get('esp_code'))){
-            redirect()->back()->with('error','No es posible realizar una acción ya que la ESP seleccionada se encuentra en uso. Aguarde unos segundos y vuelva a intentarlo');
+            return redirect()->back()->with('error','No es posible realizar una acción ya que la ESP seleccionada se encuentra en uso. Aguarde unos segundos y vuelva a intentarlo');
         }
         $action_id=$handlemodel->insertActionQuery(1,session()->get('esp_code'));
 
@@ -165,7 +171,7 @@ class Esp32C extends BaseController{
 
         $handlemodel=new Manejador;
         if($handlemodel->getActionQuery(session()->get('esp_code'))){
-            redirect()->back()->with('error','No es posible realizar una acción ya que la ESP seleccionada se encuentra en uso. Aguarde unos segundos y vuelva a intentarlo');
+            return redirect()->back()->with('error','No es posible realizar una acción ya que la ESP seleccionada se encuentra en uso. Aguarde unos segundos y vuelva a intentarlo');
         }
         $action_id=$handlemodel->insertActionQuery(1,session()->get('esp_code'));
 
@@ -266,7 +272,7 @@ class Esp32C extends BaseController{
     public function grabarTeleview(){
         $handlemodel=new Manejador;
         if($handlemodel->getActionQuery(session()->get('esp_code'))){
-            redirect()->back()->with('error','No es posible realizar una acción ya que la ESP seleccionada se encuentra en uso. Aguarde unos segundos y vuelva a intentarlo');
+            return redirect()->back()->with('error','No es posible realizar una acción ya que la ESP seleccionada se encuentra en uso. Aguarde unos segundos y vuelva a intentarlo');
         }
         $action_id=$handlemodel->insertActionQuery(2,session()->get('esp_code'));
 
@@ -277,7 +283,7 @@ class Esp32C extends BaseController{
     public function grabarVentiladorview(){
         $handlemodel=new Manejador;
         if($handlemodel->getActionQuery(session()->get('esp_code'))){
-            redirect()->back()->with('error','No es posible realizar una acción ya que la ESP seleccionada se encuentra en uso. Aguarde unos segundos y vuelva a intentarlo');
+            return redirect()->back()->with('error','No es posible realizar una acción ya que la ESP seleccionada se encuentra en uso. Aguarde unos segundos y vuelva a intentarlo');
         }
         $action_id=$handlemodel->insertActionQuery(2,session()->get('esp_code'));
 
