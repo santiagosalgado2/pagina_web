@@ -67,6 +67,12 @@
     <?php if(isset($datos) && !empty($datos)):?>
 
       </div>
+    
+      <?php
+      if(isset($error)){
+          echo "<h1>".$error."</h1>";
+        }
+      ?>
 
     <table>
 
@@ -307,6 +313,7 @@ table {
     text-align: center;
     margin-bottom: 37px;
     color: white;
+    
     
   }
 </style>
