@@ -142,7 +142,9 @@ class Esp32C extends BaseController{
     public function control_view(){
 
         $handlemodel=new Manejador;
-
+        if($handlemodel->getActionQuery(session()->get('esp_code'))){
+            redirect()->back()->with('error','No es posible realizar una acción ya que la ESP seleccionada se encuentra en uso. Aguarde unos segundos y vuelva a intentarlo');
+        }
         $action_id=$handlemodel->insertActionQuery(1,session()->get('esp_code'));
 
         session()->set('action_id',$action_id);
@@ -152,7 +154,7 @@ class Esp32C extends BaseController{
     public function air_view(){
 
         $handlemodel=new Manejador;
-
+        
         $action_id=$handlemodel->insertActionQuery(1,session()->get('esp_code'));
 
         session()->set('action_id',$action_id);
@@ -162,7 +164,9 @@ class Esp32C extends BaseController{
     public function ventilador_view(){
 
         $handlemodel=new Manejador;
-
+        if($handlemodel->getActionQuery(session()->get('esp_code'))){
+            redirect()->back()->with('error','No es posible realizar una acción ya que la ESP seleccionada se encuentra en uso. Aguarde unos segundos y vuelva a intentarlo');
+        }
         $action_id=$handlemodel->insertActionQuery(1,session()->get('esp_code'));
 
         session()->set('action_id',$action_id);
@@ -261,7 +265,9 @@ class Esp32C extends BaseController{
 
     public function grabarTeleview(){
         $handlemodel=new Manejador;
-
+        if($handlemodel->getActionQuery(session()->get('esp_code'))){
+            redirect()->back()->with('error','No es posible realizar una acción ya que la ESP seleccionada se encuentra en uso. Aguarde unos segundos y vuelva a intentarlo');
+        }
         $action_id=$handlemodel->insertActionQuery(2,session()->get('esp_code'));
 
         session()->set('action_id',$action_id);
@@ -270,7 +276,9 @@ class Esp32C extends BaseController{
 
     public function grabarVentiladorview(){
         $handlemodel=new Manejador;
-
+        if($handlemodel->getActionQuery(session()->get('esp_code'))){
+            redirect()->back()->with('error','No es posible realizar una acción ya que la ESP seleccionada se encuentra en uso. Aguarde unos segundos y vuelva a intentarlo');
+        }
         $action_id=$handlemodel->insertActionQuery(2,session()->get('esp_code'));
 
         session()->set('action_id',$action_id);
