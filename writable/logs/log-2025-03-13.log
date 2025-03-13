@@ -1,0 +1,14 @@
+CRITICAL - 2025-03-13 20:41:46 --> ErrorException: Cannot use [] for reading
+[Method: POST, Route: new_esp/receive]
+in APPPATH\Controllers\Handle.php on line 112.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2025-03-13 20:41:51 --> ErrorException: Undefined array key "ultima_"
+[Method: POST, Route: new_esp/receive]
+in APPPATH\Controllers\Handle.php on line 112.
+ 1 APPPATH\Controllers\Handle.php(112): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "ultima_"', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Controllers\\Handle.php', 112)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Handle->receiveEsp()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Handle))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
