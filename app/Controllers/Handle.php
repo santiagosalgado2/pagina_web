@@ -63,6 +63,8 @@ class Handle extends BaseController{
 
             $esp=$espmodel->getEsp32byCode($code);
 
+            $update_date=$espmodel->updateEsp32(['estado'=>1],['codigo'=>$code]); #SE UPDATEA EL ESTADO Y A LA VEZ SE ACTUALIZA AUTOMATICAMENTE EN LA BD LA ULTIMA CONEXION
+
             if($esp[0]['direccion_ip']!==$ip){
 
                 $update=$espmodel->updateEsp32(['direccion_ip' => $ip],['codigo' => $code]);
@@ -112,8 +114,6 @@ class Handle extends BaseController{
 
 
         }
-
-        
 
     }
 

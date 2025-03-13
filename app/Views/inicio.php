@@ -65,7 +65,7 @@
 
    
 
-<main>
+<>
 <?php if(isset($success)): ?>
   <center>
     <div style="background-color: green; border: 1px solid green; padding: 10px; border-radius: 5px; height:70px; width: 220px; ">
@@ -84,11 +84,12 @@ if($success2!=null){
 ?>
 <?php
 $error=$session->getFlashdata("error");
-if($error!=null){
-    echo "<center><div style='background-color: red; border: 1px solid red; padding: 10px; border-radius: 5px; height:70px; width: 220px; color:white;'>
-    ❌ $error
-    </div></center>";
-}
+if($error!=null){?>
+    <center><h2>
+    ❌ <?php echo $error;?></h2>
+    </center>
+<?php
+  }
 ?>
     <?php if($permiso== 1):?>
       <a href="<?php echo base_url("/new_esp"); ?>"><center><button class="button2">Añadir nuevo Esp32</button></center></a><br><br>

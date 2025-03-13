@@ -15,6 +15,14 @@ class Esp32C extends BaseController{
         #ESTO SE HACE ASI PORQUE SINO CUANDO EL USUARIO VUELVE A LA PAGINA PRINCIPAL, EL NAVEGADOR PIERDE LOS DATOS DEL FORMULARIO
         $session = session();
 
+        $espmodel = new Esp32;
+
+        $verify=$espmodel->getEsp32byCode($this->request->getPost('esp_code'));
+
+        if($verify[0]['estado']==0){
+            return redirect()->back()->with('error','El dispositivo seleccionado no se encuentra disponible. Verifique su conexión y vuelva a intentarlo');
+        }
+
         $esp_id = $this->request->getPost("esp_id");
 
         $esp_ip= $this->request->getPost('esp_ip');

@@ -76,7 +76,7 @@
     </div>
 
     <script>
-  window.addEventListener('beforeunload', function (e) {
+  function deleteAction() {
     const urlElement = document.getElementById('deleteAction');
     const actionElement = document.getElementById('actionId');
 
@@ -89,14 +89,47 @@
         navigator.sendBeacon(url, payload);
       }
     }
+  }
+
+  window.addEventListener('beforeunload', function (e) {
+    deleteAction();
 
     // Mensaje de confirmación antes de salir
     const confirmationMessage = '¿Estás seguro de que deseas abandonar esta página?';
     e.returnValue = confirmationMessage;
     return confirmationMessage;
   });
-</script>
 
+  // Tiempo de inactividad en milisegundos (5 minutos)
+  const INACTIVITY_TIME = 3 * 60 * 1000;
+
+  // Variable para almacenar el temporizador
+  let inactivityTimer;
+
+  // Función para redirigir al usuario
+  function redirectToAnotherRoute() {
+    deleteAction();
+    window.location.href = '<?php echo base_url('/'); ?>';
+  }
+
+  // Función para reiniciar el temporizador de inactividad
+  function resetInactivityTimer() {
+    clearTimeout(inactivityTimer);
+    inactivityTimer = setTimeout(redirectToAnotherRoute, INACTIVITY_TIME);
+  }
+
+  // Eventos para detectar actividad del usuario
+  window.onload = resetInactivityTimer;
+  window.onmousemove = resetInactivityTimer;
+  window.onmousedown = resetInactivityTimer; // Detecta clics del mouse
+  window.ontouchstart = resetInactivityTimer; // Detecta toques en dispositivos táctiles
+  window.onclick = resetInactivityTimer; // Detecta clics
+  window.onkeypress = resetInactivityTimer; // Detecta pulsaciones de teclas
+  window.addEventListener('scroll', resetInactivityTimer, true); // Detecta desplazamiento
+
+  // Iniciar el temporizador de inactividad al cargar la página
+  resetInactivityTimer();
+</script>
 <script>
 
 document.addEventListener('DOMContentLoaded', function () {

@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 28-01-2025 a las 22:23:21
+-- Servidor: localhost
+-- Tiempo de generación: 13-03-2025 a las 13:48:25
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -78,69 +78,6 @@ CREATE TABLE `codigos_verificacion` (
   `usado` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
---
--- Volcado de datos para la tabla `codigos_verificacion`
---
-
-INSERT INTO `codigos_verificacion` (`ID_codigo`, `ID_usuario`, `codigo`, `tipo`, `fecha_creacion`, `fecha_expiracion`, `usado`) VALUES
-(1, 11, '366755', 'verificacion', '2024-08-30 18:15:28', '2024-08-30 19:15:28', 1),
-(2, 11, '164652', 'verificacion', '2024-08-30 18:34:00', '2024-08-30 19:34:00', 1),
-(3, 11, '935656', 'verificacion', '2024-08-30 18:36:02', '2024-08-30 19:36:02', 0),
-(4, 11, '141797', 'verificacion', '2024-08-30 18:36:17', '2024-08-30 19:36:17', 1),
-(5, 11, '545367', 'verificacion', '2024-08-30 18:36:44', '2024-08-30 19:36:44', 0),
-(6, 12, '372068', 'verificacion', '2024-08-30 22:35:56', '2024-08-30 23:35:56', 1),
-(7, 12, '837246', 'verificacion', '2024-08-30 22:38:24', '2024-08-30 23:38:24', 0),
-(8, 12, '999469', 'verificacion', '2024-08-30 22:39:04', '2024-08-30 23:39:04', 1),
-(9, 13, '724611', 'verificacion', '2024-09-03 01:21:59', '2024-09-03 02:21:59', 1),
-(10, 13, '761192', 'verificacion', '2024-09-03 01:22:38', '2024-09-03 02:22:38', 0),
-(11, 13, '262961', 'verificacion', '2024-09-03 01:22:58', '2024-09-03 02:22:58', 1),
-(12, 13, '147777', 'verificacion', '2024-09-03 02:08:51', '2024-09-03 03:08:51', 1),
-(13, 13, '562926', 'recuperar_contrasena', '2024-09-03 02:26:53', '2024-09-03 03:26:53', 1),
-(14, 13, '428911', 'recuperar_contrasena', '2024-09-03 02:27:51', '2024-09-03 03:27:51', 1),
-(15, 13, '731376', 'recuperar_contrasena', '2024-09-03 02:30:16', '2024-09-03 03:30:16', 1),
-(16, 13, '143680', 'recuperar_contrasena', '2024-09-03 02:32:37', '2024-09-03 03:32:37', 1),
-(26, 9, '116576', 'recuperar_contrasena', '2024-10-03 14:32:32', '2024-10-03 15:32:32', 1),
-(27, 9, '109516', 'recuperar_contrasena', '2024-10-03 14:32:56', '2024-10-03 15:32:56', 0),
-(28, 17, '459414', 'recuperar_contrasena', '2024-10-07 12:59:22', '2024-10-07 13:59:22', 1),
-(29, 17, '444337', 'recuperar_contrasena', '2024-10-07 12:59:57', '2024-10-07 13:59:57', 0),
-(30, 17, '122043', 'verificacion', '2024-10-07 13:00:19', '2024-10-07 14:00:19', 1),
-(31, 18, '156706', 'crear_contrasena', '2024-11-05 13:26:44', '2024-11-05 14:26:44', 0),
-(32, 14, '478726', 'recuperar_contrasena', '2024-11-06 01:57:47', '2024-11-06 02:57:47', 1),
-(33, 19, '128607', 'verificacion', '2024-11-06 02:00:13', '2024-11-06 03:00:13', 1),
-(34, 9, '128971', 'cambiar_usuario', '2024-11-20 15:23:16', '2024-11-20 16:23:16', 1),
-(35, 9, '813296', 'cambiar_usuario', '2024-11-20 15:24:01', '2024-11-20 16:24:01', 1),
-(36, 20, '130617', 'verificacion', '2024-11-21 00:01:28', '2024-11-21 01:01:28', 0),
-(37, 9, '768737', 'verificacion', '2024-11-21 00:10:09', '2024-11-21 01:10:09', 1),
-(38, 9, '508290', 'cambiar_usuario', '2024-11-21 00:14:49', '2024-11-21 01:14:49', 1),
-(39, 9, '143086', 'recuperar_contrasena', '2024-11-21 00:15:36', '2024-11-21 01:15:36', 0),
-(40, 9, '487667', 'recuperar_contrasena', '2024-11-21 00:15:49', '2024-11-21 01:15:49', 0),
-(41, 21, '128826', 'crear_contrasena', '2024-11-21 00:17:19', '2024-11-21 01:17:19', 0),
-(42, 22, '101444', 'crear_contrasena', '2024-11-23 19:09:20', '2024-11-23 20:09:20', 0),
-(43, 4, '113052', 'recuperar_contrasena', '2024-11-23 19:13:21', '2024-11-23 20:13:21', 0),
-(44, 21, '584227', 'verificacion', '2024-11-23 19:13:38', '2024-11-23 20:13:38', 1),
-(45, 21, '401242', 'recuperar_contrasena', '2024-11-23 19:14:06', '2024-11-23 20:14:06', 1),
-(46, 21, '460013', 'recuperar_contrasena', '2024-11-23 19:15:27', '2024-11-23 20:15:27', 1),
-(47, 21, '259507', 'recuperar_contrasena', '2024-11-23 19:16:06', '2024-11-23 20:16:06', 1),
-(48, 21, '109945', 'recuperar_contrasena', '2024-11-23 19:17:02', '2024-11-23 20:17:02', 1),
-(49, 21, '229361', 'recuperar_contrasena', '2024-11-23 19:17:50', '2024-11-23 20:17:50', 0),
-(50, 21, '112860', 'recuperar_contrasena', '2024-11-23 19:22:19', '2024-11-23 20:22:19', 1),
-(51, 21, '707585', 'recuperar_contrasena', '2024-11-23 19:24:39', '2024-11-23 20:24:39', 1),
-(52, 21, '732215', 'recuperar_contrasena', '2024-11-23 19:25:21', '2024-11-23 20:25:21', 1),
-(53, 21, '752028', 'recuperar_contrasena', '2024-11-23 19:25:38', '2024-11-23 20:25:38', 1),
-(54, 21, '335862', 'recuperar_contrasena', '2024-11-23 19:30:49', '2024-11-23 20:30:49', 1),
-(55, 21, '102088', 'recuperar_contrasena', '2024-11-23 19:31:23', '2024-11-23 20:31:23', 1),
-(56, 21, '157374', 'recuperar_contrasena', '2024-11-23 19:32:04', '2024-11-23 20:32:04', 1),
-(57, 21, '462062', 'recuperar_contrasena', '2024-11-23 19:32:54', '2024-11-23 20:32:54', 1),
-(58, 21, '585155', 'recuperar_contrasena', '2024-11-23 19:34:05', '2024-11-23 20:34:05', 1),
-(59, 23, '163024', 'crear_contrasena', '2024-11-23 19:41:19', '2024-11-23 20:41:19', 0),
-(60, 24, '136951', 'crear_contrasena', '2024-11-23 19:42:52', '2024-11-23 20:42:52', 1),
-(61, 25, '552487', 'crear_contrasena', '2024-11-23 19:46:17', '2024-11-23 20:46:17', 0),
-(62, 26, '595277', 'crear_contrasena', '2024-11-23 19:47:24', '2024-11-23 20:47:24', 0),
-(63, 27, '123240', 'crear_contrasena', '2024-11-23 19:48:49', '2024-11-23 20:48:49', 1),
-(64, 27, '568574', 'verificacion', '2024-11-23 19:49:35', '2024-11-23 20:49:35', 1),
-(65, 28, '177460', 'crear_contrasena', '2024-11-23 19:51:27', '2024-11-23 20:51:27', 1),
-(66, 29, '135198', 'crear_contrasena', '2024-11-24 19:11:30', '2024-11-24 20:11:30', 0);
-
 -- --------------------------------------------------------
 
 --
@@ -191,21 +128,21 @@ CREATE TABLE `disp_esp32` (
   `estado` tinyint(1) NOT NULL,
   `ubicacion` varchar(100) NOT NULL,
   `ID_administrador` int(11) NOT NULL,
-  `codigo` varchar(8) NOT NULL
+  `codigo` varchar(8) NOT NULL,
+  `ultima_conexion` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Volcado de datos para la tabla `disp_esp32`
 --
 
-INSERT INTO `disp_esp32` (`ID_dispositivo`, `direccion_ip`, `estado`, `ubicacion`, `ID_administrador`, `codigo`) VALUES
-(1, '192.168.0.10', 1, 'Aula 101', 4, ''),
-(2, '192.168.0.11', 1, 'Aula 102', 0, ''),
-(3, '192.168.0.12', 1, 'Laboratorio', 0, ''),
-(4, '192.168.0.13', 1, 'Sala de profesores', 0, ''),
-(5, '192.168.0.14', 1, 'Biblioteca', 4, ''),
-(6, '192.168.1.115', 1, 'Pieza', 4, 'ABCD1234'),
-(7, '192.168.1.115', 1, 'Mi pieza', 4, '8lIsgR9J');
+INSERT INTO `disp_esp32` (`ID_dispositivo`, `direccion_ip`, `estado`, `ubicacion`, `ID_administrador`, `codigo`, `ultima_conexion`) VALUES
+(1, '192.168.0.10', 0, 'Aula 101', 4, '', '2025-03-13 12:45:29'),
+(2, '192.168.0.11', 0, 'Aula 102', 0, '', '2025-03-13 11:25:29'),
+(3, '192.168.0.12', 0, 'Laboratorio', 0, '', '2025-03-13 11:25:29'),
+(4, '192.168.0.13', 0, 'Sala de profesores', 0, '', '2025-03-13 11:25:29'),
+(6, '192.168.1.115', 0, 'Pieza', 4, 'ABCD1234', '2025-03-13 11:25:29'),
+(7, '192.168.1.115', 0, 'Mi pieza', 4, '8lIsgR9J', '2025-03-13 11:25:29');
 
 -- --------------------------------------------------------
 
@@ -590,6 +527,10 @@ DELIMITER $$
 -- Eventos
 --
 CREATE DEFINER=`root`@`localhost` EVENT `borrar_codigos_expirados` ON SCHEDULE EVERY 1 HOUR STARTS '2024-08-30 13:42:37' ON COMPLETION NOT PRESERVE ENABLE DO DELETE FROM codigos_verificacion WHERE fecha_expiracion < CURRENT_TIMESTAMP()$$
+
+CREATE DEFINER=`root`@`localhost` EVENT `actualizar_estado_disp` ON SCHEDULE EVERY 1 MINUTE STARTS '2025-03-13 08:25:29' ON COMPLETION NOT PRESERVE ENABLE DO UPDATE disp_esp32 
+  SET estado = 0 
+  WHERE ultima_conexion < NOW() - INTERVAL 1 MINUTE$$
 
 DELIMITER ;
 COMMIT;
