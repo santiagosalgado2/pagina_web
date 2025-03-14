@@ -20,7 +20,7 @@ class Esp32C extends BaseController{
         $verify=$espmodel->getEsp32byCode($this->request->getPost('esp_code'));
 
         if($verify[0]['estado']==0){
-            return redirect()->back()->with('error','El dispositivo seleccionado no se encuentra disponible. Verifique su conexión y vuelva a intentarlo');
+            return redirect()->to('/')->with('error','El dispositivo seleccionado no se encuentra disponible. Verifique su conexión y vuelva a intentarlo');
         }
 
         $esp_id = $this->request->getPost("esp_id");
