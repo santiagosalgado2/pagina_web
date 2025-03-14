@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 13-03-2025 a las 13:48:25
+-- Tiempo de generación: 14-03-2025 a las 16:02:06
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -137,7 +137,7 @@ CREATE TABLE `disp_esp32` (
 --
 
 INSERT INTO `disp_esp32` (`ID_dispositivo`, `direccion_ip`, `estado`, `ubicacion`, `ID_administrador`, `codigo`, `ultima_conexion`) VALUES
-(1, '192.168.0.10', 0, 'Aula 101', 4, '', '2025-03-13 12:45:29'),
+(1, '192.168.0.10', 0, 'Aula 101', 4, '', '2025-03-14 11:07:29'),
 (2, '192.168.0.11', 0, 'Aula 102', 0, '', '2025-03-13 11:25:29'),
 (3, '192.168.0.12', 0, 'Laboratorio', 0, '', '2025-03-13 11:25:29'),
 (4, '192.168.0.13', 0, 'Sala de profesores', 0, '', '2025-03-13 11:25:29'),
@@ -332,6 +332,149 @@ INSERT INTO `permisos` (`ID_permiso`, `nombre`, `descripcion`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `protocolos`
+--
+
+CREATE TABLE `protocolos` (
+  `ID_protocolo` int(11) NOT NULL,
+  `nombre` varchar(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Volcado de datos para la tabla `protocolos`
+--
+
+INSERT INTO `protocolos` (`ID_protocolo`, `nombre`) VALUES
+(1, 'GLOBALCACHE'),
+(2, 'PRONTO'),
+(3, 'RAW'),
+(4, 'SHERWOOD'),
+(5, 'SONY_38K'),
+(6, 'AIRTON'),
+(7, 'AIRWELL'),
+(8, 'AIWA_RC_T501'),
+(9, 'AMCOR'),
+(10, 'ARGO'),
+(11, 'ARRIS'),
+(12, 'BOSCH144'),
+(13, 'BOSE'),
+(14, 'CARRIER_AC'),
+(15, 'CARRIER_AC128'),
+(16, 'CARRIER_AC40'),
+(17, 'CARRIER_AC64'),
+(18, 'CARRIER_AC84'),
+(19, 'CLIMABUTLER'),
+(20, 'COOLIX'),
+(21, 'COOLIX48'),
+(22, 'CORONA_AC'),
+(23, 'DAIKIN'),
+(24, 'DAIKIN128'),
+(25, 'DAIKIN152'),
+(26, 'DAIKIN160'),
+(27, 'DAIKIN176'),
+(28, 'DAIKIN2'),
+(29, 'DAIKIN200'),
+(30, 'DAIKIN216'),
+(31, 'DAIKIN312'),
+(32, 'DAIKIN64'),
+(33, 'DELONGHI_AC'),
+(34, 'DENON'),
+(35, 'DISH'),
+(36, 'DOSHISHA'),
+(37, 'ECOCLIM'),
+(38, 'ELECTRA_AC'),
+(39, 'ELITESCREENS'),
+(40, 'EPSON'),
+(41, 'FUJITSU_AC'),
+(42, 'GICABLE'),
+(43, 'GOODWEATHER'),
+(44, 'GORENJE'),
+(45, 'GREE'),
+(46, 'HAIER_AC'),
+(47, 'HAIER_AC160'),
+(48, 'HAIER_AC176'),
+(49, 'HAIER_AC_YRW02'),
+(50, 'HITACHI_AC'),
+(51, 'HITACHI_AC1'),
+(52, 'HITACHI_AC2'),
+(53, 'HITACHI_AC264'),
+(54, 'HITACHI_AC296'),
+(55, 'HITACHI_AC3'),
+(56, 'HITACHI_AC344'),
+(57, 'HITACHI_AC424'),
+(58, 'INAX'),
+(59, 'JVC'),
+(60, 'KELON'),
+(61, 'KELON168'),
+(62, 'KELVINATOR'),
+(63, 'LASERTAG'),
+(64, 'LEGOPF'),
+(65, 'LG'),
+(66, 'LG2'),
+(67, 'LUTRON'),
+(68, 'MAGIQUEST'),
+(69, 'METZ'),
+(70, 'MIDEA'),
+(71, 'MIDEA24'),
+(72, 'MILESTAG2'),
+(73, 'MIRAGE'),
+(74, 'MITSUBISHI'),
+(75, 'MITSUBISHI112'),
+(76, 'MITSUBISHI136'),
+(77, 'MITSUBISHI2'),
+(78, 'MITSUBISHI_AC'),
+(79, 'MITSUBISHI_HEAVY_152'),
+(80, 'MITSUBISHI_HEAVY_88'),
+(81, 'MULTIBRACKETS'),
+(82, 'MWM'),
+(83, 'NEC'),
+(84, 'NEC_LIKE'),
+(85, 'NEOCLIMA'),
+(86, 'NIKAI'),
+(87, 'PANASONIC'),
+(88, 'PANASONIC_AC'),
+(89, 'PANASONIC_AC32'),
+(90, 'PIONEER'),
+(91, 'RC5'),
+(92, 'RC5X'),
+(93, 'RC6'),
+(94, 'RCMM'),
+(95, 'RHOSS'),
+(96, 'SAMSUNG'),
+(97, 'SAMSUNG36'),
+(98, 'SAMSUNG_AC'),
+(99, 'SANYO'),
+(100, 'SANYO_AC'),
+(101, 'SANYO_AC152'),
+(102, 'SANYO_AC88'),
+(103, 'SANYO_LC7461'),
+(104, 'SHARP'),
+(105, 'SHARP_AC'),
+(106, 'SONY'),
+(107, 'SYMPHONY'),
+(108, 'TCL112AC'),
+(109, 'TCL96AC'),
+(110, 'TECHNIBEL_AC'),
+(111, 'TECO'),
+(112, 'TEKNOPOINT'),
+(113, 'TOSHIBA_AC'),
+(114, 'TOTO'),
+(115, 'TRANSCOLD'),
+(116, 'TROTEC'),
+(117, 'TROTEC_3550'),
+(118, 'TRUMA'),
+(119, 'VESTEL_AC'),
+(120, 'VOLTAS'),
+(121, 'WHIRLPOOL_AC'),
+(122, 'WHYNTER'),
+(123, 'WOWWEE'),
+(124, 'XMP'),
+(125, 'YORK'),
+(126, 'ZEPEAL');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `senalesir`
 --
 
@@ -447,6 +590,12 @@ ALTER TABLE `permisos`
   ADD PRIMARY KEY (`ID_permiso`);
 
 --
+-- Indices de la tabla `protocolos`
+--
+ALTER TABLE `protocolos`
+  ADD PRIMARY KEY (`ID_protocolo`);
+
+--
 -- Indices de la tabla `senalesir`
 --
 ALTER TABLE `senalesir`
@@ -478,7 +627,7 @@ ALTER TABLE `acceso_usuarios`
 -- AUTO_INCREMENT de la tabla `codigos_verificacion`
 --
 ALTER TABLE `codigos_verificacion`
-  MODIFY `ID_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `ID_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT de la tabla `dispositivos`
@@ -509,6 +658,12 @@ ALTER TABLE `login_attemps`
 --
 ALTER TABLE `permisos`
   MODIFY `ID_permiso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `protocolos`
+--
+ALTER TABLE `protocolos`
+  MODIFY `ID_protocolo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_dispositivos`
