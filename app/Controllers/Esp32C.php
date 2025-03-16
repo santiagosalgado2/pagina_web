@@ -168,11 +168,24 @@ class Esp32C extends BaseController{
     public function air_view(){
 
         $handlemodel=new Manejador;
-        
+
+        if($handlemodel->getActionQuery(session()->get('esp_code'))){
+
+            return redirect()->back()->with('error','No es posible realizar una acción ya que la ESP seleccionada se encuentra en uso. Aguarde unos segundos y vuelva a intentarlo');
+
+        }
+
         $action_id=$handlemodel->insertActionQuery(1,session()->get('esp_code'));
 
+
+        $devicemodel = new Dispositivos;
+
+        $config=$devicemodel->getConfigbyDevice($this->request->getPost('id'));
+
         session()->set('action_id',$action_id);
-        return view('aire',['id'=>$this->request->getPost('id')]);
+
+
+        return view('aire',['id'=>$this->request->getPost('id'),'config' => $config]);
     }
 
     public function ventilador_view(){
@@ -271,10 +284,16 @@ class Esp32C extends BaseController{
 
     public function grabarAireview(){
         $handlemodel=new Manejador;
+        if($handlemodel->getActionQuery(session()->get('esp_code'))){
+            return redirect()->back()->with('error','No es posible realizar una acción ya que la ESP seleccionada se encuentra en uso. Aguarde unos segundos y vuelva a intentarlo');
+        }
         $action_id=$handlemodel->insertActionQuery(2,session()->get('esp_code'));
 
         session()->set('action_id',$action_id);
-        return view('grabar_aire',['id'=>$this->request->getPost('id')]);
+        $devicemodel = new Dispositivos;
+
+        $config=$devicemodel->getConfigbyDevice($this->request->getPost('id'));
+        return view('grabar_aire',['id'=>$this->request->getPost('id'),'config'=>$config]);
     }
 
     public function grabarTeleview(){

@@ -6,8 +6,8 @@
     <link rel="icon" type="image/png" href="<?php echo base_url("/img/logo1.png") ;?>">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?php echo base_url("/css/airstyle.css") . '?v=' . time(); ?>">
-    <title>Control Remoto Aire acondicionado</title>
+    
+    <title>Grabar señales</title>
 </head>
 <body>
 
@@ -55,60 +55,253 @@
     </div>
   </div>
 </nav>
+<input type="hidden" id="deviceId" value="<?php echo $id;?>" />
+    <input type="hidden" id="actionId" value="<?php echo session()->get('action_id');?>" /> <!-- Reemplaza 12345 con el ID real del dispositivo -->
 
-<div class="control-remoto">
-        <div class="pantalla">AIRE </div>
-        
-        <div class="seccion">
-            <div class="temp-botones">
-                <div class="boton" >TEMP ▲</div>
-                <div class="boton" >TEMP ▼</div>
-            </div>
-        </div>
+    <input type="hidden" id="deleteAction" value="<?php echo base_url('/front/eliminar_accion') ?>" />
 
-        <div class="seccion">
-            <div class="power-boton">
-                <div class="boton rojo" >ON/OFF</div>
-            </div>
-        </div>
-
-        <div class="seccion">
-            <div class="boton-container">
-                <div class="boton-fan" >FAN SPEED</div>
-                <div class="boton" >MODE</div>
-            </div>
-        </div>
+    <h1>Configuraciones del aire seleccionado</h1>
+    <?php if($permiso==1):?>
+      <div class="acciones">
+      <center><a href="#"><button class="button2">Crear configuracion</button></a></div></center>
+<?php endif;?>
     
-        <div class="seccion">
-            <div class="boton-container">
-            
-                <div class="boton">SWING</div>
-                <div class="boton" >SLEEP</div>
-            </div>
+<?php
+if(!empty($config)):?>
+    
+    <div class="contenedores" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; width: 60rem; margin: auto;">
+    <?php 
+    $contador=1;
+    foreach($config as $c):?>
+    
+    <div class="card" style="width: 18rem; margin-top:40px;">
+        <div class="card-body">
+            <h3 class="card-title">Configuración <?php echo $contador;?></h3>
+            <p class="card-text"><b>Temperatura:</b> <?php echo $c['temperatura'];?> °C</p>
+            <p class="card-text"><b>Swing:</b>  <?php echo $c['swing'];?></p>
+            <p class="card-text"><b>Modo:</b>  <?php echo $c['modo'];?></p>
+            <p class="card-text"><b>Fan speed:</b>  <?php echo $c['fanspeed'];?></p>
+            <a href="#" class="card-link"><button class="button2">Grabar</button></a>
+            <?php if($permiso==1):?>
+              <a href="#" class="card-link"><button class="button2">Eliminar</button></a>
+
+            <?php endif;?>
         </div>
-        
-        <div class="seccion">
-            <div class="boton-container">
-                <div class="boton-on">TIMER ON</div>
-                <div class="boton-timer">TIMER OFF</div>
-            </div>
-        </div>
-        
-        <div class="seccion">
-            <div class="boton-container">
-                <div class="boton-led">LED DISPLAY</div>
-                <div class="boton">TURBO</div>
-            </div>
-        </div>
-        <div class="seccion">
-                <div class="boton-direc">DIRECCION</div>
-            </div>
     </div>
 
+    <?php $contador+=1; endforeach; else:?>
+</div>
 
-    <script src="<?php echo base_url('/js/sendIR.js');?>"></script>
+
+<h1 style="padding-top: 50px;">No hay configuraciones creadas</h1>
+
+<?php endif;?>
+
+<style>
+  body {
+    height: 100vh;
+    background: linear-gradient(135deg, #2C3E50, #4CA1AF); /* Azul marino a azul petróleo */
+    color: #333333; /* Gris carbón para el texto */
+    padding-top: 80px;
+}
+
+.card-text{
+  font-size: 20px;
+}
+
+/* Barra de navegación */
+nav.navbar {
+    background: linear-gradient(135deg, #0F2027, #203A43, #2C5364); /* Negro a azul oscuro */
+}
+
+/* Links de navegación */
+.navbar .nav-link {
+    color: #BDC3C7; /* Gris claro */
+}
+
+.navbar .nav-link:hover {
+    color: #2980B9; /* Azul profundo */
+}
+
+.circulo {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    animation: flotando 10s infinite ease-in-out;
+}
+
+.circulo:nth-child(1) {
+    width: 200px;
+    height: 200px;
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.circulo:nth-child(2) {
+    width: 150px;
+    height: 150px;
+    top: 70%;
+    left: 30%;
+    animation-delay: 2s;
+}
+
+.circulo:nth-child(3) {
+    width: 300px;
+    height: 300px;
+    top: 40%;
+    right: 10%;
+    animation-delay: 4s;
+}
+
+.circulo:nth-child(4) {
+    width: 100px;
+    height: 100px;
+    bottom: 15%;
+    right: 40%;
+    animation-delay: 6s;
+}
+@keyframes flotando{0%, 100% {
+    transform: translateY(0) translateX(0);
+}
+50% {
+    transform: translateY(-50px) translateX(50px);
+}}
+.textos {
+    font-size: larger;
+    font-weight: 600;
+}
+.button2 {
+    display: inline-block;
+    transition: all 0.2s ease-in;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    color: #ffffff;
+    padding: 0.2em 0,5em;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 0.5em;
+    background: #2C3E50;
+    border: 1px solid #2C3E50;
+    box-shadow: 1px 1px 4px #c5c5c5, 0px 0px 3px #ffffff;
+
+}
+
+.button2:active {
+    color: #666;
+    box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+}
+
+.button2:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.25);
+    top: 100%;
+    width: 140%;
+    height: 180%;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    display: block;
+    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    z-index: -1;
+}
+
+.button2:after {
+    content: "";
+    position: absolute;
+    left: 55%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.45);
+    top: 180%;
+    width: 160%;
+    height: 190%;
+    background-color: #fa8560;
+    border-radius: 50%;
+    display: block;
+    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    z-index: -1;
+}
+
+.button2:hover {
+    color: #ffffff;
+    border: 1px solid #2C3E50;
+}
+
+.button2:hover:before {
+    top: -35%;
+    background-image: linear-gradient(to right, #2980B9 0%, #4CA1AF 100%);
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+.acciones button {
+    font-size: 18px;
+    padding: 15px 30px;
+  }
+  h1{
+    text-align: center;
+    margin-bottom: 37px;
+    color: white;
+    
+    
+  }
+</style>
 
 
+    <script>
+  function deleteAction() {
+    const urlElement = document.getElementById('deleteAction');
+    const actionElement = document.getElementById('actionId');
+
+    if (urlElement && actionElement) {
+      const url = urlElement.value;
+      const action_id = actionElement.value;
+
+      if (url && action_id) {
+        const payload = new Blob([JSON.stringify({ action_id })], { type: 'application/json' });
+        navigator.sendBeacon(url, payload);
+      }
+    }
+  }
+
+  window.addEventListener('beforeunload', function (e) {
+    deleteAction();
+
+    // Mensaje de confirmación antes de salir
+    const confirmationMessage = '¿Estás seguro de que deseas abandonar esta página?';
+    e.returnValue = confirmationMessage;
+    return confirmationMessage;
+  });
+
+  // Tiempo de inactividad en milisegundos (5 minutos)
+  const INACTIVITY_TIME = 3 * 60 * 1000;
+
+  // Variable para almacenar el temporizador
+  let inactivityTimer;
+
+  // Función para redirigir al usuario
+  function redirectToAnotherRoute() {
+    deleteAction();
+    window.location.href = '<?php echo base_url('/'); ?>';
+  }
+
+  // Función para reiniciar el temporizador de inactividad
+  function resetInactivityTimer() {
+    clearTimeout(inactivityTimer);
+    inactivityTimer = setTimeout(redirectToAnotherRoute, INACTIVITY_TIME);
+  }
+
+  // Eventos para detectar actividad del usuario
+  window.onload = resetInactivityTimer;
+  window.onmousemove = resetInactivityTimer;
+  window.onmousedown = resetInactivityTimer; // Detecta clics del mouse
+  window.ontouchstart = resetInactivityTimer; // Detecta toques en dispositivos táctiles
+  window.onclick = resetInactivityTimer; // Detecta clics
+  window.onkeypress = resetInactivityTimer; // Detecta pulsaciones de teclas
+  window.addEventListener('scroll', resetInactivityTimer, true); // Detecta desplazamiento
+
+  // Iniciar el temporizador de inactividad al cargar la página
+  resetInactivityTimer();
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 </body>

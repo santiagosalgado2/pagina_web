@@ -189,4 +189,44 @@ class Devices extends BaseController{
 
     }
 
+    public function viewConfig(){
+
+        $devicemodel=new Dispositivos;
+
+        $temperatura = $this->request->getPost('temperatura');
+        $swing = $this->request->getPost('swing');
+        $modo = $this->request->getPost('modo');
+        $fanspeed = $this->request->getPost('fanspeed');
+        $deviceid=$this->request->getPost('id');
+
+        $data=$devicemodel->verifyConfig($temperatura,$modo,$swing,$fanspeed);
+
+        if($data){
+
+            $verify=$devicemodel->verifyAirsignal($deviceid,$data[0]['ID_configuracion']);
+
+            if($verify){
+                return $this->response->setJSON(['error' => 'Ya has creado esta configuración']);
+            }else{
+
+                $devicemodel->insertSignal(null,$deviceid,null,null,null,$data[0]['ID_configuracion']);
+                return $this->response->setJSON(['success' => 'Configuración creada con éxito']);
+            }
+
+        }else{
+            $config=$devicemodel->insertConfig($temperatura,$modo,$swing,$fanspeed);
+
+            $devicemodel->insertSignal(null,$deviceid,null,null,null,$config);
+
+            return $this->response->setJSON(['success' => 'Configuración creada con éxito']);
+
+
+        }
+
+
+
+       
+
+    }
+
 }

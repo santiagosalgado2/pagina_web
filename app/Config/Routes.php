@@ -59,4 +59,5 @@ $routes->post('/js/verificar_senal','Esp32C::verifySignal');
 $routes->post('/front/eliminar_accion','Esp32C::deleteAction');
 $routes->post('/js/verificar_grabacion','Esp32C::verifyRecording');
 $routes->post('/verificar_grabacion','Devices::verifySignal');
+$routes->post('/crear_config','Devices::viewConfig');
 
