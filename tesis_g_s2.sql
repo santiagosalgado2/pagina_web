@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 14-03-2025 a las 16:02:06
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 16-03-2025 a las 23:35:14
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -55,12 +55,14 @@ INSERT INTO `acceso_usuarios` (`ID_a_u`, `ID_usuario`, `ID_dispositivo`) VALUES
 (40, 8, 15),
 (41, 28, 2),
 (43, 4, 45),
-(44, 4, 46),
 (45, 4, 47),
 (46, 17, 47),
 (47, 4, 48),
 (50, 4, 51),
-(51, 4, 52);
+(51, 4, 52),
+(52, 4, 53),
+(53, 4, 54),
+(54, 4, 55);
 
 -- --------------------------------------------------------
 
@@ -77,6 +79,39 @@ CREATE TABLE `codigos_verificacion` (
   `fecha_expiracion` timestamp NOT NULL DEFAULT (current_timestamp() + interval 1 hour),
   `usado` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `configuraciones`
+--
+
+CREATE TABLE `configuraciones` (
+  `ID_configuracion` int(11) NOT NULL,
+  `temperatura` tinyint(4) DEFAULT NULL,
+  `swing` enum('auto','on','off') DEFAULT NULL,
+  `modo` enum('cool','heat','fan','dry','auto') DEFAULT NULL,
+  `fanspeed` enum('auto','low','mid','high') DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Volcado de datos para la tabla `configuraciones`
+--
+
+INSERT INTO `configuraciones` (`ID_configuracion`, `temperatura`, `swing`, `modo`, `fanspeed`) VALUES
+(1, 24, 'auto', 'cool', 'auto'),
+(2, 26, 'auto', 'heat', 'high'),
+(3, 24, 'auto', 'heat', 'low'),
+(4, 34, 'auto', 'cool', 'auto'),
+(5, 23, 'auto', 'cool', 'auto'),
+(6, 45, 'off', 'heat', 'mid'),
+(7, 67, 'on', 'heat', 'low'),
+(8, 24, 'off', 'heat', 'low'),
+(9, 24, 'on', 'heat', 'auto'),
+(10, 25, 'on', 'fan', 'mid'),
+(11, 22, 'auto', 'cool', 'auto'),
+(12, 21, 'on', 'cool', 'auto'),
+(13, 23, 'off', 'cool', 'auto');
 
 -- --------------------------------------------------------
 
@@ -110,11 +145,13 @@ INSERT INTO `dispositivos` (`ID_dispositivo`, `nombre`, `ID_tipo`, `ID_esp32`) V
 (14, 'Televisor Hisense - Biblioteca', 2, 5),
 (15, 'Ventilador Atma - Biblioteca', 3, 5),
 (45, 'ventilador', 3, 1),
-(46, 'tele de mi pieza', 2, 7),
 (47, 'venti', 3, 7),
 (48, 'Aire de mi pieza', 1, 7),
 (51, 'Tele', 2, 6),
-(52, 'ventilador', 3, 6);
+(52, 'ventilador', 3, 6),
+(53, 'tele de mi pieza', 2, 7),
+(54, 'Aire de mi pieza', 1, 1),
+(55, 'Aire de mi pieza2', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -137,12 +174,12 @@ CREATE TABLE `disp_esp32` (
 --
 
 INSERT INTO `disp_esp32` (`ID_dispositivo`, `direccion_ip`, `estado`, `ubicacion`, `ID_administrador`, `codigo`, `ultima_conexion`) VALUES
-(1, '192.168.0.10', 0, 'Aula 101', 4, '', '2025-03-14 11:07:29'),
+(1, '192.168.0.10', 1, 'Aula 101', 4, '', '2025-03-16 18:18:47'),
 (2, '192.168.0.11', 0, 'Aula 102', 0, '', '2025-03-13 11:25:29'),
 (3, '192.168.0.12', 0, 'Laboratorio', 0, '', '2025-03-13 11:25:29'),
 (4, '192.168.0.13', 0, 'Sala de profesores', 0, '', '2025-03-13 11:25:29'),
 (6, '192.168.1.115', 0, 'Pieza', 4, 'ABCD1234', '2025-03-13 11:25:29'),
-(7, '192.168.1.115', 0, 'Mi pieza', 4, '8lIsgR9J', '2025-03-13 11:25:29');
+(7, '192.168.1.115', 0, 'Mi pieza', 4, '8lIsgR9J', '2025-03-15 22:50:29');
 
 -- --------------------------------------------------------
 
@@ -479,18 +516,21 @@ INSERT INTO `protocolos` (`ID_protocolo`, `nombre`) VALUES
 --
 
 CREATE TABLE `senalesir` (
-  `codigo_hexadecimal` longtext NOT NULL,
+  `ID_senal` int(11) NOT NULL,
+  `codigo` text DEFAULT NULL,
+  `ID_protocolo` int(11) DEFAULT NULL,
+  `bits` int(11) DEFAULT NULL,
   `ID_dispositivo` int(11) NOT NULL,
-  `ID_funcion` int(11) NOT NULL
+  `ID_funcion` int(11) DEFAULT NULL,
+  `ID_configuracion` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Volcado de datos para la tabla `senalesir`
 --
 
-INSERT INTO `senalesir` (`codigo_hexadecimal`, `ID_dispositivo`, `ID_funcion`) VALUES
-('550,600,550,600,550,1700,550,1700,600,550,650,1600,550,600,550,600,550,550,550,600,550,1700,550,1750,600,500,600,1650,600,600,500,600,550,600,500,1750,550,1700,600,1650,600,1700,550,600,550,550,550,600,550,1700,550,600,550,550,650,500,600,550,550,1700,550,1750,500,1750,550', 51, 1),
-('500,2050,500,1950,550,2000,500,2000,500,2000,500,2000,550,1950,550,1950,550,950,550,2000,450,1050,500,1000,500,1000,500,1000,500,1000,500,1000,500,1000,500,1000,550,950,550,950,550,1950,550,950,550,2000,500,2000,500', 52, 1);
+INSERT INTO `senalesir` (`ID_senal`, `codigo`, `ID_protocolo`, `bits`, `ID_dispositivo`, `ID_funcion`, `ID_configuracion`) VALUES
+(1, '0xABCD', 6, 24, 54, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -560,6 +600,12 @@ ALTER TABLE `codigos_verificacion`
   ADD PRIMARY KEY (`ID_codigo`);
 
 --
+-- Indices de la tabla `configuraciones`
+--
+ALTER TABLE `configuraciones`
+  ADD PRIMARY KEY (`ID_configuracion`);
+
+--
 -- Indices de la tabla `dispositivos`
 --
 ALTER TABLE `dispositivos`
@@ -599,7 +645,7 @@ ALTER TABLE `protocolos`
 -- Indices de la tabla `senalesir`
 --
 ALTER TABLE `senalesir`
-  ADD PRIMARY KEY (`ID_dispositivo`,`ID_funcion`);
+  ADD PRIMARY KEY (`ID_senal`);
 
 --
 -- Indices de la tabla `tipo_dispositivos`
@@ -621,7 +667,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `acceso_usuarios`
 --
 ALTER TABLE `acceso_usuarios`
-  MODIFY `ID_a_u` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `ID_a_u` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT de la tabla `codigos_verificacion`
@@ -630,10 +676,16 @@ ALTER TABLE `codigos_verificacion`
   MODIFY `ID_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
+-- AUTO_INCREMENT de la tabla `configuraciones`
+--
+ALTER TABLE `configuraciones`
+  MODIFY `ID_configuracion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
 -- AUTO_INCREMENT de la tabla `dispositivos`
 --
 ALTER TABLE `dispositivos`
-  MODIFY `ID_dispositivo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `ID_dispositivo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT de la tabla `disp_esp32`
@@ -664,6 +716,12 @@ ALTER TABLE `permisos`
 --
 ALTER TABLE `protocolos`
   MODIFY `ID_protocolo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
+
+--
+-- AUTO_INCREMENT de la tabla `senalesir`
+--
+ALTER TABLE `senalesir`
+  MODIFY `ID_senal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_dispositivos`

@@ -63,8 +63,9 @@
     <h1>Configuraciones del aire seleccionado</h1>
     <?php if($permiso==1):?>
       <div class="acciones">
-      <center><a href="#"><button class="button2">Crear configuracion</button></a></div></center>
-<?php endif;?>
+        <center><button class="button2" type="button" onclick="openForm()">Crear configuración</button></center>
+      </div>
+    <?php endif;?>
     
 <?php
 if(!empty($config)):?>
@@ -83,7 +84,7 @@ if(!empty($config)):?>
             <p class="card-text"><b>Fan speed:</b>  <?php echo $c['fanspeed'];?></p>
             <a href="#" class="card-link"><button class="button2">Grabar</button></a>
             <?php if($permiso==1):?>
-              <a href="#" class="card-link"><button class="button2">Eliminar</button></a>
+              <button class="button2" onclick="deleteSignal('<?php echo base_url('/deleteConfig/'.$c['ID_senal']);?>')">Eliminar</button>
 
             <?php endif;?>
         </div>
@@ -244,10 +245,126 @@ nav.navbar {
     
     
   }
+
+  /* Estilos para el formulario emergente */
+  .modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+  }
+
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%; /* Más angosto */
+  }
 </style>
 
+<!-- Modal -->
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Crear Configuración</h2>
+    <form id="createConfigForm" >
+      <input type="hidden" value="<?php echo $id;?>" name="id">
+      <div class="mb-3">
+        <label for="temperatura" class="form-label">Temperatura</label>
+        <input type="number" class="form-control" id="temperatura" name="temperatura" min="0" max="255" required>
+      </div>
+      <div class="mb-3">
+        <label for="swing" class="form-label">Swing</label>
+        <select class="form-control" id="swing" name="swing" required>
+          <option value="auto">Auto</option>
+          <option value="on">On</option>
+          <option value="off">Off</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="modo" class="form-label">Modo</label>
+        <select class="form-control" id="modo" name="modo" required>
+          <option value="cool">Cool</option>
+          <option value="heat">Heat</option>
+          <option value="fan">Fan</option>
+          <option value="dry">Dry</option>
+          <option value="auto">Auto</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="fanspeed" class="form-label">Fan Speed</label>
+        <select class="form-control" id="fanspeed" name="fanspeed" required>
+          <option value="auto">Auto</option>
+          <option value="low">Low</option>
+          <option value="mid">Mid</option>
+          <option value="high">High</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Crear</button>
+    </form>
+  </div>
+</div>
 
-    <script>
+<script>
+  // Obtener el modal
+  var modal = document.getElementById("myModal");
+
+  // Obtener el botón que abre el modal
+  var btn = document.getElementsByClassName("button2")[0];
+
+  // Obtener el elemento <span> que cierra el modal
+  var span = document.getElementsByClassName("close")[0];
+
+  // Cuando el usuario hace clic en el botón, abre el modal 
+  function openForm() {
+    modal.style.display = "block";
+  }
+
+  // Cuando el usuario hace clic en <span> (x), cierra el modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  // Cuando el usuario hace clic en cualquier lugar fuera del modal, lo cierra
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
+  // Manejo del formulario de creación de configuración
+  document.getElementById("createConfigForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    var formData = new FormData(this);
+
+    fetch('<?php echo base_url('/crear_config');?>', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+      // Manejar la respuesta del servidor
+      if (data.success) {
+        alert(data.success);
+      } else if (data.error) {
+        alert(data.error);
+      }
+      modal.style.display = "none";
+      // Actualizar la vista con la nueva configuración si es necesario
+    })
+    .catch(error => {
+      console.error("Error:", error);
+    });
+  });
+
   function deleteAction() {
     const urlElement = document.getElementById('deleteAction');
     const actionElement = document.getElementById('actionId');
@@ -296,13 +413,34 @@ nav.navbar {
   window.onmousedown = resetInactivityTimer; // Detecta clics del mouse
   window.ontouchstart = resetInactivityTimer; // Detecta toques en dispositivos táctiles
   window.onclick = resetInactivityTimer; // Detecta clics
-  window.onkeypress = resetInactivityTimer; // Detecta pulsaciones de teclas
+  window.onkeypress = resetInactivityTimer; //
   window.addEventListener('scroll', resetInactivityTimer, true); // Detecta desplazamiento
 
   // Iniciar el temporizador de inactividad al cargar la página
   resetInactivityTimer();
+
+  function deleteSignal(url) {
+    if (confirm("¿Estás seguro de que deseas eliminar esta configuración?")) {
+        fetch(url, { method: "GET" }) // Se ejecuta la ruta sin recargar la página
+            .then(response => response.json()) // Espera una respuesta JSON
+            .then(data => {
+                if (data.success) {
+                    alert("Configuración eliminada correctamente. Actualiza la página para ver los cambios");
+                    // Opcionalmente, actualizar la vista sin recargar
+                    document.getElementById("fila_" + data.id).remove();
+                } 
+            })
+            .catch(error => {
+                console.error("Error:", error);
+              
+            });
+    }
+}
+
+
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 </body>
 </html>
+

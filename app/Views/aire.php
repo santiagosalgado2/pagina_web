@@ -84,7 +84,7 @@ if(!empty($config)):?>
             <p class="card-text"><b>Fan speed:</b>  <?php echo $c['fanspeed'];?></p>
             <a href="#" class="card-link"><button class="button2">Emitir</button></a>
             <?php if($permiso==1):?>
-              <a href="#" class="card-link"><button class="button2">Eliminar</button></a>
+              <button class="button2" onclick="deleteSignal('<?php echo base_url('/deleteConfig/'.$c['ID_senal']);?>')">Eliminar</button>
 
             <?php endif;?>
         </div>
@@ -352,7 +352,11 @@ nav.navbar {
     .then(response => response.json())
     .then(data => {
       // Manejar la respuesta del servidor
-      console.log(data);
+      if (data.success) {
+        alert(data.success);
+      } else if (data.error) {
+        alert(data.error);
+      }
       modal.style.display = "none";
       // Actualizar la vista con la nueva configuración si es necesario
     })
@@ -414,6 +418,26 @@ nav.navbar {
 
   // Iniciar el temporizador de inactividad al cargar la página
   resetInactivityTimer();
+
+  function deleteSignal(url) {
+    if (confirm("¿Estás seguro de que deseas eliminar esta configuración?")) {
+        fetch(url, { method: "GET" }) // Se ejecuta la ruta sin recargar la página
+            .then(response => response.json()) // Espera una respuesta JSON
+            .then(data => {
+                if (data.success) {
+                    alert("Configuración eliminada correctamente. Actualiza la página para ver los cambios");
+                    // Opcionalmente, actualizar la vista sin recargar
+                    document.getElementById("fila_" + data.id).remove();
+                } 
+            })
+            .catch(error => {
+                console.error("Error:", error);
+              
+            });
+    }
+}
+
+
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 

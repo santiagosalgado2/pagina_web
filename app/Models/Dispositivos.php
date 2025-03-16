@@ -120,7 +120,7 @@ class Dispositivos extends Model{
 
         $tabla=$this->db->table('configuraciones c');
 
-        $tabla->select('c.temperatura,c.swing,c.modo,c.fanspeed');
+        $tabla->select('c.temperatura,c.swing,c.modo,c.fanspeed,s.ID_senal');
 
         $tabla->join('senalesir s','s.ID_configuracion=c.ID_configuracion');
 
@@ -165,6 +165,14 @@ class Dispositivos extends Model{
 
         return $this->db->insertID();
 
+    }
+
+    public function deleteConfig($id){
+        $tabla=$this->db->table('senalesir');
+
+        $tabla->where('ID_senal',$id);
+
+        $tabla->delete();
     }
 
 }

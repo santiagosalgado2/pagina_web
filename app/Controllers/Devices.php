@@ -210,7 +210,7 @@ class Devices extends BaseController{
             }else{
 
                 $devicemodel->insertSignal(null,$deviceid,null,null,null,$data[0]['ID_configuracion']);
-                return $this->response->setJSON(['success' => 'Configuración creada con éxito']);
+                return $this->response->setJSON(['success' => 'Configuración creada con éxito. Actualiza la página para verla']);
             }
 
         }else{
@@ -218,14 +218,22 @@ class Devices extends BaseController{
 
             $devicemodel->insertSignal(null,$deviceid,null,null,null,$config);
 
-            return $this->response->setJSON(['success' => 'Configuración creada con éxito']);
+            return $this->response->setJSON(['success' => 'Configuración creada con éxito. Actualiza la página para verla']);
 
 
         }
 
+    }
+
+    public function deleteConfig($id){
+
+        $devicemodel=new Dispositivos;
+
+        $devicemodel->deleteConfig($id);
+
+        return $this->response->setJSON(['success' => 'Configuración eliminada']);
 
 
-       
 
     }
 
