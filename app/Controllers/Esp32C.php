@@ -119,16 +119,33 @@ class Esp32C extends BaseController{
             $signal=$devicemodel->getSignal($deviceId,$functionId);
 
             if($num==1 && $signal){
-                $insert=$handlemodel->insertDataQuery($functionId,$signal[0]['codigo_hexadecimal'],$action_id);
+
+                $protocolo=$devicemodel->getProtocolbySignal($signal[0]['ID_senal']);
+
+                $handlemodel->insertDataQuery('hexadecimal',$signal[0]['codigo'],$action_id);
+
+                $handlemodel->insertDataQuery('protocolo',$protocolo[0]['nombre'],$action_id);
+
+                $handlemodel->insertDataQuery("bits",$signal[0]['bits'],$action_id);
 
                 return $this->response->setStatusCode(200)->setBody('Señal enviada a la bd');
+
             }elseif($num==2){
+
                 $handlemodel->deleteActionData($action_id);
-                $insert=$handlemodel->insertDataQuery($functionId,null,$action_id);
+
+                $handlemodel->insertDataQuery('codigo',null,$action_id);
+
+                $handlemodel->insertDataQuery("protocolo",null, $action_id);
+
+                $handlemodel->insertDataQuery("bits",null,$action_id);
 
                 return $this->response->setStatusCode(200)->setBody('Señal enviada a la bd');
+
             }else{
+
                 return $this->response->setStatusCode(500)->setBody('Error al enviar la señal');
+
             }
 
 
@@ -353,9 +370,13 @@ class Esp32C extends BaseController{
 
         $data=$handlemodel->getActionData($action_id);
 
-        if($data && $data[0]['clave'] == $functionId){
+        if($data && !empty($data[0]['valor'])){
             $senal=$data[0]['valor'];
-            return $this->response->setStatusCode(200)->setJSON(['irCode'=>$senal]);
+
+            $protocolo=$data[1]['valor'];
+
+            $bits=$data[2]['valor'];
+            return $this->response->setStatusCode(200)->setJSON(['hexadecimal'=>$senal,'protocolo'=>$protocolo,'bits'=>$bits]);
         }else{
             return $this->response->setStatusCode(500);
         }

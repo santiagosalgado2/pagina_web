@@ -78,10 +78,15 @@ class Dispositivos extends Model{
         $tabla->insert($data);
     }
 
-    public function updateSignal($signal,$device,$function){
+    public function updateSignal($signal,$device,$function,$protocol,$bits,$config){
         $tabla=$this->db->table('senalesir');
         $data = array(
-            "codigo_hexadecimal"=>$signal
+            "codigo"=>$signal,
+            "ID_dispositivo"=>$device,
+            "ID_funcion"=>$function,
+            "ID_protocolo"=>$protocol,
+            "bits"=>$bits,
+            "ID_configuracion"=>$config
         );
 
         $tabla->where('ID_dispositivo',$device);
@@ -173,6 +178,20 @@ class Dispositivos extends Model{
         $tabla->where('ID_senal',$id);
 
         $tabla->delete();
+    }
+
+    public function getProtocolbySignal($id){
+
+        $tabla = $this->db->table('protocolos p');
+
+        $tabla->select('p.nombre');
+
+        $tabla->join('senalesir s','s.ID_protocolo=p.ID_protocolo');
+
+        $tabla->where('s.ID_senal',$id);
+
+        return $tabla->get()->getResultArray();
+
     }
 
 }

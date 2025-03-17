@@ -83,11 +83,15 @@ class Handle extends BaseController{
 
                     $response=array();
 
-                    if($action[0]['ID_accion']==1 && $action[0]['estado']==0  && !empty($action_data[0]['valor'])){
+                    if($action[0]['ID_accion']==1 && $action[0]['estado']==0  && !empty($action_data[0]['valor'] && !empty($action_data[1]['valor']) && !empty($action_data[2]['valor']))){
 
                         $response["accion"] = "emitir_senal";
 
-                        $response["codigo_raw"] = $action_data[0]["valor"];
+                        $response["hexadecimal"] = $action_data[0]["valor"];
+
+                        $response["protocolo"]=$action_data[1]['valor'];
+
+                        $response["bits"]=$action_data[2]['valor'];
 
                         return json_encode($response);
 
@@ -121,13 +125,11 @@ class Handle extends BaseController{
 
         $code= $this->request->getPost('code');
 
-        $irCode1 = str_replace(" ",",",$this->request->getPost('irCode'));
+        $irCode1 = $this->request->getPost('codigoHex');
 
-        $irCode2 = preg_replace('/^\d+\s/', '', $irCode1);
+        $protocolo = $this->request->getPost('protocolo');
 
-        $irCode3 = substr($irCode2, 1);
-
-        $irCode = str_replace(["\r", "\n"], '', subject: $irCode3);
+        $bits = $this->request->getPost('bits');
 
         $handlemodel = new Manejador();
 
@@ -135,7 +137,12 @@ class Handle extends BaseController{
             $data=$handlemodel->getActionData($action[0]['ID_solicitud']);
 
             if(empty($data[0]["valor"])){
-                $handlemodel->updateActionData($action[0]['ID_solicitud'],$irCode);
+                $handlemodel->updateActionData($data[0]['ID_solicitud'],$irCode1,'codigo');
+
+                $handlemodel->updateActionData($data[0]['ID_solicitud'],$protocolo,'protocolo');
+
+                $handlemodel->updateActionData($data[0]['ID_solicitud'],$bits,'bits');
+
 
                 return "Señal actualizada";
             }else{

@@ -172,6 +172,8 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             let irCode=null;
+            let protocolo=null;
+            let bits=null;
 
             while (irCode === null){
               const verifyResponse =await fetch(verifySignalUrl, {
@@ -182,8 +184,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
               if(verifyResponse.status === 200){
                 const verifyData = await verifyResponse.json();
-                if (verifyData.irCode) {
-                  irCode = verifyData.irCode;
+                if (verifyData.hexadecimal) {
+                  protocolo= verifyData.protocolo;
+                  bits= verifyData.bits;
+                  irCode = verifyData.hexadecimal;
                 }
               }
             }
@@ -201,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         const saveResponse = await fetch(saveSignalUrl, {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ irCode, deviceId, functionId }),
+                            body: JSON.stringify({ irCode, protocolo, bits, deviceId, functionId }),
                         });
 
                         alert(`Señal actualizada correctamente`);
@@ -212,7 +216,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     const saveResponse = await fetch(saveSignalUrl, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ irCode, deviceId, functionId }),
+                        body: JSON.stringify({ irCode, protocolo, bits, deviceId, functionId }),
                     });
 
                     alert(`Señal grabada correctamente`);
