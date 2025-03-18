@@ -166,7 +166,7 @@ class Esp32C extends BaseController{
 
             $signal=$devicemodel->getAirsginal($deviceId,$configId);
 
-            if($num==1 && $signal){
+            if($num==1 && !$signal[0]['codigo']==null){
 
                 $protocolo=$devicemodel->getProtocolbySignal($signal[0]['ID_senal']);
 

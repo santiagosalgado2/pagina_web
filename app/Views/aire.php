@@ -60,6 +60,8 @@
 
     <input type="hidden" id="deleteAction" value="<?php echo base_url('/front/eliminar_accion') ?>" />
 
+    <div class="remote-control" data-url-send-signal="<?= base_url('/air/enviar_senal') ?>"></div>
+
     <h1>Configuraciones del aire seleccionado</h1>
     <?php if($permiso==1):?>
       <div class="acciones">
@@ -82,7 +84,7 @@ if(!empty($config)):?>
             <p class="card-text"><b>Swing:</b>  <?php echo $c['swing'];?></p>
             <p class="card-text"><b>Modo:</b>  <?php echo $c['modo'];?></p>
             <p class="card-text"><b>Fan speed:</b>  <?php echo $c['fanspeed'];?></p>
-            <a href="#" class="card-link"><button class="button2">Emitir</button></a>
+            <button class="button2" data-id="<?php echo $c['ID_configuracion'];?>" >Emitir</button>
             <?php if($permiso==1):?>
               <button class="button2" onclick="deleteSignal('<?php echo base_url('/deleteConfig/'.$c['ID_senal']);?>')">Eliminar</button>
 
@@ -439,6 +441,63 @@ nav.navbar {
 
 
 </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const remoteControl = document.querySelector('.remote-control');
+    const sendSignalUrl = remoteControl.getAttribute('data-url-send-signal'); // URL para leer señales
+
+    // Seleccionar todos los botones que tienen el atributo "data-id"
+    const buttons = document.querySelectorAll('[data-id]');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', function () {
+            const configId = this.getAttribute('data-id'); // ID de la función
+            const deviceId = document.getElementById('deviceId').value;
+            const action_id = document.getElementById('actionId').value; // ID del dispositivo            // Llamar a la función que verifica continuamente el CSV
+            waitForSignal(configId, deviceId, action_id);
+        });
+    });
+
+    // Función para verificar continuamente el CSV
+    async function waitForSignal(configId, deviceId, action_id) {
+        try {
+          const num=1;
+
+            const response = await fetch(sendSignalUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams({ deviceId, configId, action_id, num }),
+            });
+
+            if (response.status === 500) {
+              alert('La señal no está grabada');
+            } else if (response.status === 200) {
+              const checkSignalUrl = '<?= base_url('/js/verificar_senal') ?>';
+              let signalSent = false;
+
+              while (!signalSent) {
+                const checkResponse = await fetch(checkSignalUrl, {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                  body: new URLSearchParams({ action_id }),
+                });
+
+                if (checkResponse.status === 200) {
+                  signalSent = true;
+                }
+              }
+            }
+        } catch (error) {
+            console.error(error);
+            alert(error.message);
+        }
+    }
+});
+
+</script>
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 </body>
