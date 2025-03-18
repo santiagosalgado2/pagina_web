@@ -176,8 +176,56 @@ class Devices extends BaseController{
 
     }
 
+    public function insertarAirsenal(){
+
+        $senal=$this->request->getJSON()->irCode;
+
+        $dispositivo=$this->request->getJSON()->deviceId;
+
+        $config=$this->request->getJSON()->configId;
+
+        $protocolo=$this->request->getJSON()->protocolo;
+
+        $bits=$this->request->getJSON()->bits;
+
+        $devicemodel=new Dispositivos;
+
+        $handlemodel=new Manejador;
+
+        $protocolmodel=new Protocolos;
+
+        $id_protocolo=$protocolmodel->getIDprotocol($protocolo);
+
+        $device=$devicemodel->user_has_permission($dispositivo,session()->get('user_id'));
+
+        if(empty($device)){
+
+            return redirect()->back();
+        }else{
+            if($devicemodel->getAirsginal($dispositivo,$config)){
+                if($devicemodel->updateAirsignal($senal,$dispositivo,null,$id_protocolo[0]['ID_protocolo'],$bits,$config)){
+                    $handlemodel->deleteActionData(session()->get('action_id'));
+
+                    return $this->response->setStatusCode(200)->setBody('Señal guardada correctamente.');
+                }else{
+                    return $this->response->setStatusCode(500)->setBody('Error al guardar la señal.');
+                }
+            }else{
+                if($devicemodel->insertSignal($senal,$dispositivo,null,$id_protocolo[0]['ID_protocolo'],$bits,$config)){
+                    $handlemodel->deleteActionData(session()->get('action_id'));
+
+                    return $this->response->setStatusCode(200)->setBody('Señal guardada correctamente.');
+                }else{
+                    return $this->response->setStatusCode(500)->setBody('Error al guardar la señal.');
+                }
+            }
+        }
+
+    }
+
+
     public function verifySignal(){
-        $funcion=$this->request->getJSON()->functionId;
+        $config=$this->request->getJSON()->configId;
 
         $dispositivo=$this->request->getJSON()->deviceId;
 
@@ -189,7 +237,7 @@ class Devices extends BaseController{
 
             return redirect()->back();
         }else{
-            if($devicemodel->getSignal($dispositivo,$funcion)){
+            if($devicemodel->getAirsginal($dispositivo,$config)){
                 return $this->response->setStatusCode(200)->setBody('Señal ya existe.');
             }else{
                 return $this->response->setStatusCode(500)->setBody('Señal no existe.');
