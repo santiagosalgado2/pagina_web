@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\Acceso_usuarios;
 use App\Models\Dispositivos;
 use App\Models\Manejador;
+use App\Models\Protocolos;
 use CodeIgniter\Controller;
 
 class Devices extends BaseController{
@@ -136,9 +137,17 @@ class Devices extends BaseController{
 
         $funcion=$this->request->getJSON()->functionId;
 
+        $protocolo=$this->request->getJSON()->protocolo;
+
+        $bits=$this->request->getJSON()->bits;
+
         $devicemodel=new Dispositivos;
 
         $handlemodel=new Manejador;
+
+        $protocolmodel=new Protocolos;
+
+        $id_protocolo=$protocolmodel->getIDprotocol($protocolo);
 
         $device=$devicemodel->user_has_permission($dispositivo,session()->get('user_id'));
 
@@ -147,7 +156,7 @@ class Devices extends BaseController{
             return redirect()->back();
         }else{
             if($devicemodel->getSignal($dispositivo,$funcion)){
-                if($devicemodel->updateSignal($senal,$dispositivo,$funcion)){
+                if($devicemodel->updateSignal($senal,$dispositivo,$funcion,$id_protocolo[0]['ID_protocolo'],$bits,null)){
                     $handlemodel->deleteActionData(session()->get('action_id'));
 
                     return $this->response->setStatusCode(200)->setBody('Señal guardada correctamente.');
@@ -155,7 +164,7 @@ class Devices extends BaseController{
                     return $this->response->setStatusCode(500)->setBody('Error al guardar la señal.');
                 }
             }else{
-                if($devicemodel->insertSignal($senal,$dispositivo,$funcion)){
+                if($devicemodel->insertSignal($senal,$dispositivo,$funcion,$id_protocolo[0]['ID_protocolo'],$bits,null)){
                     $handlemodel->deleteActionData(session()->get('action_id'));
 
                     return $this->response->setStatusCode(200)->setBody('Señal guardada correctamente.');
@@ -186,6 +195,54 @@ class Devices extends BaseController{
                 return $this->response->setStatusCode(500)->setBody('Señal no existe.');
             }
         }
+
+    }
+
+    public function viewConfig(){
+
+        $devicemodel=new Dispositivos;
+
+        $temperatura = $this->request->getPost('temperatura');
+        $swing = $this->request->getPost('swing');
+        $modo = $this->request->getPost('modo');
+        $fanspeed = $this->request->getPost('fanspeed');
+        $deviceid=$this->request->getPost('id');
+
+        $data=$devicemodel->verifyConfig($temperatura,$modo,$swing,$fanspeed);
+
+        if($data){
+
+            $verify=$devicemodel->verifyAirsignal($deviceid,$data[0]['ID_configuracion']);
+
+            if($verify){
+                return $this->response->setJSON(['error' => 'Ya has creado esta configuración']);
+            }else{
+
+                $devicemodel->insertSignal(null,$deviceid,null,null,null,$data[0]['ID_configuracion']);
+                return $this->response->setJSON(['success' => 'Configuración creada con éxito. Actualiza la página para verla']);
+            }
+
+        }else{
+            $config=$devicemodel->insertConfig($temperatura,$modo,$swing,$fanspeed);
+
+            $devicemodel->insertSignal(null,$deviceid,null,null,null,$config);
+
+            return $this->response->setJSON(['success' => 'Configuración creada con éxito. Actualiza la página para verla']);
+
+
+        }
+
+    }
+
+    public function deleteConfig($id){
+
+        $devicemodel=new Dispositivos;
+
+        $devicemodel->deleteConfig($id);
+
+        return $this->response->setJSON(['success' => 'Configuración eliminada']);
+
+
 
     }
 

@@ -15,6 +15,14 @@ class Esp32C extends BaseController{
         #ESTO SE HACE ASI PORQUE SINO CUANDO EL USUARIO VUELVE A LA PAGINA PRINCIPAL, EL NAVEGADOR PIERDE LOS DATOS DEL FORMULARIO
         $session = session();
 
+        $espmodel = new Esp32;
+
+        $verify=$espmodel->getEsp32byCode($this->request->getPost('esp_code'));
+
+        if($verify[0]['estado']==0){
+            return redirect()->to('/')->with('error','El dispositivo seleccionado no se encuentra disponible. Verifique su conexión y vuelva a intentarlo');
+        }
+
         $esp_id = $this->request->getPost("esp_id");
 
         $esp_ip= $this->request->getPost('esp_ip');
@@ -111,16 +119,33 @@ class Esp32C extends BaseController{
             $signal=$devicemodel->getSignal($deviceId,$functionId);
 
             if($num==1 && $signal){
-                $insert=$handlemodel->insertDataQuery($functionId,$signal[0]['codigo_hexadecimal'],$action_id);
+
+                $protocolo=$devicemodel->getProtocolbySignal($signal[0]['ID_senal']);
+
+                $handlemodel->insertDataQuery('hexadecimal',$signal[0]['codigo'],$action_id);
+
+                $handlemodel->insertDataQuery('protocolo',$protocolo[0]['nombre'],$action_id);
+
+                $handlemodel->insertDataQuery("bits",$signal[0]['bits'],$action_id);
 
                 return $this->response->setStatusCode(200)->setBody('Señal enviada a la bd');
+
             }elseif($num==2){
+
                 $handlemodel->deleteActionData($action_id);
-                $insert=$handlemodel->insertDataQuery($functionId,null,$action_id);
+
+                $handlemodel->insertDataQuery('codigo',null,$action_id);
+
+                $handlemodel->insertDataQuery("protocolo",null, $action_id);
+
+                $handlemodel->insertDataQuery("bits",null,$action_id);
 
                 return $this->response->setStatusCode(200)->setBody('Señal enviada a la bd');
+
             }else{
+
                 return $this->response->setStatusCode(500)->setBody('Error al enviar la señal');
+
             }
 
 
@@ -160,11 +185,24 @@ class Esp32C extends BaseController{
     public function air_view(){
 
         $handlemodel=new Manejador;
-        
+
+        if($handlemodel->getActionQuery(session()->get('esp_code'))){
+
+            return redirect()->back()->with('error','No es posible realizar una acción ya que la ESP seleccionada se encuentra en uso. Aguarde unos segundos y vuelva a intentarlo');
+
+        }
+
         $action_id=$handlemodel->insertActionQuery(1,session()->get('esp_code'));
 
+
+        $devicemodel = new Dispositivos;
+
+        $config=$devicemodel->getConfigbyDevice($this->request->getPost('id'));
+
         session()->set('action_id',$action_id);
-        return view('aire',['id'=>$this->request->getPost('id')]);
+
+
+        return view('aire',['id'=>$this->request->getPost('id'),'config' => $config]);
     }
 
     public function ventilador_view(){
@@ -263,10 +301,16 @@ class Esp32C extends BaseController{
 
     public function grabarAireview(){
         $handlemodel=new Manejador;
+        if($handlemodel->getActionQuery(session()->get('esp_code'))){
+            return redirect()->back()->with('error','No es posible realizar una acción ya que la ESP seleccionada se encuentra en uso. Aguarde unos segundos y vuelva a intentarlo');
+        }
         $action_id=$handlemodel->insertActionQuery(2,session()->get('esp_code'));
 
         session()->set('action_id',$action_id);
-        return view('grabar_aire',['id'=>$this->request->getPost('id')]);
+        $devicemodel = new Dispositivos;
+
+        $config=$devicemodel->getConfigbyDevice($this->request->getPost('id'));
+        return view('grabar_aire',['id'=>$this->request->getPost('id'),'config'=>$config]);
     }
 
     public function grabarTeleview(){
@@ -326,9 +370,13 @@ class Esp32C extends BaseController{
 
         $data=$handlemodel->getActionData($action_id);
 
-        if($data && $data[0]['clave'] == $functionId){
+        if($data && !empty($data[0]['valor'])){
             $senal=$data[0]['valor'];
-            return $this->response->setStatusCode(200)->setJSON(['irCode'=>$senal]);
+
+            $protocolo=$data[1]['valor'];
+
+            $bits=$data[2]['valor'];
+            return $this->response->setStatusCode(200)->setJSON(['hexadecimal'=>$senal,'protocolo'=>$protocolo,'bits'=>$bits]);
         }else{
             return $this->response->setStatusCode(500);
         }
