@@ -62,7 +62,7 @@
 <!-- Reemplaza 12345 con el ID real del dispositivo -->
     <div class="remote-control" data-url-receive-code="<?= base_url('/air/enviar_senal') ?>" 
     data-url-save-signal="<?= base_url('/air/insertar_senal'); ?>" data-url-verify-signal="<?= base_url('/js/verificar_grabacion');?>"
-    data-url-verify-record="<?= base_url('/verificar_grabacion'); ?>"></div>
+    data-url-verify-record="<?= base_url('/air/verificar_grabacion'); ?>"></div>
 
 
 
