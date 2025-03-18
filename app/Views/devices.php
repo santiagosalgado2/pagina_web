@@ -58,7 +58,6 @@
 
     <br><br><br><h1>Dispositivo <?php echo $esp[0]['ubicacion']; ?></h1>
     <div class="acciones">
-    <a href="<?php echo base_url("/ver_senales"); ?>"><button class="button2">Prueba para ver codigos hex</button></a><br><br>
 
 
     <?php if($session->get('tipo')==1): ?>
@@ -67,6 +66,12 @@
     <?php if(isset($datos) && !empty($datos)):?>
 
       </div>
+    
+      <?php
+      if(isset($error)){
+          echo "<h1>".$error."</h1>";
+        }
+      ?>
 
     <table>
 
@@ -307,6 +312,7 @@ table {
     text-align: center;
     margin-bottom: 37px;
     color: white;
+    
     
   }
 </style>

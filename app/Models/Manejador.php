@@ -81,12 +81,14 @@ class Manejador extends Model{
         return $result;
     }
 
-    public function updateActionData($id, $data){
+    public function updateActionData($id, $data, $clave){
         $tabla=$this->db->table('datos_solicitud');
 
         $tabla->where('ID_solicitud',$id);
 
-        $result=$tabla->update(['valor'=>$data]);
+        $tabla->where('clave',$clave);
+
+        $tabla->update(['valor'=>$data]);
     }
 
     public function deleteActionData($id){
