@@ -176,8 +176,56 @@ class Devices extends BaseController{
 
     }
 
+    public function insertarAirsenal(){
+
+        $senal=$this->request->getJSON()->irCode;
+
+        $dispositivo=$this->request->getJSON()->deviceId;
+
+        $config=$this->request->getJSON()->configId;
+
+        $protocolo=$this->request->getJSON()->protocolo;
+
+        $bits=$this->request->getJSON()->bits;
+
+        $devicemodel=new Dispositivos;
+
+        $handlemodel=new Manejador;
+
+        $protocolmodel=new Protocolos;
+
+        $id_protocolo=$protocolmodel->getIDprotocol($protocolo);
+
+        $device=$devicemodel->user_has_permission($dispositivo,session()->get('user_id'));
+
+        if(empty($device)){
+
+            return redirect()->back();
+        }else{
+            if($devicemodel->getAirsginal($dispositivo,$config)){
+                if($devicemodel->updateAirsignal($senal,$dispositivo,null,$id_protocolo[0]['ID_protocolo'],$bits,$config)){
+                    $handlemodel->deleteActionData(session()->get('action_id'));
+
+                    return $this->response->setStatusCode(200)->setBody('Señal guardada correctamente.');
+                }else{
+                    return $this->response->setStatusCode(500)->setBody('Error al guardar la señal.');
+                }
+            }else{
+                if($devicemodel->insertSignal($senal,$dispositivo,null,$id_protocolo[0]['ID_protocolo'],$bits,$config)){
+                    $handlemodel->deleteActionData(session()->get('action_id'));
+
+                    return $this->response->setStatusCode(200)->setBody('Señal guardada correctamente.');
+                }else{
+                    return $this->response->setStatusCode(500)->setBody('Error al guardar la señal.');
+                }
+            }
+        }
+
+    }
+
+
     public function verifySignal(){
-        $funcion=$this->request->getJSON()->functionId;
+        $function=$this->request->getJSON()->functionId;
 
         $dispositivo=$this->request->getJSON()->deviceId;
 
@@ -189,7 +237,33 @@ class Devices extends BaseController{
 
             return redirect()->back();
         }else{
-            if($devicemodel->getSignal($dispositivo,$funcion)){
+            if($devicemodel->getSignal($dispositivo,$function)){
+                return $this->response->setStatusCode(200)->setBody('Señal ya existe.');
+            }else{
+                return $this->response->setStatusCode(500)->setBody('Señal no existe.');
+            }
+        }
+
+    }
+
+    public function verifyAirsignal(){
+
+        $config=$this->request->getJSON()->configId;
+
+        $dispositivo=$this->request->getJSON()->deviceId;
+
+        $devicemodel=new Dispositivos;
+
+        $device=$devicemodel->user_has_permission($dispositivo,session()->get('user_id'));
+
+        if(empty($device)){
+
+            return redirect()->back();
+        }else{
+
+            $senal=$devicemodel->getAirsginal($dispositivo,$config);
+
+            if(!$senal[0]['codigo']==null){
                 return $this->response->setStatusCode(200)->setBody('Señal ya existe.');
             }else{
                 return $this->response->setStatusCode(500)->setBody('Señal no existe.');

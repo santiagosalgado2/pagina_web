@@ -152,6 +152,54 @@ class Esp32C extends BaseController{
 
     }
 
+    public function sendAirsignal(){
+
+        $action_id = $this->request->getPost('action_id');
+        $deviceId = $this->request->getPost('deviceId');
+        $configId = $this->request->getPost('configId');
+        $num = $this->request->getPost('num');
+       
+ 
+            $devicemodel=new Dispositivos;
+
+            $handlemodel=new Manejador;
+
+            $signal=$devicemodel->getAirsginal($deviceId,$configId);
+
+            if($num==1 && !$signal[0]['codigo']==null){
+
+                $protocolo=$devicemodel->getProtocolbySignal($signal[0]['ID_senal']);
+
+                $handlemodel->insertDataQuery('hexadecimal',$signal[0]['codigo'],$action_id);
+
+                $handlemodel->insertDataQuery('protocolo',$protocolo[0]['nombre'],$action_id);
+
+                $handlemodel->insertDataQuery("bits",$signal[0]['bits'],$action_id);
+
+                return $this->response->setStatusCode(200)->setBody('Señal enviada a la bd');
+
+            }elseif($num==2){
+
+                $handlemodel->deleteActionData($action_id);
+
+                $handlemodel->insertDataQuery('codigo',null,$action_id);
+
+                $handlemodel->insertDataQuery("protocolo",null, $action_id);
+
+                $handlemodel->insertDataQuery("bits",null,$action_id);
+
+                return $this->response->setStatusCode(200)->setBody('Señal enviada a la bd');
+
+            }else{
+
+                return $this->response->setStatusCode(500)->setBody('Error al enviar la señal');
+
+            }
+
+
+
+    }
+
 
     
     public function return_after_vinculation($code){
@@ -364,8 +412,6 @@ class Esp32C extends BaseController{
 
         $action_id= $this->request->getJSON()->action_id;
 
-        $functionId = $this->request->getJSON()->functionId;
-
         $handlemodel=new Manejador;
 
         $data=$handlemodel->getActionData($action_id);
@@ -376,6 +422,9 @@ class Esp32C extends BaseController{
             $protocolo=$data[1]['valor'];
 
             $bits=$data[2]['valor'];
+
+            $handlemodel->deleteActionData($action_id);
+
             return $this->response->setStatusCode(200)->setJSON(['hexadecimal'=>$senal,'protocolo'=>$protocolo,'bits'=>$bits]);
         }else{
             return $this->response->setStatusCode(500);

@@ -78,6 +78,9 @@ class Dispositivos extends Model{
         $tabla->insert($data);
     }
 
+
+        
+
     public function updateSignal($signal,$device,$function,$protocol,$bits,$config){
         $tabla=$this->db->table('senalesir');
         $data = array(
@@ -91,6 +94,25 @@ class Dispositivos extends Model{
 
         $tabla->where('ID_dispositivo',$device);
         $tabla->where('ID_funcion',$function);
+
+        $tabla->update($data);
+
+    }
+
+
+    public function updateAirsignal($signal,$device,$function,$protocol,$bits,$config){
+        $tabla=$this->db->table('senalesir');
+        $data = array(
+            "codigo"=>$signal,
+            "ID_dispositivo"=>$device,
+            "ID_funcion"=>$function,
+            "ID_protocolo"=>$protocol,
+            "bits"=>$bits,
+            "ID_configuracion"=>$config
+        );
+
+        $tabla->where('ID_dispositivo',$device);
+        $tabla->where('ID_configuracion',$config);
 
         $tabla->update($data);
 
@@ -115,6 +137,16 @@ class Dispositivos extends Model{
         return $tabla->get()->getResultArray();
     }
 
+    public function getAirsginal($disp,$config){
+
+        $tabla=$this->db->table('senalesir');
+        $tabla->where('ID_dispositivo',$disp);
+        $tabla->where('ID_configuracion',$config);
+        return $tabla->get()->getResultArray();
+
+    }
+
+
     public function deleteSignalsbyDevice($id){
         $tabla=$this->db->table('senalesir');
         $tabla->where('ID_dispositivo',$id);
@@ -125,7 +157,7 @@ class Dispositivos extends Model{
 
         $tabla=$this->db->table('configuraciones c');
 
-        $tabla->select('c.temperatura,c.swing,c.modo,c.fanspeed,s.ID_senal');
+        $tabla->select('c.temperatura,c.swing,c.modo,c.fanspeed,s.ID_senal,c.ID_configuracion');
 
         $tabla->join('senalesir s','s.ID_configuracion=c.ID_configuracion');
 

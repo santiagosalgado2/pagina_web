@@ -61,5 +61,10 @@ $routes->post('/js/verificar_grabacion','Esp32C::verifyRecording');
 $routes->post('/verificar_grabacion','Devices::verifySignal');
 $routes->post('/crear_config','Devices::viewConfig');
 $routes->get("/deleteConfig/(:num)","Devices::deleteConfig/$1");
+$routes->post('/air/enviar_senal','Esp32C::sendAirsignal');
+$routes->post('/air/insertar_senal',"Devices::insertarAirsenal");
+$routes->post('/air/verificar_grabacion','Devices::verifyAirsignal');
+
+
 
 
