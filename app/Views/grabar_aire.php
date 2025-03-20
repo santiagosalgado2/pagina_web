@@ -62,7 +62,7 @@
 <!-- Reemplaza 12345 con el ID real del dispositivo -->
     <div class="remote-control" data-url-receive-code="<?= base_url('/air/enviar_senal') ?>" 
     data-url-save-signal="<?= base_url('/air/insertar_senal'); ?>" data-url-verify-signal="<?= base_url('/js/verificar_grabacion');?>"
-    data-url-verify-record="<?= base_url('/verificar_grabacion'); ?>"></div>
+    data-url-verify-record="<?= base_url('/air/verificar_grabacion'); ?>"></div>
 
 
 
@@ -459,7 +459,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     buttons.forEach(button => {
         button.addEventListener('click', function () {
-            const functionId = this.getAttribute('data-id'); // ID de la función
+            const configId = this.getAttribute('data-id'); // ID de la función
             const deviceId = document.getElementById('deviceId').value; // ID del dispositivo
             const action_id = document.getElementById('actionId').value;
 
@@ -467,12 +467,12 @@ document.addEventListener('DOMContentLoaded', function () {
             alert('Esperando la lectura de la señal IR. Por favor, pulse ACEPTAR y luego pulse el botón de su control original');
 
             // Llamar a la función que verifica continuamente el CSV
-            waitForSignal(functionId, deviceId, action_id);
+            waitForSignal(configId, deviceId, action_id);
         });
     });
 
     // Función para verificar continuamente el CSV
-    async function waitForSignal(functionId, deviceId, action_id) {
+    async function waitForSignal(configId, deviceId, action_id) {
         try {
 
             const num=2;
@@ -480,7 +480,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const response = await fetch(receiveCodeUrl, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: new URLSearchParams({ deviceId, functionId, action_id, num }),
+                body: new URLSearchParams({ deviceId, configId, action_id, num }),
             });
 
             if (response.status !== 200) {
@@ -495,7 +495,7 @@ document.addEventListener('DOMContentLoaded', function () {
               const verifyResponse =await fetch(verifySignalUrl, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ action_id, functionId }),
+                    body: JSON.stringify({ action_id, configId }),
                 });
 
               if(verifyResponse.status === 200){
@@ -510,7 +510,7 @@ document.addEventListener('DOMContentLoaded', function () {
                   const verifyRecord =await fetch(verifyRecordUrl, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ deviceId, functionId }),
+                    body: JSON.stringify({ deviceId, configId }),
                 });
 
                 if (verifyRecord.status === 200) { 
@@ -521,7 +521,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         const saveResponse = await fetch(saveSignalUrl, {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ irCode, protocolo, bits, deviceId, functionId }),
+                            body: JSON.stringify({ irCode, protocolo, bits, deviceId, configId }),
                         });
 
                         alert(`Señal actualizada correctamente`);
@@ -532,7 +532,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     const saveResponse = await fetch(saveSignalUrl, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ irCode, protocolo, bits, deviceId, functionId }),
+                        body: JSON.stringify({ irCode, protocolo, bits, deviceId, configId }),
                     });
 
                     alert(`Señal grabada correctamente`);

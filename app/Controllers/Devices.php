@@ -225,6 +225,29 @@ class Devices extends BaseController{
 
 
     public function verifySignal(){
+        $function=$this->request->getJSON()->functionId;
+
+        $dispositivo=$this->request->getJSON()->deviceId;
+
+        $devicemodel=new Dispositivos;
+
+        $device=$devicemodel->user_has_permission($dispositivo,session()->get('user_id'));
+
+        if(empty($device)){
+
+            return redirect()->back();
+        }else{
+            if($devicemodel->getSignal($dispositivo,$function)){
+                return $this->response->setStatusCode(200)->setBody('Señal ya existe.');
+            }else{
+                return $this->response->setStatusCode(500)->setBody('Señal no existe.');
+            }
+        }
+
+    }
+
+    public function verifyAirsignal(){
+
         $config=$this->request->getJSON()->configId;
 
         $dispositivo=$this->request->getJSON()->deviceId;
@@ -237,7 +260,10 @@ class Devices extends BaseController{
 
             return redirect()->back();
         }else{
-            if($devicemodel->getAirsginal($dispositivo,$config)){
+
+            $senal=$devicemodel->getAirsginal($dispositivo,$config);
+
+            if(!$senal[0]['codigo']==null){
                 return $this->response->setStatusCode(200)->setBody('Señal ya existe.');
             }else{
                 return $this->response->setStatusCode(500)->setBody('Señal no existe.');

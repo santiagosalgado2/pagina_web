@@ -166,7 +166,7 @@ class Esp32C extends BaseController{
 
             $signal=$devicemodel->getAirsginal($deviceId,$configId);
 
-            if($num==1 && $signal){
+            if($num==1 && !$signal[0]['codigo']==null){
 
                 $protocolo=$devicemodel->getProtocolbySignal($signal[0]['ID_senal']);
 
@@ -412,8 +412,6 @@ class Esp32C extends BaseController{
 
         $action_id= $this->request->getJSON()->action_id;
 
-        $functionId = $this->request->getJSON()->functionId;
-
         $handlemodel=new Manejador;
 
         $data=$handlemodel->getActionData($action_id);
@@ -424,6 +422,9 @@ class Esp32C extends BaseController{
             $protocolo=$data[1]['valor'];
 
             $bits=$data[2]['valor'];
+
+            $handlemodel->deleteActionData($action_id);
+
             return $this->response->setStatusCode(200)->setJSON(['hexadecimal'=>$senal,'protocolo'=>$protocolo,'bits'=>$bits]);
         }else{
             return $this->response->setStatusCode(500);
