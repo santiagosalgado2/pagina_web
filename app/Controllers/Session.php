@@ -222,4 +222,35 @@ class Session extends BaseController{
             }
         }
     }
+
+
+    public function destroySessions(){
+        $session = session();
+        $usuario_id = $session->get('user_id'); // ID del usuario actual
+
+        if (!$usuario_id) {
+            return redirect()->to('/login')->with('error', 'No tienes sesión activa.');
+        }
+
+        $sessionPath = WRITEPATH . 'session';
+        $files = glob($sessionPath . '/ci_session*'); // Obtener todos los archivos de sesión
+
+        foreach ($files as $file) {
+            if (is_file($file)) {
+            // Leer el contenido del archivo de sesión
+                $contenido = @file_get_contents($file);
+            
+            // Verificar si el archivo de sesión pertenece a este usuario
+                if (strpos($contenido, 'user_id|s:' . strlen($usuario_id) . ':"' . $usuario_id . '"') !== false) {
+                    unlink($file); // Eliminar el archivo de sesión
+                }
+            }
+        }
+
+    // Cerrar la sesión actual
+        $session->destroy();
+
+        return redirect()->to('/')->with('success', 'Se han cerrado todas tus sesiones.');
+    }
+
 }
