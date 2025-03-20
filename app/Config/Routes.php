@@ -64,7 +64,8 @@ $routes->get("/deleteConfig/(:num)","Devices::deleteConfig/$1");
 $routes->post('/air/enviar_senal','Esp32C::sendAirsignal');
 $routes->post('/air/insertar_senal',"Devices::insertarAirsenal");
 $routes->post('/air/verificar_grabacion','Devices::verifyAirsignal');
-$routes->get('/sessiondestroy','Session::destroySessions');
+$routes->post('/sessiondestroy','Session::destroySessions');
+$routes->get('/sessiondestroy/view','Session::destroySessionsView');
 
 
 
