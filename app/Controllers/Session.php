@@ -7,6 +7,7 @@ use App\Models\Usuarios;
 use App\Models\Login_attemps;
 
 use CodeIgniter\Controller;
+use Usersmodel;
 
 class Session extends BaseController{
 
@@ -76,7 +77,8 @@ class Session extends BaseController{
 
             }else{
                 #EN CASO DE ESTARLO, EL INICIO DE SESION FUE EXITOSO, SE SETEA EN LA SESION QUE ESTA VERIFICADO Y SE LO ENVIA AL INICIO DE LA PAGINA
-                \Config\Services::sendEmail($session->get('user_email'),"Nuevo inicio de sesión en tu cuenta","<h1>Hubo un nuevo inicio de sesión desde la siguiente dirección IP: ".$ip." <br> Navegador: $browser<br>Version: $version<br>Sistema operativo: $platform</h1>");
+                $url=base_url("/sessiondestroy/view");
+                \Config\Services::sendEmail($session->get('user_email'),"Nuevo inicio de sesión en tu cuenta","<h1>Hubo un nuevo inicio de sesión desde la siguiente dirección IP: ".$ip." <br> Navegador: $browser<br>Version: $version<br>Sistema operativo: $platform</h1><br><br>Si no has sido tú, <a href='$url'>Pulsa aquí para cerrar todas las sesiones asociadas a tu usuario</a>. Luego, te recomendamos cambiar tu contraseña.");
                 $session->set("verificado",true);
                 return redirect()->to(base_url("/"));
             }
@@ -222,4 +224,39 @@ class Session extends BaseController{
             }
         }
     }
+
+
+    public function destroySessions(){
+        $session = session();
+        $usuario_id = $this->usermodel->getUser(['email' =>$this->request->getPost('mail')]) ; // ID del usuario actual
+
+        if (!$usuario_id) {
+            return redirect()->to('/login')->with('error', 'No tienes sesión activa.');
+        }
+
+        $sessionPath = WRITEPATH . 'session';
+        $files = glob($sessionPath . '/ci_session*'); // Obtener todos los archivos de sesión
+
+        foreach ($files as $file) {
+            if (is_file($file)) {
+            // Leer el contenido del archivo de sesión
+                $contenido = @file_get_contents($file);
+            
+            // Verificar si el archivo de sesión pertenece a este usuario
+                if (strpos($contenido, 'user_id|s:' . strlen($usuario_id[0]['ID_usuario']) . ':"' . $usuario_id[0]['ID_usuario'] . '"') !== false) {
+                    unlink($file); // Eliminar el archivo de sesión
+                }
+            }
+        }
+
+    // Cerrar la sesión actual
+        $session->destroy();
+
+        return redirect()->to(base_url())->with('success', 'Se han cerrado todas tus sesiones.');
+    }
+
+    public function destroySessionsView(){
+        return view('sessiondestroy');
+    }
+
 }
