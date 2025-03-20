@@ -9,3 +9,53 @@ in APPPATH\Controllers\Session.php on line 241.
  6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
  7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-20 22:00:53 --> ErrorException: Trying to access array offset on value of type int
+[Method: POST, Route: insertar_senal]
+in APPPATH\Controllers\Devices.php on line 167.
+ 1 APPPATH\Controllers\Devices.php(167): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type int', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Controllers\\Devices.php', 167)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Devices->insertarSenal()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Devices))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-20 22:06:38 --> ErrorException: Trying to access array offset on value of type int
+[Method: POST, Route: insertar_senal]
+in APPPATH\Controllers\Devices.php on line 167.
+ 1 APPPATH\Controllers\Devices.php(167): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type int', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Controllers\\Devices.php', 167)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Devices->insertarSenal()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Devices))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-20 22:06:57 --> ErrorException: Trying to access array offset on value of type int
+[Method: POST, Route: insertar_senal]
+in APPPATH\Controllers\Devices.php on line 159.
+ 1 APPPATH\Controllers\Devices.php(159): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type int', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Controllers\\Devices.php', 159)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Devices->insertarSenal()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Devices))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-20 22:13:23 --> ErrorException: Trying to access array offset on value of type int
+[Method: POST, Route: air/insertar_senal]
+in APPPATH\Controllers\Devices.php on line 206.
+ 1 APPPATH\Controllers\Devices.php(206): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type int', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Controllers\\Devices.php', 206)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Devices->insertarAirsenal()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Devices))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-20 22:13:35 --> ErrorException: Trying to access array offset on value of type int
+[Method: POST, Route: air/insertar_senal]
+in APPPATH\Controllers\Devices.php on line 206.
+ 1 APPPATH\Controllers\Devices.php(206): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type int', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Controllers\\Devices.php', 206)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Devices->insertarAirsenal()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Devices))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
