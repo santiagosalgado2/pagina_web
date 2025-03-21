@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>IRConnect</title>
+  <title>IRConnect - Gestión eficiente y comodidad garantizada.</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -576,7 +576,7 @@
               <div class="faq-item">
                 <h3>¿Cómo registro mi usuario?</h3>
                 <div class="faq-content">
-                  <p>Una vez hayas adquirido IRConnect, <a href="#">PULSA AQUÍ</a> para crear tu usuario y vincular el producto </p>
+                  <p>Una vez hayas adquirido IRConnect, <a href="<?= base_url('/viewlogin');?>">Pulsa aquí</a> para crear tu usuario y vincular el producto </p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
