@@ -41,7 +41,7 @@
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+      <a href="<?php echo base_url();?>" class="logo d-flex align-items-center me-auto me-xl-0">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1 class="sitename">IRConnect</h1>
@@ -75,7 +75,7 @@
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="index.html#about">Inicia sesión</a>
+      <a class="btn-getstarted" href="<?php echo base_url('/viewlogin');?>">Inicia sesión</a>
 
     </div>
   </header>
@@ -725,7 +725,7 @@
     <div class="container footer-top">
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
+          <a href="<?php echo base_url();?>" class="logo d-flex align-items-center">
             <span class="sitename">IRconnect</span>
           </a>
           <div class="footer-contact pt-3">
@@ -745,10 +745,10 @@
         <div class="col-lg-2 col-md-3 footer-links">
           <h4>Links útiles</h4>
           <ul>
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Acerca del producto</a></li>
-            <li><a href="#">Inicia sesión</a></li>
-            <li><a href="#">Compra el producto</a></li>
+            <li><a href="#hero">Inicio</a></li>
+            <li><a href="#about">Acerca del producto</a></li>
+            <li><a href="<?php echo base_url('/viewlogin');?>">Inicia sesión</a></li>
+            <li><a href="#pricing">Compra el producto</a></li>
           </ul>
         </div>
 

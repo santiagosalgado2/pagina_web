@@ -48,14 +48,14 @@ class Users extends BaseController{
         if($pw1!=$pw2){
             #EN CASO DE QUE LOS 2 CAMPOS NO COINCIDAN
             $session->setFlashdata('error',"Las contraseñas no coinciden");
-            return redirect()->to(base_url("/"));
+            return redirect()->to(base_url("/viewlogin"));
 
         }
         
         elseif(!$this->validate($validationrules)){
             #EN CASO DE QUE LA CONTRASEÑA NO CUMPLA CON LOS REQUISITOS SE MUESTRA ESTE MENSAJE
             $session->setFlashdata('error',"La contraseña debe tener al menos 8 caracteres, una letra mayúscula y un número");
-            return redirect()->to(base_url("/"));
+            return redirect()->to(base_url("/viewlogin"));
         }
 
         else{
@@ -79,7 +79,7 @@ class Users extends BaseController{
             if($n==true){
                 #SI LA ACTUALIZACION FUE EXITOSA, SE MUESTRA ESTE MENSAJE CON EL BOTON PARA VOLVER AL INICIO
                 $session->setFlashdata('success',"Contraseña actualizada correctamente");
-                return redirect()->to(base_url("/"));
+                return redirect()->to(base_url("/viewlogin"));
             }else{
                 $error='Ha ocurrido un error inesperado, intente nuevamente';
                 return view('email',["error" => $error]);
