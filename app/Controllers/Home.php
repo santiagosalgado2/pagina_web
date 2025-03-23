@@ -180,5 +180,28 @@ class Home extends BaseController
         return $this->response->setJSON(json_decode($result, true));
     }
 
+    public function formcontact(){
+        $nombre=$this->request->getPost('name');
+
+        $email=$this->request->getPost('email');
+
+        $asunto=$this->request->getPost('subject');
+
+        $mensaje=$this->request->getPost('message');
+
+        \Config\Services::sendEmail('irconnect33@gmail.com','Consulta nueva de '.$email,'
+        Nombre: '.$nombre.'
+        <br>Email: '.$email.'
+        <br>Asunto: '.$asunto.'
+        <br>Mensaje: '.$mensaje);
+
+        \Config\Services::sendEmail($email,'Consulta enviada correctamente','<h1>Hola '.$nombre.'! Tu consulta fue enviada correctamente. En instantes, un miembro de nuestro soporte le enviará un correo electrónico respondiendo su mensaje</h1>');
+
+        return $this->response->setStatusCode(200)->setBody('OK');
+
+
+
+    }
+
     
 }

@@ -69,6 +69,7 @@ $routes->get('/sessiondestroy/view','Session::destroySessionsView');
 $routes->get('/viewlogin','Home::viewlogin');
 $routes->post("paypal/createOrder", "Home::createOrder");
 $routes->post("paypal/captureOrder", "Home::captureOrder");
+$routes->post('/landing/mail','Home::formcontact');
 
 
 
