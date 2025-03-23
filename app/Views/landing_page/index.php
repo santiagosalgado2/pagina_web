@@ -424,7 +424,7 @@
                   <i class="bi bi-display"></i>
                 </div>
                 <div class="feature-content">
-                  <h3>Usalo desde tu computadora</h3>
+                  <h3>Úsalo desde tu computadora</h3>
                   <p>Accede al sitio desde tu computadora y controla tus dispositivos de manera sencilla.</p>
                 </div>
                
@@ -780,11 +780,42 @@
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script
-  src="https://www.paypal.com/sdk/js?client-id=AU7kXT2lcfGitavBqTNmysdQ9Z3tS04lx8PYLnqs41sTEV5LKJvxgUv2kawJJt-aSxlHJdT3vYAmslFv&buyer-country=US&currency=USD&components=buttons&enable-funding=venmo,paylater,card"
-  data-sdk-integration-source="developer-studio"
-></script>
-<script src="app.js"></script>
+  <script src="https://www.paypal.com/sdk/js?client-id=AU7kXT2lcfGitavBqTNmysdQ9Z3tS04lx8PYLnqs41sTEV5LKJvxgUv2kawJJt-aSxlHJdT3vYAmslFv&currency=USD"></script>
+
+<script>
+    paypal.Buttons({
+        createOrder: function(data, actions) {
+            return fetch("<?= base_url('paypal/createOrder') ?>", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    amount: "59.99" // Monto de la transacción
+                }),
+            })
+            .then(response => response.json())
+            .then(order => order.id);
+        },
+
+        onApprove: function(data, actions) {
+            return fetch("<?= base_url('paypal/captureOrder') ?>", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    orderID: data.orderID
+                }),
+            })
+            .then(response => response.json())
+            .then(order => {
+                alert("Pago realizado con éxito. Muchas gracias! En instantes le llegará un mail a la dirección ingresada para la compra. " );
+            })
+            .catch(error => console.error("Error al capturar el pago:", error));
+        }
+    }).render("#paypal-button-container");
+</script>
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
