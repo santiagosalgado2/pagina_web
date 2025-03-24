@@ -96,11 +96,11 @@
               </div>
 
               <h1 class="mb-4">
-                IRconnect 
+                IRConnect 
               </h1>
 
               <p class="mb-4 mb-md-5">
-                <h5><b>"IRconnect:</b> Gestión eficiente y comodidad garantizada."</h5>
+                <h5><b>"IRConnect:</b> Gestión eficiente y comodidad garantizada."</h5>
               </p>
 
               <div class="hero-buttons">
