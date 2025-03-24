@@ -47,15 +47,21 @@ class Users extends BaseController{
 
         if($pw1!=$pw2){
             #EN CASO DE QUE LOS 2 CAMPOS NO COINCIDAN
-            $session->setFlashdata('error',"Las contraseñas no coinciden");
-            return redirect()->to(base_url("/viewlogin"));
+            echo "<script>
+            alert('Las contraseñas no coinciden. Inténtenlo nuevamente');
+            window.location.href = '" . base_url('/viewlogin') . "';
+            </script>";
+            exit(); // Asegura que el script se detenga aquí
 
         }
         
         elseif(!$this->validate($validationrules)){
             #EN CASO DE QUE LA CONTRASEÑA NO CUMPLA CON LOS REQUISITOS SE MUESTRA ESTE MENSAJE
-            $session->setFlashdata('error',"La contraseña debe tener al menos 8 caracteres, una letra mayúscula y un número");
-            return redirect()->to(base_url("/viewlogin"));
+            echo "<script>
+            alert('La contraseña debe tener al menos 8 caracteres, una letra mayúscula y un número. Inténtelo nuevamente');
+            window.location.href = '" . base_url('/viewlogin') . "';
+            </script>";
+            exit(); // Asegura que el script se detenga aquí
         }
 
         else{
@@ -78,8 +84,11 @@ class Users extends BaseController{
 
             if($n==true){
                 #SI LA ACTUALIZACION FUE EXITOSA, SE MUESTRA ESTE MENSAJE CON EL BOTON PARA VOLVER AL INICIO
-                $session->setFlashdata('success',"Contraseña actualizada correctamente");
-                return redirect()->to(base_url("/viewlogin"));
+                echo "<script>
+                alert('Contraseña actualizada correctamente');
+                window.location.href = '" . base_url('/viewlogin') . "';
+                </script>";
+                exit(); // Asegura que el script se detenga aquí
             }else{
                 $error='Ha ocurrido un error inesperado, intente nuevamente';
                 return view('email',["error" => $error]);
@@ -164,7 +173,11 @@ class Users extends BaseController{
 
             if($finduser[0]["hash_contrasena"] != null){
                 #SI LA CONTRASEÑA DEL USUARIO YA FUE SETEADA, SE LE MUESTRA ESTE MENSAJE
-                echo "Tu contraseña ya fue establecida";
+                echo "<script>
+                alert('Ya has creado tu contraseña');
+                window.location.href = '" . base_url('/viewlogin') . "';
+                </script>";
+                exit(); // Asegura que el script se detenga aquí
 
             }else{
                 #SI EL USUARIO EFECTIVAMENTE DEBE CREAR SU CONTRASEÑA, SE ALMACENA SU ID EN UNA VARIABLE DE SESION QUE SERA NECESARIA LUEGO PARA INSERTAR SU CONTRASEÑA EN LA BD Y SE 

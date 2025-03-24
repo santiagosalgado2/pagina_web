@@ -16,6 +16,7 @@ use App\Models\Esp32;
 class Home extends BaseController
 {
 
+    //ATRIBUTOS NECESARIOS PARA EL MODULO DE PAYPAL
     private $clientId="AU7kXT2lcfGitavBqTNmysdQ9Z3tS04lx8PYLnqs41sTEV5LKJvxgUv2kawJJt-aSxlHJdT3vYAmslFv";
 
     private $clientSecret ="EJCqeNo4AUc6FDJNk7pV7w5KgYZJy1dwUwlCnKxg3Mt2IXfO-FIuLVFlEWrdykgePW5Amn-FtMhpBPzN";
@@ -42,9 +43,6 @@ class Home extends BaseController
              return view('landing_page/index'); #EN CASO DE QUE EL USUARIO NO HAYA INICIADO SESION, LO ENVIA AL LOGIN
          }
 
-        
-
-        
     }
 
     public function inicio(){
@@ -53,10 +51,6 @@ class Home extends BaseController
 
     public function viewPrueba(){
         return view("prueba");
-    }
-
-    public function expo(){
-        return view('landing_page');
     }
 
     public function viewlogin(){
@@ -69,6 +63,16 @@ class Home extends BaseController
 
     }
 
+
+
+
+    //EXPO 2024
+
+
+
+    public function expo(){
+        return view('landing_page');
+    }
     public function actualizar(){
         $estado = $this->request->getGet('estado');
         if ($estado) {
@@ -89,6 +93,8 @@ class Home extends BaseController
         return $this->response->setJSON(['estado' => $estado]);
     }
 
+
+    //MODULO DE PAYPAL
 
     private function getAccessToken()
     {
