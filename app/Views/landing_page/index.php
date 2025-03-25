@@ -43,7 +43,7 @@
 
       <a href="<?php echo base_url();?>" class="logo d-flex align-items-center me-auto me-xl-0">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <img src="assets/img/logo1.png" alt="logo"> 
         <h1 class="sitename">IRConnect</h1>
       </a>
 
