@@ -161,7 +161,7 @@
 
 <style>
   body {
-    max-height: 150vh;
+    max-height: 200vh;
     background: linear-gradient(135deg, #2C3E50, #4CA1AF); /* Azul marino a azul petróleo */
     color: #333333; /* Gris carbón para el texto */
 }
