@@ -36,11 +36,6 @@
 </head>
 <body class="p-3 mb-2 bg-primary-subtle text-primary-emphasis">
 
-<div class="circulo"></div>
-    <div class="circulo"></div>
-    <div class="circulo"></div>
-    <div class="circulo"></div>
-
 
     <header id="header" class="header d-flex align-items-center fixed-top">
         <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
