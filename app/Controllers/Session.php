@@ -101,7 +101,7 @@ class Session extends BaseController{
             }            
 
             #SE LO RETORNA NUEVAMENTE AL INICIO QUE LO MANDARA A LA VISTA DE LOGIN YA QUE NO PUDIERON SER SETEADOS SUS DATOS DE SESION AL HABER INGRESADO DATOS INCORRECTOS
-            return redirect()->to(base_url("/"));
+            return redirect()->to(base_url("/viewlogin"));
 
         }
     }
@@ -154,14 +154,14 @@ class Session extends BaseController{
             #EN CASO DE QUE LA CONTRASEÑA Y SU CONFIRMACION NO COINCIDAD, SE LO DEVUELVE AL LOGIN CON EL MENSAJE DE ERROR
             $session->setFlashdata("error","Las contraseñas no coinciden");
 
-            return redirect()->to(base_url("/"));
+            return redirect()->to(base_url("/viewlogin"));
 
         }
         elseif(!$this->validate($validationrules)){
             #EN CASO DE QUE LA CONTRASEÑA NO CUMPLA CON LOS REQUISITOS, TAMBIEN SE LO DEVUELVE AL LOGIN
             $session->setFlashdata("error",$this->validator->getErrors());
 
-            return redirect()->to(base_url("/"));
+            return redirect()->to(base_url("/viewlogin"));
 
         }
         #SI LAS CONTRASEÑA ES VALIDA Y LOS 2 CAMPOS COINCIDEN:
@@ -182,7 +182,7 @@ class Session extends BaseController{
                 */
                 $session->setFlashdata("error","El nombre de usuario o el correo electrónico ya estan en uso");
 
-                return redirect()->to(base_url("/"));
+                return redirect()->to(base_url("/viewlogin"));
 
             }else{
                 /*

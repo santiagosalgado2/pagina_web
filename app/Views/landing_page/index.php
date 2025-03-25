@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>IRConnect</title>
+  <title>IRConnect - Gestión eficiente y comodidad garantizada.</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -41,7 +41,7 @@
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+      <a href="<?php echo base_url();?>" class="logo d-flex align-items-center me-auto me-xl-0">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1 class="sitename">IRConnect</h1>
@@ -75,7 +75,7 @@
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="index.html#about">Inicia sesión</a>
+      <a class="btn-getstarted" href="<?php echo base_url('/viewlogin');?>">Inicia sesión</a>
 
     </div>
   </header>
@@ -96,11 +96,11 @@
               </div>
 
               <h1 class="mb-4">
-                IRconnect 
+                IRConnect 
               </h1>
 
               <p class="mb-4 mb-md-5">
-                <h5><b>"IRconnect:</b> Gestión eficiente y comodidad garantizada."</h5>
+                <h5><b>"IRConnect:</b> Gestión eficiente y comodidad garantizada."</h5>
               </p>
 
               <div class="hero-buttons">
@@ -424,7 +424,7 @@
                   <i class="bi bi-display"></i>
                 </div>
                 <div class="feature-content">
-                  <h3>Usalo desde tu computadora</h3>
+                  <h3>Úsalo desde tu computadora</h3>
                   <p>Accede al sitio desde tu computadora y controla tus dispositivos de manera sencilla.</p>
                 </div>
                
@@ -576,7 +576,7 @@
               <div class="faq-item">
                 <h3>¿Cómo registro mi usuario?</h3>
                 <div class="faq-content">
-                  <p>Una vez hayas adquirido IRConnect, <a href="#">PULSA AQUÍ</a> para crear tu usuario y vincular el producto </p>
+                  <p>Una vez hayas adquirido IRConnect, <a href="<?= base_url('/viewlogin');?>">Pulsa aquí</a> para crear tu usuario y vincular el producto </p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
@@ -679,7 +679,7 @@
               <h3>Formulario</h3>
               <p>Envíanos un E-mail con tu pregunta</p>
 
-              <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+              <form action="<?= base_url('/landing/mail');?>" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
                 <div class="row gy-4">
 
                   <div class="col-md-6">
@@ -725,7 +725,7 @@
     <div class="container footer-top">
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
+          <a href="<?php echo base_url();?>" class="logo d-flex align-items-center">
             <span class="sitename">IRconnect</span>
           </a>
           <div class="footer-contact pt-3">
@@ -745,10 +745,10 @@
         <div class="col-lg-2 col-md-3 footer-links">
           <h4>Links útiles</h4>
           <ul>
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Acerca del producto</a></li>
-            <li><a href="#">Inicia sesión</a></li>
-            <li><a href="#">Compra el producto</a></li>
+            <li><a href="#hero">Inicio</a></li>
+            <li><a href="#about">Acerca del producto</a></li>
+            <li><a href="<?php echo base_url('/viewlogin');?>">Inicia sesión</a></li>
+            <li><a href="#pricing">Compra el producto</a></li>
           </ul>
         </div>
 
@@ -780,11 +780,42 @@
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script
-  src="https://www.paypal.com/sdk/js?client-id=AU7kXT2lcfGitavBqTNmysdQ9Z3tS04lx8PYLnqs41sTEV5LKJvxgUv2kawJJt-aSxlHJdT3vYAmslFv&buyer-country=US&currency=USD&components=buttons&enable-funding=venmo,paylater,card"
-  data-sdk-integration-source="developer-studio"
-></script>
-<script src="app.js"></script>
+  <script src="https://www.paypal.com/sdk/js?client-id=AU7kXT2lcfGitavBqTNmysdQ9Z3tS04lx8PYLnqs41sTEV5LKJvxgUv2kawJJt-aSxlHJdT3vYAmslFv&currency=USD"></script>
+
+<script>
+    paypal.Buttons({
+        createOrder: function(data, actions) {
+            return fetch("<?= base_url('paypal/createOrder') ?>", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    amount: "59.99" // Monto de la transacción
+                }),
+            })
+            .then(response => response.json())
+            .then(order => order.id);
+        },
+
+        onApprove: function(data, actions) {
+            return fetch("<?= base_url('paypal/captureOrder') ?>", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    orderID: data.orderID
+                }),
+            })
+            .then(response => response.json())
+            .then(order => {
+                alert("Pago realizado con éxito. Muchas gracias! En instantes le llegará un mail a la dirección ingresada para la compra. " );
+            })
+            .catch(error => console.error("Error al capturar el pago:", error));
+        }
+    }).render("#paypal-button-container");
+</script>
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>

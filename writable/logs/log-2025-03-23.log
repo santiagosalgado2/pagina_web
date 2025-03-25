@@ -1,0 +1,23 @@
+CRITICAL - 2025-03-23 19:45:12 --> ErrorException: Undefined array key 0
+[Method: POST, Route: air/enviar_senal]
+in APPPATH\Controllers\Esp32C.php on line 169.
+ 1 APPPATH\Controllers\Esp32C.php(169): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Controllers\\Esp32C.php', 169)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Esp32C->sendAirsignal()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Esp32C))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-23 22:13:36 --> ErrorException: file_get_contents(https://api-m.sandbox.paypal.com/v2/checkout/orders/5KB32973UT6401242/capture): Failed to open stream: HTTP request failed! HTTP/1.1 422 Unknown Error
+
+[Method: POST, Route: paypal/captureOrder]
+in APPPATH\Controllers\Home.php on line 173.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(https://api-m.sandbox.paypal.com/v2/checkout/orders/5KB32973UT6401242/capture): Failed to open stream: HTTP request failed! HTTP/1.1 422 Unknown Error
+', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Controllers\\Home.php', 173)
+ 2 APPPATH\Controllers\Home.php(173): file_get_contents('https://api-m.sandbox.paypal.com/v2/checkout/orders/5KB32973UT6401242/capture', false, resource (stream-context))
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->captureOrder()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

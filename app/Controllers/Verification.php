@@ -47,7 +47,7 @@ class Verification extends BaseController{
                 $session->set($data);
             }else{
                 $session->setFlashdata("error","El mail ingresado no se encuentra registrado");
-                return redirect()->to(base_url("/"));
+                return redirect()->to(base_url("/viewlogin"));
             }
         
         #SI SE ACCEDE A TRAVES DE GET, QUIERE DECIR QUE EL USUARIO DESEA VERIFICARSE Y LOS DATOS DE SESION YA ESTAN SETEADOS
@@ -136,7 +136,12 @@ class Verification extends BaseController{
 
         }else{
             #EN CASO DE QUE EL CODIGO NO SE ENCUENTRE O HAYA EXPIRADO (YA QUE AL EXPIRAR, SE ELIMINA AUTOMATICAMENTE DE LA BD POR LO QUE NO SERA ENCONTRADO):
-            echo "Código expirado o no válido";
+            echo "<script>
+            alert('Código expirado o no válido. Inténtelo nuevamente');
+            window.location.href = '" . base_url('/viewlogin') . "';
+            </script>";
+            exit(); // Asegura que el script se detenga aquí
+        
         }
 
     }
