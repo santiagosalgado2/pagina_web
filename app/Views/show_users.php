@@ -55,62 +55,58 @@
     </div>
   </div>
 </nav>
-    <br><br><br><h1>Información de tus usuarios</h1>
-      <div class="acciones">
-     <a href="<?php echo base_url("/new_user");?>"><button class="button2">Crear un nuevo usuario</button></a> 
-    <a href="<?php echo base_url("/");?>"><button class="button2">Volver</button></a><br>
-    <?php 
-     $error_data = $session->getFlashdata("error");
-     if($error_data){
-      echo "<h1>".$error_data."</h1>";
-     }
-     
-     ?>
-     </div>
-     <?php 
-    $success = session()->getFlashdata('success');
-    if(isset($success)): ?>
-  <center>
-    <div style="background-color: green; border: 1px solid green; padding: 10px; border-radius: 5px; height:70px; width: 220px; ">
-        ✔ <?php echo $success; ?>
+<div class="container mt-4">
+        <h1 class="mb-4">Información de tus usuarios</h1>
+        
+        <div class="d-flex flex-wrap gap-2 mb-4 acciones">
+            <a href="<?php echo base_url('/new_user');?>" class="btn btn-success">Crear un nuevo usuario</a>
+            <a href="<?php echo base_url('/');?>" class="btn btn-secondary">Volver</a>
+        </div>
+        
+        <?php 
+        $error_data = $session->getFlashdata("error");
+        if($error_data): ?>
+            <div class="alert alert-danger"><?php echo $error_data; ?></div>
+        <?php endif; ?>
+        
+        <?php 
+        $success = session()->getFlashdata('success');
+        if(isset($success)): ?>
+            <div class="alert alert-success text-center">✔ <?php echo $success; ?></div>
+        <?php endif; ?>
+        
+        <?php if(isset($datos) && !empty($datos)): ?>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Nombre de usuario</th>
+                            <th>Dirección de E-mail</th>
+                            <th>Fecha de creación</th>
+                            <th class="actions-header">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach($datos as $d): ?>
+                            <tr>
+                                <td><?php echo $d["nombre_usuario"]; ?></td>
+                                <td><?php echo $d["email"]; ?></td>
+                                <td><?php echo $d["fecha_creacion"]; ?></td>
+                                <td>
+                                    <form action="<?php echo base_url('/permisos'); ?>" method="post">
+                                        <input type="hidden" name="id" value="<?php echo $d["ID_usuario"]; ?>">
+                                        <button type="submit" class="button2">Administrar permisos</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        <?php else: ?>
+            <div class="alert alert-info text-center">No tienes usuarios creados</div>
+        <?php endif; ?>
     </div>
-    </center>
-<?php endif; ?>
-    <?php if(isset($datos) && !empty($datos)):?>
-
-        <table>
-            <thead>
-                <th>Nombre de usuario</th>
-                <th>Dirección de E-mail</th>
-                <th>Fecha de creación</th>
-                <th>Acciones</th>
-            </thead>
-            <tbody>
-                <?php foreach($datos as $d):?>
-                    <tr>
-                        <td><?php echo $d["nombre_usuario"];?> </td>
-                        <td><?php echo $d["email"];?> </td>
-                        <td><?php echo $d["fecha_creacion"];?> </td>
-                        <form action="<?php echo base_url('/permisos');?>" method="post">
-                          <input type="hidden" name="id" value="<?php echo $d["ID_usuario"];?>">
-                        <td><button type="submit" class="button2">Administrar permisos</button></td>
-                        </form>
-                    </tr>
-                <?php endforeach;?>
-            </tbody>
-        </table>
-    <?php else:?>
-        <h2><center>No tienes usuarios creados</center></h2>
-    <?php endif;?>
-
-    
-
-    <style>
-
-      
-    </style>
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>   
+ 
 </body>
 </html>
