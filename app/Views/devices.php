@@ -73,56 +73,67 @@
         }
       ?>
 
-    <table>
 
-    <thead>
-        <th>Dispositivos</th>
-        <th>Acciones</th>
-    </thead>
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+            <div class="table-responsive">
+
+<table class="table table-bordered table-info mx-auto">
+
+<thead>
+    <th>Dispositivos</th>
+    <th>Acciones</th>
+</thead>
 
 
-    <tbody>
-        <?php foreach ($datos as $d):?>
-          <?php 
-                if ($d["ID_tipo"] == 1) {
-                    $url = base_url('/prueba_aircontrol');
-                    $grabar=base_url('/grabar_aire');
-                } elseif ($d["ID_tipo"] == 2) {
-                    $url = base_url('/prueba_control');
-                    $grabar=base_url('/grabar_tele');
-                } else {
-                    $url = base_url('/prueba_ventiladorcontrol');
-                    $grabar=base_url('/grabar_ventilador'); 
-                }
-            ?>
-        <tr>
-            <td><?php echo $d["nombre"];?> </td>
-        
-            <td>
-            <form action="<?php echo $url;?>" method="post">
-                  <input type="hidden" name="id" value="<?php echo $d['ID_dispositivo'];?>">
-                  <button class="button2" type="submit">Controlar</button></a>
-                </form>
-                <?php
-                if($permiso==1):?>  
-                <form action="<?php echo base_url('/edit_device');?>" method="post">
-                  <input type="hidden" name="id" value="<?php echo $d['ID_dispositivo'];?>">
-                  <button class="button2" type="submit">Editar</button></a>
-                </form>
-                <button class="button2" onclick="deleteDevice('<?php echo base_url('/delete_device/'.$d['ID_dispositivo']);?>')">Eliminar</button>
-                <form action="<?php echo $grabar;?>" method="post">
-                  <input type="hidden" name="id" value="<?php echo $d['ID_dispositivo'];?>">
-                  <button class="button2" type="submit">Grabar señales</button></a>
-                </form>
+<tbody>
+    <?php foreach ($datos as $d):?>
+      <?php 
+            if ($d["ID_tipo"] == 1) {
+                $url = base_url('/prueba_aircontrol');
+                $grabar=base_url('/grabar_aire');
+            } elseif ($d["ID_tipo"] == 2) {
+                $url = base_url('/prueba_control');
+                $grabar=base_url('/grabar_tele');
+            } else {
+                $url = base_url('/prueba_ventiladorcontrol');
+                $grabar=base_url('/grabar_ventilador'); 
+            }
+        ?>
+    <tr>
+        <td><?php echo $d["nombre"];?> </td>
+    
+        <td>
+        <div class="botones-tabla">
+        <form action="<?php echo $url;?>" method="post">
+              <input type="hidden" name="id" value="<?php echo $d['ID_dispositivo'];?>">
+              <button class="button2" type="submit">Controlar</button>
+            </form>
+            <?php
+            if($permiso==1):?>  
+            <form action="<?php echo base_url('/edit_device');?>" method="post">
+              <input type="hidden" name="id" value="<?php echo $d['ID_dispositivo'];?>">
+              <button class="button2" type="submit">Editar</button>
+            </form>
+            <button class="button2" onclick="deleteDevice('<?php echo base_url('/delete_device/'.$d['ID_dispositivo']);?>')">Eliminar</button>
+            <form action="<?php echo $grabar;?>" method="post">
+              <input type="hidden" name="id" value="<?php echo $d['ID_dispositivo'];?>">
+              <button class="button2" type="submit">Grabar señales</button>
+            </form>
+            <?php endif;?>
+          </div>
+        </td>
+    </tr>
+    <?php endforeach;?>
+</tbody>
 
-                <?php endif;?>
-            </td>
-        </tr>
-        <?php endforeach;?>
-    </tbody>
-
-    </table>
-
+</table>
+</div>
+        </div>
+    </div>
+</div>
+    
     <?php else:?>
       <br><br>
     <h1>No hay dispositivos vinculados a este esp32</h1>
@@ -150,7 +161,7 @@
 
 <style>
   body {
-    height: 100vh;
+    max-height: 150vh;
     background: linear-gradient(135deg, #2C3E50, #4CA1AF); /* Azul marino a azul petróleo */
     color: #333333; /* Gris carbón para el texto */
 }
@@ -231,6 +242,7 @@ nav.navbar {
     background: #2C3E50;
     border: 1px solid #2C3E50;
     box-shadow: 1px 1px 4px #c5c5c5, 0px 0px 3px #ffffff;
+    
 
 }
 
@@ -281,7 +293,7 @@ nav.navbar {
 }
 
 
-table {
+ /* table {
     min-width: 700px;
     border-collapse: collapse;
     margin: 0 auto;
@@ -290,22 +302,23 @@ table {
     background-color: #4CA1AF;
     color: #000000;
   }
-
+*/
   td,tr,th {
     border: 1px solid #2C3E50;
     padding: 8px;
     text-align: center;
-    font-size: 20px;
-  }
+    font-size: 23px;
+  } 
   .acciones{
     text-align: center;
     margin: 0 auto;
     margin-bottom: 33px;
     
-  }
+  } 
   .acciones button {
     font-size: 18px;
     padding: 15px 30px;
+    
   }
 
   h1{
@@ -314,6 +327,12 @@ table {
     color: white;
     
     
+  }
+  .botones-tabla .button2{
+    font-size: 18px;
+    width: 70%;
+    margin: 10px;
+     
   }
 </style>
 </body>
