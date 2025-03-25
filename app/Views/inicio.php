@@ -40,7 +40,7 @@
     <header id="header" class="header d-flex align-items-center fixed-top">
         <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
     
-          <a href="#" class="logo d-flex align-items-center me-auto me-xl-0">
+          <a href="<?php echo base_url("/") ;?>" class="logo d-flex align-items-center me-auto me-xl-0">
             <!-- Uncomment the line below if you also wish to use an image logo -->
            <img src="<?php echo base_url("/img/logo1.png") ;?>"  alt="logo"> 
             <h1 class="sitename">IRConnect</h1>
@@ -48,7 +48,7 @@
     
           <nav id="navmenu" class="navmenu">
             <ul>
-              <li><a href="<?php echo base_url("/") ;?>" class="active">Inicio</a></li>
+              <li><a href="<?php echo base_url("/") ;?>">Inicio</a></li>
               <li><a href="<?php echo base_url("/userInfo");?>">Mi usuario</a></li>
               <?php if($permiso==1):?>
               <li><a href="<?php echo base_url("/showUsers");?>">Administrar mis usuarios</a></li>

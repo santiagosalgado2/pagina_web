@@ -1,13 +1,13 @@
-body {
-    background: linear-gradient(135deg, #2C3E50, #4CA1AF); /* Azul marino a azul petróleo */
-    color: #333333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Altura completa de la ventana */
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f3f3f3; /* Color de fondo suave */
+    body { /* Azul marino a azul petróleo */
+        color: #333333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Altura completa de la ventana */
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: rgb(207, 226, 255);
+ /* Color de fondo suave */
     }
     .info{
         list-style-position: inside;
