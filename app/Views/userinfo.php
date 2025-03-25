@@ -57,34 +57,60 @@
     </div>
   </div>
 </nav>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h1>
+                        <?php 
+                        if ($session->getFlashdata("error")) {
+                            echo $session->getFlashdata("error");
+                        }
+                        if ($session->getFlashdata("success")) {
+                            echo $session->getFlashdata("success");
+                        }
+                        ?>
+                    </h1>
 
-    <center>
-    <div class="container">
-      <h1><?php 
-        if($session->getFlashdata("error")){
-            echo $session->getFlashdata("error");
-        }
-        if($session->getFlashdata("success")){
-            echo $session->getFlashdata("success");
-        }
-      ?>
-      </h1>
-        <h1>Informacion de tu usuario</h1>
-            <ul class="info">
-                <li><b>Nombre de usuario: </b><?php echo $data[0]["nombre_usuario"]; ?>   <a href="<?php echo base_url("/generate/cambiar_usuario"); ?>"><button class="button2">Cambiar</button></a></li>
-                <li><b>Contraseña: </b>********  <a href=<?php echo base_url("/generate/recuperar_contrasena"); ?>><button class="button2">Reestablecer</button></a></li>
-                <li><b>Dirección de e-mail: </b><?php echo $data[0]["email"]; ?>   <a href="<?php echo base_url("/change_email"); ?>"></a></li>
-                <li><b>Fecha de creación: </b><?php echo $data[0]["fecha_creacion"]; ?></li>
-                <?php if(isset($admin)):?>
-                <li><b>Tipo de usuario: </b>Profesor</li>
-                <li><b>Administrador: </b><?php echo $admin[0]["nombre_usuario"]; ?></li>
-                <?php else:?>
-                <li><b>Tipo de usuario: </b>Administrador</li>
-                <?php endif;?>
-                <a href="<?php echo base_url("/");?>"><button class="button2">Volver</button></a>
-            </ul>
-    </div>        
-    </center>  
+                    <h1>Información de tu usuario</h1>
+                    <ul class="list-group fs-5">
+                        <li class="list-group-item">
+                            <b>Nombre de usuario: </b>
+                            <?php echo $data[0]["nombre_usuario"]; ?>
+                            <a href="<?php echo base_url("/generate/cambiar_usuario"); ?>">
+                                <button class="btn btn-primary btn-sm">Cambiar</button>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Contraseña: </b>********
+                            <a href="<?php echo base_url("/generate/recuperar_contrasena"); ?>">
+                                <button class="btn btn-primary btn-sm">Restablecer</button>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Dirección de e-mail: </b>
+                            <?php echo $data[0]["email"]; ?>
+                            <a href="<?php echo base_url("/change_email"); ?>"></a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Fecha de creación: </b>
+                            <?php echo $data[0]["fecha_creacion"]; ?>
+                        </li>
+
+                        <?php if (isset($admin)): ?>
+                            <li class="list-group-item"><b>Tipo de usuario: </b>Profesor</li>
+                            <li class="list-group-item"><b>Administrador: </b><?php echo $admin[0]["nombre_usuario"]; ?></li>
+                        <?php else: ?>
+                            <li class="list-group-item"><b>Tipo de usuario: </b>Administrador</li>
+                        <?php endif; ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>   
 </body>

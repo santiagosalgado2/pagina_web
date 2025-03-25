@@ -31,18 +31,7 @@ body {
       text-align: justify;
     }
 
-    .container{
-        max-width: 100%;
-        max-height: 100vh; /* Altura máxima no mayor al 100% del viewport */
-        text-align: left;
-        background: #4CA1AF;; /* Fondo blanco rojizo */
-        padding: 40px; /* Más padding para un diseño espacioso */
-        border-radius: 12px; /* Bordes más redondeados */
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
-        width: 850px; /* Ajuste del ancho */
-        border: 2px solid #2C3E50; /* Borde suave */
-        font-size: 18px;
-    }
+   
     button:hover {
         opacity: 1;
     }
