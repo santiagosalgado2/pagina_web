@@ -35,7 +35,7 @@ class Esp32C extends BaseController{
 
         $session->set('esp_code',$esp_code);
 
-        return redirect()->to('/devices'); 
+        return redirect()->to(base_url('/devices')); 
 
     }
 

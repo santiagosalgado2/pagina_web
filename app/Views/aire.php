@@ -65,7 +65,7 @@
 
     <div class="remote-control" data-url-send-signal="<?= base_url('/air/enviar_senal') ?>"></div>
 
-    <h1>Configuraciones del aire seleccionado</h1>
+    <h1 style="padding-top: 3rem;">Configuraciones del aire seleccionado</h1>
     <?php if($permiso==1):?>
       <div class="acciones">
         <center><button class="button2" type="button" onclick="openForm()">Crear configuración</button></center>
@@ -106,8 +106,8 @@ if(!empty($config)):?>
 <style>
   body {
     height: 100vh;
-    background: linear-gradient(135deg, #2C3E50, #4CA1AF); /* Azul marino a azul petróleo */
-    color: #333333; /* Gris carbón para el texto */
+    background-color: rgb(207, 226, 255); /* Azul marino a azul petróleo */
+    color:rgb(0, 0, 0); /* Gris carbón para el texto */
     padding-top: 80px;
 }
 
@@ -190,7 +190,7 @@ if(!empty($config)):?>
   h1{
     text-align: center;
     margin-bottom: 37px;
-    color: white;
+    color: black;
     
     
   }
