@@ -10,53 +10,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="assets/img/logo1.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="<?php echo base_url("/img/logo1.png") ;?>">
  
     <title>Dispositivos</title>
 </head>
 <body>
     
-    <div class="circulo"></div>
-    <div class="circulo"></div>
-    <div class="circulo"></div>
-    <div class="circulo"></div>
-
-    <nav class="navbar navbar-expand-lg fixed-top">
-  <div class="container-fluid justify-content-center"> <!-- centrado aquí -->
-    <div class="d-flex align-items-center">
-      <a class="navbar-brand" href="<?php echo base_url("/") ;?>" style="color: white;">
-        <img src="<?php echo base_url("/img/logo1.png") ;?>" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-        IRconnect
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </div>
-    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent"> <!-- centrado aquí -->
-      <ul class="navbar-nav mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="<?php echo base_url("/") ;?>" style="color: white;">Inicio</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
-            Mi usuario
+<header id="header" class="header d-flex align-items-center fixed-top">
+        <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+    
+          <a href="<?php echo base_url("/") ;?>" class="logo d-flex align-items-center me-auto me-xl-0">
+            <!-- Uncomment the line below if you also wish to use an image logo -->
+           <img src="<?php echo base_url("/img/logo1.png") ;?>"  alt="logo"> 
+            <h1 class="sitename">IRConnect</h1>
           </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="<?php echo base_url("/userInfo");?>" style="color: black;">Ver mi información</a></li>
-            <li><a class="dropdown-item" href="<?php echo base_url("/logout");?>">Cerrar sesión</a></li>
-            <?php if($permiso==1):?>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="<?php echo base_url("/showUsers");?> " style="color: black;">Administrar mis usuarios</a></li>
-            <?php endif;?>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+    
+          <nav id="navmenu" class="navmenu">
+            <ul>
+              <li><a href="<?php echo base_url("/") ;?>">Inicio</a></li>
+              <li><a href="<?php echo base_url("/userInfo");?>">Mi usuario</a></li>
+              <?php if($permiso==1):?>
+              <li><a href="<?php echo base_url("/showUsers");?>">Administrar mis usuarios</a></li>
+              <?php endif;?>
+              <li><a href="<?php echo base_url("/logout");?>">Cerrar sesión</a></li>
+              </li>
+            </ul>
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+          </nav>
+    
+    
+        </div>
+      </header>
     
 
-    <br><br><br><h1>Dispositivo <?php echo $esp[0]['ubicacion']; ?></h1>
+    <br><br><br><h1 style="margin-top: 2.5rem;">Dispositivo <?php echo $esp[0]['ubicacion']; ?></h1>
     <div class="acciones">
 
 
@@ -73,56 +77,67 @@
         }
       ?>
 
-    <table>
 
-    <thead>
-        <th>Dispositivos</th>
-        <th>Acciones</th>
-    </thead>
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+            <div class="table-responsive">
+
+<table class="table table-bordered table-info mx-auto">
+
+<thead>
+    <th>Dispositivos</th>
+    <th>Acciones</th>
+</thead>
 
 
-    <tbody>
-        <?php foreach ($datos as $d):?>
-          <?php 
-                if ($d["ID_tipo"] == 1) {
-                    $url = base_url('/prueba_aircontrol');
-                    $grabar=base_url('/grabar_aire');
-                } elseif ($d["ID_tipo"] == 2) {
-                    $url = base_url('/prueba_control');
-                    $grabar=base_url('/grabar_tele');
-                } else {
-                    $url = base_url('/prueba_ventiladorcontrol');
-                    $grabar=base_url('/grabar_ventilador'); 
-                }
-            ?>
-        <tr>
-            <td><?php echo $d["nombre"];?> </td>
-        
-            <td>
-            <form action="<?php echo $url;?>" method="post">
-                  <input type="hidden" name="id" value="<?php echo $d['ID_dispositivo'];?>">
-                  <button class="button2" type="submit">Controlar</button></a>
-                </form>
-                <?php
-                if($permiso==1):?>  
-                <form action="<?php echo base_url('/edit_device');?>" method="post">
-                  <input type="hidden" name="id" value="<?php echo $d['ID_dispositivo'];?>">
-                  <button class="button2" type="submit">Editar</button></a>
-                </form>
-                <button class="button2" onclick="deleteDevice('<?php echo base_url('/delete_device/'.$d['ID_dispositivo']);?>')">Eliminar</button>
-                <form action="<?php echo $grabar;?>" method="post">
-                  <input type="hidden" name="id" value="<?php echo $d['ID_dispositivo'];?>">
-                  <button class="button2" type="submit">Grabar señales</button></a>
-                </form>
+<tbody>
+    <?php foreach ($datos as $d):?>
+      <?php 
+            if ($d["ID_tipo"] == 1) {
+                $url = base_url('/prueba_aircontrol');
+                $grabar=base_url('/grabar_aire');
+            } elseif ($d["ID_tipo"] == 2) {
+                $url = base_url('/prueba_control');
+                $grabar=base_url('/grabar_tele');
+            } else {
+                $url = base_url('/prueba_ventiladorcontrol');
+                $grabar=base_url('/grabar_ventilador'); 
+            }
+        ?>
+    <tr>
+        <td><?php echo $d["nombre"];?> </td>
+    
+        <td>
+        <div class="botones-tabla">
+        <form action="<?php echo $url;?>" method="post">
+              <input type="hidden" name="id" value="<?php echo $d['ID_dispositivo'];?>">
+              <button class="button2" type="submit">Controlar</button>
+            </form>
+            <?php
+            if($permiso==1):?>  
+            <form action="<?php echo base_url('/edit_device');?>" method="post">
+              <input type="hidden" name="id" value="<?php echo $d['ID_dispositivo'];?>">
+              <button class="button2" type="submit">Editar</button>
+            </form>
+            <button class="button2" onclick="deleteDevice('<?php echo base_url('/delete_device/'.$d['ID_dispositivo']);?>')">Eliminar</button>
+            <form action="<?php echo $grabar;?>" method="post">
+              <input type="hidden" name="id" value="<?php echo $d['ID_dispositivo'];?>">
+              <button class="button2" type="submit">Grabar señales</button>
+            </form>
+            <?php endif;?>
+          </div>
+        </td>
+    </tr>
+    <?php endforeach;?>
+</tbody>
 
-                <?php endif;?>
-            </td>
-        </tr>
-        <?php endforeach;?>
-    </tbody>
-
-    </table>
-
+</table>
+</div>
+        </div>
+    </div>
+</div>
+    
     <?php else:?>
       <br><br>
     <h1>No hay dispositivos vinculados a este esp32</h1>
@@ -130,7 +145,13 @@
 
     
 
-
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/js/main.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>   
 
@@ -150,69 +171,13 @@
 
 <style>
   body {
-    height: 100vh;
-    background: linear-gradient(135deg, #2C3E50, #4CA1AF); /* Azul marino a azul petróleo */
+    max-height: 200vh;
+    background-color: rgb(207, 226, 255);
+    /* Azul marino a azul petróleo */
     color: #333333; /* Gris carbón para el texto */
 }
 
 /* Barra de navegación */
-nav.navbar {
-    background: linear-gradient(135deg, #0F2027, #203A43, #2C5364); /* Negro a azul oscuro */
-}
-
-/* Links de navegación */
-.navbar .nav-link {
-    color: #BDC3C7; /* Gris claro */
-}
-
-.navbar .nav-link:hover {
-    color: #2980B9; /* Azul profundo */
-}
-
-.circulo {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.2);
-    animation: flotando 10s infinite ease-in-out;
-}
-
-.circulo:nth-child(1) {
-    width: 200px;
-    height: 200px;
-    top: 20%;
-    left: 10%;
-    animation-delay: 0s;
-}
-
-.circulo:nth-child(2) {
-    width: 150px;
-    height: 150px;
-    top: 70%;
-    left: 30%;
-    animation-delay: 2s;
-}
-
-.circulo:nth-child(3) {
-    width: 300px;
-    height: 300px;
-    top: 40%;
-    right: 10%;
-    animation-delay: 4s;
-}
-
-.circulo:nth-child(4) {
-    width: 100px;
-    height: 100px;
-    bottom: 15%;
-    right: 40%;
-    animation-delay: 6s;
-}
-@keyframes flotando{0%, 100% {
-    transform: translateY(0) translateX(0);
-}
-50% {
-    transform: translateY(-50px) translateX(50px);
-}}
 .textos {
     font-size: larger;
     font-weight: 600;
@@ -231,6 +196,7 @@ nav.navbar {
     background: #2C3E50;
     border: 1px solid #2C3E50;
     box-shadow: 1px 1px 4px #c5c5c5, 0px 0px 3px #ffffff;
+    
 
 }
 
@@ -281,7 +247,7 @@ nav.navbar {
 }
 
 
-table {
+ /* table {
     min-width: 700px;
     border-collapse: collapse;
     margin: 0 auto;
@@ -290,30 +256,37 @@ table {
     background-color: #4CA1AF;
     color: #000000;
   }
-
+*/
   td,tr,th {
     border: 1px solid #2C3E50;
     padding: 8px;
     text-align: center;
-    font-size: 20px;
-  }
+    font-size: 23px;
+  } 
   .acciones{
     text-align: center;
     margin: 0 auto;
     margin-bottom: 33px;
     
-  }
+  } 
   .acciones button {
     font-size: 18px;
     padding: 15px 30px;
+    
   }
 
   h1{
     text-align: center;
-    margin-bottom: 37px;
-    color: white;
+    margin-bottom: 2.5rem;
+    color: black;
     
     
+  }
+  .botones-tabla .button2{
+    font-size: 18px;
+    width: 70%;
+    margin: 10px;
+     
   }
 </style>
 </body>

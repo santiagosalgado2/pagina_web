@@ -1,26 +1,16 @@
-body {
-    background: linear-gradient(135deg, #2C3E50, #4CA1AF); /* Azul marino a azul petróleo */
-    color: #333333;
+body { /* Azul marino a azul petróleo */
+    color: #000000;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh; /* Altura completa de la ventana */
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f3f3f3; /* Color de fondo suave */
+
+    background-color: rgb(207, 226, 255); /* Color de fondo suave */
     }
-    nav.navbar {
-        background: linear-gradient(135deg, #0F2027, #203A43, #2C5364); /* Negro a azul oscuro */
-    }
+
     
-    /* Links de navegación */
-    .navbar .nav-link {
-        color: #BDC3C7; /* Gris claro */
-    }
-    
-    .navbar .nav-link:hover {
-        color: #2980B9; /* Azul profundo */
-    }   
 .form-container {
     background: #4CA1AF;; /* Fondo blanco rojizo */
     padding: 40px; /* Más padding para un diseño espacioso */
@@ -71,57 +61,14 @@ body {
     font-weight: 600;
 }
 
-h1 {
+.titulo-form {
     padding-bottom: 20px;
     font-size: 24px;
     font-weight: bold;
     text-align: center;
     
 }
-.circulo {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.2);
-    animation: flotando 10s infinite ease-in-out;
-}
 
-.circulo:nth-child(1) {
-    width: 200px;
-    height: 200px;
-    top: 20%;
-    left: 10%;
-    animation-delay: 0s;
-}
-
-.circulo:nth-child(2) {
-    width: 150px;
-    height: 150px;
-    top: 70%;
-    left: 30%;
-    animation-delay: 2s;
-}
-
-.circulo:nth-child(3) {
-    width: 300px;
-    height: 300px;
-    top: 40%;
-    right: 10%;
-    animation-delay: 4s;
-}
-
-.circulo:nth-child(4) {
-    width: 100px;
-    height: 100px;
-    bottom: 15%;
-    right: 40%;
-    animation-delay: 6s;
-}
-@keyframes flotando{0%, 100% {
-    transform: translateY(0) translateX(0);
-}
-50% {
-    transform: translateY(-50px) translateX(50px);
-}}
 .mb-3 select {
     width: 100%; /* Ocupa el ancho completo */
     padding: 14px; /* Más espaciado interno */

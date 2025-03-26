@@ -39,11 +39,11 @@ ul li{
 }
 
   h1, h2 {
-    color: #ebebeb;
+    /* color: #ebebeb; */
     text-align: center; /* Azul marino oscuro */
 }
 
-h1{
+.titulos{
     font-size: 60px;
     padding: 30px;
 }
@@ -53,66 +53,9 @@ p {
 }
   body {
     height: 100vh;
-    background: linear-gradient(135deg, #2C3E50, #4CA1AF); /* Azul marino a azul petróleo */
-    color: #333333; /* Gris carbón para el texto */
+    color: black;
+
 }
 
-/* Barra de navegación */
-nav.navbar {
-    background: linear-gradient(135deg, #0F2027, #203A43, #2C5364); /* Negro a azul oscuro */
-}
 
-/* Links de navegación */
-.navbar .nav-link {
-    color: #BDC3C7; /* Gris claro */
-}
-
-.navbar .nav-link:hover {
-    color: #2980B9; /* Azul profundo */
-}
-
-.circulo {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.2);
-    animation: flotando 10s infinite ease-in-out;
-}
-
-.circulo:nth-child(1) {
-    width: 200px;
-    height: 200px;
-    top: 20%;
-    left: 10%;
-    animation-delay: 0s;
-}
-
-.circulo:nth-child(2) {
-    width: 150px;
-    height: 150px;
-    top: 70%;
-    left: 30%;
-    animation-delay: 2s;
-}
-
-.circulo:nth-child(3) {
-    width: 300px;
-    height: 300px;
-    top: 40%;
-    right: 10%;
-    animation-delay: 4s;
-}
-
-.circulo:nth-child(4) {
-    width: 100px;
-    height: 100px;
-    bottom: 15%;
-    right: 40%;
-    animation-delay: 6s;
-}
-@keyframes flotando{0%, 100% {
-    transform: translateY(0) translateX(0);
-}
-50% {
-    transform: translateY(-50px) translateX(50px);
-}}
 
