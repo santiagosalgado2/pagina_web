@@ -1,0 +1,28 @@
+CRITICAL - 2025-03-26 12:50:05 --> ErrorException: Undefined variable $permiso
+[Method: POST, Route: verification]
+in APPPATH\Views\change_user.php on line 42.
+ 1 APPPATH\Views\change_user.php(42): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $permiso', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\change_user.php', 42)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\change_user.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('change_user', [], true)
+ 5 APPPATH\Controllers\Verification.php(121): view('change_user')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Verification->verifyUser()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Verification))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-26 12:54:22 --> ErrorException: Undefined variable $permiso
+[Method: GET, Route: new_device]
+in APPPATH\Views\new_device.php on line 42.
+ 1 APPPATH\Views\new_device.php(42): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $permiso', 'C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\new_device.php', 42)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\pagina_web\\pagina_web\\app\\Views\\new_device.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('new_device', [], true)
+ 5 APPPATH\Controllers\Devices.php(14): view('new_device')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Devices->newDeviceView()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Devices))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
