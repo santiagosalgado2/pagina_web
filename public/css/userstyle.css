@@ -120,9 +120,6 @@ body {
     width: 150px;
 }
 
-.table-responsive {
-    overflow-x: auto;
-}
 
 .mt-5 {
     margin-top: 3rem !important;
@@ -131,7 +128,72 @@ body {
 .pt-5 {
     padding-top: 3rem !important;
 }
+table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+  }
+  
+  table caption {
+    font-size: 1.5em;
+    margin: .5em 0 .75em;
+  }
+  
+  table tr {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    padding: .35em;
+  }
+  
+  table th,
+  table td {
+    padding: .625em;
+    text-align: center;
+  }
+  
+  table th {
+    font-size: .85em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+  
+  @media screen and (max-width: 600px) {
+    table thead {
+        display: none; /* Oculta los encabezados */
+    }
 
+    table tbody tr {
+        display: block;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        padding: 10px;
+        background: white;
+    }
+
+    table tbody tr td {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    table tbody tr td:last-child {
+        border-bottom: 0;
+    }
+
+    /* Agrega los títulos de las columnas dentro de las celdas */
+    table tbody tr td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #555;
+    }
+}
+  
+  
 
 
 
