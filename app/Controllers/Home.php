@@ -63,6 +63,10 @@ class Home extends BaseController
 
     }
 
+    public function pruebalogin(){
+        return view('login1');
+    }
+
 
 
 

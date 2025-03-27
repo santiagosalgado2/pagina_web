@@ -70,6 +70,7 @@ $routes->get('/viewlogin','Home::viewlogin');
 $routes->post("paypal/createOrder", "Home::createOrder");
 $routes->post("paypal/captureOrder", "Home::captureOrder");
 $routes->post('/landing/mail','Home::formcontact');
+$routes->get('/pruebalogin','Home::pruebalogin');
 
 
 
