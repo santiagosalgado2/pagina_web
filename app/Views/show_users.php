@@ -81,25 +81,25 @@
         <?php if(isset($datos) && !empty($datos)): ?>
             <div class="table-responsive">
                 <table class="table table-striped table-hover">
-                    <thead class="table-dark">
+                    <thead>
                         <tr>
-                            <th>Nombre de usuario</th>
-                            <th>Dirección de E-mail</th>
-                            <th>Fecha de creación</th>
+                            <th scope="col">Nombre de usuario</th>
+                            <th scope="col">Dirección de E-mail</th>
+                            <th scope="col">Fecha de creación</th>
                             <th class="actions-header">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php foreach($datos as $d): ?>
                             <tr>
-                                <td><?php echo $d["nombre_usuario"]; ?></td>
-                                <td><?php echo $d["email"]; ?></td>
-                                <td><?php echo $d["fecha_creacion"]; ?></td>
-                                <td>
+                                <td data-label="Nombre de Usuario"><?php echo $d["nombre_usuario"]; ?></td>
+                                <td data-label="Dirección de E-Mail"><?php echo $d["email"]; ?></td>
+                                <td data-label="Fecha de Creación"><?php echo $d["fecha_creacion"]; ?></td>
+                                <td data-label="Acciones">
                                     <form action="<?php echo base_url('/permisos'); ?>" method="post">
-                                        <input type="hidden" name="id" value="<?php echo $d["ID_usuario"]; ?>">
-                                        <button type="submit" class="btn btn-primary">Administrar permisos</button>
-                                    </form>
+                                    <input type="hidden" name="id" value="<?php echo $d["ID_usuario"]; ?>">
+                                    <button type="submit" class="btn btn-primary">Administrar permisos</button>
+                                </form>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
