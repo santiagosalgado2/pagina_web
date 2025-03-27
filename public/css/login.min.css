@@ -1,144 +1,50 @@
-*, *:before, *:after {
-  box-sizing: border-box; }
+/*
+Error: File to import not found or unreadable: compass/css3.
+        on line 1 of c:\xampp\htdocs\pagina_web\pagina_web\public\css\login.scss
 
-html {
-  overflow-y: scroll; }
+1: @import "compass/css3";
+2: 
+3: $body-bg: #c1bdba;
+4: $form-bg: #13232f;
+5: $white: #ffffff;
+6: 
 
-body {
-  background: #c1bdba;
-  font-family: 'Titillium Web', sans-serif; }
-
-a {
-  text-decoration: none;
-  color: #1ab188;
-  transition: .5s ease; }
-  a:hover {
-    color: #179b77; }
-
-.form {
-  background: rgba(19, 35, 47, 0.9);
-  padding: 40px;
-  max-width: 600px;
-  margin: 40px auto;
-  border-radius: 4px;
-  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3); }
-
-.tab-group {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 40px 0; }
-  .tab-group:after {
-    content: "";
-    display: table;
-    clear: both; }
-  .tab-group li a {
-    display: block;
-    text-decoration: none;
-    padding: 15px;
-    background: rgba(160, 179, 176, 0.25);
-    color: #a0b3b0;
-    font-size: 20px;
-    float: left;
-    width: 50%;
-    text-align: center;
-    cursor: pointer;
-    transition: .5s ease; }
-    .tab-group li a:hover {
-      background: #179b77;
-      color: #ffffff; }
-  .tab-group .active a {
-    background: #1ab188;
-    color: #ffffff; }
-
-.tab-content > div:last-child {
-  display: none; }
-
-h1 {
-  text-align: center;
-  color: #ffffff;
-  font-weight: 300;
-  margin: 0 0 40px; }
-
-label {
-  position: absolute;
-  transform: translateY(6px);
-  left: 13px;
-  color: rgba(255, 255, 255, 0.5);
-  transition: all 0.25s ease;
-  -webkit-backface-visibility: hidden;
-  pointer-events: none;
-  font-size: 22px; }
-  label .req {
-    margin: 2px;
-    color: #1ab188; }
-
-label.active {
-  transform: translateY(50px);
-  left: 2px;
-  font-size: 14px; }
-  label.active .req {
-    opacity: 0; }
-
-label.highlight {
-  color: #ffffff; }
-
-input, textarea {
-  font-size: 22px;
-  display: block;
-  width: 100%;
-  height: 100%;
-  padding: 5px 10px;
-  background: none;
-  background-image: none;
-  border: 1px solid #a0b3b0;
-  color: #ffffff;
-  border-radius: 0;
-  transition: border-color .25s ease, box-shadow .25s ease; }
-  input:focus, textarea:focus {
-    outline: 0;
-    border-color: #1ab188; }
-
-textarea {
-  border: 2px solid #a0b3b0;
-  resize: vertical; }
-
-.field-wrap {
-  position: relative;
-  margin-bottom: 40px; }
-
-.top-row:after {
-  content: "";
-  display: table;
-  clear: both; }
-.top-row > div {
-  float: left;
-  width: 48%;
-  margin-right: 4%; }
-  .top-row > div:last-child {
-    margin: 0; }
-
-.button {
-  border: 0;
-  outline: none;
-  border-radius: 0;
-  padding: 15px 0;
-  font-size: 2rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  background: #1ab188;
-  color: #ffffff;
-  transition: all 0.5s ease;
-  -webkit-appearance: none; }
-  .button:hover, .button:focus {
-    background: #179b77; }
-
-.button-block {
-  display: block;
-  width: 100%; }
-
-.forgot {
-  margin-top: -20px;
-  text-align: right; }
-
-/*# sourceMappingURL=login.min.css.map */
+Backtrace:
+c:\xampp\htdocs\pagina_web\pagina_web\public\css\login.scss:1
+C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/sass-3.4.25/lib/sass/tree/import_node.rb:67:in 'Sass::Tree::ImportNode#import'
+C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/sass-3.4.25/lib/sass/tree/import_node.rb:28:in 'Sass::Tree::ImportNode#imported_file'
+C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/sass-3.4.25/lib/sass/tree/import_node.rb:37:in 'Sass::Tree::ImportNode#css_import?'
+C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:314:in 'Sass::Tree::Visitors::Perform#visit_import'
+C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/sass-3.4.25/lib/sass/tree/visitors/base.rb:36:in 'Sass::Tree::Visitors::Base#visit'
+C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:162:in 'block in Sass::Tree::Visitors::Perform#visit'
+C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/sass-3.4.25/lib/sass/stack.rb:79:in 'block in Sass::Stack#with_base'
+C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/sass-3.4.25/lib/sass/stack.rb:115:in 'Sass::Stack#with_frame'
+C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/sass-3.4.25/lib/sass/stack.rb:79:in 'Sass::Stack#with_base'
+C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:162:in 'Sass::Tree::Visitors::Perform#visit'
+C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/sass-3.4.25/lib/sass/tree/visitors/base.rb:52:in 'block in Sass::Tree::Visitors::Base#visit_children'
+C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/sass-3.4.25/lib/sass/tree/visitors/base.rb:52:in 'Array#map'
+C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/sass-3.4.25/lib/sass/tree/visitors/base.rb:52:in 'Sass::Tree::Visitors::Base#visit_children'
+C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:171:in 'block in Sass::Tree::Visitors::Perform#visit_children'
+C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:183:in 'Sass::Tree::Visitors::Perform#with_environment'
+C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:170:in 'Sass::Tree::Visitors::Perform#visit_children'
+C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/sass-3.4.25/lib/sass/tree/visitors/base.rb:36:in 'block in Sass::Tree::Visitors::Base#visit'
+C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:190:in 'Sass::Tree::Visitors::Perform#visit_root'
+C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/sass-3.4.25/lib/sass/tree/visitors/base.rb:36:in 'Sass::Tree::Visitors::Base#visit'
+C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:161:in 'Sass::Tree::Visitors::Perform#visit'
+C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:10:in 'Sass::Tree::Visitors::Perform.visit'
+C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/sass-3.4.25/lib/sass/tree/root_node.rb:36:in 'Sass::Tree::RootNode#css_tree'
+C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/sass-3.4.25/lib/sass/tree/root_node.rb:29:in 'Sass::Tree::RootNode#render_with_sourcemap'
+C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/sass-3.4.25/lib/sass/engine.rb:384:in 'Sass::Engine#_render_with_sourcemap'
+C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/sass-3.4.25/lib/sass/engine.rb:301:in 'Sass::Engine#render_with_sourcemap'
+C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/sass-3.4.25/lib/sass/exec/sass_scss.rb:391:in 'Sass::Exec::SassScss#run'
+C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/sass-3.4.25/lib/sass/exec/sass_scss.rb:63:in 'Sass::Exec::SassScss#process_result'
+C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/sass-3.4.25/lib/sass/exec/base.rb:52:in 'Sass::Exec::Base#parse'
+C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/sass-3.4.25/lib/sass/exec/base.rb:19:in 'Sass::Exec::Base#parse!'
+C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/sass-3.4.25/bin/sass:13:in '<top (required)>'
+C:/Ruby34-x64/bin/sass:36:in 'Kernel#load'
+C:/Ruby34-x64/bin/sass:36:in '<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: File to import not found or unreadable: compass/css3.\A         on line 1 of c:\xampp\htdocs\pagina_web\pagina_web\public\css\login.scss\A \A 1: @import \"compass/css3\";\A 2: \A 3: $body-bg: #c1bdba;\A 4: $form-bg: #13232f;\A 5: $white: #ffffff;\A 6: "; }
