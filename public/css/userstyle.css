@@ -135,6 +135,8 @@ table {
     padding: 0;
     width: 100%;
     table-layout: fixed;
+  
+
   }
   
   table caption {
@@ -191,8 +193,15 @@ table {
         text-transform: uppercase;
         color: #555;
     }
+    .table tbody tr td:nth-child(2) { /* Segunda columna (Email) */
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        white-space: normal;
+        word-break: break-all; /* Fuerza el corte si es necesario */
+        }
+    
 }
-  
+    
   
 
 
