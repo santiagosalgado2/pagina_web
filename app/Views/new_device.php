@@ -58,21 +58,28 @@
       </header>
     
       
-    <div class="form-container">
-        <h1>Registro de nuevo dispositivo</h1>
+      <div class="row">
+      <div class="col-md-12">
+        
     <form method="post" action="<?php echo base_url("/new_device/insert"); ?>">
-            <div class="mb-3">
-            <span class="textos">Ingrese el nombre de su dispositivo</span><input type="text" name="name" required>
-                <br><br>
-                <span class="textos">Ingrese el tipo de dispositivo</span>
-                <select name="device_type">
+    <h1>Registro de nuevo dispositivo</h1>
+
+            <fieldset>
+              <label for="name">Ingrese el nombre de su dispositivo</label>
+              <input type="text" name="name" required id="name">
+
+              <label for="device_type">Ingrese el tipo de dispositivo</label>
+              <select name="device_type">
                     <option value="tv">TV</option>
                     <option value="aire_acondicionado">Aire Acondicionado</option>
                     <option value="ventilador">Ventilador</option>
                 </select>
-                <br><br><input type="submit" value="Registrar">
-            </div>
+            </fieldset>
+
+            <button type="submit">Registrar</button>
+
         </form>
+        </div>
         </div>
 
 

@@ -59,24 +59,35 @@
       </header>
     
       
-    <div class="form-container">
-        <h1 class="titulo-form">Registro de nuevo Esp32</h1>
+      <div class="row">
+      <div class="col-md-12">
     <form method="post" action="<?php echo base_url("/new_esp/insert"); ?>">
-            <div class="mb-3">
-            <span class="textos">Ingrese el código incluído con su dispositivo</span><input type="text" name="code" required>
-                <br><br>
-                <span class="textos">Ingrese la ubicacion donde estara el dispositivo</span><input type="text" name="location" required>
-                <br><br><input type="submit" value="Registrar">
-            </div>
-        </form>
-        <?php 
+    <h1>Registro de nuevo Esp32</h1>
+    <fieldset>
+    <label for="name">Ingrese el código incluído con su dispositivo</label>
+    <input type="text" id="name" name="code" required>
+
+    <label for="email">Ingrese la ubicacion donde estara el dispositivo</label>
+    <input type="text" id="mail" name="location" required>
+
+    <button type="submit">Registrar</button>
+    
+ 
+
+    </fieldset>
+    <?php 
         $session=session();
         $error=$session->getFlashdata('error');
         if(isset($error)):?>
-        <div class="error"><h1><?php echo $error;?></h1></div>
+        <div class="error"><h2><?php echo $error;?></h2></div>
             
             <?php endif;?>
         </div>
+        </form>
+
+        </div>
+        </div>
+
 
         <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>

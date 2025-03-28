@@ -1,3 +1,6 @@
+<?php
+$session=session();
+?>
 <!DOCTYPE html>
 <!-- Coding by CodingNepal | www.codingnepalweb.com-->
 <html lang="en" dir="ltr">
@@ -40,7 +43,7 @@
           <li><a href="<?= base_url('/#hero');?>">Inicio</a></li>
           <li><a href="<?= base_url('/#about');?>">Acerca del producto</a></li>
           <li><a href="<?= base_url('/#features');?>">Características</a></li>
-          <li><a href="<?= base_url('/#pricing');?>">Compra aquí</a></li>
+          <li><a href="<?= base_url('/#pricing');?>" >Compra aquí</a></li>
           <!-- <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a> -->
             <!-- <ul>
               <li><a href="#">Dropdown 1</a></li>

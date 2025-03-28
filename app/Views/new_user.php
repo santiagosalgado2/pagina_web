@@ -58,22 +58,26 @@
       </header>
     
 
-    <div class="form-container">
-    <h1>Ingrese los datos del usuario que desea crear</h1>
+      <div class="row">
+      <div class="col-md-12">
+    
     <form method="post" action="<?php echo base_url("/create_user") ;?>">
+    <h1>Ingrese los datos del usuario que desea crear</h1>
+
+    <fieldset>
     
-    <div class="mb-3">
+    <label for="name">Nombre de usuario</label>
+    <input type="text" name="username" required id="name">
 
-    <span class="textos">Nombre de usuario</span><input type="text" name="username" required><br><br>
-    
-    <span class="textos">Dirección e-mail</span><input type="email" name="email" required><br><br>
+    <label for="email">Dirección e-mail</label>
+    <input type="email" name="email" required id="email">
 
+    </fieldset>
 
-    <input type="submit" value="Crear usuario">
+    <button type="submit">Crear usuario</button>
 
-    </div>
     </form>
-
+      </div>
     </div>
 
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
