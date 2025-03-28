@@ -70,6 +70,30 @@ body {
 }
 
 
+.acciones {
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 33px;
+}
+
+.acciones button {
+    font-size: 18px;
+    padding: 15px 30px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 37px;
+    color: black;
+}
+
+.table-container {
+    overflow-x: auto;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* Tabla */
 table {
     min-width: 700px;
     border-collapse: collapse;
@@ -78,6 +102,7 @@ table {
     border-radius: 12px;
     background-color: #4CA1AF;
     color: #000000;
+    width: 50%; /* Ajusta el ancho al contenedor */
 }
 
 td, tr, th {
@@ -96,24 +121,23 @@ caption {
     background: #2C3E50;
     border: 1px solid #99c2ff;
     border-radius: 5px;
-    margin-bottom: 15px; /* Espacio debajo del caption */
-    display: table-caption; /* Asegura que se muestre como caption */
+    margin-bottom: 15px;
+    display: table-caption;
 }
 
-.acciones {
-    text-align: center;
-    margin: 0 auto;
-    margin-bottom: 33px;
-}
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+    table {
+        font-size: 16px; /* Reduce el tamaño del texto */
+        min-width: 100%; /* Asegura que la tabla no se desborde */
+    }
 
-.acciones button {
-    font-size: 18px;
-    padding: 15px 30px;
-}
+    td, th {
+        padding: 8px; /* Reduce el padding */
+        font-size: 14px; /* Ajusta el tamaño del texto */
+    }
 
-h1 {
-    text-align: center;
-    margin-bottom: 37px;
-    color: black;
+    caption {
+        font-size: 1.2em; /* Reduce el tamaño del caption */
+    }
 }
-

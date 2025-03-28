@@ -79,7 +79,8 @@ $permiso=session()->get('tipo');
     <form action="<?php echo base_url('/actualizar_permiso');?>" method="POST">
     
     <?php foreach ($datos as $ubicacion => $dispositivos): ?>
-        <?php if (count($dispositivos) > 0): ?>
+    <?php if (count($dispositivos) > 0): ?>
+        <div class="table-container">
             <table>
                 <caption><?php echo $ubicacion;?></caption>
                 <tr>
@@ -94,24 +95,25 @@ $permiso=session()->get('tipo');
                     } else {
                         $permiso2 = false;
                     }
-                        
+
                     ?>
                     <tr>
                         <td><?php echo $disp['nombre']; ?></td>
                         <td>
-                        
+
                             <input type="hidden" name="user" value="<?php echo $user[0]['ID_usuario']; ?>">
                             <select name="permiso[<?php echo $disp['ID_dispositivo']; ?>]" class="form-select" aria-label="Default select example">
-                                    <option value="permitido" <?php echo $permiso2 == true ? 'selected' : ''; ?>>Permitido</option>
-                                    <option value="denegado" <?php echo $permiso2 == false ? 'selected' : ''; ?>>Denegado</option>
+                                <option value="permitido" <?php echo $permiso2 == true ? 'selected' : ''; ?>>Permitido</option>
+                                <option value="denegado" <?php echo $permiso2 == false ? 'selected' : ''; ?>>Denegado</option>
                             </select>
-                        
+
                         </td>
                     </tr>
                 <?php endforeach; ?>
             </table>
-        <?php endif; ?>
-    <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
+<?php endforeach; ?>
     <div class="acciones">
 
     <center><button type="submit" class="button2">Actualizar permisos de <?php echo $user[0]['nombre_usuario']; ?></button></center>
