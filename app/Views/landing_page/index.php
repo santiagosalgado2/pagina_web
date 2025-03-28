@@ -49,7 +49,7 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#hero" class="active">Inicio</a></li>
+          <li><a href="#hero">Inicio</a></li>
           <li><a href="#about">Acerca del producto</a></li>
           <li><a href="#features">Características</a></li>
           <li><a href="#pricing">Compra aquí</a></li>
