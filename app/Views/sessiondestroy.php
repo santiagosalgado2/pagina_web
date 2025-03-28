@@ -10,29 +10,23 @@
 <body>
     
 
-<div class="circulo"></div>
-    <div class="circulo"></div>
-    <div class="circulo"></div>
-    <div class="circulo"></div>
-
-    
-   
-    
-    <div class="form-container">
-        <h1>Elimina las sesiones de tu cuenta</h1>
+<div class="row">
+<div class="col-md-12">
+        
         
         <form method="post" action="<?php echo base_url("/sessiondestroy");?>">
-            <div class="mb-3">
-                    <span class="textos">Ingrese el email asociado a su cuenta</span><input type="email" name="mail">
-                
-                <br><br><input type="submit" value="Enviar">
-            </div>
+        <h1>Elimina las sesiones de tu cuenta</h1>
+
+        <fieldset>
+            <label for="mail">Ingresa el E-mail asociado a tu cuenta</label>
+            <input type="email" name="mail" id="mail" required>
+        </fieldset>
+
+        <button type="submit">Eliminar sesiones</button>
+
         </form>
-        <?php if(isset($error)):?>
-        <div class="error"><h1><?php echo $error;?></h1></div>
-            
-            <?php endif;?>
-    </div>
+</div>
+</div>
 
 
 </body>

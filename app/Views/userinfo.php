@@ -66,16 +66,7 @@
         <div class="col-md-8">
             <div class="card" style="background-color: #c5e8ef;">
                 <div class="card-body">
-                    <h1>
-                        <?php 
-                        if ($session->getFlashdata("error")) {
-                            echo $session->getFlashdata("error");
-                        }
-                        if ($session->getFlashdata("success")) {
-                            echo $session->getFlashdata("success");
-                        }
-                        ?>
-                    </h1>
+
 
                     <h1>Información de tu usuario</h1>
                     <ul class="list-group fs-5" >
@@ -109,6 +100,16 @@
                             <li class="list-group-item border-dark" style="background-color: #c5e8ef;"><b>Tipo de usuario: </b>Administrador</li>
                         <?php endif; ?>
                     </ul>
+                    <h3>
+                        <?php 
+                        if ($session->getFlashdata("error")) {
+                            echo $session->getFlashdata("error");
+                        }
+                        if ($session->getFlashdata("success")) {
+                            echo $session->getFlashdata("success");
+                        }
+                        ?>
+                    </h3>
                 </div>
             </div>
         </div>

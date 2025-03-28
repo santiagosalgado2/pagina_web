@@ -58,15 +58,22 @@
         </div>
       </header>
 
-    <div class="form-container">
-    <form method="post" action="<?php echo base_url("/change_user/change");?>">
+      <div class="row">
+      <div class="col-md-12">
+      <form method="post" action="<?php echo base_url("/change_user/change");?>">
         <h1>Cambia tu nombre de usuario</h1>
-        <div class="mb-3">
-        <span class="textos">Ingrese su nuevo nombre de usuario</span><input type="text" name="username">
-        <br><br>
-        <input type="submit" value="Aceptar">
-        </div>
+
+        <fieldset>
+
+        <label for="username">Ingrese su nuevo nombre de usuario</label>
+        <input type="text" name="username" id="username" required>
+
+        <button type="submit">Aceptar</button>
+
+        </fieldset>
+
     </form>
+    </div>
     </div>
 
 <!-- SCRIPTS PARA NAV -->

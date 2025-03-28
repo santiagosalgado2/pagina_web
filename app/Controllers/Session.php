@@ -231,7 +231,7 @@ class Session extends BaseController{
         $usuario_id = $this->usermodel->getUser(['email' =>$this->request->getPost('mail')]) ; // ID del usuario actual
 
         if (!$usuario_id) {
-            return redirect()->to('/login')->with('error', 'No tienes sesión activa.');
+            return redirect()->to('/viewlogin')->with('error', 'No se encontró el usuario.');
         }
 
         $sessionPath = WRITEPATH . 'session';

@@ -15,22 +15,18 @@
 </head>
 <body>
 
-    <div class="circulo"></div>
-    <div class="circulo"></div>
-    <div class="circulo"></div>
-    <div class="circulo"></div>
-
-
-    <div class="form-container">
-        <h1>Digite el codigo enviado a su direccion email</h1>
+<div class="row">
+<div class="col-md-12">
+        
         <form action="<?php echo base_url("/verification");?>" method="post">
-        <div class="mb-3">
-            <span class="textos">Código:</span><input type="text" name="code" required>
-
-            <input type="submit" value="Enviar">
-            </div>
+        <h1>Digite el codigo enviado a su direccion email</h1>
+        <fieldset>
+            <label for="code">Código de 8 dígitos</label>
+            <input type="text" name="code" required id="code">
+        </fieldset>
+        <button type="submit">Verificar</button>
         </form>
-
+    </div>
         </div>
 
 </body>

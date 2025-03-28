@@ -60,21 +60,32 @@
     
         </div>
       </header>
-    <div class="form-container">
-        <h1>Editar dispositivo seleccionado</h1>
+
+
+      <div class="row">
+      <div class="col-md-12">
     <form action="<?php echo base_url("/edit_device/update");?>" method="post">
-    <div class="mb-3">
-        <input type="text" name="name" value="<?php echo $device[0]['nombre'];?>">
-        <input type="hidden" name="id" value="<?php echo $device[0]['ID_dispositivo'];?>">
-        <select name="device_type">
-                    <option value="tv" <?php echo $device[0]['ID_tipo']==2 ? 'selected' : '';?> >TV</option>
-                    <option value="aire_acondicionado" <?php echo $device[0]['ID_tipo']==1 ? 'selected' : '';?> >Aire Acondicionado</option>
-                    <option value="ventilador" <?php echo $device[0]['ID_tipo']==3 ? 'selected' : '';?> >Ventilador</option>
-                </select>
-        <input type="submit" value="Editar">
-        </div>
+    <h1>Editar dispositivo seleccionado</h1>
+    <input type="hidden" name="id" value="<?php echo $device[0]['ID_dispositivo'];?>">
+    <fieldset>
+        <label for="name">Nombre del dispositivo</label>
+        <input type="text" name="name" value="<?php echo $device[0]['nombre'];?>" required id="name">
+    </fieldset>
+
+    <fieldset>
+        <label for="device_type">Tipo de dispositivo</label>
+        <select name="device_type" id="device_type" required>
+            <option value="tv" <?php echo $device[0]['ID_tipo']==2 ? 'selected' : '';?> >TV</option>
+            <option value="aire_acondicionado" <?php echo $device[0]['ID_tipo']==1 ? 'selected' : '';?> >Aire Acondicionado</option>
+            <option value="ventilador" <?php echo $device[0]['ID_tipo']==3 ? 'selected' : '';?> >Ventilador</option>
+        </select>
+
+    </fieldset>
+
+    <button type="submit">Actualizar</button>
         
     </form>
+    </div>
     </div>
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>

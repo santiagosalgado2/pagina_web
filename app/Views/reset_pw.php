@@ -13,26 +13,27 @@ $session=session();
     <title>Reestablecer contraseña</title>
 </head>
 <body>
+
+<div class="row">
+<div class="col-md-12">
     
-    <div class="circulo"></div>
-    <div class="circulo"></div>
-    <div class="circulo"></div>
-    <div class="circulo"></div>
-
-
-    <div class="form-container">
-    <h1>Reestablecer contraseña</h1>
-    <div class="mb-3">
     <form action="<?php echo base_url("/change"); ?>" method="post">
+    <h1>Reestablecer contraseña</h1>
 
-        <span class="textos">Ingresa tu nueva contraseña</span><input type="password" name="password" required>
+    <fieldset>
+    <label for="password">Ingrese nueva contraseña</label>
+    <input type="password" name="password" required id="password">
+    </fieldset>
 
-        <span class="textos">Confirma tu nueva contraseña</span><input type="password" name="pw-confirm" required>
+    <fieldset>
+    <label for="pw-confirm">Confirme su contraseña</label>
+    <input type="password" name="pw-confirm" required id="pw-confirm">
+    </fieldset>
+    <button type="submit">Reestablecer</button>
 
-        <input type="submit" value="Cambiar">
-    </div>
     </form>
     </div>
+</div>
 
 </body>
 </html>
