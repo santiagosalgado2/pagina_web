@@ -25,6 +25,7 @@ $session=session();
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <link rel="stylesheet" href="<?= base_url('/css/login.css') . '?v=' . time(); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
 <body>
@@ -71,7 +72,13 @@ $session=session();
     </div>
   </header>
 
-
+  <?php
+  
+  if($error=session()->getFlashdata('error')){
+    echo "<script>alert(".$error.")</script>";
+  }
+  
+  ?>
 
   <div class="container">
     <input type="checkbox" id="flip">
@@ -100,7 +107,7 @@ $session=session();
             <div class="input-boxes">
               <div class="input-box">
                 <i class="fas fa-envelope"></i>
-                <input type="text" placeholder="Nombre de usuario" required name="username">
+                <input type="text" placeholder="Usuario o E-mail" required name="username">
               </div>
               <div class="input-box">
                 <i class="fas fa-lock"></i>
@@ -109,6 +116,9 @@ $session=session();
 			  <div class="checkbox-box">
                 <input type="checkbox" name="remember">   <span class="text-2">Recordarme</span><br><br>
               </div>
+              <?php if($error=session()->getFlashdata('error')):?>
+                <div class="subtitle"><?php echo $error;?></div>
+              <?php endif;?>
               <div class="text"><a href="<?php echo base_url("/reset");?>">Olvidaste tu contraseña?</a></div>
               <div class="button input-box">
                 <input type="submit" value="Iniciar sesión">
@@ -150,268 +160,35 @@ $session=session();
     </div>
     </div>
   </div>
-
   <script>
-  function showPasswordMessage() {
-    document.getElementById('password-tooltip').style.display = 'block';
-  }
+function showPasswordMessage() {
+    const tooltip = document.getElementById('password-tooltip');
+    if (tooltip) {
+        tooltip.style.display = 'block';
+    } else {
+        console.error('Tooltip no encontrado');
+    }
+}
 
-  function hidePasswordMessage() {
-    document.getElementById('password-tooltip').style.display = 'none';
-  }
+function hidePasswordMessage() {
+    const tooltip = document.getElementById('password-tooltip');
+    if (tooltip) {
+        tooltip.style.display = 'none';
+    } else {
+        console.error('Tooltip no encontrado');
+    }
+}
 </script>
+
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/js/main.js"></script>
-<style>
-	/* Google Font Link */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-body {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #7d2ae8;
-  padding: 30px;
-}
-.container {
-  position: relative;
-  max-width: 850px;
-  width: 100%;
-  background: #fff;
-  padding: 40px 30px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  perspective: 2700px;
-}
-.container .cover {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  height: 100%;
-  width: 50%;
-  z-index: 98;
-  transition: all 1s ease;
-  transform-origin: left;
-  transform-style: preserve-3d;
-  backface-visibility: hidden;
-}
-.container #flip:checked ~ .cover {
-  transform: rotateY(-180deg);
-}
-.container #flip:checked ~ .forms .login-form {
-  pointer-events: none;
-}
-.container .cover .front,
-.container .cover .back {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-}
-.cover .back {
-  transform: rotateY(180deg);
-}
-.container .cover img {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  z-index: 10;
-}
-.container .cover .text {
-  position: absolute;
-  z-index: 10;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.container .cover .text::before {
-  content: '';
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  opacity: 0.5;
-  background: #7d2ae8;
-}
-.cover .text .text-1,
-.cover .text .text-2 {
-  z-index: 20;
-  font-size: 26px;
-  font-weight: 600;
-  color: #fff;
-  text-align: center;
-}
-.cover .text .text-2 {
-  font-size: 15px;
-  font-weight: 500;
-}
-.container .forms {
-  height: 100%;
-  width: 100%;
-  background: #fff;
-}
-.container .form-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.form-content .login-form,
-.form-content .signup-form {
-  width: calc(100% / 2 - 25px);
-}
-.forms .form-content .title {
-  position: relative;
-  font-size: 24px;
-  font-weight: 500;
-  color: #333;
-}
-.forms .form-content .title:before {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 3px;
-  width: 25px;
-  background: #7d2ae8;
-}
-.forms .signup-form .title:before {
-  width: 20px;
-}
-.forms .form-content .input-boxes {
-  margin-top: 30px;
-}
-.forms .form-content .input-box {
-  display: flex;
-  align-items: center;
-  height: 50px;
-  width: 100%;
-  margin: 10px 0;
-  position: relative;
-}
-.form-content .input-box input {
-  height: 100%;
-  width: 100%;
-  outline: none;
-  border: none;
-  padding: 0 30px;
-  font-size: 16px;
-  font-weight: 500;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-}
-.form-content .input-box input:focus,
-.form-content .input-box input:valid {
-  border-color: #7d2ae8;
-}
-.form-content .input-box i {
-  position: absolute;
-  color: #7d2ae8;
-  font-size: 17px;
-}
-.forms .form-content .text {
-  font-size: 14px;
-  font-weight: 500;
-  color: #333;
-}
-.forms .form-content .text a {
-  text-decoration: none;
-}
-.forms .form-content .text a:hover {
-  text-decoration: underline;
-}
-.forms .form-content .button {
-  color: #fff;
-  margin-top: 40px;
-}
-.forms .form-content .button input {
-  color: #fff;
-  background: #7d2ae8;
-  border-radius: 6px;
-  padding: 0;
-  cursor: pointer;
-  transition: all 0.4s ease;
-}
-.forms .form-content .button input:hover {
-  background: #5b13b9;
-}
-.forms .form-content label {
-  color: #5b13b9;
-  cursor: pointer;
-}
-.forms .form-content label:hover {
-  text-decoration: underline;
-}
-.forms .form-content .login-text,
-.forms .form-content .sign-up-text {
-  text-align: center;
-  margin-top: 25px;
-}
-.container #flip {
-  display: none;
-}
-@media (max-width: 730px) {
-  .container .cover {
-    display: none;
-  }
-  .form-content .login-form,
-  .form-content .signup-form {
-    width: 100%;
-  }
-  .form-content .signup-form {
-    display: none;
-  }
-  .container #flip:checked ~ .forms .signup-form {
-    display: block;
-  }
-  .container #flip:checked ~ .forms .login-form {
-    display: none;
-  }
-}
 
-.tooltip {
-  display: none; /* Oculto por defecto */
-  position: absolute;
-  top: 100%; /* Aparece justo debajo del input */
-  left: 50%; /* Centrado horizontalmente */
-  transform: translateX(-50%); /* Ajusta el centrado */
-  background: #f3f3f3;
-  color: #7d2ae8;
-  font-size: 12px;
-  padding: 8px 12px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  z-index: 10;
-  max-width: 250px; /* Limita el ancho máximo */
-  text-align: center; /* Centra el texto */
-  word-wrap: break-word; /* Permite que el texto se ajuste */
-}
 
-.tooltip::after {
-  content: '';
-  position: absolute;
-  top: -5px; /* Flecha apuntando hacia el input */
-  left: 50%;
-  transform: translateX(-50%);
-  border-width: 5px;
-  border-style: solid;
-  border-color: transparent transparent #f3f3f3 transparent;
-}
-</style>
-
+<script src="assets/js/main.js"></script>
 
 </body>
 </html>

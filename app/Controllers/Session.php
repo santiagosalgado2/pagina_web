@@ -40,10 +40,11 @@ class Session extends BaseController{
 
         $log_att=new Login_attemps; #SE INSTANCIA EL MODELO LOGIN_ATTEMPS
 
-        
-        $data=[
-            "nombre_usuario" => $user
-        ];
+        if (strpos($user, '@') !== false) {
+            $data = ["email" => $user];
+        } else {
+            $data = ["nombre_usuario" => $user];
+        }
 
         $datos=$this->usermodel->getUser($data); #SE BUSCA EN LA BASE DE DATOS SI EL NOMBRE DE USUARIO EXISTE
 
@@ -149,6 +150,13 @@ class Session extends BaseController{
                 ],
             ],
         ];
+
+        // Validar que el nombre de usuario solo contenga letras y números
+        if (!preg_match('/^[a-zA-Z0-9]+$/', $user)) {
+            $session->setFlashdata("error", "El nombre de usuario solo puede contener letras y números.");
+            return redirect()->to(base_url("/viewlogin"));
+        }
+
 
         if($password!=$pw_confirm){
             #EN CASO DE QUE LA CONTRASEÑA Y SU CONFIRMACION NO COINCIDAD, SE LO DEVUELVE AL LOGIN CON EL MENSAJE DE ERROR
